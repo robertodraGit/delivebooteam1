@@ -8,14 +8,14 @@ cut del testo da vue (ok ma non va da responsive) -->
 <template>
   <div class="plate_container">
 
-    <div class="plate_text">
+    <div class="plate_text" @click="display_details_method">
       <h2 class="title">{{nome}}</h2>
       <p class="descrizione">{{descrizione_short}}</p>
       <span :class="['prezzo_intero' ,{'prezzo_barrato': this.sconto > 0}]">{{prezzo_euro}}€</span>
       <span v-if="this.sconto > 0" class="prezzo_scontato">{{prezzo_sconto}}€</span>
     </div>
 
-    <div class="plate_img"
+    <div class="plate_img" @click="display_details_method"
       :style="{'background-image':'url(' + url_img +')'}">
       <span v-if="this.sconto > 0" class="sconto">{{sconto}}%</span>
     </div>
@@ -29,6 +29,9 @@ cut del testo da vue (ok ma non va da responsive) -->
 
       <section class="header">
         <h2 class="title">{{nome}}</h2>
+        <div class="close_details" @click="close_details">
+          X
+        </div>
       </section>
 
       <section class="show">
@@ -38,13 +41,13 @@ cut del testo da vue (ok ma non va da responsive) -->
 
         <div class="quantity_pannel">
 
-          <div class="remove_plate">
+          <div class="remove_plate" @click="remove_quantity">
             -
           </div>
           <div class="quantity">
             <span>{{ quantity }}</span>
           </div>
-          <div class="add_plate">
+          <div class="add_plate" @click="add_quantity">
             +
           </div>
 
@@ -52,12 +55,12 @@ cut del testo da vue (ok ma non va da responsive) -->
       </section>
 
       <section class="total">
-        <div class="button-light cancel">
+        <div class="button button-light cancel" @click="close_details">
           <span>Cancella</span>
         </div>
 
-        <div class="button-strong">
-
+        <div class="button button-strong">
+          <strong>TOTALE {{ total_price }}€</strong>
         </div>
       </section>
 
@@ -82,7 +85,7 @@ cut del testo da vue (ok ma non va da responsive) -->
           'immagine': this.plate_data.immagine,
 
           // flags
-          'display_details': true,
+          'display_details': false,
 
           //aggiungi al carrello
           'quantity': 1,
@@ -114,9 +117,15 @@ cut del testo da vue (ok ma non va da responsive) -->
           }
         },
 
-        // total_price: function(){
-        //
-        // }
+        total_price: function(){
+          let total_price;
+          if (this.sconto > 0) {
+            total_price = this.prezzo_sconto;
+          } else {
+            total_price = this.prezzo_euro;
+          }
+          return (total_price * this.quantity).toFixed(2);
+        },
 
         url_img: function() {
           return '/storage/plates/' + this.immagine;
@@ -144,6 +153,24 @@ cut del testo da vue (ok ma non va da responsive) -->
       },
 
       methods: {
+        add_quantity: function(){
+          this.quantity++;
+        },
+
+        remove_quantity: function(){
+          if (this.quantity > 1) {
+            this.quantity--;
+          }
+        },
+
+        close_details: function(){
+          this.quantity = 1;
+          this.display_details = false;
+        },
+
+        display_details_method: function() {
+          this.display_details = true;
+        }
       },
 
 

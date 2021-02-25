@@ -20,6 +20,10 @@ $colore_secondario: #00C2B3;
 
   border: 1px solid black;
 
+  &:hover {
+    cursor: pointer;
+  }
+
   .plate_text {
     // @include debug-border;
     width: calc(100% - 108px);
@@ -109,7 +113,23 @@ $colore_secondario: #00C2B3;
       border-bottom: 1px solid lightgrey;
       text-align: center;
       height: 50px;
+      position: relative;
       @include flex-centratura;
+
+      .close_details {
+        width: 35px;
+        height: 50px;
+        // @include debug-border;
+        @include flex-centratura;
+        color: $colore_secondario;
+        position: absolute;
+        right: 0;
+        top: 0;
+
+        &:hover {
+          cursor: pointer;
+        }
+      }
     }
 
     .show {
@@ -136,6 +156,10 @@ $colore_secondario: #00C2B3;
           width: 40px;
           height: 100%;
           @include flex-centratura;
+
+          &:hover {
+            cursor: pointer;
+          }
         }
         .quantity {
           width: 120px;
@@ -146,6 +170,10 @@ $colore_secondario: #00C2B3;
           width: 40px;
           height: 100%;
           @include flex-centratura;
+
+          &:hover {
+            cursor: pointer;
+          }
         }
       }
     }
@@ -158,23 +186,27 @@ $colore_secondario: #00C2B3;
       align-items: center;
       padding: 20px;
 
-      .button-light {
+      .button {
         @include flex-centratura;
-        border: 1px solid lightgrey;
-        border-radius: 3px;
-        color: $colore_secondario;
-        width: 150px;
         height: 60px;
         padding: 15px;
+        border-radius: 3px;
+
+        &:hover {
+          cursor: pointer;
+        }
+      }
+
+      .button-light {
+        width: 150px;
+        border: 1px solid lightgrey;
+        color: $colore_secondario;
+
       }
       .button-strong {
-        @include flex-centratura;
-        border-radius: 3px;
+        width: 300px;
         background-color: $colore_secondario;
         color: white;
-        width: 300px;
-        height: 60px;
-        padding: 15px;
       }
     }
 

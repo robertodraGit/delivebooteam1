@@ -2059,6 +2059,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2070,7 +2073,7 @@ __webpack_require__.r(__webpack_exports__);
       'disponibile': this.plate_data.disponibile,
       'immagine': this.plate_data.immagine,
       // flags
-      'display_details': true,
+      'display_details': false,
       //aggiungi al carrello
       'quantity': 1
     };
@@ -2098,9 +2101,17 @@ __webpack_require__.r(__webpack_exports__);
         return "Prezzo intero";
       }
     },
-    // total_price: function(){
-    //
-    // }
+    total_price: function total_price() {
+      var total_price;
+
+      if (this.sconto > 0) {
+        total_price = this.prezzo_sconto;
+      } else {
+        total_price = this.prezzo_euro;
+      }
+
+      return (total_price * this.quantity).toFixed(2);
+    },
     url_img: function url_img() {
       return '/storage/plates/' + this.immagine;
     }
@@ -2120,7 +2131,23 @@ __webpack_require__.r(__webpack_exports__);
     plate_data: Object
   },
   watch: {},
-  methods: {}
+  methods: {
+    add_quantity: function add_quantity() {
+      this.quantity++;
+    },
+    remove_quantity: function remove_quantity() {
+      if (this.quantity > 1) {
+        this.quantity--;
+      }
+    },
+    close_details: function close_details() {
+      this.quantity = 1;
+      this.display_details = false;
+    },
+    display_details_method: function display_details_method() {
+      this.display_details = true;
+    }
+  }
 });
 
 /***/ }),
@@ -37825,31 +37852,36 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "plate_container" }, [
-    _c("div", { staticClass: "plate_text" }, [
-      _c("h2", { staticClass: "title" }, [_vm._v(_vm._s(_vm.nome))]),
-      _vm._v(" "),
-      _c("p", { staticClass: "descrizione" }, [
-        _vm._v(_vm._s(_vm.descrizione_short))
-      ]),
-      _vm._v(" "),
-      _c(
-        "span",
-        { class: ["prezzo_intero", { prezzo_barrato: this.sconto > 0 }] },
-        [_vm._v(_vm._s(_vm.prezzo_euro) + "€")]
-      ),
-      _vm._v(" "),
-      this.sconto > 0
-        ? _c("span", { staticClass: "prezzo_scontato" }, [
-            _vm._v(_vm._s(_vm.prezzo_sconto) + "€")
-          ])
-        : _vm._e()
-    ]),
+    _c(
+      "div",
+      { staticClass: "plate_text", on: { click: _vm.display_details_method } },
+      [
+        _c("h2", { staticClass: "title" }, [_vm._v(_vm._s(_vm.nome))]),
+        _vm._v(" "),
+        _c("p", { staticClass: "descrizione" }, [
+          _vm._v(_vm._s(_vm.descrizione_short))
+        ]),
+        _vm._v(" "),
+        _c(
+          "span",
+          { class: ["prezzo_intero", { prezzo_barrato: this.sconto > 0 }] },
+          [_vm._v(_vm._s(_vm.prezzo_euro) + "€")]
+        ),
+        _vm._v(" "),
+        this.sconto > 0
+          ? _c("span", { staticClass: "prezzo_scontato" }, [
+              _vm._v(_vm._s(_vm.prezzo_sconto) + "€")
+            ])
+          : _vm._e()
+      ]
+    ),
     _vm._v(" "),
     _c(
       "div",
       {
         staticClass: "plate_img",
-        style: { "background-image": "url(" + _vm.url_img + ")" }
+        style: { "background-image": "url(" + _vm.url_img + ")" },
+        on: { click: _vm.display_details_method }
       },
       [
         this.sconto > 0
@@ -37881,7 +37913,13 @@ var render = function() {
       },
       [
         _c("section", { staticClass: "header" }, [
-          _c("h2", { staticClass: "title" }, [_vm._v(_vm._s(_vm.nome))])
+          _c("h2", { staticClass: "title" }, [_vm._v(_vm._s(_vm.nome))]),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "close_details", on: { click: _vm.close_details } },
+            [_vm._v("\n        X\n      ")]
+          )
         ]),
         _vm._v(" "),
         _c("section", { staticClass: "show" }, [
@@ -37901,39 +37939,46 @@ var render = function() {
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "quantity_pannel" }, [
-            _c("div", { staticClass: "remove_plate" }, [
-              _vm._v("\n          -\n        ")
-            ]),
+            _c(
+              "div",
+              {
+                staticClass: "remove_plate",
+                on: { click: _vm.remove_quantity }
+              },
+              [_vm._v("\n          -\n        ")]
+            ),
             _vm._v(" "),
             _c("div", { staticClass: "quantity" }, [
               _c("span", [_vm._v(_vm._s(_vm.quantity))])
             ]),
             _vm._v(" "),
-            _c("div", { staticClass: "add_plate" }, [
-              _vm._v("\n          +\n        ")
-            ])
+            _c(
+              "div",
+              { staticClass: "add_plate", on: { click: _vm.add_quantity } },
+              [_vm._v("\n          +\n        ")]
+            )
           ])
         ]),
         _vm._v(" "),
-        _vm._m(0)
+        _c("section", { staticClass: "total" }, [
+          _c(
+            "div",
+            {
+              staticClass: "button button-light cancel",
+              on: { click: _vm.close_details }
+            },
+            [_c("span", [_vm._v("Cancella")])]
+          ),
+          _vm._v(" "),
+          _c("div", { staticClass: "button button-strong" }, [
+            _c("strong", [_vm._v("TOTALE " + _vm._s(_vm.total_price) + "€")])
+          ])
+        ])
       ]
     )
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("section", { staticClass: "total" }, [
-      _c("div", { staticClass: "button-light cancel" }, [
-        _c("span", [_vm._v("Cancella")])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "button-strong" })
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 

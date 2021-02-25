@@ -1,0 +1,183 @@
+@mixin flex-centratura {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@mixin debug-border {
+  border: 1px solid black;
+}
+$colore_secondario: #00C2B3;
+
+.plate_container {
+  display: flex;
+  background-color: white;
+  border-radius: 5px;
+  width: 50%;
+  height: 130px;
+  padding: 10px;
+  font-size: 18px;
+  position: relative;
+
+  border: 1px solid black;
+
+  .plate_text {
+    // @include debug-border;
+    width: calc(100% - 108px);
+
+    .title {
+      font-size: 1em;
+      max-height: 25%;
+      overflow: hidden;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+
+    }
+    .descrizione {
+      font-size: 0.8em;
+      max-height: 50%;
+      margin: 8px 0;
+      // white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .ingredienti {
+      font-size: 0.7em;
+      // height: 25%;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .prezzo_intero, .prezzo_scontato {
+      font-size: 1.2em;
+      height: 25%;
+    }
+  }
+
+  .plate_img {
+    // @include debug-border;
+
+    height: 108px;
+    width:  108px;
+    flex-shrink: 0;
+    position: relative;
+    background-position: center;
+    background-size: cover;
+
+    .sconto {
+      position: absolute;
+      bottom: 5px;
+      right: 5px;
+      background-color: red;
+      color: white;
+      font-weight: bold;
+      padding: 3px;
+      border-radius: 3px;
+    }
+  }
+
+  .plate_text .prezzo_barrato {
+    text-decoration: line-through;
+    color: red;
+    font-size: 1em;
+  }
+
+  .plate_esaurito {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    @include flex-centratura;
+    background-color: rgba(140, 140, 140, 0.6);
+  }
+
+  // DETAILS
+
+  .plate_detail {
+    position: fixed;
+    width: 600px;
+    height: 80vh;
+    top: 5%;
+    left: 50%;
+    transform: translate(-50%, 0);
+    border: 1px solid black;
+    border-radius: 5px;
+    background-color: white;
+
+    .header {
+      border-bottom: 1px solid lightgrey;
+      text-align: center;
+      height: 50px;
+      @include flex-centratura;
+    }
+
+    .show {
+      height: calc(100% - 150px);
+      padding: 8px;
+      overflow: auto;
+
+      .plate_img {
+        margin: auto;
+        width: 350px;
+        height: 350px;
+        margin: 10px auto;
+        border-radius: 50%;
+      }
+
+      .quantity_pannel {
+        width: 200px;
+        height: 30px;
+        margin: 10px auto;
+        display: flex;
+        @include debug-border;
+
+        .remove_plate {
+          width: 40px;
+          height: 100%;
+          @include flex-centratura;
+        }
+        .quantity {
+          width: 120px;
+          height: 100%;
+          @include flex-centratura;
+        }
+        .add_plate {
+          width: 40px;
+          height: 100%;
+          @include flex-centratura;
+        }
+      }
+    }
+
+    .total {
+      height: 100px;
+      border-top: 1px solid lightgrey;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+
+      .button-light {
+        @include flex-centratura;
+        border: 1px solid lightgrey;
+        border-radius: 3px;
+        color: $colore_secondario;
+        width: 150px;
+        height: 60px;
+        padding: 15px;
+      }
+      .button-strong {
+        @include flex-centratura;
+        border-radius: 3px;
+        background-color: $colore_secondario;
+        color: white;
+        width: 300px;
+        height: 60px;
+        padding: 15px;
+      }
+    }
+
+  }
+
+}

@@ -1,9 +1,10 @@
 <!-- Da aggiungere:
 fatto: se non diponibile,
-click: apertura dettagli,
+fatto: click: apertura dettagli,
 fatto: gestire meglio l'img, specie se non quadrate, magari come background img
 cut del testo da vue (ok ma non va da responsive) -->
 
+<!-- inserire comunicazione con il carrello -->
 
 <template>
   <div class="plate_container">
@@ -169,7 +170,9 @@ cut del testo da vue (ok ma non va da responsive) -->
         },
 
         display_details_method: function() {
-          this.display_details = true;
+          if (this.disponibile) {
+            this.display_details = true;
+          }
         }
       },
 

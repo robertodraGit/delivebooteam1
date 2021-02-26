@@ -11,6 +11,17 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+
+      // user
+      // orders
+      // categories
+      // typologies
+      // plate
+      // order_plate
+      // typology_user
+      // payment
+      // feedback
+
         // $this->call(PlateSeeder::class);
     }
 }

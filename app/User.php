@@ -36,4 +36,17 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function plates(){
+      return $this -> hasMany(Plate::class);
+    }
+
+    public function feedback(){
+      return $this -> hasMany(Feedback::class);
+    }
+
+    public function typologies(){
+      return $this -> belongsToMany(Typology::class); 
+    }
+
 }

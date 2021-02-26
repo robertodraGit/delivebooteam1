@@ -16,14 +16,16 @@ class CreatePlatesTable extends Migration
         Schema::create('plates', function (Blueprint $table) {
             $table->id();
 
-            $table->string('nome');
-            $table->string('ingredienti') -> nullable();
-            $table->string('descrizione') -> nullable();
-            $table->string('prezzo');
-            $table->boolean('visibile');
-            $table->string('sconto') -> nullable();
-            $table->boolean('disponibile');
-            $table->string('immagine') -> nullable();
+            $table->string('plate_name', 30);
+            $table->text('ingredients');
+            $table->string('description') -> nullable();
+            $table->string('price', 6);
+            $table->boolean('visible');
+            $table->tinyInteger('discount');
+            $table->boolean('availability');
+            $table->string('img') -> nullable();
+            $table->unsignedBigInteger('category_id');
+            $table->unsignedBigInteger('user_id');
 
             $table->timestamps();
         });

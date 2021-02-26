@@ -5,6 +5,7 @@ fatto: gestire meglio l'img, specie se non quadrate, magari come background img
 cut del testo da vue (ok ma non va da responsive) -->
 
 <!-- inserire comunicazione con il carrello -->
+<!-- inserire responsive -->
 
 <template>
   <div class="plate_container">

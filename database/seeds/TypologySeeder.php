@@ -13,30 +13,31 @@ class TypologySeeder extends Seeder
      */
     public function run()
     {
-        $defaultTypologies = [
-          'fritti',
-          'antipasti',
-          'primi piatti',
-          'secondi piatti',
-          'contorni',
-          'dolci',
-          'dessert',
-          'bevande',
-          'bibite',
-          'alcolici'
-        ];
+      $defaultTypologies = [
+        'fritti',
+        'antipasti',
+        'primi piatti',
+        'secondi piatti',
+        'contorni',
+        'dolci',
+        'dessert',
+        'bevande',
+        'bibite',
+        'alcolici'
+      ];
 
-        foreach ($defaultTypologies as $typology) {
-          $newTypology = new Typology();
-          $newTypology ->typology = $typology;
+      foreach ($defaultTypologies as $typology) {
+        $newTypology = new Typology();
+        $newTypology ->typology = $typology;
+        $newTypology -> save();
 
-          $restaurants = User::inRandoOrder()
-          ->limit(rand(1,5)) ->get();
-          $newTypology -> users() -> attach($restaurants);
 
-          $newTypology -> save();
-        }
 
+        $restaurants = User::inRandomOrder()
+        ->limit(rand(1,5)) ->get();
+
+        $newTypology -> users() -> attach($restaurants);
+      }
 
     }
 }

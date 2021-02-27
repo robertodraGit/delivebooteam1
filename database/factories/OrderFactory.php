@@ -11,7 +11,7 @@ $factory->define(Order::class, function (Faker $faker) {
       'last_name' => $faker->lastName,
       'email' => $faker->email,
       'phone' => $faker->e164PhoneNumber,
-      'comment' => $faker->words,
+      'comment' => $faker->word,
       'address' => $faker->streetAddress,
       'payment_state' => rand(0,1),
       'total_price' => rand(100,10000),

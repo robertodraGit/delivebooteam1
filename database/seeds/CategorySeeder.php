@@ -16,7 +16,7 @@ class CategorySeeder extends Seeder
           'Americano',
           'Asiatico',
           'Ali di pollo',
-          'Barbecue'
+          'Barbecue',
           'Brasiliano',
           'Burger King',
           'Caffè',

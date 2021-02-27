@@ -16,14 +16,15 @@ class PlateSeeder extends Seeder
     {
         // da collegare: user id.
         // category id
-        factory(Plate::class, 500) -> make()
-        -> each(function($plate){
-
+        factory(Plate::class, 500)
+        -> make()
+        -> each((function($plate) {
           $user = User::inRandomOrder()->first();
-          $category = Category::inRandomOrder()->first();
-
           $plate -> user() -> associate($user);
+
+          $category = Category::inRandomOrder()->first();
           $plate -> category() -> associate($category);
+
           $plate -> save();
         });
     }

@@ -8,8 +8,8 @@ use Faker\Generator as Faker;
 $factory->define(Plate::class, function (Faker $faker) {
     return [
       'plate_name' => $faker->word,
-      'ingredients' => $faker->words,
-      'description' => $faker->words,
+      'ingredients' => $faker->word,
+      'description' => $faker->word,
       'price' => rand(100,3000),
       'visible' => rand(0,1),
       'discount' => rand(0,100),

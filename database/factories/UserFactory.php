@@ -29,7 +29,7 @@ $factory->define(User::class, function (Faker $faker) {
         'address' => $faker ->unique()->streetAddress,
         'piva' => $faker ->unique() ->bankAccountNumber,
         'phone' => $faker->e164PhoneNumber,
-        'description' => $faker->words,
+        'description' => $faker->word,
         'delivery_cost' => rand(100,2000),
     ];
 });

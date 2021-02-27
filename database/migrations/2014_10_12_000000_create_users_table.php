@@ -20,8 +20,8 @@ class CreateUsersTable extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
 
-            $table->string('address');
-            $table->string('piva');
+            $table->string('address')->unique();
+            $table->string('piva')->unique();
             $table->string('phone', 30);
             $table->string ('description')->nullable();
             $table->string('photo')->nullable();
@@ -31,7 +31,7 @@ class CreateUsersTable extends Migration
             $table->timestamps();
         });
     }
-    
+
     public function down()
     {
         Schema::dropIfExists('users');

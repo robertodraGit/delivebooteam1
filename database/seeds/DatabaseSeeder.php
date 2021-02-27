@@ -19,9 +19,15 @@ class DatabaseSeeder extends Seeder
       // plate
       // order_plate
       // typology_user
-      // payment
       // feedback
 
-        // $this->call(PlateSeeder::class);
+      $this->call([
+        UserSeeder::class,
+        OrderSeeder::class,
+        CategorySeeder::class,
+        TypologySeeder::class,
+        PlateSeeder::class,
+        FeedbackSeeder::class,
+      ]);
     }
 }

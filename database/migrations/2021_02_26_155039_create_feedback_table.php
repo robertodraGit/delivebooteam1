@@ -17,7 +17,7 @@ class CreateFeedbackTable extends Migration
             $table->id();
 
             $table->string('email', 50);
-            $table->tinyInteger('rate');
+            $table->tinyInteger('rate')->unsigned();
             $table->string('name', 50);
             $table->text('comment');
             $table->unsignedBigInteger('user_id');

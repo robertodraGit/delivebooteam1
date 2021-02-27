@@ -217,7 +217,102 @@
   display: flex;
   justify-content: space-between;
   height: 100vh;
-  background-color: black;
+}
+
+.left-side-dash {
+  width: 25%;
+  height: auto;
+  background-color: darkgray;
+  padding-left: 2rem;
+  padding-top: 3rem;
+  padding-right: 2rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.left-side-dash hr {
+  color: #bebebe;
+}
+
+.left-side-dash .buttons-left-dash {
+  display: flex;
+  flex-direction: column;
+  padding-top: 3rem;
+}
+
+.left-side-dash .buttons-left-dash button {
+  padding: 0.6rem;
+  margin-top: 1rem;
+}
+
+.right-side-dash {
+  width: 75%;
+  height: auto;
+  background-color: white;
+  padding: 0 3rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.right-side-dash .header-right-dash {
+  display: flex;
+  justify-content: space-around;
+  padding-top: 3rem;
+}
+
+.right-side-dash .header-right-dash button {
+  width: 30%;
+  padding: 0.6rem;
+  margin-top: 1rem;
+}
+
+.right-side-dash .last-order {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  margin: 2rem 0;
+}
+
+.right-side-dash .last-order h2 {
+  margin-bottom: 1rem;
+}
+
+.right-side-dash .card-order {
+  width: 100%;
+  background-color: #d8d8d8;
+  border-radius: 18px;
+  height: 120px;
+  margin-bottom: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.right-side-dash .card-order .card-relative {
+  width: 95%;
+  height: 90%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.right-side-dash .card-order .card-relative .order-info {
+  width: 70%;
+  height: 100%;
+}
+
+.right-side-dash .card-order .card-relative .right-card-order {
+  width: 30%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.right-side-dash .footer-dash {
+  display: flex;
+  justify-content: space-between;
 }
 
 * {

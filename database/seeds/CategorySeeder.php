@@ -12,48 +12,25 @@ class CategorySeeder extends Seeder
      */
     public function run()
     {
-      $categories = [
-          'Americano',
-          'Asiatico',
-          'Ali di pollo',
-          'Barbecue',
-          'Brasiliano',
-          'Burger King',
-          'Caffè',
-          'Cinese',
-          'Colazione',
-          'Comfort Food',
-          'Crèpe',
-          'Curry',
-          'Dessert',
-          'Dolci e dessert',
-          'Fast food',
-          'Frappè',
-          'Frutti di mare',
-          'Gelato',
-          'Giapponese',
-          'Hamburger',
-          'Indiano',
-          'Italiano',
-          'Kebab',
-          'McDonalds',
-          'Mediterraneo',
-          'Messicano',
-          'Pasta',
-          'Piadina',
-          'Pizza',
-          'Poke',
-          'Pollo',
-          'Sandwich',
-          'Spuntini',
-          'Sushi',
-          'Turco',
-        ];
 
-        foreach ($categories as $category) {
-          $newCategory = new Category();
-          $newCategory ->category = $category;
-          $newCategory -> save();
-        }
+      $defaultCategories = [
+        'fritti',
+        'antipasti',
+        'primi piatti',
+        'secondi piatti',
+        'contorni',
+        'dolci',
+        'dessert',
+        'bevande',
+        'bibite',
+        'alcolici'
+      ];
+
+      foreach ($defaultCategories as $category) {
+        $newcategory = new Category();
+        $newcategory ->category = $category;
+        $newcategory -> save();
+      }
+
     }
 }

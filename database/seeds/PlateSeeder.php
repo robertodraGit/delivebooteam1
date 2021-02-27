@@ -14,16 +14,16 @@ class PlateSeeder extends Seeder
      */
     public function run()
     {
-      factory(Plate::class, 500)
-      -> make()
-      -> each(function($plate) {
-        $user = User::inRandomOrder()->first();
-        $plate -> user() -> associate($user);
+        factory(Plate::class, 500)
+        -> make()
+        -> each(function($plate) {
+          $user = User::inRandomOrder()->first();
+          $plate -> user() -> associate($user);
 
-        $category = Category::inRandomOrder()->first();
-        $plate -> category() -> associate($category);
+          $category = Category::inRandomOrder()->first();
+          $plate -> category() -> associate($category);
 
-        $plate -> save();
-    });
-  }
+          $plate -> save();
+        });
+    }
 }

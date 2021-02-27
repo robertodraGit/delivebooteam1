@@ -13,31 +13,54 @@ class TypologySeeder extends Seeder
      */
     public function run()
     {
-      $defaultTypologies = [
-        'fritti',
-        'antipasti',
-        'primi piatti',
-        'secondi piatti',
-        'contorni',
-        'dolci',
-        'dessert',
-        'bevande',
-        'bibite',
-        'alcolici'
-      ];
 
-      foreach ($defaultTypologies as $typology) {
-        $newTypology = new Typology();
-        $newTypology ->typology = $typology;
-        $newTypology -> save();
+      $typologies = [
+          'Americano',
+          'Asiatico',
+          'Ali di pollo',
+          'Barbecue',
+          'Brasiliano',
+          'Burger King',
+          'Caffè',
+          'Cinese',
+          'Colazione',
+          'Comfort Food',
+          'Crèpe',
+          'Curry',
+          'Dessert',
+          'Dolci e dessert',
+          'Fast food',
+          'Frappè',
+          'Frutti di mare',
+          'Gelato',
+          'Giapponese',
+          'Hamburger',
+          'Indiano',
+          'Italiano',
+          'Kebab',
+          'McDonalds',
+          'Mediterraneo',
+          'Messicano',
+          'Pasta',
+          'Piadina',
+          'Pizza',
+          'Poke',
+          'Pollo',
+          'Sandwich',
+          'Spuntini',
+          'Sushi',
+          'Turco',
+        ];
 
+        foreach ($typologies as $typology) {
+          $newtypology = new Typology();
+          $newtypology ->typology = $typology;
+          $newtypology -> save();
 
-
-        $restaurants = User::inRandomOrder()
-        ->limit(rand(1,5)) ->get();
-
-        $newTypology -> users() -> attach($restaurants);
-      }
+          $restaurants = User::inRandomOrder()
+          ->limit(rand(1,5)) ->get();
+          $newtypology -> users() -> attach($restaurants);
+        }
 
     }
 }

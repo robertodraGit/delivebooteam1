@@ -14,11 +14,9 @@ class PlateSeeder extends Seeder
      */
     public function run()
     {
-        // da collegare: user id.
-        // category id
         factory(Plate::class, 500)
         -> make()
-        -> each((function($plate) {
+        -> each(function($plate) {
           $user = User::inRandomOrder()->first();
           $plate -> user() -> associate($user);
 

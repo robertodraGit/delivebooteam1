@@ -12,21 +12,19 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
 
-      // user
-      // orders
-      // categories
-      // typologies
-      // plate
-      // order_plate
-      // typology_user
-      // feedback
+      // UserSeeder::class,
+      // OrderSeeder::class,
+      // CategorySeeder::class,
+      // TypologySeeder::class,
+      // PlateSeeder::class,
+      // FeedbackSeeder::class,
 
       $this->call([
         UserSeeder::class,
-        OrderSeeder::class,
         CategorySeeder::class,
         TypologySeeder::class,
         PlateSeeder::class,
+        OrderSeeder::class,
         FeedbackSeeder::class,
       ]);
     }

@@ -42,12 +42,6 @@ class AddForeignKeys extends Migration
                 ->on('users');
       });
 
-      Schema::table('payments', function (Blueprint $table) {
-        $table  ->foreign('order_id', 'pay_order')
-                ->references('id')
-                ->on('orders');
-      });
-
       Schema::table('feedback', function (Blueprint $table) {
         $table  ->foreign('user_id', 'fb_user')
                 ->references('id')
@@ -59,11 +53,6 @@ class AddForeignKeys extends Migration
     {
       Schema::table('feedback', function (Blueprint $table) {
         $table ->dropForeign('fb_user');
-      });
-
-
-      Schema::table('payments', function (Blueprint $table) {
-        $table ->dropForeign('pay_order');
       });
 
       Schema::table('typology_user', function (Blueprint $table) {

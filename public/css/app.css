@@ -212,6 +212,14 @@
   color: white;
 }
 
+.container-dashboard {
+  width: 100vw;
+  display: flex;
+  justify-content: space-between;
+  height: 100vh;
+  background-color: black;
+}
+
 * {
   margin: 0;
   padding: 0;

@@ -70,7 +70,8 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        dd($data);
+        $deliveryCost = $data['delivery_cost_euro'] . $data['delivery_cost_cent'];
+        // dd($data);
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
@@ -78,7 +79,7 @@ class RegisterController extends Controller
             'address' => $data['address'],
             'piva' => $data['piva'],
             'phone' => $data['phone'],
-            'delivery_cost' => $data['delivery_cost'],
+            'delivery_cost' => $deliveryCost,
         ]);
     }
 }

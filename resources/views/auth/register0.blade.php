@@ -61,22 +61,6 @@
                             </div>
                         </div>
 
-                        <div class="">
-                          <label for="address">Address</label>
-                          <input type="text" name="address" value="" required>
-
-                          <label for="piva">PIVA</label>
-                          <input type="text" name="piva" value="" required>
-
-                          <label for="phone">Phone</label>
-                          <input type="text" name="phone" value="" required>
-
-                          <label for="delivery_cost">Delivery_cost</label>
-                          <input type="text" name="delivery_cost" value="" required>
-
-
-                        </div>
-
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">

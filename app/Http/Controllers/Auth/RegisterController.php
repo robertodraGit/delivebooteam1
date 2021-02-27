@@ -54,6 +54,11 @@ class RegisterController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'address' => ['required', 'string', 'max:255'],
+            'piva' => ['required', 'string', 'min:11', 'max:11'],
+            'phone' => ['required', 'string', 'min:6', 'max:30'],
+            'delivery_cost_euro' => ['required', 'integer', 'min:0', 'max:9999'],
+            'delivery_cost_cent' => ['required', 'integer', 'min:0', 'max:99'],
         ]);
     }
 
@@ -65,7 +70,7 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        // dd($data);
+        dd($data);
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],

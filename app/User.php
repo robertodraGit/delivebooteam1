@@ -46,7 +46,6 @@ class User extends Authenticatable
     }
 
     public function typologies(){
-      return $this -> belongsToMany(Typology::class); 
+      return $this -> belongsToMany(Typology::class);
     }
-
 }

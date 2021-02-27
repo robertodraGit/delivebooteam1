@@ -8,7 +8,7 @@ class UserSeeder extends Seeder
 
     public function run()
     {
-      factory(User::class, 50) -> create();
+      factory(User::class, 80) -> create();
       // for ($i=0; $i < 50; $i++) {
       //
       //   $newUser = new User();

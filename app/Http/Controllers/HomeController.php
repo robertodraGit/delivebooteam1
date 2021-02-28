@@ -39,7 +39,7 @@ class HomeController extends Controller
     public function uploadInfo(Request $request){
 
       $request -> validate([
-        'photo' => ['image'],
+        'photo' => ['image','max:20240'],
         'description' => ['nullable','string', 'max:255'],
         'phone' => ['required', 'string', 'min:6', 'max:30'],
         'delivery_cost_euro' => ['required', 'integer', 'min:0', 'max:9999'],

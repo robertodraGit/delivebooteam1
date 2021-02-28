@@ -11261,6 +11261,26 @@ a.text-dark:focus {
   justify-content: space-between;
 }
 
+.dashboard_plate {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.dashboard_plate .column {
+  width: 100px;
+  margin: 5px 0;
+  padding: 2px 5px;
+  border: 1px solid black;
+}
+
+.dashboard_plate .column > * {
+  margin: 0;
+}
+
+.dashboard_plate .column > p:first-child {
+  font-weight: bold;
+}
+
 * {
   margin: 0;
   padding: 0;

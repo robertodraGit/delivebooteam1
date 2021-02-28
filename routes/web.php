@@ -19,3 +19,6 @@ Route::get('/restaurant/info/edit', 'HomeController@restaurantEdit') -> name('re
 
 Route::post('/restaurant/info/upload', 'HomeController@uploadInfo') -> name('upload-info');
 Route::get('/restaurant/photo/delete', 'HomeController@deleteIcon') -> name('delete-icon');
+
+//Rotte plate
+Route::get('/rest/plates', 'PlateController@platesIndex') -> name('plates-index');

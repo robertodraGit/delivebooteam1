@@ -61,3 +61,12 @@ delivery_cost
 
 <br>
 <a href="{{route('delete-icon')}}" class="btn btn-danger">Rimuovi foto ristorante</a>
+
+@if ($user -> photo)
+
+  <h3>Foto:</h3>
+  @php
+    $photoUrl = '/storage/restaurant_icon/' . $user -> photo;
+  @endphp
+  <img src="{{asset($photoUrl)}}" alt="">
+@endif

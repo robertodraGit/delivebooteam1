@@ -30,7 +30,7 @@ class HomeController extends Controller
       return view('home');
     }
 
-    //Restaurant edit
+    //Restaurant Edit
     public function restaurantEdit(){
       $user = Auth::user();
       return view('restaurant-edit.form-view', compact('user'));
@@ -40,7 +40,7 @@ class HomeController extends Controller
 
       $request -> validate([
         'photo' => ['image'],
-        'description' => ['string', 'max:255'],
+        'description' => ['nullable','string', 'max:255'],
         'phone' => ['required', 'string', 'min:6', 'max:30'],
         'delivery_cost_euro' => ['required', 'integer', 'min:0', 'max:9999'],
         'delivery_cost_cent' => ['required', 'integer', 'min:0', 'max:99'],
@@ -52,7 +52,11 @@ class HomeController extends Controller
         $this->updateUserIcon($request -> file('photo'));
       }
 
-      dd($request -> photo, $deliveryCost);
+      $user = Auth::user();
+      $user -> description = $request->description;
+      $user -> phone = $request->phone;
+      $user -> delivery_cost = $deliveryCost;
+      $user -> save();
 
       return redirect() -> route('restaurant_edit');
     }
@@ -72,7 +76,6 @@ class HomeController extends Controller
 
       $this-> fileDeleteUserIcon();
 
-      // $img = $request -> file('photo');
       $ext = $img -> getClientOriginalExtension();
       $name = rand(100000, 999999) . '_' . time();
 
@@ -100,4 +103,5 @@ class HomeController extends Controller
       } catch (\Exception $e) {}
     }
 
+    //End Restaurant Edit
 }

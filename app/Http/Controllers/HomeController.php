@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
+
 class HomeController extends Controller
 {
     /**
@@ -25,4 +29,75 @@ class HomeController extends Controller
     {
       return view('home');
     }
+
+    //Restaurant edit
+    public function restaurantEdit(){
+      $user = Auth::user();
+      return view('restaurant-edit.form-view', compact('user'));
+    }
+
+    public function uploadInfo(Request $request){
+
+      $request -> validate([
+        'photo' => ['image'],
+        'description' => ['string', 'max:255'],
+        'phone' => ['required', 'string', 'min:6', 'max:30'],
+        'delivery_cost_euro' => ['required', 'integer', 'min:0', 'max:9999'],
+        'delivery_cost_cent' => ['required', 'integer', 'min:0', 'max:99'],
+      ]);
+
+      $deliveryCost = $request['delivery_cost_euro'] . $request['delivery_cost_cent'];
+
+      if ($request -> photo) {
+        $this->updateUserIcon($request -> file('photo'));
+      }
+
+      dd($request -> photo, $deliveryCost);
+
+      return redirect() -> route('restaurant_edit');
+    }
+
+    public function deleteIcon(){
+
+      $this-> fileDeleteUserIcon();
+
+      $user = Auth::user();
+      $user -> photo = null;
+      $user -> save();
+
+      return redirect() -> route('restaurant_edit');
+    }
+
+    private function updateUserIcon($img){
+
+      $this-> fileDeleteUserIcon();
+
+      // $img = $request -> file('photo');
+      $ext = $img -> getClientOriginalExtension();
+      $name = rand(100000, 999999) . '_' . time();
+
+      $fileName = $name . '.' . $ext;
+
+      // Copia file in restaurant_icon
+      $img -> storeAs('restaurant_icon', $fileName, 'public');
+
+      // Salvo il nome del file nel db;
+
+      $user = Auth::user();
+      $user -> photo = $fileName;
+      $user -> save();
+    }
+
+    private function fileDeleteUserIcon(){
+      $user = Auth::user();
+
+      try {
+        $fileName = $user -> photo;
+        if ($fileName) {
+          $file = storage_path('app/public/restaurant_icon/' . $fileName);
+          File::delete($file);
+        }
+      } catch (\Exception $e) {}
+    }
+
 }

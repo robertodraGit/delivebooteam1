@@ -9,7 +9,7 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 
-//rotta dashboard prova
+//rotta dashboard SENZA AUTENTICAZIONE
 Route::get('/dashboard', 'DashboardController@show') -> name('dashboard');
 
 

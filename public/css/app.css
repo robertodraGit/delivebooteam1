@@ -11281,6 +11281,35 @@ a.text-dark:focus {
   font-weight: bold;
 }
 
+.main-edit-restaurant {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.user-info {
+  width: 1140px;
+  margin: 2.5rem 3rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.user-info .propic-user {
+  width: 300px;
+  height: auto;
+}
+
+.user-info .left-side-edit-restaurant {
+  padding: 0 1rem;
+  width: 60%;
+}
+
+.user-info .right-side-edit-restaurant {
+  width: 40%;
+  padding: 0 1rem;
+}
+
 * {
   margin: 0;
   padding: 0;

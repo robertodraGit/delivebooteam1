@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>Plates</title>
     <link rel="stylesheet" href="{{asset('/css/app.css')}}">
   </head>
   <body>

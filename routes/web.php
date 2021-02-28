@@ -10,7 +10,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 
 //rotta dashboard autenticata
-Route::get('/restaurant', 'HomeController@dashboard') -> name('dashboard');
+Route::get('/restaurant', 'DashboardController@dashboard') -> name('dashboard');
 
 
 //rotte form modifica dati utente
@@ -22,3 +22,6 @@ Route::get('/restaurant/photo/delete', 'HomeController@deleteIcon') -> name('del
 
 //Rotte plate
 Route::get('/rest/plates', 'PlateController@platesIndex') -> name('plates-index');
+
+Route::get('/restaurant/plates/edit/{id}', 'PlateController@platesEdit') -> name ('plates-edit');
+Route::post('/restaurant/plates/edit/update/{id}', 'PlateController@platesUpdate') -> name ('plates-update');

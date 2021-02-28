@@ -43,17 +43,19 @@ class PlateController extends Controller
       'visible' =>      'nullable|integer|min:0|max:1',
       'discount' =>     'nullable|integer|min:0|max:100',
       'availability' => 'nullable',
-      'img' =>          'nullable|max:20240',
+      'img' =>          'nullable|image|max:20240',
       'category_id' =>  'required',
 
     ]) -> validate();
+
+    $plate = Plate::findOrFail($id);
     
-    if ($request -> img) {
-      $this -> updateImgPlate($request -> file('img'));
+    if ($data['img']) {
+      $this -> updateImgPlate($request -> file('img'), $id);
     }
 
     $category = Category::findOrFail($data['category_id']);
-    $plate = Plate::findOrFail($id);
+
     $plate -> update($data);
     $plate -> category() -> associate($category);
     $plate -> save();
@@ -61,7 +63,7 @@ class PlateController extends Controller
     return redirect() -> route('plates-index');
   }
 
-  private function updateImgPlate($img, $id){
+  private function updateImgPlate($img, $id) {
 
     $this -> fileDeletePlateImg($id);
 
@@ -77,7 +79,8 @@ class PlateController extends Controller
     $plate -> save();
   }
 
-  private function fileDeletePlateImg($id){
+  private function fileDeletePlateImg($id) {
+
     $plate = Plate::findOrFail($id);
 
     try {

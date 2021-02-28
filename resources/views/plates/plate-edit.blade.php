@@ -12,7 +12,7 @@
         Edit plate: {{$plate -> plate_name}}
     </h2>
     
-    <form action="{{ route('plates-update', $plate -> id) }}" method="POST">
+    <form action="{{ route('plates-update', $plate -> id) }}" method="POST" enctype="multipart/form-data">
 
         @csrf
         @method('POST')
@@ -103,7 +103,7 @@
 
         @if ($plate -> img)
           @php
-            $photoUrl = '/storage/restaurant_icon/' . $plate -> photo;
+            $photoUrl = '/storage/plates/' . $plate -> img;
           @endphp
           <img class="propic-user" src="{{asset($photoUrl)}}" alt="">
         @endif

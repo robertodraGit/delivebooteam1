@@ -5,25 +5,32 @@
     <div class="container-dashboard">
 
         <div class="left-side-dash">
-            <h2>Welcome</h2>
+            <h3>Welcome</h3>
 
-            <h1>User::auth()</h1>
+            <h1>{{ $mail_cut }}</h1>
 
             <div>
                 <hr>
             </div>
 
             <h3>
-                Al Gallo D'Oro
+                {{ Auth::user()-> name }}
             </h3>
 
             <div class="buttons-left-dash">
-                <button>
-                    Modifica Dati
-                </button>
-                <button>
-                    Visualizza Piatti
-                </button>
+
+                <form action="{{ route('restaurant-edit') }}">
+                    <button type="submit">
+                        Modifica Dati
+                    </button>
+                </form>
+                
+                <form action="{{ route('plates-index') }}">
+                    <button type="submit">
+                        Visualizza Piatti
+                    </button>
+                </form>
+                
                 <button>
                    Visualizza Ordini
                 </button>
@@ -38,12 +45,18 @@
 
         <div class="right-side-dash">
             <div class="header-right-dash">
-                <button>
-                    Aggiungi Piatto
-                 </button>
-                 <button>
-                     Vai alla Homepage
-                 </button>
+
+                <form action="{{ route('restaurant-edit') }}">
+                    <button type="submit">
+                        Aggiungi un piatto
+                    </button>
+                </form>
+
+                 <form action="{{ route('index') }}">
+                    <button type="submit">
+                        Torna alla homepage
+                    </button>
+                </form>
             </div>
 
             <div class="last-order">

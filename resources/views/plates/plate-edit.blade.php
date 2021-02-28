@@ -44,10 +44,22 @@
         <br>
 
         <label for="visible">Visibilità:</label>
-        <input @if ($plate -> visible == 1)
-                    checked
+        <select name="visible">
+            <option 
+                @if ($plate -> visible == 1)
+                    selected
                 @endif
-                name='visible' type="checkbox">
+            value="1">
+                    Visibile 
+            </option>
+            <option 
+                @if ($plate -> visible == 0)
+                    selected
+                @endif
+            value="0">
+                    Non Visibile
+            </option> 
+        </select>
         <br>
 
         <label for="discount">Sconto in percentuale:</label>
@@ -71,10 +83,22 @@
         <br>
 
         <label for="availability">Disponibilità:</label>
-        <input @if ($plate -> availability == 1)
-                    checked
-                @endif 
-                name='availability' type="checkbox">
+        <select name="availability">
+            <option 
+                @if ($plate -> availability == 1)
+                    selected
+                @endif
+            value="1">
+                    Disponibile 
+            </option>
+            <option 
+                @if ($plate -> availability == 0)
+                    selected
+                @endif
+            value="0">
+                    Non Disponibile
+            </option> 
+        </select>
         <br>
 
         @if ($plate -> img)

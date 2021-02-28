@@ -40,14 +40,14 @@ class PlateController extends Controller
       'ingredients' =>  'required|string|min:6|max:255',
       'description' =>  'nullable|string|min:6|max:255',
       'price' =>        'required|integer|min:0|max:9999',
-      'visible' =>      'nullable',
+      'visible' =>      'nullable|integer|min:0|max:1',
       'discount' =>     'nullable|integer|min:0|max:100',
       'availability' => 'nullable',
       'img' =>          'nullable|max:20240',
       'category_id' =>  'required',
 
     ]) -> validate();
-
+    
     if ($request -> img) {
       $this -> updateImgPlate($request -> file('img'));
     }

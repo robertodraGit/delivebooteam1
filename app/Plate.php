@@ -12,8 +12,11 @@ class Plate extends Model
     'ingredients',
     'description',
     'price',
+    'visible',
+    'availability',
     'discount',
     'category_id',
+    'img',
   ];
 
   public function user(){

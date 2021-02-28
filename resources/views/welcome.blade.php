@@ -17,7 +17,7 @@
         // var_dump($plate_data);die();
       @endphp
 
-      <a href="{{'dashboard'}}">Dashboard</a>
+      <a href="{{route('dashboard')}}">Vai alla Dashboard</a>
 
       <div id="app">
         @foreach ($plate_data as $plate)

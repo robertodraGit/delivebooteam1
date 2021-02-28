@@ -30,6 +30,16 @@ class HomeController extends Controller
       return view('home');
     }
 
+      //dashboard route
+    public function dashboard() {
+      $email_user = Auth::user()-> email;
+      $word = '@';
+      // restituisco email utente senza @provider etc
+      $mail_cut = substr($email_user, 0, strpos($email_user, $word));
+
+      return view('dashboard', compact('mail_cut'));
+    }
+
     //Restaurant Edit
     public function restaurantEdit(){
       $user = Auth::user();
@@ -58,7 +68,7 @@ class HomeController extends Controller
       $user -> delivery_cost = $deliveryCost;
       $user -> save();
 
-      return redirect() -> route('restaurant_edit');
+      return redirect() -> route('restaurant-edit');
     }
 
     public function deleteIcon(){
@@ -69,7 +79,7 @@ class HomeController extends Controller
       $user -> photo = null;
       $user -> save();
 
-      return redirect() -> route('restaurant_edit');
+      return redirect() -> route('restaurant-edit');
     }
 
     private function updateUserIcon($img){

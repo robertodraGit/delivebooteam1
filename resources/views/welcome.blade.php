@@ -12,6 +12,7 @@
         <script src="{{asset('/js/app.js')}}" ></script>
     </head>
     <body>
+
       <h1>Piatti</h1>
       @php
         // var_dump($plate_data);die();
@@ -31,5 +32,8 @@
         @endforeach
 
       </div>
+
+
+
     </body>
 </html>

@@ -37,8 +37,6 @@
                     {{ Auth::user()->name }} <span class="caret"></span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                  <a href="{{ route('my_apartments') }}" class="dropdown-item">Fai questo</a>
-                  <a href="{{ route('my_preferences') }}" class="dropdown-item">Mostrami quell'altro</a>
                   <a class="dropdown-item" href="{{ route('logout') }}"
                      onclick="event.preventDefault();
                                    document.getElementById('logout-form').submit();">

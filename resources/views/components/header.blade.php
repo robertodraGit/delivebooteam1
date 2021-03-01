@@ -19,6 +19,7 @@
 
       @auth
         {{-- qua andrà link per utente registrato --}}
+        {{-- quando è loggato si vedrà un tasto x la sua personal page --}}
       @endauth
 
         <!-- Authentication Links -->
@@ -42,6 +43,10 @@
                                    document.getElementById('logout-form').submit();">
                       {{ __('Logout') }}
                   </a>
+
+                  <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                      @csrf
+                  </form>
                 </div>
             </li>
         @endguest

@@ -11431,87 +11431,10 @@ header .header-dx .dropdown a {
   color: #1027f2 !important;
 }
 
-header .dx-responsive {
-  display: none;
-}
-
-header .responsive-icon {
-  display: none;
-}
-
-header .indietro {
-  text-align: center;
-}
-
-header .indietro .fas {
-  font-size: 30px;
-  color: white;
-}
-
 @media screen and (max-width: 980px) {
   header header {
     display: flex;
     justify-content: space-between;
-  }
-
-  header .nav-link {
-    padding: 0 !important;
-  }
-
-  header .responsive-icon {
-    padding-right: 30px;
-    display: block;
-    font-size: 40px;
-    color: #1027f2;
-  }
-
-  header .header-dx {
-    display: none;
-  }
-
-  header .dx-responsive {
-    display: none;
-    height: 200px;
-    width: 300px;
-    background: #1027f2;
-    border-radius: 10px;
-    margin-top: 150px;
-    margin-right: 20px;
-  }
-
-  header .dx-responsive ul {
-    height: 100%;
-    text-align: center;
-    list-style-type: none;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-  }
-
-  header .dx-responsive ul li {
-    width: 100%;
-    font-size: 20px;
-    font-weight: bold;
-  }
-
-  header .dx-responsive ul li .dropdown-menu {
-    background: #1027f2;
-  }
-
-  header .dx-responsive ul li a {
-    color: white !important;
-    text-decoration: none;
-    padding: 0px !important;
-  }
-
-  header .dx-responsive ul li a:hover {
-    border-radius: 10px;
-  }
-}
-
-@media screen and (min-width: 981px) {
-  header .dx-responsive {
-    display: none !important;
   }
 }
 
@@ -11567,11 +11490,6 @@ header .indietro .fas {
 .bnb_btn {
   background: #38c172;
   color: white;
-}
-
-.bnb_btn:hover {
-  color: white;
-  background: rgba(225, 60, 60, 0.8);
 }
 
 .food-show-home {
@@ -11704,9 +11622,5 @@ header .indietro .fas {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-}
-
-.jumbotron {
-  width: 100%;
 }
 

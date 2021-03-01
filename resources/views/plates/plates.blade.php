@@ -4,6 +4,7 @@
 
   <ul>
     @foreach ($user -> plates as $plate)
+      @if ($plate -> category -> category != 'cancellato')
       <li>
         <div class="dashboard_plate">
 
@@ -55,9 +56,12 @@
               @endif
           </div>
 
-          <div class="column">
+          <div class="column img">
               <p>Immagine</p>
-              <p>ancora in lavorazione</p>
+              @php
+                $url_img = "/storage/plates/" . $plate -> img;
+              @endphp
+              <img src="{{$url_img}}" alt="">
           </div>
 
           <div class="column">
@@ -65,12 +69,17 @@
               <button type="submit">
                   Modifica Piatto
               </button>
-          </form>
+            </form>
+          </div>
+
+          <div class="column">
+            <a href="{{route('delete-plate', $plate -> id)}}">Elimina piatto</a>
           </div>
 
         </div>
 
       </li>
+    @endif
     @endforeach
   </ul>
 </section>

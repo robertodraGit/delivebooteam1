@@ -19,4 +19,11 @@
       font-weight: bold;
     }
   }
+  .column.img {
+
+    & > img {
+      width: 50px;
+      height: auto;
+    }
+  }
 }

@@ -5,13 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Edit Plate</title>
+    <link rel="stylesheet" href="{{asset('/css/app.css')}}">
 </head>
 <body>
 
     <h2>
         Edit plate: {{$plate -> plate_name}}
     </h2>
-    
+
     <form action="{{ route('plates-update', $plate -> id) }}" method="POST" enctype="multipart/form-data">
 
         @csrf
@@ -28,15 +29,15 @@
         @endif
 
         <label for="plate_name" >Nome piatto</label>
-        <input name='plate_name' value="{{$plate -> plate_name}}" type="text">
+        <input name='plate_name' value="{{$plate -> plate_name}}" type="text" required maxlength="30">
         <br>
 
         <label for="ingredients">Ingredienti:</label>
-        <input name='ingredients' value="{{$plate -> ingredients}}" type="textbox">
+        <input name='ingredients' value="{{$plate -> ingredients}}" type="textbox" required minlength="2" maxlength="2000">
         <br>
 
         <label for="description">Descrizione:</label>
-        <input name='description' value="{{$plate -> description}}" type="text">
+        <input name='description' value="{{$plate -> description}}" type="text" minlength="2" maxlength="255">
         <br>
 
         @php
@@ -45,10 +46,10 @@
         @endphp
 
         <label for="price_euro">Prezzo (EURO):</label>
-        <input name='price_euro' value="{{$price_euro}}" type="number">
+        <input name='price_euro' value="{{$price_euro}}" type="number" min="0" max="9999">
 
         <label for="price_cents">Prezzo (CENTESIMI):</label>
-        <input name='price_cents' value="{{$price_cents}}" type="number">
+        <input name='price_cents' value="{{$price_cents}}" type="number" min="0" max="99">
 
         <br>
 
@@ -69,7 +70,7 @@
         <br>
 
         <label for="discount">Sconto in percentuale:</label>
-        <input name='discount' value="{{$plate -> discount}}" type="number">
+        <input name='discount' value="{{$plate -> discount}}" type="number" required min="0" max="100">
         <br>
 
         <select name="category_id">
@@ -84,30 +85,34 @@
                             selected
                         @endif
                     >
-                        {{ $cat -> category }} 
+                        {{ $cat -> category }}
                     </option>
                 @endif
 
             @endforeach
-            
+
         </select>
         <br>
 
-        @if ($plate -> img)
-          @php
-            $photoUrl = '/storage/plates/' . $plate -> img;
-          @endphp
-          <img class="propic-user" src="{{asset($photoUrl)}}" alt="">
-        @endif
-
-        <label for="img">Photo</label>
+        <label for="img">Foto</label>
         <input name='img' type="file">
 
         <br>
-        
+
         <input type="submit" value="Update">
 
     </form>
+
+    <a href="{{route('plate-delete-img', $plate -> id)}}" class="btn btn-danger">Rimuovi foto piatto</a>
+
+    @if ($plate -> img)
+      @php
+        $photoUrl = '/storage/plates/' . $plate -> img;
+      @endphp
+      <h3>Foto del piatto</h3>
+      <img class="propic-user" src="{{asset($photoUrl)}}" alt="">
+    @endif
+
 
 </body>
 </html>

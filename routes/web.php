@@ -25,3 +25,27 @@ Route::get('/rest/plates', 'PlateController@platesIndex') -> name('plates-index'
 
 Route::get('/restaurant/plates/edit/{id}', 'PlateController@platesEdit') -> name ('plates-edit');
 Route::post('/restaurant/plates/edit/update/{id}', 'PlateController@platesUpdate') -> name ('plates-update');
+Route::get('/restaurant/plates/delete/img/{id}', 'PlateController@deleteImg') -> name('plate-delete-img');
+Route::get('/restaurant/plates/remove/{id}', 'PlateController@deletePlate') -> name('delete-plate');
+
+
+
+
+// rotte x tutti gli order nel db
+  Route::get('/orders', 'Ordercontroller@index')
+    -> name('orders-index');
+  Route::get('/order/{id}', 'Ordercontroller@show')
+    -> name('order-show');
+  // create & storeB
+  Route::get('/new/order', 'OrderController@create')
+    -> name('order-create');
+  Route::post('/new/order/store', 'OrderController@store')
+    -> name('order-store');
+  // edit & update
+  Route::get('/edit/{id}', 'OrderController@edit')
+    -> name('order-edit');
+  Route::post('/update/{id}', 'OrderController@update')
+    -> name('order-update');
+    // delete
+  Route::get('/delete/{id}', 'OrderController@delete')
+    -> name('order-delete');

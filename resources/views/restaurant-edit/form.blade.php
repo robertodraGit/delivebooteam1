@@ -1,4 +1,4 @@
-  <div class="">
+  <div>
 
     <form class="user-info" action="{{route('upload-info')}}" method="post" enctype="multipart/form-data">
       @csrf

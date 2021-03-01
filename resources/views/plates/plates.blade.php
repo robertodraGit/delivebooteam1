@@ -42,6 +42,11 @@
           </div>
 
           <div class="column">
+            <p>Categoria</p>
+            <p>{{$plate -> category -> category}}</p>
+        </div>
+
+          <div class="column">
               <p>Disponibile</p>
               @if ($plate -> availability)
                 <input type="checkbox" disabled="disabled" checked>
@@ -53,6 +58,14 @@
           <div class="column">
               <p>Immagine</p>
               <p>ancora in lavorazione</p>
+          </div>
+
+          <div class="column">
+            <form action="{{ route('plates-edit', $plate -> id) }}">
+              <button type="submit">
+                  Modifica Piatto
+              </button>
+          </form>
           </div>
 
         </div>

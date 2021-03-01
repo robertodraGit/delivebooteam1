@@ -84,16 +84,6 @@ class HomeController extends Controller
       return view('home');
     }
 
-      //dashboard route
-    public function dashboard() {
-      $email_user = Auth::user()-> email;
-      $word = '@';
-      // restituisco email utente senza @provider etc
-      $mail_cut = substr($email_user, 0, strpos($email_user, $word));
-
-      return view('dashboard', compact('mail_cut'));
-    }
-
     //Restaurant Edit
     public function restaurantEdit(){
       $user = Auth::user();

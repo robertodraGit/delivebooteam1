@@ -35,6 +35,10 @@ Route::group([
     -> name('order-delete');
 
 
+  Route::get('/payment/process/{id}', 'PaymentController@process')
+    ->name('payment-process');
+    // ROTTA PER ESEGUIRE I PAGAMENTI TRAMITE BRAINTREE
+
 
 
 });

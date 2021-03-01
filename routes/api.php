@@ -19,4 +19,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 
-Route::get('/payment/process', 'PaymentController@process')->name('payment_process'); // ROTTA PER ESEGUIRE I PAGAMENTI TRAMITE BRAINTREE
+// Route::get('/payment/process', 'PaymentController@process')->name('payment_process'); // ROTTA PER ESEGUIRE I PAGAMENTI TRAMITE BRAINTREE

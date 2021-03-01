@@ -52,27 +52,21 @@
             instance.requestPaymentMethod(function (err, payload) {
 
               $.ajax({
-                url: "{{ route('payment_process') }}",
+                url: "{{ route('payment-process', $order -> id) }}",
                 method: "GET",
                 data: {
-                    id: {{$order -> id}},
-                    payload: payload
-                    // price: {{$order -> total_price}}
+                    payload: payload,
                 },
 
                 success: function (result) {
-                    console.log(result);
-                    if (result.success) {
-                      window.location.href = "{{ route('orders-index') }}"
-
-                    } else {
-                      alert('Transazione fallita');
-                      }
+                  alert('Transazione eseguita');
+                  app.route('orders-index');
                 },
                 error: function(error, status){
                   console.log('errore:' + error);
                   }
                 });
+
               });
             });
           });

@@ -10,8 +10,10 @@ use DB;
 class PaymentController extends Controller
 {
     //FUNZIONE DI PAGAMENTO
-    public function process(Request $request) {
-
+    public function process(Request $request, $id) {
+      $order = Order::findOrFail($id);
+      $order_price = $order['total_price'];
+      dd($order_price, $order);
       $res = $request->all();
       dd($res);
 

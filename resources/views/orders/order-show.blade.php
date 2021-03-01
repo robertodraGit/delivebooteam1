@@ -58,12 +58,8 @@
                     // price: {{$order -> total_price}}
                 },
                 success: function (result) {
-                    console.log(result);
-                    if (result.success) {
-                      window.location.href = "{{ route('orders-index') }}"
-                    } else {
-                      alert('Transazione fallita');
-                      }
+                  console.log(result);
+                  alert('script eseguito');
                 },
                 error: function(error, status){
                   console.log('errore:' + error);

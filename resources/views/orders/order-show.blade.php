@@ -5,8 +5,7 @@
   <br>
 
   <h1>
-    Hai selezionato questo order non sapendo cosa sia:
-    (bravo mona!!)
+    Hai selezionato questo order:
   </h1>
 
   <h1>ID: {{$order -> id}}</h1>
@@ -17,7 +16,7 @@
   <h2>
     total price: {{$order -> total_price}} €
   </h2>
-  <h1><a href="{{ route('orders-index')}}">Indietro</a></h1>
+  <h1><a href="{{ route('orders-index')}}">Indietro alla index-order</a></h1>
 
 
 

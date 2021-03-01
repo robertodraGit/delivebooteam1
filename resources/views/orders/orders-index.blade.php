@@ -5,6 +5,8 @@
   <h1>Vorrei comparisse un elenco di ordini per magia:</h1>
   {{-- <h1><a style="color:white;" href="{{ route('order-create')  }}">Crea nuovo order</a></h1> --}}
 
+  <h1><a href="{{ route('dashboard')  }}"> vai alla dashboard</a></h1>
+
   @foreach ($orders as $order)
     <div class="order">
       <a href="{{ route('order-show', $order -> id) }}">

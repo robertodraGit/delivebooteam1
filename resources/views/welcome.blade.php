@@ -19,6 +19,10 @@
 
       <a href="{{route('dashboard')}}">Vai alla Dashboard</a>
 
+      <h1>
+        <a href="{{route('orders-index')}}">Vai alla lista degli ordini</a>
+      </h1>
+
       <div id="app">
         @foreach ($plate_data as $plate)
           <plate

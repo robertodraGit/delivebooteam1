@@ -75,19 +75,17 @@
 
         <select name="category_id">
 
-            <option value="null">-</option>
+            <option value="NULL">-</option>
 
             @foreach ($categories as $cat)
 
-                @if ($cat -> category != 'cancellato')
-                    <option value="{{ $cat -> id }}"
-                        @if ($plate -> category -> id == $cat -> id)
-                            selected
-                        @endif
-                    >
-                        {{ $cat -> category }}
-                    </option>
-                @endif
+                <option value="{{ $cat -> id }}"
+                    @if ($plate -> category -> id == $cat -> id)
+                        selected
+                    @endif
+                >
+                    {{ $cat -> category }}
+                </option>
 
             @endforeach
 

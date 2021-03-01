@@ -4,7 +4,7 @@
 
   <ul>
     @foreach ($user -> plates as $plate)
-      @if ($plate -> category -> category != 'cancellato')
+      @if ($plate -> destroyed != 1)
       <li>
         <div class="dashboard_plate">
 

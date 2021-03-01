@@ -97,8 +97,8 @@ class PlateController extends Controller
     $this->fileDeletePlateImg($id);
     $plate -> img = null;
 
-    $category = Category::findOrFail(1); //corrispondente a cancellato
-    $plate -> category() -> associate($category);
+    $plate -> destroyed = 1;
+
     $plate -> save();
 
     return redirect() -> route('plates-index');

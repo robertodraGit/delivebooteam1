@@ -32,9 +32,9 @@ Route::get('/restaurant/plates/remove/{id}', 'PlateController@deletePlate') -> n
 
 
 // rotte x tutti gli order nel db
-  Route::get('/orders', 'Ordercontroller@index')
+  Route::get('/orders', 'OrderController@index')
     -> name('orders-index');
-  Route::get('/order/{id}', 'Ordercontroller@show')
+  Route::get('/order/{id}', 'OrderController@show')
     -> name('order-show');
   // create & storeB
   Route::get('/new/order', 'OrderController@create')

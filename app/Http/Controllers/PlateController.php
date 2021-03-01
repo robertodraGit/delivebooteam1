@@ -62,7 +62,7 @@ class PlateController extends Controller
     $plate = Plate::findOrFail($id);
     
     if ($data['img']) {
-      $this -> updateImgPlate($request -> file('img'), $id);
+      $this -> updateImgPlate($data -> file('img'), $id);
     }
 
     $category = Category::findOrFail($data['category_id']);
@@ -111,6 +111,6 @@ class PlateController extends Controller
     } catch (\Exception $e) {}
   }
 
-  
+
 
 }

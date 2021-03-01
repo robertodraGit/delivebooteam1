@@ -46,6 +46,7 @@ class PlateController extends Controller
     $plate_price = $data['price_euro'] . $data['price_cents'];
     unset($data['price_euro']);
     unset($data['price_cents']);
+
     $data['price'] = $plate_price;
 
     Validator::make($data, [
@@ -91,7 +92,6 @@ class PlateController extends Controller
     $plate -> save();
 
     return redirect() -> route('plates-index');
-
   }
 
   public function platesEdit($id) {
@@ -115,11 +115,11 @@ class PlateController extends Controller
 
     Validator::make($data, [
 
-      'plate_name' => 'required|string|max:30',
+      'plate_name' =>   'required|string|max:30',
       'ingredients' =>  'required|string|min:2|max:2000',
       'description' =>  'nullable|string|min:2|max:255',
       'price_euro' =>   'required|integer|min:0|max:9999',
-      'price_cents' => 'required|integer|min:0|max:99',
+      'price_cents' =>  'required|integer|min:0|max:99',
       'visible' =>      'required|integer|min:0|max:1',
       'discount' =>     'required|integer|min:0|max:100',
       'availability' => 'required|integer|min:0|max:1',
@@ -136,17 +136,13 @@ class PlateController extends Controller
     if (array_key_exists('img', $data)) {
       $this -> updateImgPlate($request -> file('img'), $id);
       unset($data['img']);
-    }
+    }   
 
     $plate -> update($data);
 
     $category = Category::findOrFail($data['category_id']);
-    if ($data['category_id']) {
-      $plate -> category() -> associate($category);
-    } else {
-      $plate -> category() -> dissociate();
-    }
-
+    $plate -> category() -> associate($category);
+    
     $plate -> save();
 
     return redirect() -> route('plates-index');
@@ -203,7 +199,4 @@ class PlateController extends Controller
       }
     } catch (\Exception $e) {}
   }
-
-
-
 }

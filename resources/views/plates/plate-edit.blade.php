@@ -74,9 +74,7 @@
         <br>
 
         <select name="category_id">
-
-            <option value="NULL">-</option>
-
+            
             @foreach ($categories as $cat)
 
                 <option value="{{ $cat -> id }}"

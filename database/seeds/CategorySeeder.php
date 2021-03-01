@@ -14,6 +14,7 @@ class CategorySeeder extends Seeder
     {
 
       $defaultCategories = [
+        'nessuna',
         'fritti',
         'antipasti',
         'primi piatti',

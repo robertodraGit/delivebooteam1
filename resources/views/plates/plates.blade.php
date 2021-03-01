@@ -46,7 +46,9 @@
 
           <div class="column">
             <p>Categoria</p>
-            <p>{{$plate -> category -> category}}</p>
+            @if ($plate -> category)
+              <p>{{$plate -> category -> category}}</p>  
+            @endif
         </div>
 
           <div class="column">

@@ -11282,6 +11282,11 @@ a.text-dark:focus {
   font-weight: bold;
 }
 
+.dashboard_plate .column.img > img {
+  width: 50px;
+  height: auto;
+}
+
 .main-edit-restaurant {
   display: flex;
   justify-content: center;

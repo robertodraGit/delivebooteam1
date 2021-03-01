@@ -36,7 +36,7 @@ class PlateController extends Controller
 
     if (!array_key_exists('visible', $data)) {
       $data['visible'] = 0;
-    } 
+    }
 
     if (!array_key_exists('availability', $data)) {
       $data['availability'] = 0;
@@ -60,23 +60,45 @@ class PlateController extends Controller
     $plate_price = $data['price_euro'] . $data['price_cents'];
 
     $plate = Plate::findOrFail($id);
-    
-    if ($data['img']) {
-      $this -> updateImgPlate($data -> file('img'), $id);
-    }
-
-    $category = Category::findOrFail($data['category_id']);
-
     $plate -> price = $plate_price;
+
+    if (array_key_exists('img', $data)) {
+      $this -> updateImgPlate($request -> file('img'), $id);
+      unset($data['img']);
+    }
 
     $plate -> update($data);
 
+    $category = Category::findOrFail($data['category_id']);
     if ($data['category_id']) {
       $plate -> category() -> associate($category);
     } else {
       $plate -> category() -> dissociate();
     }
 
+    $plate -> save();
+
+    return redirect() -> route('plates-index');
+  }
+
+  public function deleteImg($id){
+
+    $this->fileDeletePlateImg($id);
+    $plate = Plate::findOrFail($id);
+    $plate -> img = null;
+    $plate -> save();
+
+    return redirect() -> route('plates-index');
+  }
+
+  public function deletePlate($id){
+    $plate = Plate::findOrFail($id);
+
+    $this->fileDeletePlateImg($id);
+    $plate -> img = null;
+
+    $category = Category::findOrFail(1); //corrispondente a cancellato
+    $plate -> category() -> associate($category);
     $plate -> save();
 
     return redirect() -> route('plates-index');

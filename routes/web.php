@@ -2,14 +2,19 @@
 
 use Illuminate\Support\Facades\Route;
 
+<<<<<<< HEAD
 Route::get('/', function () {
     return view('welcome');
 });
+=======
+Route::get('/', 'Controller@index') -> name ('index');
+>>>>>>> bbae2a859145a5a68e4c0e6f646dd8a4db459895
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+<<<<<<< HEAD
 // gruppo di rotte solo per utenti registrati
 Route::group([
   'middleware' => 'auth',
@@ -42,3 +47,19 @@ Route::group([
 
 
 });
+=======
+
+//rotta dashboard autenticata
+Route::get('/restaurant', 'HomeController@dashboard') -> name('dashboard');
+
+
+//rotte form modifica dati utente
+// form
+Route::get('/restaurant/info/edit', 'HomeController@restaurantEdit') -> name('restaurant-edit');
+
+Route::post('/restaurant/info/upload', 'HomeController@uploadInfo') -> name('upload-info');
+Route::get('/restaurant/photo/delete', 'HomeController@deleteIcon') -> name('delete-icon');
+
+//Rotte plate
+Route::get('/rest/plates', 'PlateController@platesIndex') -> name('plates-index');
+>>>>>>> bbae2a859145a5a68e4c0e6f646dd8a4db459895

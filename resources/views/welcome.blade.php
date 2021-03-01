@@ -64,6 +64,7 @@
         </style>
     </head>
     <body>
+<<<<<<< HEAD
         <div class="flex-center position-ref full-height">
             @if (Route::has('login'))
                 <div class="top-right links">
@@ -96,5 +97,22 @@
                 </div>
             </div>
         </div>
+=======
+      <h1>Piatti</h1>
+      @php
+        // var_dump($plate_data);die();
+      @endphp
+
+      <a href="{{route('dashboard')}}">Vai alla Dashboard</a>
+
+      <div id="app">
+        @foreach ($plate_data as $plate)
+          <plate
+            :plate_data='{{$plate}}'
+          ></plate>
+        @endforeach
+
+      </div>
+>>>>>>> bbae2a859145a5a68e4c0e6f646dd8a4db459895
     </body>
 </html>

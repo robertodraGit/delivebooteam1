@@ -7,6 +7,8 @@
 
   <h1><a href="{{ route('dashboard')  }}"> vai alla dashboard</a></h1>
 
+  <br><br>
+
   @foreach ($orders as $order)
     <div class="order">
       <a href="{{ route('order-show', $order -> id) }}">

@@ -25,7 +25,7 @@
   <br>
 
   {{-- PAGAMENTO --}}
-  <h1>PAGA STRUNZ!</h1>
+  <h1>parte che vedrà cliente non registrato:</h1>
   <h1>
     {{$order -> total_price}} €
   </h1>

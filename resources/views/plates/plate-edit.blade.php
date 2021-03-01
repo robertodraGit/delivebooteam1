@@ -39,27 +39,33 @@
         <input name='description' value="{{$plate -> description}}" type="text">
         <br>
 
-        <label for="price">Prezzo:</label>
-        <input name='price' value="{{$plate -> price}}" type="number">
+        @php
+            $price_euro = substr($plate -> price, 0, strlen($plate -> price) -2);
+            $price_cents = substr($plate -> price, -2);
+        @endphp
+
+        <label for="price_euro">Prezzo (EURO):</label>
+        <input name='price_euro' value="{{$price_euro}}" type="number">
+
+        <label for="price_cents">Prezzo (CENTESIMI):</label>
+        <input name='price_cents' value="{{$price_cents}}" type="number">
+
         <br>
 
-        <label for="visible">Visibilità:</label>
-        <select name="visible">
-            <option 
-                @if ($plate -> visible == 1)
-                    selected
-                @endif
-            value="1">
-                    Visibile 
-            </option>
-            <option 
-                @if ($plate -> visible == 0)
-                    selected
-                @endif
-            value="0">
-                    Non Visibile
-            </option> 
-        </select>
+        <label for="visible">Visibile:</label>
+        <input name='visible' value="1" type="checkbox"
+        @if ($plate -> visible)
+            checked
+        @endif
+        >
+        <br>
+
+        <label for="availability">Disponibile:</label>
+        <input name='availability' value="1" type="checkbox"
+        @if ($plate -> availability)
+            checked
+        @endif
+        >
         <br>
 
         <label for="discount">Sconto in percentuale:</label>
@@ -67,37 +73,23 @@
         <br>
 
         <select name="category_id">
+
+            <option value="null">-</option>
+
             @foreach ($categories as $cat)
 
-                <option value="{{ $cat -> id }}"
-                    @if ($plate -> category -> id == $cat -> id)
-                        selected
-                    @endif
-                >
-                    {{ $cat -> category }} 
-                </option>
+                @if ($cat -> category != 'cancellato')
+                    <option value="{{ $cat -> id }}"
+                        @if ($plate -> category -> id == $cat -> id)
+                            selected
+                        @endif
+                    >
+                        {{ $cat -> category }} 
+                    </option>
+                @endif
 
             @endforeach
             
-        </select>
-        <br>
-
-        <label for="availability">Disponibilità:</label>
-        <select name="availability">
-            <option 
-                @if ($plate -> availability == 1)
-                    selected
-                @endif
-            value="1">
-                    Disponibile 
-            </option>
-            <option 
-                @if ($plate -> availability == 0)
-                    selected
-                @endif
-            value="0">
-                    Non Disponibile
-            </option> 
         </select>
         <br>
 
@@ -107,9 +99,12 @@
           @endphp
           <img class="propic-user" src="{{asset($photoUrl)}}" alt="">
         @endif
+
         <label for="img">Photo</label>
         <input name='img' type="file">
+
         <br>
+        
         <input type="submit" value="Update">
 
     </form>

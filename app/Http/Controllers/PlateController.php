@@ -34,19 +34,30 @@ class PlateController extends Controller
 
     $data = $request -> all();
 
+    if (!array_key_exists('visible', $data)) {
+      $data['visible'] = 0;
+    } 
+
+    if (!array_key_exists('availability', $data)) {
+      $data['availability'] = 0;
+    }
+
     Validator::make($data, [
 
-      'plate_name' => 'required|max:50',
-      'ingredients' =>  'required|string|min:6|max:255',
-      'description' =>  'nullable|string|min:6|max:255',
-      'price' =>        'required|integer|min:0|max:9999',
-      'visible' =>      'nullable|integer|min:0|max:1',
-      'discount' =>     'nullable|integer|min:0|max:100',
-      'availability' => 'nullable',
+      'plate_name' => 'required|string|max:30',
+      'ingredients' =>  'required|string|min:2|max:2000',
+      'description' =>  'nullable|string|min:2|max:255',
+      'price_euro' =>   'required|integer|min:0|max:9999',
+      'price_cents' => 'required|integer|min:0|max:99',
+      'visible' =>      'required|integer|min:0|max:1',
+      'discount' =>     'required|integer|min:0|max:100',
+      'availability' => 'required|integer|min:0|max:1',
       'img' =>          'nullable|image|max:20240',
-      'category_id' =>  'required',
+      'category_id' =>  'nullable',
 
     ]) -> validate();
+
+    $plate_price = $data['price_euro'] . $data['price_cents'];
 
     $plate = Plate::findOrFail($id);
     
@@ -56,8 +67,16 @@ class PlateController extends Controller
 
     $category = Category::findOrFail($data['category_id']);
 
+    $plate -> price = $plate_price;
+
     $plate -> update($data);
-    $plate -> category() -> associate($category);
+
+    if ($data['category_id']) {
+      $plate -> category() -> associate($category);
+    } else {
+      $plate -> category() -> dissociate();
+    }
+
     $plate -> save();
 
     return redirect() -> route('plates-index');
@@ -91,5 +110,7 @@ class PlateController extends Controller
       }
     } catch (\Exception $e) {}
   }
+
+  
 
 }

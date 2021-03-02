@@ -163,6 +163,15 @@
                 <div class="graph-chart-js">
                     grafici
                 </div>
+
+                <div>
+                    <ul>
+                        @foreach ($feedbacks as $fb)
+                            <li>{{ $fb -> email }}</li> <br>
+                            <li>{{ $fb -> rate }}</li>
+                        @endforeach
+                    </ul>
+                </div>
             </div>
         </div>
 

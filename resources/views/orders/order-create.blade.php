@@ -30,11 +30,6 @@
           {{-- <span>{{ $plat}}</span> --}}
           <br>
 
-          {{-- @php
-            for ($i=0; $i < count($plates); $i++) {
-              echo "plate_id_" . $i;
-            }
-          @endphp --}}
         @endforeach
 
         <label for="first_name">first_name: </label>

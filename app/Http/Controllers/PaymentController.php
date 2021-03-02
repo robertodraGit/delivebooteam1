@@ -28,7 +28,7 @@ class PaymentController extends Controller
 
   public function store(Request $request) {
     $data = $request -> all();
-    // dd($data);
+    // dd($data[]);
 
     // result è un array con id dei plates selected
     foreach ($data as $key => $value) {
@@ -41,7 +41,7 @@ class PaymentController extends Controller
 
     $tot_price = 0;
     $plates = Plate::all();
-    // array_chunk($plates);
+
     foreach ($plates as $plate) {
       foreach ($id_plates as $id_frontend) {
         // dd($id_frontend, $plate -> id);

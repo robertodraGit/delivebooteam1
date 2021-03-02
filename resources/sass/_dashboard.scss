@@ -8,28 +8,118 @@
 .left-side-dash {
     width: 25%;
     height: auto;
-    background-color: darkgray;
-
-    hr {
-        color: rgb(190, 190, 190);
-    }
-
+    background-color: $color_deliveroo;
     padding-left: 2rem;
     padding-top: 3rem;
     padding-right: 2rem;
-
     display: flex;
     flex-direction: column;
+
+    hr {
+        border-color: $variable2;
+    }
+
+    & > h3 {
+        float: left;
+        color: $variable2;
+    }
+
+    & > h3 > span {
+        font-size: $font_restaurant;
+        color: $variable1;
+    }
+
+    & > form > #pls-plate {
+        background-color: $variable2;
+        color: $color_deliveroo;
+        font-weight: bold;
+        font-size: 16px;
+        text-transform: uppercase;
+        width: 90%;
+        padding: 0.6rem $padding_button;
+        margin-top: 1rem;
+        margin-left: $margin_button_left;
+        border: none;
+        border-radius: $border_button;
+        box-shadow: $shadow_button;
+        transition: 0.2s ease-in-out;
+    }
+
+    i {
+        margin-right: 22px;
+        font-size: 18px;
+    }
 
     .buttons-left-dash {
         display: flex;
         flex-direction: column;
         padding-top: 3rem;
-        
+
+        #view-plate {
+            margin-bottom: 50px;
+        }
+
         button {
-            width: 100%;
-            padding: 0.6rem;
+            background-color: $variable2;
+            color: $color_deliveroo;
+            width: 90%;
+            padding: 0.6rem $padding_button;
             margin-top: 1rem;
+            margin-left: $margin_button_left;
+            border: none;
+            border-radius: $border_button;
+            box-shadow: $shadow_button;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            transition: 0.5s;
+
+            .plate-color {
+                background-color: $primary;
+            }
+
+            .order-color {
+                background-color: $complementary;
+            }
+
+            span {
+                position: absolute;
+                width: 25%;
+                height: 100%;
+                transform: translateY(150%);
+                border-radius: 50%;
+                left: calc((var(--n) - 1) * 25%);
+                transition: 0.5s;
+                transition-delay: calc((var(--n) - 1) * 0.1s);
+                z-index: -1;
+            }
+
+            span:nth-child(1) {
+                --n: 1;
+            }
+
+            span:nth-child(2) {
+                --n: 2;
+            }
+
+            span:nth-child(3) {
+                --n: 3;
+            }
+
+            span:nth-child(4) {
+                --n: 4;
+            }
+
+        }
+
+        a {
+            width: 90%;
+            font-size: 16px;
+            text-transform: uppercase;
+            margin-left: $margin_button_left;
+            border-radius: $border_button;
+            box-shadow: $shadow_button;
+            margin-top: 100px;
         }
 
     }
@@ -40,19 +130,17 @@
     height: auto;
     background-color: white;
     padding: 0 3rem;
-
     display: flex;
     flex-direction: column;
 
     .header-right-dash {
         display: flex;
-        justify-content: space-around;
+        justify-content: flex-end;
         padding-top: 3rem;
 
-        button {
-            width: 100%;
-            padding: 0.6rem;
-            margin-top: 1rem;
+        img {
+            width: 120px;
+            margin-right: 5px;
         }
     }
 
@@ -70,14 +158,16 @@
 
     .card-order {
         width: 100%;
-        background-color: rgb(216, 216, 216);
+        background-color: $color_deliveroo;
         border-radius: 18px;
-        height: 120px;
+        height: auto;
         margin-bottom: 2rem;
+        box-shadow: $shadow_button;
 
         display: flex;
         justify-content: center;
         align-items: center;
+
 
         .card-relative {
             width: 95%;
@@ -86,17 +176,38 @@
             justify-content: space-between;
 
             .order-info {
+                color: $variable2;
                 width: 70%;
                 height: 100%;
+
+                & > hr {
+                    border-color: $variable2;
+                }
+
+                & > p:nth-last-child(2) {
+                    margin-bottom: 0;
+                }
+
             }
 
             .right-card-order {
+                color: $variable2;
                 width: 30%;
                 height: 100%;
                 display: flex;
                 flex-direction: column;
                 justify-content: space-between;
                 align-items: flex-end;
+
+                button {
+                    background-color: $variable2;
+                    color: $color_deliveroo;
+                    border-radius: $border_button;
+                    border: none;
+                    padding: 0.6rem $padding_button;
+                    margin-bottom: 10px;
+                    box-shadow: $shadow_button;
+                }
             }
         }
     }
@@ -104,5 +215,45 @@
     .footer-dash {
         display: flex;
         justify-content: space-between;
+
+        button {
+            background-color: $color_deliveroo;
+            color: $variable2;
+            border-radius: $border_button;
+            border: none;
+            padding: 0.6rem $padding_button;
+            transition: box-shadow 0.22s ease-in-out, color 0.22s ease-in-out;
+        }
     }
+}
+
+// HOVER
+.left-side-dash > form > #pls-plate:hover {
+    color: $variable1;
+    transform: scale(1.04);
+}
+
+.buttons-left-dash button:hover {
+    color: $variable1;
+}
+
+
+.buttons-left-dash button:hover span {
+    transform: translateY(0) scale(2);
+}
+
+
+.header-right-dash button:hover {
+    color: $variable1;
+    box-shadow: $shadow_button;
+}
+
+// .right-card-order button:hover {
+//     background-color: $primary;
+//     color: $variable1;
+// }
+
+.footer-dash button:hover {
+    color: $variable1;
+    box-shadow: $shadow_button;
 }

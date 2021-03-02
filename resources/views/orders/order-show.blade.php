@@ -1,11 +1,11 @@
 @extends('layouts.main-layout')
 
-@section('section')
+@section('content')
 
   <br>
 
   <h1>
-    Hai selezionato questo order:
+    Riepilogo ordine:
   </h1>
 
   <h1>ID: {{$order -> id}}</h1>
@@ -50,7 +50,7 @@
           buttonBasic.addEventListener('click', function () {
             instance.requestPaymentMethod(function (err, payload) {
               $.ajax({
-                url: "{{ route('payment_process') }}",
+                url: "{{ route('payment-process') }}",
                 method: "GET",
                 data: {
                     id: {{$order -> id}},

@@ -20,13 +20,13 @@
             <div class="buttons-left-dash">
 
                 <form action="{{ route('restaurant-edit') }}">
-                    <button type="submit">
+                    <button class="btn btn-success" type="submit">
                         Modifica Dati
                     </button>
                 </form>
                 
                 <form action="{{ route('plates-index') }}">
-                    <button type="submit">
+                    <button class="btn btn-success" type="submit">
                         Visualizza Piatti
                     </button>
                 </form>
@@ -37,16 +37,26 @@
                 <button>
                     Statistiche Ordini
                 </button>
-                <button>
-                    Logout
-                </button>
+                       
+                <a 
+                    class="btn btn-danger"
+                    href="{{ route('logout') }}"
+                    onclick="event.preventDefault();
+                    document.getElementById('logout-form').submit();"
+                    >
+                    {{ __('Logout') }}
+                </a>
+
+                <form id="logout-form" action="{{ route('logout') }}" method="POST">
+                    @csrf
+                </form>
             </div>
         </div>
 
         <div class="right-side-dash">
             <div class="header-right-dash">
 
-                <form action="{{ route('restaurant-edit') }}">
+                <form action="{{ route('plates-create') }}">
                     <button type="submit">
                         Aggiungi un piatto
                     </button>

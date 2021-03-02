@@ -51,6 +51,7 @@ class Controller extends BaseController
         foreach ($restaurant->typologies as $typology) {
           $typologies[] = $typology -> typology;
         }
+
         $restaurants[$key]['typologies'] = $typologies;
 
       };

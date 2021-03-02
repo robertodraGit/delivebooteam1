@@ -2287,7 +2287,9 @@ __webpack_require__.r(__webpack_exports__);
       'phone': this.restaurant_data.phone,
       'description': this.restaurant_data.description,
       'photo': this.restaurant_data.photo,
-      'delivery_cost': this.restaurant_data.delivery_cost
+      'delivery_cost': this.restaurant_data.delivery_cost,
+      'average_rate': this.restaurant_data.average_rate,
+      'typologies_raw': this.restaurant_data.typologies
     };
   },
   computed: {
@@ -2296,6 +2298,15 @@ __webpack_require__.r(__webpack_exports__);
     },
     restaurantShow: function restaurantShow() {
       return '/restaurant/' + this.id;
+    },
+    typologies_string: function typologies_string() {
+      var typologies = "";
+      this.typologies_raw.forEach(function (typology, i) {
+        typologies += typology.typology + ', ';
+      });
+      typologies = typologies.slice(0, -2);
+      typologies += '.';
+      return typologies;
     }
   },
   props: {
@@ -38231,11 +38242,11 @@ var render = function() {
       }),
       _vm._v(" "),
       _c("section", { staticClass: "description" }, [
-        _c("p", [_vm._v("voto medio")]),
+        _c("p", [_vm._v(_vm._s(_vm.average_rate))]),
         _vm._v(" "),
         _c("h2", { staticClass: "title" }, [_vm._v(_vm._s(_vm.name))]),
         _vm._v(" "),
-        _c("p", [_vm._v("categorie")]),
+        _c("p", [_vm._v(_vm._s(_vm.typologies_string))]),
         _vm._v(" "),
         _c("p", [_vm._v("Consegna: " + _vm._s(_vm.delivery_cost / 100) + "€")])
       ])

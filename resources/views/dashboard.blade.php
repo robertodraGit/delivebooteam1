@@ -5,9 +5,9 @@
     <div class="container-dashboard">
 
         <div class="left-side-dash">
-            <h3>Welcome</h3>
-
-            <h1>{{ $mail_cut }}</h1>
+            <h3>Welcome
+                <span>{{ $mail_cut }}!</span>
+            </h3>
 
             <div>
                 <hr>
@@ -17,28 +17,39 @@
                 {{ Auth::user()-> name }}
             </h3>
 
+            <form action="{{ route('plates-create') }}">
+                <button id="pls-plate" type="submit">
+                    <i class="fas fa-plus"></i>
+                    Aggiungi un nuovo piatto
+                </button>
+            </form>
+
             <div class="buttons-left-dash">
 
                 <form action="{{ route('restaurant-edit') }}">
                     <button class="btn btn-success" type="submit">
                         Modifica Dati
+                        <span class="plate-color"></span><span class="plate-color"></span><span class="plate-color"></span><span class="plate-color"></span>
                     </button>
                 </form>
-                
+
                 <form action="{{ route('plates-index') }}">
-                    <button class="btn btn-success" type="submit">
+                    <button id="view-plate"class="btn btn-success" type="submit">
                         Visualizza Piatti
+                        <span class="plate-color"></span><span class="plate-color"></span><span class="plate-color"></span><span class="plate-color"></span>
                     </button>
                 </form>
-                
+
                 <button>
                    Visualizza Ordini
+                   <span class="order-color"></span><span class="order-color"></span><span class="order-color"></span><span class="order-color"></span>
                 </button>
                 <button>
                     Statistiche Ordini
+                    <span class="order-color"></span><span class="order-color"></span><span class="order-color"></span><span class="order-color"></span>
                 </button>
-                       
-                <a 
+
+                <a
                     class="btn btn-danger"
                     href="{{ route('logout') }}"
                     onclick="event.preventDefault();
@@ -55,18 +66,10 @@
 
         <div class="right-side-dash">
             <div class="header-right-dash">
-
-                <form action="{{ route('plates-create') }}">
-                    <button type="submit">
-                        Aggiungi un piatto
-                    </button>
-                </form>
-
-                 <form action="{{ route('index') }}">
-                    <button type="submit">
-                        Torna alla homepage
-                    </button>
-                </form>
+                
+                <a href="{{ route('index') }}">
+                    <img src="{{ asset('/images/deliveroo-logo.svg') }}" alt="">
+                </a>
             </div>
 
             <div class="last-order">

@@ -15811,12 +15811,12 @@ a.text-dark:focus {
   border: none;
   border-radius: 22px;
   box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.5);
-  transition: color 0.2s ease-in-out;
+  transition: 0.2s ease-in-out;
 }
 
 .left-side-dash i {
   margin-right: 22px;
-  font-size: 20px;
+  font-size: 18px;
 }
 
 .left-side-dash .buttons-left-dash {
@@ -15992,6 +15992,7 @@ a.text-dark:focus {
 
 .left-side-dash > form > #pls-plate:hover {
   color: #3a4750;
+  transform: scale(1.04);
 }
 
 .buttons-left-dash button:hover {

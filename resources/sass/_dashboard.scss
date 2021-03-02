@@ -42,12 +42,12 @@
         border: none;
         border-radius: $border_button;
         box-shadow: $shadow_button;
-        transition: color 0.2s ease-in-out;
+        transition: 0.2s ease-in-out;
     }
 
     i {
         margin-right: 22px;
-        font-size: 20px;
+        font-size: 18px;
     }
 
     .buttons-left-dash {
@@ -230,6 +230,7 @@
 // HOVER
 .left-side-dash > form > #pls-plate:hover {
     color: $variable1;
+    transform: scale(1.04);
 }
 
 .buttons-left-dash button:hover {

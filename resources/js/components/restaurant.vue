@@ -6,7 +6,7 @@
       </section>
 
       <section class="description">
-        <p>{{average_rate}}</p>
+        <p>{{average_rate}}({{feedback_number}})</p>
         <h2 class="title">{{name}}</h2>
         <p>{{typologies_string}}</p>
         <p>Consegna: {{delivery_cost/100}}€</p>
@@ -54,6 +54,10 @@
             typologies += '.';
 
             return typologies;
+          },
+
+          feedback_number: function(){
+            return this.restaurant_data.feedback.length;
           }
 
         },

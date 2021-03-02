@@ -2307,6 +2307,9 @@ __webpack_require__.r(__webpack_exports__);
       typologies = typologies.slice(0, -2);
       typologies += '.';
       return typologies;
+    },
+    feedback_number: function feedback_number() {
+      return this.restaurant_data.feedback.length;
     }
   },
   props: {
@@ -38242,7 +38245,11 @@ var render = function() {
       }),
       _vm._v(" "),
       _c("section", { staticClass: "description" }, [
-        _c("p", [_vm._v(_vm._s(_vm.average_rate))]),
+        _c("p", [
+          _vm._v(
+            _vm._s(_vm.average_rate) + "(" + _vm._s(_vm.feedback_number) + ")"
+          )
+        ]),
         _vm._v(" "),
         _c("h2", { staticClass: "title" }, [_vm._v(_vm._s(_vm.name))]),
         _vm._v(" "),

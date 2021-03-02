@@ -14,9 +14,10 @@ class Controller extends BaseController
 
     public function index()
     {
-      $plate_data = Plate::all();
+      // $plate_data = Plate::all();
       // mettere where visible : 1
       // dd($plate_data);
-      return view('welcome', compact('plate_data'));
+      // return view('welcome', compact('plate_data'));
+      return view('welcome-home');
     }
 }

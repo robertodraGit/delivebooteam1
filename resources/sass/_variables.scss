@@ -17,6 +17,7 @@ $yellow: #ffed4a;
 $green: #38c172;
 $teal: #4dc0b5;
 $cyan: #6cb2eb;
+$bluedark: #1027f2;
 
 // palette 1 prova
 
@@ -25,3 +26,10 @@ $secondary: #303841;
 $complementary: #eeeeee;
 $variable1: #3a4750;
 $variable2: #ffffff;
+
+// variabile che centra tutto
+@mixin allcenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

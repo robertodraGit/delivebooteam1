@@ -27,6 +27,7 @@
   {{-- PAGAMENTO --}}
   <h1>parte che vedrà cliente non registrato:</h1>
   <h1>
+    Somma da pagare:
     {{$order -> total_price}} €
   </h1>
 

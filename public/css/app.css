@@ -15640,6 +15640,17 @@ a.text-dark:focus {
   background-color: rgba(140, 140, 140, 0.6);
 }
 
+.plate_container .layover {
+  position: fixed;
+  z-index: 5;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  -webkit-backdrop-filter: blur(1px);
+          backdrop-filter: blur(1px);
+}
+
 .plate_container .plate_detail {
   position: fixed;
   z-index: 1000;

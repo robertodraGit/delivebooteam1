@@ -27,7 +27,8 @@ cut del testo da vue (ok ma non va da responsive) -->
     </div>
 
     <!-- Dettagli al click -->
-    <div v-show="display_details" class="plate_detail">
+    <div v-show="display_details" class="layover">
+    <div class="plate_detail">
 
       <section class="header">
         <h2 class="title">{{nome}}</h2>
@@ -67,7 +68,7 @@ cut del testo da vue (ok ma non va da responsive) -->
       </section>
 
     </div>
-
+    </div>
 
     </div>
 

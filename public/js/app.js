@@ -2164,6 +2164,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -38146,69 +38147,74 @@ var render = function() {
             expression: "display_details"
           }
         ],
-        staticClass: "plate_detail"
+        staticClass: "layover"
       },
       [
-        _c("section", { staticClass: "header" }, [
-          _c("h2", { staticClass: "title" }, [_vm._v(_vm._s(_vm.nome))]),
-          _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "close_details", on: { click: _vm.close_details } },
-            [_vm._v("\n        X\n      ")]
-          )
-        ]),
-        _vm._v(" "),
-        _c("section", { staticClass: "show" }, [
-          _c("div", {
-            staticClass: "plate_img",
-            style: { "background-image": "url(" + _vm.url_img + ")" }
-          }),
-          _vm._v(" "),
-          _c("p", { staticClass: "descrizione" }, [
-            _vm._v(_vm._s(_vm.descrizione))
-          ]),
-          _vm._v(" "),
-          _c("p", [
-            _vm._v("Ingredienti: "),
-            _c("br"),
-            _vm._v(" " + _vm._s(_vm.ingredienti))
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "quantity_pannel" }, [
+        _c("div", { staticClass: "plate_detail" }, [
+          _c("section", { staticClass: "header" }, [
+            _c("h2", { staticClass: "title" }, [_vm._v(_vm._s(_vm.nome))]),
+            _vm._v(" "),
             _c(
               "div",
               {
-                staticClass: "remove_plate",
-                on: { click: _vm.remove_quantity }
+                staticClass: "close_details",
+                on: { click: _vm.close_details }
               },
-              [_vm._v("\n          -\n        ")]
-            ),
+              [_vm._v("\n        X\n      ")]
+            )
+          ]),
+          _vm._v(" "),
+          _c("section", { staticClass: "show" }, [
+            _c("div", {
+              staticClass: "plate_img",
+              style: { "background-image": "url(" + _vm.url_img + ")" }
+            }),
             _vm._v(" "),
-            _c("div", { staticClass: "quantity" }, [
-              _c("span", [_vm._v(_vm._s(_vm.quantity))])
+            _c("p", { staticClass: "descrizione" }, [
+              _vm._v(_vm._s(_vm.descrizione))
             ]),
             _vm._v(" "),
+            _c("p", [
+              _vm._v("Ingredienti: "),
+              _c("br"),
+              _vm._v(" " + _vm._s(_vm.ingredienti))
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "quantity_pannel" }, [
+              _c(
+                "div",
+                {
+                  staticClass: "remove_plate",
+                  on: { click: _vm.remove_quantity }
+                },
+                [_vm._v("\n          -\n        ")]
+              ),
+              _vm._v(" "),
+              _c("div", { staticClass: "quantity" }, [
+                _c("span", [_vm._v(_vm._s(_vm.quantity))])
+              ]),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "add_plate", on: { click: _vm.add_quantity } },
+                [_vm._v("\n          +\n        ")]
+              )
+            ])
+          ]),
+          _vm._v(" "),
+          _c("section", { staticClass: "total" }, [
             _c(
               "div",
-              { staticClass: "add_plate", on: { click: _vm.add_quantity } },
-              [_vm._v("\n          +\n        ")]
-            )
-          ])
-        ]),
-        _vm._v(" "),
-        _c("section", { staticClass: "total" }, [
-          _c(
-            "div",
-            {
-              staticClass: "button button-light cancel",
-              on: { click: _vm.close_details }
-            },
-            [_c("span", [_vm._v("Cancella")])]
-          ),
-          _vm._v(" "),
-          _c("div", { staticClass: "button button-strong" }, [
-            _c("strong", [_vm._v("TOTALE " + _vm._s(_vm.total_price) + "€")])
+              {
+                staticClass: "button button-light cancel",
+                on: { click: _vm.close_details }
+              },
+              [_c("span", [_vm._v("Cancella")])]
+            ),
+            _vm._v(" "),
+            _c("div", { staticClass: "button button-strong" }, [
+              _c("strong", [_vm._v("TOTALE " + _vm._s(_vm.total_price) + "€")])
+            ])
           ])
         ])
       ]

@@ -31,10 +31,21 @@ class Controller extends BaseController
       $restaurants = User::all('id','name', 'address', 'phone', 'description', 'photo', 'delivery_cost');
 
       // Far ritornare il voto medio
-      // foreach ($restaurants as $key => $restaurant) {
-      //
-      //   // $restaurants[$key]['average_rate'] = 5;
-      // };
+      foreach ($restaurants as $key => $restaurant) {
+
+        $votes = [];
+        foreach ($restaurant->feedback as $feedback) {
+          $votes[] = $feedback-> rate;
+        };
+
+        if ($votes) {
+          $average = array_sum($votes)/count($votes);
+          $restaurants[$key]['average_rate'] = $average;
+        } else {
+          $restaurants[$key]['average_rate'] = 'no-info';
+        }
+
+      };
 
       return response() -> json([
         'restaurants' => $restaurants

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\Auth;
 use App\Order;
+use App\Plate;
 
 class OrderController extends Controller
 {
@@ -37,4 +38,6 @@ class OrderController extends Controller
 
     return view('orders.order-show', compact('order'));
   }
+
+
 }

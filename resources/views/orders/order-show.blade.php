@@ -5,7 +5,7 @@
   <br>
 
   <h1>
-    Hai selezionato questo order:
+    Riepilogo ordine:
   </h1>
 
   <h1>ID: {{$order -> id}}</h1>

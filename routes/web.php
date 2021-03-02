@@ -38,10 +38,9 @@ Route::get('/restaurant/plates/remove/{id}', 'PlateController@deletePlate') -> n
   Route::get('/order/{id}', 'OrderController@show')
     -> name('order-show');
   // create & storeB
-  Route::get('/new/order', 'OrderController@create')
-    -> name('order-create');
-  Route::post('/new/order/store', 'OrderController@store')
-    -> name('order-store');
+  // Route::get('/new/order', 'OrderController@create')
+  //   -> name('order-create');
+
   // edit & update
   Route::get('/edit/{id}', 'OrderController@edit')
     -> name('order-edit');
@@ -50,3 +49,10 @@ Route::get('/restaurant/plates/remove/{id}', 'PlateController@deletePlate') -> n
     // delete
   Route::get('/delete/{id}', 'OrderController@delete')
     -> name('order-delete');
+
+
+    // rotta per creare ordine fasullo
+  Route::get('/create/order', 'PaymentController@create')
+      -> name('order-create');
+  Route::post('/new/order/store', 'PaymentController@store')
+      -> name('order-store');

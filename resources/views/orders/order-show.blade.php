@@ -1,6 +1,6 @@
 @extends('layouts.main-layout')
 
-@section('section')
+@section('content')
 
   <br>
 
@@ -50,7 +50,7 @@
           buttonBasic.addEventListener('click', function () {
             instance.requestPaymentMethod(function (err, payload) {
               $.ajax({
-                url: "{{ route('payment_process') }}",
+                url: "{{ route('payment-process') }}",
                 method: "GET",
                 data: {
                     id: {{$order -> id}},

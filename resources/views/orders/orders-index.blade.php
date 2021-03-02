@@ -1,6 +1,6 @@
 @extends('layouts.main-layout')
 
-@section('section')
+@section('content')
 
   <h1>Vorrei comparisse un elenco di ordini per magia:</h1>
 
@@ -31,7 +31,7 @@
                 Rifiutato
             @endif
             <br>
-            TASTO DA ABORTIRE: 
+            TASTO DA ABORTIRE:
             <a href="{{ route('order-show', $order -> id) }}"> PAGA </a>
 
           </div>
@@ -40,8 +40,8 @@
 
 
       @endforeach
-      
-    @endforeach  
+
+    @endforeach
   </ul>
 
 

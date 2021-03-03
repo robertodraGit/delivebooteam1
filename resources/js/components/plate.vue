@@ -26,52 +26,52 @@ cut del testo da vue (ok ma non va da responsive) -->
       <p>Esaurito</p>
     </div>
 
-    <!-- Dettagli al click -->
-    <div v-show="display_details" class="layover">
-    <div class="plate_detail">
+      <!-- Dettagli al click -->
+      <div v-show="display_details" class="layover">
+        <div class="plate_detail">
 
-      <section class="header">
-        <h2 class="title">{{nome}}</h2>
-        <div class="close_details" @click="close_details">
-          X
+          <section class="header">
+            <h2 class="title">{{nome}}</h2>
+            <div class="close_details" @click="close_details">
+              X
+            </div>
+          </section>
+
+          <section class="show">
+            <div class="plate_img" :style="{'background-image':'url(' + url_img +')'}">
+            </div>
+            <p class="descrizione">{{descrizione}}</p>
+            <p>Ingredienti: <br> {{ingredienti}}</p>
+
+            <div class="quantity_pannel">
+
+              <div class="remove_plate" @click="remove_quantity">
+                -
+              </div>
+              <div class="quantity">
+                <span>{{ quantity }}</span>
+              </div>
+              <div class="add_plate" @click="add_quantity">
+                +
+              </div>
+
+            </div>
+          </section>
+
+          <section class="total">
+            <div class="button button-light cancel" @click="close_details">
+              <span>Cancella</span>
+            </div>
+
+            <div 
+              @click="pushItemInCart(); pushPrices();"
+              class="button button-strong">
+              <strong>TOTALE {{ total_price }}€</strong>
+            </div>
+
+          </section>
         </div>
-      </section>
-
-      <section class="show">
-        <div class="plate_img" :style="{'background-image':'url(' + url_img +')'}"></div>
-        <p class="descrizione">{{descrizione}}</p>
-        <p>Ingredienti: <br> {{ingredienti}}</p>
-
-        <div class="quantity_pannel">
-
-          <div class="remove_plate" @click="remove_quantity">
-            -
-          </div>
-          <div class="quantity">
-            <span>{{ quantity }}</span>
-          </div>
-          <div class="add_plate" @click="add_quantity">
-            +
-          </div>
-
-        </div>
-      </section>
-
-      <section class="total">
-        <div class="button button-light cancel" @click="close_details">
-          <span>Cancella</span>
-        </div>
-
-        <div class="button button-strong">
-          <strong>TOTALE {{ total_price }}€</strong>
-        </div>
-      </section>
-
-    </div>
-    </div>
-
-    </div>
-
+      </div>
   </div>
 </template>
 
@@ -86,10 +86,9 @@ cut del testo da vue (ok ma non va da responsive) -->
           'sconto': this.plate_data.discount,
           'disponibile': this.plate_data.availability,
           'immagine': this.plate_data.img,
-
+          'plate_id': this.plate_data.id,
           // flags
           'display_details': false,
-
           //aggiungi al carrello
           'quantity': 1,
         };
@@ -168,7 +167,20 @@ cut del testo da vue (ok ma non va da responsive) -->
           if (this.disponibile) {
             this.display_details = true;
           }
-        }
+        },
+
+        pushItemInCart: function() {
+          for(let i=0; i < this.quantity; i++) {
+            this.$emit('carrello', this.plate_id);
+          }
+        },
+        
+        pushPrices: function() {
+          for(let i=0; i < this.quantity; i++) {
+            this.$emit('prezzi', this.plate_price);
+          }
+        },
+
       },
 
 

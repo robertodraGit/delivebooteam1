@@ -36,28 +36,26 @@ class OrderController extends Controller
   public function restaurantOrder(){
     $user = Auth::user();
 
-    $user = User::findOrFail(3);
-
     $plateOrders = [];
-    $userOrders = [];
+    $userOrdersId = [];
     foreach ($user -> plates as $plate) {
 
       $orders = [];
       foreach ($plate -> orders as $order) {
         $orders[] = $order;
-        $userOrders[] = $order -> id;
+        $userOrdersId[] = $order -> id;
       }
-      $plateOrders[] = $orders;
+      $plateOrdersId[] = $orders;
     }
-
     // dd($user -> id ,$plateOrders, $userOrders);
+
     // $userOrders contiene gli id di tutti gli ordini relativi a quel ristorante.
     // Gli id possono essere anche duplicati quindi vanno scremati.
 
-    $userOrders = array_unique($userOrders);
-    dd($userOrders);
+    $userOrdersId = array_unique($userOrdersId);
+    $userOrders = Order::findOrFail($userOrdersId);
 
-    return view('dashboard.orders', compact('user'));
+    return view('dashboard.orders', compact('user', 'userOrders'));
   }
 
 

@@ -7,24 +7,15 @@
   <body>
     <h3>Ordini del ristorante: {{$user -> email}}</h3>
 
-
-
-    {{-- Elenco ordini --}}
-    @php
-      $orders = [];
-    @endphp
+    <h5>Ordini:</h5>
     <ul>
-      @foreach ($user -> plates as $plate)
-        @foreach ($plate -> orders as $order)
-
-          @php
-            $orders[] = $order;
-          @endphp
+      @if (count($userOrders) > 0)
+        @foreach ($userOrders as $order)
+          <li>{{$order}}</li>
         @endforeach
-      @endforeach
-      @php
-        dd($orders);
-      @endphp
+      @else
+          <li>Nessun ordine</li>
+      @endif
     </ul>
   </body>
 </html>

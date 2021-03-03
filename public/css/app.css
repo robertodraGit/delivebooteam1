@@ -15786,6 +15786,7 @@ a.text-dark:focus {
   height: 300px;
   background-color: #d8d8d8;
   padding: 1rem;
+  border-radius: 1rem;
 }
 
 .cart-fixed .sub-cart-elements {

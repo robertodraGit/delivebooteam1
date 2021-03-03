@@ -2246,14 +2246,14 @@ __webpack_require__.r(__webpack_exports__);
       }
     },
     pushItemInCart: function pushItemInCart() {
-      for (var i = 0; i < this.quantity; i++) {
-        this.$emit('carrello', this.plate_id);
-      }
-    },
-    pushPrices: function pushPrices() {
-      for (var i = 0; i < this.quantity; i++) {
-        this.$emit('prezzi', this.plate_price);
-      }
+      var plate = {};
+      plate = {
+        "plate_id": this.plate_id,
+        "plate_price": this.total_price,
+        "plate_name": this.nome,
+        "plate_quantity": this.quantity
+      };
+      this.$emit('carrello', plate);
     }
   }
 });
@@ -38229,8 +38229,7 @@ var render = function() {
                 staticClass: "button button-strong",
                 on: {
                   click: function($event) {
-                    _vm.pushItemInCart()
-                    _vm.pushPrices()
+                    return _vm.pushItemInCart()
                   }
                 }
               },
@@ -50527,10 +50526,19 @@ function init() {
     },
     data: {
       restaurants: [],
-      cartArray: [],
-      cartTotal: []
+      cart: []
     },
-    computed: {},
+    computed: {
+      total: function total() {
+        var total = 0;
+
+        for (var i = 0; i < this.cart.length; i++) {
+          total += parseFloat(this.cart[i].plate_price);
+        }
+
+        return total.toFixed(2);
+      }
+    },
     methods: {
       get_all_restaurants: function get_all_restaurants() {
         var _this = this;
@@ -50540,19 +50548,7 @@ function init() {
         });
       },
       pushInCart: function pushInCart(plate) {
-        this.cartArray.push(plate);
-      },
-      pushPricesInCart: function pushPricesInCart(plate) {
-        this.cartTotal.push(plate);
-      },
-      cartSend: function cartSend() {
-        var _this2 = this;
-
-        axios.get(this.cartArray).then(function (response) {
-          return _this2.cartArray = response.data;
-        })["catch"](function (error) {
-          return console.log(error);
-        });
+        this.cart.push(plate);
       }
     }
   });

@@ -64,7 +64,7 @@ cut del testo da vue (ok ma non va da responsive) -->
             </div>
 
             <div 
-              @click="pushItemInCart(); pushPrices();"
+              @click="pushItemInCart()"
               class="button button-strong">
               <strong>TOTALE {{ total_price }}€</strong>
             </div>
@@ -119,6 +119,8 @@ cut del testo da vue (ok ma non va da responsive) -->
           }
         },
 
+
+
         total_price: function(){
           let total_price;
           if (this.sconto > 0) {
@@ -170,17 +172,22 @@ cut del testo da vue (ok ma non va da responsive) -->
         },
 
         pushItemInCart: function() {
-          for(let i=0; i < this.quantity; i++) {
-            this.$emit('carrello', this.plate_id);
-          }
+          
+          let plate = {};
+          
+          
+            plate = {
+              "plate_id": this.plate_id,
+              "plate_price" : this.total_price,
+              "plate_name": this.nome,
+              "plate_quantity" : this.quantity,
+            };
+
+            this.$emit('carrello', plate);
+          
+
         },
         
-        pushPrices: function() {
-          for(let i=0; i < this.quantity; i++) {
-            this.$emit('prezzi', this.plate_price);
-          }
-        },
-
       },
 
 

@@ -15,11 +15,16 @@ function  init() {
        })},
       data: {
           restaurants: [],
-          cartArray: [],
-          cartTotal: [],
+          cart: [],
       },
       computed: {
-        
+        total() {
+          let total = 0;
+          for (let i = 0; i < this.cart.length; i++) {
+            total += parseFloat(this.cart[i].plate_price);
+          }
+          return total.toFixed(2);
+        },
       },
       methods: {
         get_all_restaurants: function(){
@@ -31,20 +36,9 @@ function  init() {
         },
 
         pushInCart: function(plate) {
-          this.cartArray.push(plate);
+          this.cart.push(plate);
         },
 
-        pushPricesInCart: function(plate) {
-          this.cartTotal.push(plate);
-        },
-
-        cartSend: function() {
-          axios
-            .get(this.cartArray)
-            .then(response => (this.cartArray = response.data))
-            .catch(error => 
-              console.log(error));
-        },
       },
   });
 }

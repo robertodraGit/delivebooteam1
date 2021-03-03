@@ -28,7 +28,7 @@ class PaymentController extends Controller
 
   public function store(Request $request) {
     $data = $request -> all();
-    // dd($data[]);
+    // dd($data);
 
     // result è un array con id dei plates selected
     foreach ($data as $key => $value) {
@@ -41,36 +41,54 @@ class PaymentController extends Controller
 
     $tot_price = 0;
     $plates = Plate::all();
+    $platesAttach = [];
 
     foreach ($plates as $plate) {
       foreach ($id_plates as $id_frontend) {
         // dd($id_frontend, $plate -> id);
         if ($id_frontend == $plate -> id) {
           $tot_price = $tot_price + $plate -> price;
+          $platesAttach[] = $plate;
         }
       }
     }
-    dd($tot_price);
+    // dd($tot_price);
 
-    // da fare:
-    // validator
+    $data['total_price'] = $tot_price;
 
-    // Validator::make($data, [
-        // varie validation
-    // ]) -> validate();
+    // array di piatti ordinati
+    $platesOrd = [];
 
-    // associare total price all'ordine
-    // associare piatti ad ordine -> attach();
-    // return view del pagamento/carrello
+    foreach ($data as $key => $value) {
+      $exp_key = explode('_', $key);
+      if($exp_key[0] == 'plate'){
+         $platesOrd[] = $value;
+         unset($data[$key]);
+       }
+    }
+    // dd($platesOrd, $data);
+
+    $data['payment_state'] = 0;
+
+    Validator::make($data, [
+
+      'first_name' =>  'required|string|min:2|max:50',
+      'last_name' =>  'required|string|min:2|max:50',
+      'email' => 'required|string|min:3|max:50',
+      'phone' => 'required|string|min:3|max:30',
+      'comment' => 'nullable|string|min:0|max:255',
+      'address' => 'required|string|min:5|max:255',
+      'total_price' =>  'required|integer|min:0|max:999999',
+
+    ]) -> validate();
+
+    $newOrder = Order::make($data);
+    $newOrder -> save();
+    $newOrder -> plates() -> attach($id_plates);
+    // dd($newOrder);
 
 
-
-
-
-
-
-
-    return view('orders.order-show');
+    return view('orders.order-show', compact('newOrder'));
   }
 
 

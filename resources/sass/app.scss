@@ -17,13 +17,18 @@
 @import 'dashboard';
 @import 'dashboard_plates';
 
+
+@import 'restaurant';
 @import 'edit_restaurant';
 
 // nuovi file scss, commento da cencellare è solo un promemoria
-@import 'header';
-@import 'jumbotron';
+// @import 'header';
+// @import 'jumbotron';
 @import 'home';
 @import 'animations';
+
+@import 'welcome';
+@import 'carousel';
 
 
 * {

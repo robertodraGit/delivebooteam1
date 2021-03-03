@@ -30,6 +30,10 @@ Route::get('/restaurant/plates/edit/{id}', 'PlateController@platesEdit') -> name
 Route::post('/restaurant/plates/edit/update/{id}', 'PlateController@platesUpdate') -> name ('plates-update');
 Route::get('/restaurant/plates/delete/img/{id}', 'PlateController@deleteImg') -> name('plate-delete-img');
 Route::get('/restaurant/plates/remove/{id}', 'PlateController@deletePlate') -> name('delete-plate');
+//Rotta temporanea: tutti i ristoranti. Dopo da integrare nella home.
+Route::get('/home/allrestaurant', 'Controller@allRestaurant') -> name('show-all-restaurant');
+Route::get('/home/getallrestaurant', 'Controller@getAllRestaurant') -> name('get-all-restaurant');
+Route::get('/restaurant/{id}', 'Controller@restaurantShow') -> name('restaurant-show');
 
 
 // rotte x tutti gli order nel db
@@ -38,10 +42,9 @@ Route::get('/restaurant/plates/remove/{id}', 'PlateController@deletePlate') -> n
   Route::get('/order/{id}', 'OrderController@show')
     -> name('order-show');
   // create & storeB
-  Route::get('/new/order', 'OrderController@create')
-    -> name('order-create');
-  Route::post('/new/order/store', 'OrderController@store')
-    -> name('order-store');
+  // Route::get('/new/order', 'OrderController@create')
+  //   -> name('order-create');
+
   // edit & update
   Route::get('/edit/{id}', 'OrderController@edit')
     -> name('order-edit');
@@ -50,3 +53,10 @@ Route::get('/restaurant/plates/remove/{id}', 'PlateController@deletePlate') -> n
     // delete
   Route::get('/delete/{id}', 'OrderController@delete')
     -> name('order-delete');
+
+
+    // rotta per creare ordine fasullo
+  Route::get('/create/order', 'PaymentController@create')
+      -> name('order-create');
+  Route::post('/new/order/store', 'PaymentController@store')
+      -> name('order-store');

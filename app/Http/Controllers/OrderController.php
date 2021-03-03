@@ -50,7 +50,12 @@ class OrderController extends Controller
       $plateOrders[] = $orders;
     }
 
-    dd($user -> id ,$plateOrders, $userOrders);
+    // dd($user -> id ,$plateOrders, $userOrders);
+    // $userOrders contiene gli id di tutti gli ordini relativi a quel ristorante.
+    // Gli id possono essere anche duplicati quindi vanno scremati.
+
+    $userOrders = array_unique($userOrders);
+    dd($userOrders);
 
     return view('dashboard.orders', compact('user'));
   }

@@ -5,7 +5,7 @@
   <div class="container-fluid">
 
 
-    <div style="margin-top: 400px;" class="row">
+    <div style="margin-top: 100px;" class="row">
 
       <div class="col-md-12">
 
@@ -14,6 +14,16 @@
       <form action="{{ route('order-store')}}" method="post">
         @csrf
         @method('POST')
+
+        @if ($errors->any())
+          <div class="alert alert-danger">
+              <ul>
+                  @foreach ($errors->all() as $error)
+                      <li>{{ $error }}</li>
+                  @endforeach
+              </ul>
+          </div>
+        @endif
 
         @foreach ($plates as $key => $plate)
 

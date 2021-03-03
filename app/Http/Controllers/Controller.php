@@ -30,11 +30,31 @@ class Controller extends BaseController
     public function getAllRestaurant(){
       $restaurants = User::all('id','name', 'address', 'phone', 'description', 'photo', 'delivery_cost');
 
-      // Far ritornare il voto medio
-      // foreach ($restaurants as $key => $restaurant) {
-      //
-      //   // $restaurants[$key]['average_rate'] = 5;
-      // };
+
+      foreach ($restaurants as $key => $restaurant) {
+
+        // Fa ritornare il voto medio
+        $votes = [];
+        foreach ($restaurant->feedback as $feedback) {
+          $votes[] = $feedback-> rate;
+        };
+
+        if ($votes) {
+          $average = array_sum($votes)/count($votes);
+          $restaurants[$key]['average_rate'] = $average;
+        } else {
+          $restaurants[$key]['average_rate'] = 'no-info';
+        }
+
+        // Fa ritornare le tipologie
+        $typologies = [];
+        foreach ($restaurant->typologies as $typology) {
+          $typologies[] = $typology -> typology;
+        }
+
+        $restaurants[$key]['typologies'] = $typologies;
+
+      };
 
       return response() -> json([
         'restaurants' => $restaurants

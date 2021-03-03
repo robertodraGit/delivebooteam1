@@ -2164,6 +2164,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2287,7 +2288,9 @@ __webpack_require__.r(__webpack_exports__);
       'phone': this.restaurant_data.phone,
       'description': this.restaurant_data.description,
       'photo': this.restaurant_data.photo,
-      'delivery_cost': this.restaurant_data.delivery_cost
+      'delivery_cost': this.restaurant_data.delivery_cost,
+      'average_rate': this.restaurant_data.average_rate,
+      'typologies_raw': this.restaurant_data.typologies
     };
   },
   computed: {
@@ -2296,6 +2299,18 @@ __webpack_require__.r(__webpack_exports__);
     },
     restaurantShow: function restaurantShow() {
       return '/restaurant/' + this.id;
+    },
+    typologies_string: function typologies_string() {
+      var typologies = "";
+      this.typologies_raw.forEach(function (typology, i) {
+        typologies += typology.typology + ', ';
+      });
+      typologies = typologies.slice(0, -2);
+      typologies += '.';
+      return typologies;
+    },
+    feedback_number: function feedback_number() {
+      return this.restaurant_data.feedback.length;
     }
   },
   props: {
@@ -38132,69 +38147,74 @@ var render = function() {
             expression: "display_details"
           }
         ],
-        staticClass: "plate_detail"
+        staticClass: "layover"
       },
       [
-        _c("section", { staticClass: "header" }, [
-          _c("h2", { staticClass: "title" }, [_vm._v(_vm._s(_vm.nome))]),
-          _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "close_details", on: { click: _vm.close_details } },
-            [_vm._v("\n        X\n      ")]
-          )
-        ]),
-        _vm._v(" "),
-        _c("section", { staticClass: "show" }, [
-          _c("div", {
-            staticClass: "plate_img",
-            style: { "background-image": "url(" + _vm.url_img + ")" }
-          }),
-          _vm._v(" "),
-          _c("p", { staticClass: "descrizione" }, [
-            _vm._v(_vm._s(_vm.descrizione))
-          ]),
-          _vm._v(" "),
-          _c("p", [
-            _vm._v("Ingredienti: "),
-            _c("br"),
-            _vm._v(" " + _vm._s(_vm.ingredienti))
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "quantity_pannel" }, [
+        _c("div", { staticClass: "plate_detail" }, [
+          _c("section", { staticClass: "header" }, [
+            _c("h2", { staticClass: "title" }, [_vm._v(_vm._s(_vm.nome))]),
+            _vm._v(" "),
             _c(
               "div",
               {
-                staticClass: "remove_plate",
-                on: { click: _vm.remove_quantity }
+                staticClass: "close_details",
+                on: { click: _vm.close_details }
               },
-              [_vm._v("\n          -\n        ")]
-            ),
+              [_vm._v("\n        X\n      ")]
+            )
+          ]),
+          _vm._v(" "),
+          _c("section", { staticClass: "show" }, [
+            _c("div", {
+              staticClass: "plate_img",
+              style: { "background-image": "url(" + _vm.url_img + ")" }
+            }),
             _vm._v(" "),
-            _c("div", { staticClass: "quantity" }, [
-              _c("span", [_vm._v(_vm._s(_vm.quantity))])
+            _c("p", { staticClass: "descrizione" }, [
+              _vm._v(_vm._s(_vm.descrizione))
             ]),
             _vm._v(" "),
+            _c("p", [
+              _vm._v("Ingredienti: "),
+              _c("br"),
+              _vm._v(" " + _vm._s(_vm.ingredienti))
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "quantity_pannel" }, [
+              _c(
+                "div",
+                {
+                  staticClass: "remove_plate",
+                  on: { click: _vm.remove_quantity }
+                },
+                [_vm._v("\n          -\n        ")]
+              ),
+              _vm._v(" "),
+              _c("div", { staticClass: "quantity" }, [
+                _c("span", [_vm._v(_vm._s(_vm.quantity))])
+              ]),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "add_plate", on: { click: _vm.add_quantity } },
+                [_vm._v("\n          +\n        ")]
+              )
+            ])
+          ]),
+          _vm._v(" "),
+          _c("section", { staticClass: "total" }, [
             _c(
               "div",
-              { staticClass: "add_plate", on: { click: _vm.add_quantity } },
-              [_vm._v("\n          +\n        ")]
-            )
-          ])
-        ]),
-        _vm._v(" "),
-        _c("section", { staticClass: "total" }, [
-          _c(
-            "div",
-            {
-              staticClass: "button button-light cancel",
-              on: { click: _vm.close_details }
-            },
-            [_c("span", [_vm._v("Cancella")])]
-          ),
-          _vm._v(" "),
-          _c("div", { staticClass: "button button-strong" }, [
-            _c("strong", [_vm._v("TOTALE " + _vm._s(_vm.total_price) + "€")])
+              {
+                staticClass: "button button-light cancel",
+                on: { click: _vm.close_details }
+              },
+              [_c("span", [_vm._v("Cancella")])]
+            ),
+            _vm._v(" "),
+            _c("div", { staticClass: "button button-strong" }, [
+              _c("strong", [_vm._v("TOTALE " + _vm._s(_vm.total_price) + "€")])
+            ])
           ])
         ])
       ]
@@ -38231,11 +38251,15 @@ var render = function() {
       }),
       _vm._v(" "),
       _c("section", { staticClass: "description" }, [
-        _c("p", [_vm._v("voto medio")]),
+        _c("p", [
+          _vm._v(
+            _vm._s(_vm.average_rate) + "(" + _vm._s(_vm.feedback_number) + ")"
+          )
+        ]),
         _vm._v(" "),
         _c("h2", { staticClass: "title" }, [_vm._v(_vm._s(_vm.name))]),
         _vm._v(" "),
-        _c("p", [_vm._v("categorie")]),
+        _c("p", [_vm._v(_vm._s(_vm.typologies_string))]),
         _vm._v(" "),
         _c("p", [_vm._v("Consegna: " + _vm._s(_vm.delivery_cost / 100) + "€")])
       ])
@@ -50834,8 +50858,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /home/robb/Documenti/BOOLEAN/DeliveBoo/delivebooteam1/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /home/robb/Documenti/BOOLEAN/DeliveBoo/delivebooteam1/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\progetti-laravel\delivebooteam1\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\progetti-laravel\delivebooteam1\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

@@ -84,6 +84,17 @@ $colore_secondario: #00C2B3;
     @include flex-centratura;
     background-color: rgba(140, 140, 140, 0.6);
   }
+
+  .layover {
+    position: fixed;
+    z-index: 5;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    backdrop-filter: blur(1px);
+  }
+
   // DETAILS
   .plate_detail {
     position: fixed;
@@ -96,6 +107,7 @@ $colore_secondario: #00C2B3;
     border: 1px solid black;
     border-radius: 5px;
     background-color: white;
+
     .header {
       border-bottom: 1px solid lightgrey;
       text-align: center;

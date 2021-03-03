@@ -36,6 +36,17 @@ Route::get('/home/getallrestaurant', 'Controller@getAllRestaurant') -> name('get
 Route::get('/restaurant/{id}', 'Controller@restaurantShow') -> name('restaurant-show');
 
 
+//Dashboard -> visualizza ordini
+Route::get('/dashboard/restaurant/orders', 'OrderController@restaurantOrder') -> name('restaurant-order');
+
+
+
+
+
+
+
+
+
 // rotte x tutti gli order nel db
   Route::get('/orders', 'OrderController@index')
     -> name('orders-index');

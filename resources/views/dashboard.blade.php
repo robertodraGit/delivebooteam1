@@ -41,7 +41,7 @@
                 </form>
 
                 <button>
-                   Visualizza Ordini
+                   <a href="{{route('restaurant-order')}}">Visualizza Ordini</a>
                    <span class="order-color"></span><span class="order-color"></span><span class="order-color"></span><span class="order-color"></span>
                 </button>
                 <button>
@@ -66,7 +66,7 @@
 
         <div class="right-side-dash">
             <div class="header-right-dash">
-                
+
                 <a href="{{ route('index') }}">
                     <img src="{{ asset('/images/deliveroo-logo.svg') }}" alt="">
                 </a>
@@ -155,9 +155,11 @@
 
             <div class="footer-dash">
                 <div>
-                    <button>
-                        Visualizza tutti gli ordini
-                    </button>
+                    <a href="{{route('restaurant-order')}}">
+                        <button>
+                          Visualizza tutti gli ordini
+                        </button>
+                    </a>
                 </div>
 
                 <div class="graph-chart-js">

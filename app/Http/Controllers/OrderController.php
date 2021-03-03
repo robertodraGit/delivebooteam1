@@ -8,6 +8,9 @@ use Illuminate\Support\Facades\Auth;
 use App\Order;
 use App\Plate;
 
+// temporaneo
+use App\User;
+
 class OrderController extends Controller
 {
 
@@ -28,6 +31,28 @@ class OrderController extends Controller
     $order['total_price'] =  $order['total_price'] / 100;
 
     return view('orders.order-show', compact('order'));
+  }
+
+  public function restaurantOrder(){
+    $user = Auth::user();
+
+    $user = User::findOrFail(3);
+
+    $plateOrders = [];
+    $userOrders = [];
+    foreach ($user -> plates as $plate) {
+
+      $orders = [];
+      foreach ($plate -> orders as $order) {
+        $orders[] = $order;
+        $userOrders[] = $order -> id;
+      }
+      $plateOrders[] = $orders;
+    }
+
+    dd($user -> id ,$plateOrders, $userOrders);
+
+    return view('dashboard.orders', compact('user'));
   }
 
 

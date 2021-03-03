@@ -1,0 +1,40 @@
+@mixin flex-centratura {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@mixin debug-border {
+  border: 1px solid black;
+}
+
+.restaurant_container {
+  min-height: 15px;
+  margin-bottom: 10px;
+  font-size: 18px;
+
+  & * {
+    margin: 0;
+    padding: 0;
+  }
+
+  section {
+    @include debug-border;
+  }
+
+  .img{
+    width: 260px;
+    height: 150px;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+  .description {
+    width: 260px;
+    height: 200px;
+    padding: 5px;
+
+    .title {
+      font-size: 1em;
+    }
+  }
+}

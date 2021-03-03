@@ -1,15 +1,51 @@
 @extends('layouts.main-layout')
 
-@section('section')
+@section('content')
 
   <h1>Vorrei comparisse un elenco di ordini per magia:</h1>
-  {{-- <h1><a style="color:white;" href="{{ route('order-create')  }}">Crea nuovo order</a></h1> --}}
 
-  <h1><a href="{{ route('dashboard')  }}"> vai alla dashboard</a></h1>
+  <h1><a href="{{ route('dashboard')  }}">Vai alla dashboard</a></h1>
 
   <br><br>
 
-  @foreach ($orders as $order)
+  <ul>
+    @foreach ($user -> plates as $plate)
+
+      @foreach ($plate -> orders as $order)
+
+        <li>
+          <div>
+            {{ $order -> id }} -
+            {{ $order -> first_name }}
+            {{ $order -> last_name }} <br>
+            {{ $order -> email }} <br>
+            {{ $order -> phone }} <br>
+            {{ $order -> comment }} <br>
+            {{ $order -> address }} <br>
+            {{ $order -> email }} <br>
+            Total: {{ ($order -> total_price) / 100 }} € <br>
+            Orario ordine: {{ $order -> created_at }} <br>
+            Stato pagamento: @if ($order -> payment_state = 1)
+                Pagato
+            @else
+                Rifiutato
+            @endif
+            <br>
+            TASTO DA ABORTIRE:
+            <a href="{{ route('order-show', $order -> id) }}"> PAGA </a>
+
+          </div>
+        </li>
+        <br>
+
+
+      @endforeach
+
+    @endforeach
+  </ul>
+
+
+  {{-- @foreach ($orders as $order)
     <div class="order">
       <a href="{{ route('order-show', $order -> id) }}">
         <h2 class="nome">
@@ -29,14 +65,7 @@
         </h2>
 
       </a>
-
-      <br>
-      <hr>
-      <br>
-
-      {{-- <span><a href="{{ route('order-edit', $order -> id) }}">MODIFICA</a></span>
-      <span><a href="{{ route('order-delete', $order -> id) }}">CANCELLA</a></span> --}}
     </div>
-  @endforeach
+  @endforeach --}}
 
 @endsection

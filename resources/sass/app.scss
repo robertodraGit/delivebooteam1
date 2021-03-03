@@ -8,23 +8,31 @@
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
+// Fontawesome
+@import '~@fortawesome/fontawesome-free/css/all.css';
+
 // other
 @import 'plate';
 
 @import 'dashboard';
 @import 'dashboard_plates';
 
+
+@import 'restaurant';
 @import 'edit_restaurant';
 
 // nuovi file scss, commento da cencellare è solo un promemoria
-@import 'header';
-@import 'jumbotron';
+// @import 'header';
+// @import 'jumbotron';
 @import 'home';
 @import 'animations';
 
+@import 'welcome';
+@import 'carousel';
+
 
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }

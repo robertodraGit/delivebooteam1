@@ -26,6 +26,24 @@ $secondary: #303841;
 $complementary: #eeeeee;
 $variable1: #3a4750;
 $variable2: #ffffff;
+$color_deliveroo: #00CCBC;
+// $hover_color_button: #D0EB99;
+
+// border
+$border_button: 22px;
+
+// font-size
+$font_restaurant: 35px;
+
+// padding
+$padding_button: 0.8rem;
+
+// shadow
+$shadow_button: 1px 1px 5px 0px rgba(0,0,0,0.50);
+
+// margin
+$margin_button_left: 1.3rem;
+
 
 // variabile che centra tutto
 @mixin allcenter {

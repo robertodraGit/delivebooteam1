@@ -30,6 +30,10 @@ Route::get('/restaurant/plates/edit/{id}', 'PlateController@platesEdit') -> name
 Route::post('/restaurant/plates/edit/update/{id}', 'PlateController@platesUpdate') -> name ('plates-update');
 Route::get('/restaurant/plates/delete/img/{id}', 'PlateController@deleteImg') -> name('plate-delete-img');
 Route::get('/restaurant/plates/remove/{id}', 'PlateController@deletePlate') -> name('delete-plate');
+//Rotta temporanea: tutti i ristoranti. Dopo da integrare nella home.
+Route::get('/home/allrestaurant', 'Controller@allRestaurant') -> name('show-all-restaurant');
+Route::get('/home/getallrestaurant', 'Controller@getAllRestaurant') -> name('get-all-restaurant');
+Route::get('/restaurant/{id}', 'Controller@restaurantShow') -> name('restaurant-show');
 
 
 // rotte x tutti gli order nel db

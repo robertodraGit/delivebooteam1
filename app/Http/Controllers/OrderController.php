@@ -19,15 +19,6 @@ class OrderController extends Controller
   public function index() {
 
     $user = Auth::user();
-
-    // $orders = Order::all();
-
-    // foreach ($orders as $key => $val) {
-
-    //   $val['total_price'] = $val['total_price'] / 100;
-
-    // }
-
     return view('orders.orders-index', compact('user'));
   }
 

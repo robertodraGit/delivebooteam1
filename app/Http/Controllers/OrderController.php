@@ -58,5 +58,9 @@ class OrderController extends Controller
     return view('dashboard.orders', compact('user', 'userOrders'));
   }
 
+  public function restaurantComanda($id){
+    $order = Order::findOrFail($id);
+    return view('dashboard.comanda', compact('order'));
+  }
 
 }

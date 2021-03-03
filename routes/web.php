@@ -38,6 +38,7 @@ Route::get('/restaurant/{id}', 'Controller@restaurantShow') -> name('restaurant-
 
 //Dashboard -> visualizza ordini
 Route::get('/dashboard/restaurant/orders', 'OrderController@restaurantOrder') -> name('restaurant-order');
+Route::get('/dashboard/restaurant/comanda/{id}', 'OrderController@restaurantComanda') -> name('restaurant-comanda');
 
 
 

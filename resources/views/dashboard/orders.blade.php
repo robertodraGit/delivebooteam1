@@ -11,7 +11,10 @@
     <ul>
       @if (count($userOrders) > 0)
         @foreach ($userOrders as $order)
-          <li>{{$order}}</li>
+          <li>
+            <p>{{$order}}</p>
+            <a href="{{route('restaurant-comanda', $order -> id)}}">Apri comanda</a>
+          </li>
         @endforeach
       @else
           <li>Nessun ordine</li>

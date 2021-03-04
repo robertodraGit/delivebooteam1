@@ -15803,28 +15803,35 @@ a.text-dark:focus {
 }
 
 .left-side-dash {
-  width: 25%;
+  display: flex;
+  flex-direction: column;
+  width: 20%;
+  overflow: hidden;
   height: auto;
   background-color: #00CCBC;
   padding-left: 2rem;
   padding-top: 3rem;
   padding-right: 2rem;
+}
+
+.left-side-dash .img-user {
   display: flex;
-  flex-direction: column;
+  justify-content: center;
+  width: 40%;
+  height: 15%;
+  margin: 20px auto;
+  border-radius: 50%;
+  border: 2px solid #ffffff;
 }
 
-.left-side-dash hr {
-  border-color: #ffffff;
+.left-side-dash .img-user > img {
+  width: 100%;
+  border-radius: 50%;
 }
 
-.left-side-dash > h3 {
-  float: left;
+.left-side-dash > h1 {
+  text-align: center;
   color: #ffffff;
-}
-
-.left-side-dash > h3 > span {
-  font-size: 35px;
-  color: #3a4750;
 }
 
 .left-side-dash > form > #pls-plate {
@@ -15854,8 +15861,12 @@ a.text-dark:focus {
   padding-top: 3rem;
 }
 
-.left-side-dash .buttons-left-dash #view-plate {
-  margin-bottom: 50px;
+.left-side-dash .buttons-left-dash h4 {
+  margin-top: 2.5rem;
+  margin-left: 1.5rem;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #ffffff;
 }
 
 .left-side-dash .buttons-left-dash button {
@@ -15921,23 +15932,97 @@ a.text-dark:focus {
 }
 
 .right-side-dash {
-  width: 75%;
-  height: auto;
-  background-color: white;
-  padding: 0 3rem;
   display: flex;
   flex-direction: column;
+  width: 80%;
+  height: auto;
+  overflow: auto;
+  background-color: white;
+  padding: 0 3rem;
 }
 
 .right-side-dash .header-right-dash {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   padding-top: 3rem;
+}
+
+.right-side-dash .header-right-dash > h3 > span {
+  font-size: 35px;
 }
 
 .right-side-dash .header-right-dash img {
   width: 120px;
   margin-right: 5px;
+}
+
+.right-side-dash .container-card {
+  display: flex;
+  justify-content: space-between;
+}
+
+.right-side-dash .container-card .card {
+  flex-basis: calc((100% / 3) - 40px);
+  height: 470px;
+  border-radius: 10px;
+  box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.5);
+  margin: 50px 0px;
+  padding: 15px;
+}
+
+.right-side-dash .container-card .card > h3 {
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #00CCBC;
+}
+
+.right-side-dash .container-card .card .mini-card {
+  width: 85%;
+  margin: 10px auto;
+  padding: 15px;
+  height: calc(100% / 3)-50px;
+  background-color: #00CCBC;
+  color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.5);
+}
+
+.right-side-dash .container-card .card .mini-card hr {
+  margin: 0 0 5px 0;
+  border-color: #ffffff;
+}
+
+.right-side-dash .container-card .card .mini-card .price-right {
+  display: flex;
+  justify-content: space-between;
+}
+
+.right-side-dash .container-card .card .mini-card p {
+  margin: 0;
+}
+
+.right-side-dash .container-card .card .graph-chart-js > h3 {
+  text-align: center;
+}
+
+.right-side-dash .container-card .card .percentual-feed {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  width: 55%;
+  height: 55%;
+  margin: 40px auto;
+  border-radius: 50%;
+  border: 25px solid #00CCBC;
+}
+
+.right-side-dash .container-card .card .percentual-feed > h1,
+.right-side-dash .container-card .card .percentual-feed h4 {
+  margin: 0;
+  color: #00CCBC;
+  font-weight: bold;
 }
 
 .right-side-dash .last-order {
@@ -16017,6 +16102,7 @@ a.text-dark:focus {
   border: none;
   padding: 0.6rem 0.8rem;
   transition: box-shadow 0.22s ease-in-out, color 0.22s ease-in-out;
+  margin-bottom: 20px;
 }
 
 .left-side-dash > form > #pls-plate:hover {
@@ -16425,6 +16511,23 @@ a.text-dark:focus {
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
+}
+
+#pay-button {
+  width: 100%;
+  padding: 20px;
+}
+
+#input-amount {
+  width: 100%;
+  padding: 20px;
+}
+
+body {
+  background-image: url("/img/wallpaper-pay.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 * {

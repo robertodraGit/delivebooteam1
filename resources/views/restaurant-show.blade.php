@@ -24,15 +24,19 @@
       <div class="cart-fixed" v-if='cart.length > 0'>
         Carrello: <br>
 
-        <div class='sub-cart-elements' v-for='item in cart'>
-          <div> 
-                @{{item.plate_quantity}}x / 
-                @{{item.plate_name}} / 
-                @{{item.plate_price}} € 
-        </div>
+        <p>@{{cart_new}}</p>
+
+        <div class='sub-cart-elements' v-for='plate in cart'>
+          {{-- <div>  
+                @{{plate.plate_name}} / 
+                @{{plate.plate_price}} € 
+        </div> --}}
         </div>
         <div>
           Totale: @{{total}}
+          <button @click='get_cart()'>
+            Carrello
+          </button>
         </div>
       </div>
     

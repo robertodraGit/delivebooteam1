@@ -25,21 +25,8 @@
           </div>
         @endif
 
-        @foreach ($plates as $key => $plate)
-
-          <label
-            for="plate_id_{{$key}}"
-          >
-            {{$plate -> plate_name}}
-          </label>
-
-          <input type="checkbox"
-            name="plate_id_{{$key}}"
-            value="{{ $plate -> id }}"
-          >
-          {{-- <span>{{ $plat}}</span> --}}
-          <br>
-
+        @foreach ($plates as $item)
+            {{$item}} <br>
         @endforeach
 
         <label for="first_name">first_name: </label>

@@ -16,12 +16,15 @@ class PaymentController extends Controller
 {
   public function create(Request $request) {
 
-    dd($request -> all());
-    
-    $user = User::all() -> first() -> id;
-    $plates = [];
+    $data = $request -> all();
+    $toPay = $data['total_cart'];
+    unset($data['total_cart']);
 
     $platesAll = Plate::all();
+
+    foreach ($data as $key => $value) {
+      // foreach nell'array del carrello
+    }
 
     foreach ($platesAll as $plate) {
       if ($plate['user_id'] == $user) {
@@ -29,7 +32,7 @@ class PaymentController extends Controller
       }
     }
 
-    return view('orders.order-create', compact('plates'));
+    return view('orders.order-create', compact('plates_selected', 'toPay'));
   }
 
   public function store(Request $request) {

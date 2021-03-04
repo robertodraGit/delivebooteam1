@@ -1,3 +1,5 @@
+const { default: axios } = require('axios');
+
 require('./bootstrap');
 window.Vue = require('vue');
 const files = require.context('./', true, /\.vue$/i)
@@ -12,11 +14,17 @@ function  init() {
          this.get_all_restaurants();
        })},
       data: {
-        // return {
-          restaurants: []
-        // }
+          restaurants: [],
+          cart: [],
       },
       computed: {
+        total() {
+          let total = 0;
+          for (let i = 0; i < this.cart.length; i++) {
+            total += parseFloat(this.cart[i].plate_price);
+          }
+          return total.toFixed(2);
+        },
       },
       methods: {
         get_all_restaurants: function(){
@@ -26,7 +34,13 @@ function  init() {
                   // console.log(this.restaurants);
                 });
         },
+
+        pushInCart: function(plate) {
+          this.cart.push(plate);
+        },
+
       },
   });
 }
+
 document.addEventListener("DOMContentLoaded", init);

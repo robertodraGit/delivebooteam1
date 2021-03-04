@@ -14,7 +14,10 @@ use App\Mail\SendMail;
 
 class PaymentController extends Controller
 {
-  public function create() {
+  public function create(Request $request) {
+
+    dd($request -> all());
+    
     $user = User::all() -> first() -> id;
     $plates = [];
 

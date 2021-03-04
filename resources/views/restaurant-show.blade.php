@@ -14,9 +14,29 @@
         @if ($plate -> visible)
           <plate
             :plate_data='{{$plate}}'
+
+            @@carrello='pushInCart($event)'
+
           ></plate>
         @endif
       @endforeach
+
+      <div class="cart-fixed" v-if='cart.length > 0'>
+        Carrello: <br>
+
+        <div class='sub-cart-elements' v-for='item in cart'>
+          <div> 
+                @{{item.plate_quantity}}x / 
+                @{{item.plate_name}} / 
+                @{{item.plate_price}} € 
+        </div>
+        </div>
+        <div>
+          Totale: @{{total}}
+        </div>
+      </div>
+    
+
     </div>
   </body>
 </html>

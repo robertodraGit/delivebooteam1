@@ -8,27 +8,40 @@ use App\Order;
 use App\Plate;
 use App\User;
 
+use Illuminate\Support\Facades\Mail;
+use App\Mail\SendMail;
+
 
 class PaymentController extends Controller
 {
-  public function create() {
-    $user = User::all() -> first() -> id;
-    $plates = [];
+  public function create(Request $request) {
 
-    $platesAll = Plate::all();
+    $data = $request -> all();
+    $plates_selected = [];
+    $to_pay = 0;
+    $delivery_cost = 0;
 
-    foreach ($platesAll as $plate) {
-      if ($plate['user_id'] == $user) {
-        $plates[] = $plate;
+    foreach ($data as $value) {
+      foreach ($value as $item) {
+
+        $plate_select = Plate::findOrFail($item['plate_id']);
+        $delivery_cost = ($plate_select -> user -> delivery_cost) / 100;
+        
+        $discounted = $plate_select -> price * (100 - $plate_select -> discount);
+
+        $discounted = round($discounted / 10000, 2);
+        $to_pay += $discounted;
+
+        $plates_selected[] = $plate_select;
       }
     }
 
-    return view('orders.order-create', compact('plates'));
+    return view('orders.order-create', compact('plates_selected', 'to_pay', 'delivery_cost'));
   }
 
   public function store(Request $request) {
     $data = $request -> all();
-    // dd($data[]);
+    // dd($data);
 
     // result è un array con id dei plates selected
     foreach ($data as $key => $value) {
@@ -41,65 +54,68 @@ class PaymentController extends Controller
 
     $tot_price = 0;
     $plates = Plate::all();
+    $platesAttach = [];
 
     foreach ($plates as $plate) {
       foreach ($id_plates as $id_frontend) {
         // dd($id_frontend, $plate -> id);
         if ($id_frontend == $plate -> id) {
           $tot_price = $tot_price + $plate -> price;
+          $platesAttach[] = $plate;
         }
       }
     }
-    dd($tot_price);
+    // dd($tot_price);
 
-    // da fare:
-    // validator
+    $data['total_price'] = $tot_price;
 
-    // Validator::make($data, [
-        // varie validation
-    // ]) -> validate();
+    // array di piatti ordinati
+    $platesOrd = [];
 
-    // associare total price all'ordine
-    // associare piatti ad ordine -> attach();
-    // return view del pagamento/carrello
+    foreach ($data as $key => $value) {
+      $exp_key = explode('_', $key);
+      if($exp_key[0] == 'plate'){
+         $platesOrd[] = $value;
+         unset($data[$key]);
+       }
+    }
+    // dd($platesOrd, $data);
+
+    $data['payment_state'] = 0;
+
+    Validator::make($data, [
+
+      'first_name' =>  'required|string|min:2|max:50',
+      'last_name' =>  'required|string|min:2|max:50',
+      'email' => 'required|string|min:3|max:50',
+      'phone' => 'required|string|min:3|max:30',
+      'comment' => 'nullable|string|min:0|max:255',
+      'address' => 'required|string|min:5|max:255',
+      'total_price' =>  'required|integer|min:0|max:999999',
+
+    ]) -> validate();
+
+    $newOrder = Order::make($data);
+    $newOrder -> save();
+    $newOrder -> plates() -> attach($id_plates);
+    // dd($newOrder);
 
 
-
-
-
-
-
-
-    return view('orders.order-show');
+    return view('orders.order-show', compact('newOrder'));
   }
 
+  // public function edit($id) {
+  //   $order = Order::findOrFail($id);
+  //   // dd($order);
+  //   return view('orders.order-edit', compact('order'));
+  // }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  //FUNZIONE DI PAGAMENTO
+  //METODO DI PAGAMENTO
   public function process(Request $request) {
 
-    $res = $request->all();
-    dd($res);
+    $data = $request -> all();
+    dd($data);
 
     $id = $request -> id;
     $payload = $request -> payload;
@@ -124,13 +140,12 @@ class PaymentController extends Controller
     $order['payment_state'] = 1;
     $order -> save();
 
-    // VALUTARE SALVATAGGIO DATI CON UNA NUOVA TABELLA DB
-    // DB::table('order_history')->insert([
-    //   'created_at' => $now,
-    //   'order_id' => $id,
-    //   'payload' => $payload,
-    // ]);
     return response()->json($status, 200);
+  }
+
+
+  public function sendMail() {
+    Mail::to($user['email'])->send(new SendMail($user));
   }
 
 }

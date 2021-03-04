@@ -26,6 +26,7 @@
          return {
             'id': this.restaurant_data.id,
             'name': this.restaurant_data.name,
+            'email': this.restaurant_data.email,
             'address': this.restaurant_data.address,
             'phone': this.restaurant_data.phone,
             'description': this.restaurant_data.description,

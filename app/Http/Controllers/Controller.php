@@ -39,13 +39,15 @@ class Controller extends BaseController
       // 2 cerca nel nome ristorante
       // 3 cerca nei piatti
 
-      $queries = ['italiano', 'cinese'];
+      $queries = ['oasi', 'gelato'];
+      // ******
       // 1- ricerca per categorie
+      // ******
 
-      $restaurant = [];
+      $responseTypologies = [];
       foreach ($queries as $typology) {
 
-        $restaurants[] = DB::table('typology_user')
+        $responseTypologies[] = DB::table('typology_user')
               ->join('typologies', 'typology_user.typology_id', '=', 'typologies.id')
               ->join('users', 'typology_user.user_id', '=', 'users.id')
               ->select('users.id','users.name', 'users.address', 'users.phone', 'users.description', 'users.photo', 'users.delivery_cost')
@@ -53,11 +55,32 @@ class Controller extends BaseController
               ->get();
       }
       // Risultato: Un array di elementi User per categoria.
+      // dd($responseTypologies);
+
+      // ******
+      // 2 cerca nel nome ristorante
+      // ******
+
+      $responseRestNames = [];
+
+      $whereClause = [];
+      foreach ($queries as $query) {
+        $word = '%' . $query . '%';;
+        $whereClause[] = ['name', 'like', $word];
+      }
+
+      $responseRestNames = DB::table('users')
+        ->where(
+            $whereClause
+      )->get();
+      // Risultato: un array di elementi che nel name hanno l'and di tutte le query
+      // dd($responseRestNames);
+
+      dd('blocco');
 
 
-      dd($restaurants);
 
-
+      // Metodo come prima
       $restaurants = User::all('id','name', 'address', 'phone', 'description', 'photo', 'delivery_cost');
 
       foreach ($restaurants as $key => $restaurant) {

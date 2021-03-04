@@ -2175,6 +2175,7 @@ __webpack_require__.r(__webpack_exports__);
       'sconto': this.plate_data.discount,
       'disponibile': this.plate_data.availability,
       'immagine': this.plate_data.img,
+      'plate_id': this.plate_data.id,
       // flags
       'display_details': false,
       //aggiungi al carrello
@@ -2243,6 +2244,16 @@ __webpack_require__.r(__webpack_exports__);
       if (this.disponibile) {
         this.display_details = true;
       }
+    },
+    pushItemInCart: function pushItemInCart() {
+      var plate = {};
+      plate = {
+        "plate_id": this.plate_id,
+        "plate_price": this.total_price,
+        "plate_name": this.nome,
+        "plate_quantity": this.quantity
+      };
+      this.$emit('carrello', plate);
     }
   }
 });
@@ -38160,7 +38171,7 @@ var render = function() {
                 staticClass: "close_details",
                 on: { click: _vm.close_details }
               },
-              [_vm._v("\n        X\n      ")]
+              [_vm._v("\n            X\n          ")]
             )
           ]),
           _vm._v(" "),
@@ -38187,7 +38198,7 @@ var render = function() {
                   staticClass: "remove_plate",
                   on: { click: _vm.remove_quantity }
                 },
-                [_vm._v("\n          -\n        ")]
+                [_vm._v("\n              -\n            ")]
               ),
               _vm._v(" "),
               _c("div", { staticClass: "quantity" }, [
@@ -38197,7 +38208,7 @@ var render = function() {
               _c(
                 "div",
                 { staticClass: "add_plate", on: { click: _vm.add_quantity } },
-                [_vm._v("\n          +\n        ")]
+                [_vm._v("\n              +\n            ")]
               )
             ])
           ]),
@@ -38212,9 +38223,22 @@ var render = function() {
               [_c("span", [_vm._v("Cancella")])]
             ),
             _vm._v(" "),
-            _c("div", { staticClass: "button button-strong" }, [
-              _c("strong", [_vm._v("TOTALE " + _vm._s(_vm.total_price) + "€")])
-            ])
+            _c(
+              "div",
+              {
+                staticClass: "button button-strong",
+                on: {
+                  click: function($event) {
+                    return _vm.pushItemInCart()
+                  }
+                }
+              },
+              [
+                _c("strong", [
+                  _vm._v("TOTALE " + _vm._s(_vm.total_price) + "€")
+                ])
+              ]
+            )
           ])
         ])
       ]
@@ -50478,6 +50502,9 @@ webpackContext.id = "./resources/js sync recursive \\.vue$/";
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
+var _require = __webpack_require__(/*! axios */ "./node_modules/axios/index.js"),
+    axios = _require["default"];
+
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
@@ -50498,11 +50525,20 @@ function init() {
       });
     },
     data: {
-      // return {
-      restaurants: [] // }
-
+      restaurants: [],
+      cart: []
     },
-    computed: {},
+    computed: {
+      total: function total() {
+        var total = 0;
+
+        for (var i = 0; i < this.cart.length; i++) {
+          total += parseFloat(this.cart[i].plate_price);
+        }
+
+        return total.toFixed(2);
+      }
+    },
     methods: {
       get_all_restaurants: function get_all_restaurants() {
         var _this = this;
@@ -50510,6 +50546,9 @@ function init() {
         axios.get('http://localhost:8000/home/getallrestaurant').then(function (res) {
           _this.restaurants = res.data.restaurants; // console.log(this.restaurants);
         });
+      },
+      pushInCart: function pushInCart(plate) {
+        this.cart.push(plate);
       }
     }
   });
@@ -50858,8 +50897,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\marco\Boolean\progetti-esercizi\delivebooteam1\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\marco\Boolean\progetti-esercizi\delivebooteam1\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /home/robb/Documenti/BOOLEAN/DeliveBoo/delivebooteam1/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /home/robb/Documenti/BOOLEAN/DeliveBoo/delivebooteam1/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

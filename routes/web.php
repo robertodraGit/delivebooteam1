@@ -56,7 +56,7 @@ Route::get('/restaurant/{id}', 'Controller@restaurantShow') -> name('restaurant-
 
 
     // rotta per creare ordine fasullo
-  Route::get('/create/order', 'PaymentController@create')
+  Route::post('/create/order', 'PaymentController@create')
       -> name('order-create');
   Route::post('/new/order/store', 'PaymentController@store')
       -> name('order-store');

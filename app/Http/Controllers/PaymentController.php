@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Validator;
-use Illuminate\Support\Facades\Auth;
 
 use Illuminate\Http\Request;
 use App\Order;
@@ -17,23 +16,27 @@ class PaymentController extends Controller
 {
   public function create(Request $request) {
 
-    // dd($request -> all());
-    $user = Auth::id();
-    // dd($user);
+    $data = $request -> all();
+    $plates_selected = [];
+    $to_pay = 0;
+    $delivery_cost = 0;
 
-    // $user = User::all() -> first() -> id;
-    $plates = [];
+    foreach ($data as $value) {
+      foreach ($value as $item) {
 
-    $platesAll = Plate::all();
+        $plate_select = Plate::findOrFail($item['plate_id']);
+        $delivery_cost = ($plate_select -> user -> delivery_cost) / 100;
+        
+        $discounted = $plate_select -> price * (100 - $plate_select -> discount);
 
+        $discounted = round($discounted / 10000, 2);
+        $to_pay += $discounted;
 
-    foreach ($platesAll as $plate) {
-      if ($plate['user_id'] == $user) {
-        $plates[] = $plate;
+        $plates_selected[] = $plate_select;
       }
     }
 
-    return view('orders.order-create', compact('plates'));
+    return view('orders.order-create', compact('plates_selected', 'to_pay', 'delivery_cost'));
   }
 
   public function store(Request $request) {
@@ -111,6 +114,8 @@ class PaymentController extends Controller
   //METODO DI PAGAMENTO
   public function process(Request $request) {
 
+    $data = $request -> all();
+    dd($data);
 
     $id = $request -> id;
     $payload = $request -> payload;

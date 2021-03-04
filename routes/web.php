@@ -50,7 +50,7 @@ Route::get('/dashboard/restaurant/comanda/{id}', 'OrderController@restaurantComa
     -> name('order-show');
 
 
-  Route::get('/create/order', 'PaymentController@create')
+  Route::post('/create/order', 'PaymentController@create')
       -> name('order-create');
   Route::post('/new/order/store', 'PaymentController@store')
       -> name('order-store');

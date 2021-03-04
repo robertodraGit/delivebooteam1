@@ -5,18 +5,17 @@
     <div class="container-dashboard">
 
         <div class="left-side-dash">
+            <h3>Welcome
+                <span>{{ $mail_cut }}!</span>
+            </h3>
 
-            <div class="img-user">
-                @if (Auth::user() -> photo)
-                    <img src="{{ asset('/storage/restaurant_icon/' . Auth::user() -> photo) }}" alt="">
-                @else
-                    <img src="{{ asset('/images/user.svg') }}" alt="">
-                @endif
+            <div>
+                <hr>
             </div>
 
-            <h1>
-                {{ $mail_cut }}
-            </h1>
+            <h3>
+                {{ Auth::user()-> name }}
+            </h3>
 
             <form action="{{ route('plates-create') }}">
                 <button id="pls-plate" type="submit">
@@ -25,32 +24,28 @@
                 </button>
             </form>
 
-
-
             <div class="buttons-left-dash">
-                <h4>Dashboard</h4>
+
                 <form action="{{ route('restaurant-edit') }}">
                     <button class="btn btn-success" type="submit">
-                        Modifica il tuo profilo
+                        Modifica Dati
                         <span class="plate-color"></span><span class="plate-color"></span><span class="plate-color"></span><span class="plate-color"></span>
                     </button>
                 </form>
 
                 <form action="{{ route('plates-index') }}">
-                    <button class="btn btn-success" type="submit">
-                        Visualizza i tuoi piatti
+                    <button id="view-plate"class="btn btn-success" type="submit">
+                        Visualizza Piatti
                         <span class="plate-color"></span><span class="plate-color"></span><span class="plate-color"></span><span class="plate-color"></span>
                     </button>
                 </form>
 
-                <form class="" action="{{ route('orders-index') }}">
-                    <button>
-                        Visualizza i tuoi ordini
-                        <span class="order-color"></span><span class="order-color"></span><span class="order-color"></span><span class="order-color"></span>
-                    </button>
-                </form>
                 <button>
-                    Statistiche ordini
+                   <a href="{{route('restaurant-order')}}">Visualizza Ordini</a>
+                   <span class="order-color"></span><span class="order-color"></span><span class="order-color"></span><span class="order-color"></span>
+                </button>
+                <button>
+                    Statistiche Ordini
                     <span class="order-color"></span><span class="order-color"></span><span class="order-color"></span><span class="order-color"></span>
                 </button>
 
@@ -72,72 +67,18 @@
         <div class="right-side-dash">
             <div class="header-right-dash">
 
-                <h3>Welcome
-                    <span>{{ Auth::user() -> name }}!</span>
-                </h3>
-
                 <a href="{{ route('index') }}">
                     <img src="{{ asset('/images/deliveroo-logo.svg') }}" alt="">
                 </a>
             </div>
 
-            {{-- CONTAINER PRINCIPALE DELLE CARD --}}
-            <div class="container-card">
-                {{-- CARD ORDER--}}
-                <div class="card">
-                    <h3>Gli ultimi ordini</h3>
-                    {{-- LISTA ORDINI NELLA CARD --}}
-                    <div class="mini-card">
-                        <h5>Pippo Ronaldo</h5>
-                        <hr>
-                        <div class="price-right">
-                            <p>Status: pagato</p>
-                            <span>23,65€</span>
-                        </div>
-                        <p>Cellulare: 3333333</p>
-                    </div>
-                    <div class="mini-card">
-                        <h5>Pippo Ronaldo</h5>
-                        <hr>
-                        <div class="price-right">
-                            <p>Status: pagato</p>
-                            <span>23,65€</span>
-                        </div>
-                        <p>Cellulare: 3333333</p>
-                    </div>
-                    <div class="mini-card">
-                        <h5>Pippo Ronaldo</h5>
-                        <hr>
-                        <div class="price-right">
-                            <p>Status: pagato</p>
-                            <span>23,65€</span>
-                        </div>
-                        <p>Cellulare: 3333333</p>
-                    </div>
-                </div>
-                {{-- CARD STATISTICS --}}
-                <div class="card">
-                    <h3>Le tue statistiche</h3>
-                    <div class="graph-chart-js">
-                        <h3>Grafico statistiche</h3>
-                    </div>
-                </div>
-                {{-- CARD FEEDBACK --}}
-                <div class="card">
-                    <h3>I tuoi feedback</h3>
-                    <div class="percentual-feed">
-                        <h1>90%</h1>
-                        <h4>positivi</h4>
-                    </div>
-                </div>
-            </div>
-
             <div class="last-order">
                 <h2>
-                    I tuoi ultimi 10 ordini
+                    Ultimi ordini ricevuti
                 </h2>
 
                 {{-- CARD ORDINI --}}
+
                 <div class="card-order">
                     <div class='card-relative'>
 
@@ -204,29 +145,35 @@
                                 <button>Apri comanda</button>
                             </div>
                         </div>
+
                     </div>
                 </div>
+
+                {{-- fine card ORDINI --}}
+
             </div>
-            {{-- fine card ORDINI --}}
 
-            {{-- <div class="footer-dash">
+            <div class="footer-dash">
                 <div>
-                    <form class="" action="{{ route('orders-index') }}">
+                    <a href="{{route('restaurant-order')}}">
                         <button>
-                            Visualizza tutti gli ordini
+                          Visualizza tutti gli ordini
                         </button>
-                    </form>
+                    </a>
+                </div>
 
-                </div> --}}
+                <div class="graph-chart-js">
+                    grafici
+                </div>
 
-
-            <div>
-                <ul>
-                    @foreach ($feedbacks as $fb)
-                        <li>{{ $fb -> email }}</li> <br>
-                        <li>{{ $fb -> rate }}</li>
-                    @endforeach
-                </ul>
+                <div>
+                    <ul>
+                        @foreach ($feedbacks as $fb)
+                            <li>{{ $fb -> email }}</li> <br>
+                            <li>{{ $fb -> rate }}</li>
+                        @endforeach
+                    </ul>
+                </div>
             </div>
         </div>
 

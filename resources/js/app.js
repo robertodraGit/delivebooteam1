@@ -92,7 +92,7 @@ function  init() {
                   for(let i=0; i<cart.data.length; i++) {
                     this.order.push(cart.data[i]);
                   }
-                  window.location.href = 'http://localhost:8000/create/order';
+                  // window.location.href = 'http://localhost:8000/create/order';
                 })
                 .catch(error => {
                   console.log(error);

@@ -175,22 +175,17 @@ cut del testo da vue (ok ma non va da responsive) -->
           
           let plate = {};
           
-          
+          for (let i = 0; i < this.quantity; i++) {
+            
             plate = {
               "plate_id": this.plate_id,
-              "plate_price" : this.total_price,
-              "plate_name": this.nome,
-              "plate_quantity" : this.quantity,
+              "plate_price" : this.prezzo_sconto,
+              "plate_name": this.nome, 
             };
 
             this.$emit('carrello', plate);
-          
-
-        },
-        
+          }          
+        }, 
       },
-
-
-
     }
 </script>

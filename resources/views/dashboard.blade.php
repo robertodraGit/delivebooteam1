@@ -43,7 +43,7 @@
                     </button>
                 </form>
 
-                <form class="" action="{{ route('restaurant-order') }}">
+                <form class="" action="{{ route('orders-index') }}">
                     <button>
                         Visualizza i tuoi ordini
                         <span class="order-color"></span><span class="order-color"></span><span class="order-color"></span><span class="order-color"></span>
@@ -71,7 +71,7 @@
 
         <div class="right-side-dash">
             <div class="header-right-dash">
-
+                
                 <h3>Welcome
                     <span>{{ Auth::user() -> name }}!</span>
                 </h3>
@@ -218,6 +218,7 @@
                     </form>
 
                 </div> --}}
+
 
             <div>
                 <ul>

@@ -4868,16 +4868,43 @@ readers do not read off random characters that represent icons */
   padding-left: 2rem;
   padding-top: 3rem;
   padding-right: 2rem;
+  display: block;
+}
+
+@media all and (min-width: 868px) and (max-width: 1199px) {
+  .left-side-dash {
+    width: 30%;
+  }
+}
+
+@media all and (min-width: 400px) and (max-width: 867px) {
+  .left-side-dash {
+    display: none;
+  }
 }
 
 .left-side-dash .img-user {
   display: flex;
   justify-content: center;
-  width: 40%;
-  height: 15%;
+  width: 125px;
+  height: 125px;
   margin: 20px auto;
   border-radius: 50%;
   border: 2px solid #ffffff;
+}
+
+@media all and (min-width: 1200px) and (max-width: 1600px) {
+  .left-side-dash .img-user {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+@media all and (min-width: 868px) and (max-width: 1199px) {
+  .left-side-dash .img-user {
+    width: 90px;
+    height: 90px;
+  }
 }
 
 .left-side-dash .img-user > img {
@@ -4886,8 +4913,15 @@ readers do not read off random characters that represent icons */
 }
 
 .left-side-dash > h1 {
-  text-align: center;
   color: #ffffff;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+@media all and (min-width: 868px) and (max-width: 1999px) {
+  .left-side-dash > h1 {
+    font-size: 30px;
+  }
 }
 
 .left-side-dash > form > #pls-plate {
@@ -4896,10 +4930,10 @@ readers do not read off random characters that represent icons */
   font-weight: bold;
   font-size: 16px;
   text-transform: uppercase;
-  width: 90%;
+  text-align: center;
+  width: 100%;
   padding: 0.6rem 0.8rem;
   margin-top: 1rem;
-  margin-left: 1.3rem;
   border: none;
   border-radius: 22px;
   box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.5);
@@ -4907,19 +4941,19 @@ readers do not read off random characters that represent icons */
 }
 
 .left-side-dash i {
-  margin-right: 22px;
+  margin-right: 5px;
   font-size: 18px;
 }
 
 .left-side-dash .buttons-left-dash {
   display: flex;
+  justify-content: center;
   flex-direction: column;
   padding-top: 3rem;
 }
 
 .left-side-dash .buttons-left-dash h4 {
   margin-top: 2.5rem;
-  margin-left: 1.5rem;
   text-transform: uppercase;
   font-weight: bold;
   color: #ffffff;
@@ -4928,10 +4962,9 @@ readers do not read off random characters that represent icons */
 .left-side-dash .buttons-left-dash button {
   background-color: #ffffff;
   color: #00CCBC;
-  width: 90%;
+  width: 100%;
   padding: 0.6rem 0.8rem;
   margin-top: 1rem;
-  margin-left: 1.3rem;
   border: none;
   border-radius: 22px;
   box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.5);
@@ -4978,10 +5011,9 @@ readers do not read off random characters that represent icons */
 }
 
 .left-side-dash .buttons-left-dash a {
-  width: 90%;
+  width: 100%;
   font-size: 16px;
   text-transform: uppercase;
-  margin-left: 1.3rem;
   border-radius: 22px;
   box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.5);
   margin-top: 100px;
@@ -4994,7 +5026,19 @@ readers do not read off random characters that represent icons */
   height: auto;
   overflow: auto;
   background-color: white;
-  padding: 0 3rem;
+  padding: 0 2rem;
+}
+
+@media all and (min-width: 868px) and (max-width: 1199px) {
+  .right-side-dash {
+    width: 70%;
+  }
+}
+
+@media all and (min-width: 400px) and (max-width: 867px) {
+  .right-side-dash {
+    width: 100%;
+  }
 }
 
 .right-side-dash .header-right-dash {
@@ -5003,8 +5047,32 @@ readers do not read off random characters that represent icons */
   padding-top: 3rem;
 }
 
+@media all and (min-width: 868px) and (max-width: 1199px) {
+  .right-side-dash .header-right-dash > h3 {
+    font-size: 20px;
+  }
+}
+
+@media all and (min-width: 300px) and (max-width: 867px) {
+  .right-side-dash .header-right-dash > h3 {
+    font-size: 18px;
+  }
+}
+
 .right-side-dash .header-right-dash > h3 > span {
   font-size: 35px;
+}
+
+@media all and (min-width: 868px) and (max-width: 1199px) {
+  .right-side-dash .header-right-dash > h3 > span {
+    font-size: 25px;
+  }
+}
+
+@media all and (min-width: 300px) and (max-width: 867px) {
+  .right-side-dash .header-right-dash > h3 > span {
+    font-size: 22px;
+  }
 }
 
 .right-side-dash .header-right-dash img {
@@ -5012,18 +5080,59 @@ readers do not read off random characters that represent icons */
   margin-right: 5px;
 }
 
+@media all and (min-width: 868px) and (max-width: 1199px) {
+  .right-side-dash .header-right-dash img {
+    width: 100px;
+  }
+}
+
+@media all and (min-width: 300px) and (max-width: 867px) {
+  .right-side-dash .header-right-dash img {
+    width: 80px;
+  }
+}
+
 .right-side-dash .container-card {
   display: flex;
   justify-content: space-between;
 }
 
+@media all and (min-width: 868px) and (max-width: 1199px) {
+  .right-side-dash .container-card {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+@media all and (min-width: 400px) and (max-width: 867px) {
+  .right-side-dash .container-card {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
 .right-side-dash .container-card .card {
   flex-basis: calc((100% / 3) - 40px);
-  height: 470px;
+  height: 500px;
   border-radius: 10px;
   box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.5);
   margin: 50px 0px;
   padding: 15px;
+}
+
+@media all and (min-width: 1200px) and (max-width: 1600px) {
+  .right-side-dash .container-card .card {
+    flex-basis: calc((100% / 3) - 20px);
+    height: auto;
+  }
+}
+
+@media all and (min-width: 868px) and (max-width: 1199px) {
+  .right-side-dash .container-card .card {
+    height: auto;
+    flex-basis: 100%;
+    margin: 50px 0px 0px 0px;
+  }
 }
 
 .right-side-dash .container-card .card > h3 {
@@ -5033,11 +5142,29 @@ readers do not read off random characters that represent icons */
   color: #00CCBC;
 }
 
+@media all and (min-width: 1200px) and (max-width: 1600px) {
+  .right-side-dash .container-card .card > h3 {
+    font-size: 24px;
+  }
+}
+
+@media all and (min-width: 868px) and (max-width: 1199px) {
+  .right-side-dash .container-card .card > h3 {
+    font-size: 20px;
+  }
+}
+
+@media all and (min-width: 300px) and (max-width: 867px) {
+  .right-side-dash .container-card .card > h3 {
+    font-size: 18px;
+  }
+}
+
 .right-side-dash .container-card .card .mini-card {
-  width: 85%;
+  width: 90%;
   margin: 10px auto;
-  padding: 15px;
-  height: calc(100% / 3)-50px;
+  padding: 20px;
+  height: calc(100% / 3);
   background-color: #00CCBC;
   color: #ffffff;
   border-radius: 10px;
@@ -5067,18 +5194,63 @@ readers do not read off random characters that represent icons */
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  width: 55%;
-  height: 55%;
-  margin: 40px auto;
+  width: 250px;
+  height: 250px;
+  margin: auto;
   border-radius: 50%;
-  border: 25px solid #00CCBC;
+  border: 35px solid #00CCBC;
 }
 
-.right-side-dash .container-card .card .percentual-feed > h1,
-.right-side-dash .container-card .card .percentual-feed h4 {
+@media all and (min-width: 1200px) and (max-width: 1600px) {
+  .right-side-dash .container-card .card .percentual-feed {
+    width: 200px;
+    height: 200px;
+    border: 25px solid #00CCBC;
+  }
+}
+
+@media all and (min-width: 868px) and (max-width: 1199px) {
+  .right-side-dash .container-card .card .percentual-feed {
+    width: 150px;
+    height: 150px;
+    border: 15px solid #00CCBC;
+  }
+}
+
+.right-side-dash .container-card .card .percentual-feed > h1 {
   margin: 0;
   color: #00CCBC;
   font-weight: bold;
+}
+
+@media all and (min-width: 868px) and (max-width: 1199px) {
+  .right-side-dash .container-card .card .percentual-feed > h1 {
+    font-size: 30px;
+  }
+}
+
+@media all and (min-width: 300px) and (max-width: 867px) {
+  .right-side-dash .container-card .card .percentual-feed > h1 {
+    font-size: 26px;
+  }
+}
+
+.right-side-dash .container-card .card .percentual-feed > h4 {
+  margin: 0;
+  color: #00CCBC;
+  font-weight: bold;
+}
+
+@media all and (min-width: 868px) and (max-width: 1199px) {
+  .right-side-dash .container-card .card .percentual-feed > h4 {
+    font-size: 16px;
+  }
+}
+
+@media all and (min-width: 300px) and (max-width: 867px) {
+  .right-side-dash .container-card .card .percentual-feed > h4 {
+    font-size: 14px;
+  }
 }
 
 .right-side-dash .last-order {
@@ -5086,7 +5258,7 @@ readers do not read off random characters that represent icons */
   display: flex;
   flex-direction: column;
   height: auto;
-  margin: 2rem 0;
+  margin: 4rem 0 1rem 0;
 }
 
 .right-side-dash .last-order h2 {
@@ -5094,15 +5266,16 @@ readers do not read off random characters that represent icons */
 }
 
 .right-side-dash .card-order {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100%;
   background-color: #00CCBC;
   border-radius: 18px;
   height: auto;
   margin-bottom: 2rem;
   box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.5);
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  padding: 10px;
 }
 
 .right-side-dash .card-order .card-relative {
@@ -5136,6 +5309,13 @@ readers do not read off random characters that represent icons */
   align-items: flex-end;
 }
 
+@media all and (min-width: 300px) and (max-width: 867px) {
+  .right-side-dash .card-order .card-relative .right-card-order {
+    width: 20%;
+    height: 100%;
+  }
+}
+
 .right-side-dash .card-order .card-relative .right-card-order button {
   background-color: #ffffff;
   color: #00CCBC;
@@ -5144,6 +5324,12 @@ readers do not read off random characters that represent icons */
   padding: 0.6rem 0.8rem;
   margin-bottom: 10px;
   box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.5);
+}
+
+@media all and (min-width: 300px) and (max-width: 867px) {
+  .right-side-dash .card-order .card-relative .right-card-order button {
+    margin-bottom: 0;
+  }
 }
 
 .right-side-dash .footer-dash {

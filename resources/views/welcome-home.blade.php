@@ -7,7 +7,7 @@
         <div class="container">
             <div class="menu"> <!-- vue -->
                 <a href="#">menu</a>
-            </div> 
+            </div>
             <div class="logo">logo</div>
             <input type="text" placeholder="Piatti">
             <div class="cart">cart</div>
@@ -18,11 +18,27 @@
     <main>
 
         <div class="container">
-            
-          <div id="app">
-            <slider></slider>
+
+          <div class="plates_container">
+
+            <div id="app">
+
+              @foreach ($plates as $plate)
+                <plate
+                :plate_data = {{ $plate }}
+                >
+              </plate>
+
+            @endforeach
+
+            {{-- <slider
+            ></slider> --}}
+
+            </div>
+
           </div>
-          
+
+
 
           <section>
               <h1>Ristoranti</h1>

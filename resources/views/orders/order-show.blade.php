@@ -52,48 +52,11 @@
         <button class="button" type="submit"><span>Test Transaction</span></button>
     </form>
 
-
-    <script src="https://js.braintreegateway.com/web/dropin/1.26.1/js/dropin.min.js"></script>
-    <script>
-        var form = document.querySelector('#payment-form');
-        var client_token = "{{ $token }}";
-
-
-        braintree.dropin.create({
-          authorization: client_token,
-          selector: '#bt-dropin',
-          paypal: {
-            flow: 'vault'
-          }
-        }, function (createErr, instance) {
-          if (createErr) {
-            console.log('Create Error', createErr);
-            return;
-          }
-          form.addEventListener('submit', function (event) {
-            event.preventDefault();
-
-            instance.requestPaymentMethod(function (err, payload) {
-              if (err) {
-                console.log('Request Payment Method Error', err);
-                return;
-              }
-
-              // Add the nonce to the form and submit
-              document.querySelector('#nonce').value = payload.nonce;
-              form.submit();
-            });
-          });
-        });
-    </script>
-
-
   {{-- authorization: 'sandbox_rz8r6b9s_r3wz32g49xjhgn4p' --}}
 
 
   {{-- SCRIPT PER FAR GIRARE BRAINTREE --}}
   {{-- <script>
-    // var braintree = require('braintree');
     var orderUri = "{{ route('pagamento', $newOrder -> id)}}";
     var buttonBasic = document.querySelector('#submit-button');
     braintree.dropin.create({
@@ -103,8 +66,23 @@
           buttonBasic.addEventListener('click', function () {
             instance.requestPaymentMethod(function (err, payload) {
 
-                $.ajax({
-                  url: orderUri
+              $.ajax({
+                url: "{{ route('pagamento') }}",
+                success: true,
+                type: "GET",
+                data: {
+                    id: {{$newOrder -> id}},
+                    payload: payload
+                },
+
+                success: function (result) {
+                  console.log(result);
+                  alert('script eseguito');
+                },
+
+                error: function(error, status){
+                  console.log('errore:' + error);
+                  }
                 });
 
               });
@@ -113,23 +91,6 @@
   </script> --}}
 
 
-  {{-- $.ajax({
-    url: "{{ route('pagamento') }}",
-    success: true,
-    type: "GET",
-    data: {
-        id: {{$newOrder -> id}},
-        payload: payload
-    },
 
-    success: function (result) {
-      console.log(result);
-      alert('script eseguito');
-    },
-
-    error: function(error, status){
-      console.log('errore:' + error);
-      }
-    }); --}}
 
 @endsection

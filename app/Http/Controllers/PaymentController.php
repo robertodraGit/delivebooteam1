@@ -16,8 +16,8 @@ class PaymentController extends Controller
 {
   public function create(Request $request) {
 
-    dd($request -> all());
-    
+    // dd($request -> all());
+
     $user = User::all() -> first() -> id;
     $plates = [];
 
@@ -107,8 +107,6 @@ class PaymentController extends Controller
   //METODO DI PAGAMENTO
   public function process(Request $request) {
 
-    $data = $request -> all();
-    dd($data);
 
     $id = $request -> id;
     $payload = $request -> payload;

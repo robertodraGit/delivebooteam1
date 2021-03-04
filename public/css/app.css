@@ -15778,6 +15778,23 @@ a.text-dark:focus {
   color: white;
 }
 
+.cart-fixed {
+  position: fixed;
+  top: 10%;
+  right: 5%;
+  width: 300px;
+  height: 300px;
+  background-color: #d8d8d8;
+  padding: 1rem;
+  border-radius: 1rem;
+}
+
+.cart-fixed .sub-cart-elements {
+  display: flex;
+  justify-content: space-between;
+  line-height: 1.6rem;
+}
+
 .container-dashboard {
   width: 100vw;
   display: flex;

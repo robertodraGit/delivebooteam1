@@ -43,13 +43,6 @@ Route::get('/dashboard/restaurant/orders', 'OrderController@restaurantOrder') ->
 Route::get('/dashboard/restaurant/comanda/{id}', 'OrderController@restaurantComanda') -> name('restaurant-comanda');
 
 
-
-
-
-
-
-
-
 // rotte x tutti gli order nel db
   Route::get('/orders', 'OrderController@index')
     -> name('orders-index');

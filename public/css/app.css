@@ -15795,11 +15795,18 @@ a.text-dark:focus {
   padding-left: 2rem;
   padding-top: 3rem;
   padding-right: 2rem;
+  display: block;
 }
 
 @media all and (min-width: 868px) and (max-width: 1199px) {
   .left-side-dash {
     width: 30%;
+  }
+}
+
+@media all and (min-width: 400px) and (max-width: 867px) {
+  .left-side-dash {
+    display: none;
   }
 }
 
@@ -15955,6 +15962,12 @@ a.text-dark:focus {
   }
 }
 
+@media all and (min-width: 400px) and (max-width: 867px) {
+  .right-side-dash {
+    width: 100%;
+  }
+}
+
 .right-side-dash .header-right-dash {
   display: flex;
   justify-content: space-between;
@@ -15967,6 +15980,12 @@ a.text-dark:focus {
   }
 }
 
+@media all and (min-width: 300px) and (max-width: 867px) {
+  .right-side-dash .header-right-dash > h3 {
+    font-size: 18px;
+  }
+}
+
 .right-side-dash .header-right-dash > h3 > span {
   font-size: 35px;
 }
@@ -15974,6 +15993,12 @@ a.text-dark:focus {
 @media all and (min-width: 868px) and (max-width: 1199px) {
   .right-side-dash .header-right-dash > h3 > span {
     font-size: 25px;
+  }
+}
+
+@media all and (min-width: 300px) and (max-width: 867px) {
+  .right-side-dash .header-right-dash > h3 > span {
+    font-size: 22px;
   }
 }
 
@@ -15988,12 +16013,25 @@ a.text-dark:focus {
   }
 }
 
+@media all and (min-width: 300px) and (max-width: 867px) {
+  .right-side-dash .header-right-dash img {
+    width: 80px;
+  }
+}
+
 .right-side-dash .container-card {
   display: flex;
   justify-content: space-between;
 }
 
 @media all and (min-width: 868px) and (max-width: 1199px) {
+  .right-side-dash .container-card {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+@media all and (min-width: 400px) and (max-width: 867px) {
   .right-side-dash .container-card {
     display: flex;
     flex-direction: column;
@@ -16040,6 +16078,12 @@ a.text-dark:focus {
 @media all and (min-width: 868px) and (max-width: 1199px) {
   .right-side-dash .container-card .card > h3 {
     font-size: 20px;
+  }
+}
+
+@media all and (min-width: 300px) and (max-width: 867px) {
+  .right-side-dash .container-card .card > h3 {
+    font-size: 18px;
   }
 }
 
@@ -16112,6 +16156,12 @@ a.text-dark:focus {
   }
 }
 
+@media all and (min-width: 300px) and (max-width: 867px) {
+  .right-side-dash .container-card .card .percentual-feed > h1 {
+    font-size: 26px;
+  }
+}
+
 .right-side-dash .container-card .card .percentual-feed > h4 {
   margin: 0;
   color: #00CCBC;
@@ -16121,6 +16171,12 @@ a.text-dark:focus {
 @media all and (min-width: 868px) and (max-width: 1199px) {
   .right-side-dash .container-card .card .percentual-feed > h4 {
     font-size: 16px;
+  }
+}
+
+@media all and (min-width: 300px) and (max-width: 867px) {
+  .right-side-dash .container-card .card .percentual-feed > h4 {
+    font-size: 14px;
   }
 }
 
@@ -16180,6 +16236,13 @@ a.text-dark:focus {
   align-items: flex-end;
 }
 
+@media all and (min-width: 300px) and (max-width: 867px) {
+  .right-side-dash .card-order .card-relative .right-card-order {
+    width: 20%;
+    height: 100%;
+  }
+}
+
 .right-side-dash .card-order .card-relative .right-card-order button {
   background-color: #ffffff;
   color: #00CCBC;
@@ -16188,6 +16251,12 @@ a.text-dark:focus {
   padding: 0.6rem 0.8rem;
   margin-bottom: 10px;
   box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.5);
+}
+
+@media all and (min-width: 300px) and (max-width: 867px) {
+  .right-side-dash .card-order .card-relative .right-card-order button {
+    margin-bottom: 0;
+  }
 }
 
 .right-side-dash .footer-dash {

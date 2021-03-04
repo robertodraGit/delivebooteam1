@@ -15,10 +15,16 @@
     padding-left: 2rem;
     padding-top: 3rem;
     padding-right: 2rem;
+    display: block;
 
     @media all and (min-width: 868px) and (max-width: 1199px) {
         width: 30%;
     }
+
+    @media all and (min-width: 400px) and (max-width: 867px) {
+        display: none;
+    }
+
 
 
     .img-user {
@@ -172,6 +178,11 @@
         width: 70%;
     }
 
+    @media all and (min-width: 400px) and (max-width: 867px) {
+        width: 100%;
+    }
+
+
 
     .header-right-dash {
         display: flex;
@@ -184,6 +195,11 @@
                 font-size: 20px;
             }
 
+            @media all and (min-width: 300px) and (max-width: 867px) {
+                font-size: 18px;
+            }
+
+
         }
 
         & > h3 > span {
@@ -192,6 +208,11 @@
             @media all and (min-width: 868px) and (max-width: 1199px) {
                 font-size: 25px;
             }
+
+            @media all and (min-width: 300px) and (max-width: 867px) {
+                font-size: 22px;
+            }
+
 
         }
 
@@ -202,6 +223,11 @@
             @media all and (min-width: 868px) and (max-width: 1199px) {
                 width: 100px;
             }
+
+            @media all and (min-width: 300px) and (max-width: 867px) {
+                width: 80px;
+            }
+
 
         }
     }
@@ -214,6 +240,12 @@
             display: flex;
             flex-direction: column;
         }
+
+        @media all and (min-width: 400px) and (max-width: 867px) {
+            display: flex;
+            flex-direction: column;
+        }
+
 
 
         .card {
@@ -250,6 +282,11 @@
                 @media all and (min-width: 868px) and (max-width: 1199px) {
                     font-size: 20px;
                 }
+
+                @media all and (min-width: 300px) and (max-width: 867px) {
+                    font-size: 18px;
+                }
+
 
             }
 
@@ -309,6 +346,7 @@
                     border: 15px solid $color_deliveroo;
                 }
 
+
                 & > h1 {
                     margin: 0;
                     color: $color_deliveroo;
@@ -317,6 +355,11 @@
                     @media all and (min-width: 868px) and (max-width: 1199px) {
                         font-size: 30px;
                     }
+
+                    @media all and (min-width: 300px) and (max-width: 867px) {
+                        font-size: 26px;
+                    }
+
 
                 }
 
@@ -328,6 +371,11 @@
                     @media all and (min-width: 868px) and (max-width: 1199px) {
                         font-size: 16px;
                     }
+
+                    @media all and (min-width: 300px) and (max-width: 867px) {
+                        font-size: 14px;
+                    }
+
 
                 }
             }
@@ -390,6 +438,11 @@
                 flex-direction: column;
                 justify-content: space-between;
                 align-items: flex-end;
+                @media all and (min-width: 300px) and (max-width: 867px) {
+                    width: 20%;
+                    height: 100%;
+                }
+
 
                 button {
                     background-color: $variable2;
@@ -399,6 +452,11 @@
                     padding: 0.6rem $padding_button;
                     margin-bottom: 10px;
                     box-shadow: $shadow_button;
+
+                    @media all and (min-width: 300px) and (max-width: 867px) {
+                        margin-bottom: 0;
+                    }
+
                 }
             }
         }

@@ -31,3 +31,11 @@ function  init() {
 }
 
 document.addEventListener("DOMContentLoaded", init);
+
+// elemento Vue per il menu hamburger dashboard
+var sidemenu = new Vue({
+	el: '#sidemenu',
+	data: {
+		navOpen: true,
+	},
+})

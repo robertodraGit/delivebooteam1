@@ -8,6 +8,9 @@ use App\Order;
 use App\Plate;
 use App\User;
 
+use Illuminate\Support\Facades\Mail;
+use App\Mail\SendMail;
+
 
 class PaymentController extends Controller
 {
@@ -91,33 +94,18 @@ class PaymentController extends Controller
     return view('orders.order-show', compact('newOrder'));
   }
 
+  // public function edit($id) {
+  //   $order = Order::findOrFail($id);
+  //   // dd($order);
+  //   return view('orders.order-edit', compact('order'));
+  // }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  //FUNZIONE DI PAGAMENTO
+  //METODO DI PAGAMENTO
   public function process(Request $request) {
 
-    $res = $request->all();
-    dd($res);
+    $data = $request -> all();
+    dd($data);
 
     $id = $request -> id;
     $payload = $request -> payload;
@@ -142,13 +130,12 @@ class PaymentController extends Controller
     $order['payment_state'] = 1;
     $order -> save();
 
-    // VALUTARE SALVATAGGIO DATI CON UNA NUOVA TABELLA DB
-    // DB::table('order_history')->insert([
-    //   'created_at' => $now,
-    //   'order_id' => $id,
-    //   'payload' => $payload,
-    // ]);
     return response()->json($status, 200);
+  }
+
+
+  public function sendMail() {
+    Mail::to($user['email'])->send(new SendMail($user));
   }
 
 }

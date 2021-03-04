@@ -16496,6 +16496,23 @@ a.text-dark:focus {
           user-select: none;
 }
 
+#pay-button {
+  width: 100%;
+  padding: 20px;
+}
+
+#input-amount {
+  width: 100%;
+  padding: 20px;
+}
+
+body {
+  background-image: url("/img/wallpaper-pay.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
 * {
   margin: 0;
   padding: 0;

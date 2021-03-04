@@ -1,3 +1,5 @@
+const { default: axios } = require('axios');
+
 require('./bootstrap');
 window.Vue = require('vue');
 const files = require.context('./', true, /\.vue$/i)
@@ -12,12 +14,55 @@ function  init() {
          this.get_all_restaurants();
        })},
       data: {
-        // return {
-          restaurants: []
-        // }
+          restaurants: [],
+          cart: [],
+          order: [],
+          checkout: 0,
       },
       computed: {
+
+        cart_new: function() {
+
+          let cart_order = [];
+          this.cart.forEach(element => {
+
+            if(!cart_order.some(plate => plate.plate_id == element.plate_id)) {
+
+              let new_element = element;
+              new_element['quantity'] = 1;
+              cart_order.push(new_element);
+
+            } else {
+
+              for(let i=0; i<cart_order.length; i++) {
+
+                if(cart_order[i].plate_id == element.plate_id) {
+
+                  cart_order[i].quantity++;
+
+                  cart_order[i].plate_price = parseFloat(cart_order[i].quantity).toFixed(2) *
+                  parseFloat(element.plate_price).toFixed(2);
+
+                  cart_order[i].plate_price = cart_order[i].plate_price.toFixed(2);
+                }
+              }
+            }
+          });
+
+          return cart_order;
+        },
+
+        total: function() {
+
+          let total = 0;
+          for (let i = 0; i < this.cart_new.length; i++) {
+            total += parseFloat(this.cart_new[i].plate_price);
+          }
+          return total.toFixed(2);
+        },
+
       },
+
       methods: {
         get_all_restaurants: function(){
           axios.get('http://localhost:8000/home/getallrestaurant')
@@ -26,8 +71,43 @@ function  init() {
                   // console.log(this.restaurants);
                 });
         },
+
+        pushInCart: function(plate) {
+          this.cart.push(plate);
+        },
+
+        reset_cart: function() {
+          this.cart = [];
+          this.cart_new = [];
+        },
+
+        get_cart: function() {
+          axios.post('http://localhost:8000/create/order', {
+                    cart: this.cart
+                  })
+                .then(cart => {
+
+                  this.checkout = cart.data.total_cart;
+
+                  for(let i=0; i<cart.data.length; i++) {
+                    this.order.push(cart.data[i]);
+                  }
+                  // window.location.href = 'http://localhost:8000/create/order';
+                })
+                .catch(error => {
+                  console.log(error);
+                });
+        },
       },
   });
 }
 
 document.addEventListener("DOMContentLoaded", init);
+
+// elemento Vue per il menu hamburger dashboard
+var sidemenu = new Vue({
+	el: '#sidemenu',
+	data: {
+		navOpen: true,
+	},
+})

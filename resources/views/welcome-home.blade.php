@@ -7,9 +7,9 @@
 
         <div class="container">
             
-          {{-- <div id="app">
+          
             <slider></slider>
-          </div> --}}
+          
           
 
           <section>

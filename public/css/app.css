@@ -5583,7 +5583,7 @@ header .container img {
 }
 
 .container-welcome main {
-  background-color: #e3342f;
+  padding: 20px 0;
   min-height: 500px;
 }
 
@@ -5607,6 +5607,8 @@ header .container img {
 
 .container-welcome footer {
   background-color: #2e3333;
+  padding-top: 50px;
+  padding-bottom: 20px;
   min-height: 200px;
 }
 
@@ -5618,6 +5620,7 @@ header .container img {
 .container-welcome footer .container nav {
   display: flex;
   justify-content: space-between;
+  padding-bottom: 20px;
 }
 
 .container-welcome footer .container nav ul,

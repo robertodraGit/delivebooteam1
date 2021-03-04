@@ -27,7 +27,7 @@
             :disabled="atEndOfList">
         </div>
 
-        <button style="width: 50px; padding: 50px;" @click="print()" type="button" name="button">click</button>
+        <!-- <button style="width: 50px; padding: 50px;" @click="print()" type="button" name="button">click</button> -->
 
     </div>
 

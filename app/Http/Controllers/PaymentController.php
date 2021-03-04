@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Auth;
 
 use Illuminate\Http\Request;
 use App\Order;
@@ -17,11 +18,14 @@ class PaymentController extends Controller
   public function create(Request $request) {
 
     // dd($request -> all());
+    $user = Auth::id();
+    // dd($user);
 
-    $user = User::all() -> first() -> id;
+    // $user = User::all() -> first() -> id;
     $plates = [];
 
     $platesAll = Plate::all();
+
 
     foreach ($platesAll as $plate) {
       if ($plate['user_id'] == $user) {

@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Mail\PayMail;
+use App\User;
 
 Route::get('/', 'Controller@index') -> name ('index');
 
@@ -53,22 +55,93 @@ Route::get('/dashboard/restaurant/comanda/{id}', 'OrderController@restaurantComa
     -> name('orders-index');
   Route::get('/order/{id}', 'OrderController@show')
     -> name('order-show');
-  // create & storeB
-  // Route::get('/new/order', 'OrderController@create')
-  //   -> name('order-create');
-
-  // edit & update
-  Route::get('/edit/{id}', 'OrderController@edit')
-    -> name('order-edit');
-  Route::post('/update/{id}', 'OrderController@update')
-    -> name('order-update');
-    // delete
-  Route::get('/delete/{id}', 'OrderController@delete')
-    -> name('order-delete');
 
 
-    // rotta per creare ordine fasullo
-  Route::post('/create/order', 'PaymentController@create')
+  Route::get('/create/order', 'PaymentController@create')
       -> name('order-create');
   Route::post('/new/order/store', 'PaymentController@store')
       -> name('order-store');
+
+
+  Route::post('send/mail', 'MailController@sendMail')
+      ->name('send-mail');
+
+
+  // test per rotta PAGAMENTO CI STO LAVORANDO MI STA EXP LA TESTA!!!!
+  Route::get('/pay', function() {
+    $gateway = new Braintree\Gateway([
+        'environment' => config('services.braintree.environment'),
+        'merchantId' => config('services.braintree.merchantId'),
+        'publicKey' => config('services.braintree.publicKey'),
+        'privateKey' => config('services.braintree.privateKey')
+    ]);
+    $email = "email utente";
+
+    $token = $gateway->ClientToken()->generate();
+
+    return view('pagamento.payment', [
+      'token' => $token,
+      'email' => $email
+    ]);
+  });
+
+
+  // CHECKOUT PAGAMENTO
+  Route::post('/checkout', function(Request $request) {
+
+    $gateway = new Braintree\Gateway([
+        'environment' => config('services.braintree.environment'),
+        'merchantId' => config('services.braintree.merchantId'),
+        'publicKey' => config('services.braintree.publicKey'),
+        'privateKey' => config('services.braintree.privateKey')
+    ]);
+
+    $emailPagamento = $_POST["email"];
+    $userMail = User::all() -> first() -> email;
+    // mail del ristorante
+    // dd($userMail);
+
+    $data = [];
+    // passaggio della mail utente
+    // dd($emailPagamento);
+
+    Mail::to($userMail)->send(new PayMail($userMail));
+
+    // Mail::send('mail.mail_pagamento', $data, function($message) {
+    //   $message->from($userMail);
+    //   $message->to($emailPagamento);
+    // });
+
+
+    $amount = $_POST["amount"];
+    $nonce = $_POST["payment_method_nonce"];
+
+    $result = $gateway->transaction()->sale([
+        'amount' => $amount,
+        'paymentMethodNonce' => $nonce,
+        'customer' => [
+          'firstName' => 'Tony',
+          'lastName' => 'Stark',
+          'email' => 'tony@avengers.com'
+        ],
+        'options' => [
+        'submitForSettlement' => true
+        ]
+    ]);
+
+    if ($result->success) {
+        // header("Location: " . $baseUrl . "transaction.php?id=" . $transaction->id);
+        return back() -> with('success_message', 'transazione eseguita con successo. Id transazione:');
+    } else {
+        $errorString = "";
+
+        foreach($result->errors->deepAll() as $error) {
+            $errorString .= 'Error: ' . $error->code . ": " . $error->message . "\n";
+        }
+
+        // $_SESSION["errors"] = $errorString;
+        // header("Location: " . $baseUrl . "index.php");
+        return back() -> withErrors('An error occured with the message: ' . $result -> message);
+    }
+  });
+

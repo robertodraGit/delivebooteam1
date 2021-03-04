@@ -15800,13 +15800,16 @@ a.text-dark:focus {
 .left-side-dash .img-user {
   display: flex;
   justify-content: center;
+  width: 40%;
+  height: 15%;
+  margin: 20px auto;
+  border-radius: 50%;
+  border: 2px solid #ffffff;
 }
 
 .left-side-dash .img-user > img {
-  width: 130px;
-  border: 2px solid #ffffff;
+  width: 100%;
   border-radius: 50%;
-  margin-bottom: 20px;
 }
 
 .left-side-dash > h1 {

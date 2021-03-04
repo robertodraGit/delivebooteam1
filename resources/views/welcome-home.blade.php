@@ -27,35 +27,25 @@
                 <plate
                 :plate_data = {{ $plate }}
                 >
-              </plate>
+                </plate>
+              @endforeach
 
-            @endforeach
+              <h1>Ristoranti</h1>
 
-            {{-- <slider
-            ></slider> --}}
+
+                <restaurant
+                :restaurant_data = {{ $restaurants }}
+                >
+                </restaurant>
+
 
             </div>
 
+
           </div>
 
-
-
-          <section>
-              <h1>Ristoranti</h1>
-
-              <div class="restaurants">
-
-                  <div class="card">info che arrivano dal db</div> <!-- foreach componente ristorante-->
-                  {{-- <div class="card">info</div>
-                  <div class="card">info</div>
-                  <div class="card">info</div>
-                  <div class="card">info</div>
-                  <div class="card">info</div> --}}
-
-              </div>
-          </section>
-
         </div>
+
 
     </main>
 
@@ -89,4 +79,5 @@
             <div class="copyright">copyright</div>
         </div>
     </footer>
+
 @endsection

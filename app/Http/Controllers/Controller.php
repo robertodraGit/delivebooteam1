@@ -33,8 +33,11 @@ class Controller extends BaseController
         }
       }
 
+      $restaurants = User::inRandomOrder() -> first();
+
+
       // dd($plates);
-      return view('welcome-home', compact('plates'));
+      return view('welcome-home', compact('plates', 'restaurants'));
     }
 
     public function allRestaurant(){

@@ -99,75 +99,107 @@
               </div>
           @endif
 
-      <div class="content">
 
-        <form method="post" id="payment-form" action="{{ url('/checkout') }}">
-          @csrf
-          @method('post')
+      <div class="col-md-6 p-3">
+          <div class="basic_spnsr">
+            <div class="row justify-content-center">
+              <h1>Seleziona un metodo di Pagamento</h1>
+            </div>
+            <div class="row">
+              <div class="col-lg-12 d-flex justify-content-center">
+                <div>
 
-
-
-            <section>
-                <label id="input-amount" for="amount">
-                    <span class="input-label">Amount</span>
-                    <div class="input-wrapper amount-wrapper">
-                        {{-- questo input sarà hidden perché il prezzo da pagare arriverà dal carrello --}}
-                        <input id="amount" name="amount" type="tel" min="1" placeholder="Amount" value="10">
-                    </div>
-                </label>
-
-                <div class="bt-drop-in-wrapper">
-                    <div id="bt-dropin"></div>
                 </div>
-            </section>
+              </div>
+            </div>
+            <div class="row">
+              <div class="container">
+                <div class="row justify-content-center">
+                  <div class="col-md-10 d-flex flex-column justify-content-center">
 
-            {{-- <label for="email">email utente: </label> --}}
-            <input type="text" name="email" value="{{ $email }}" type="hidden">
+                    {{-- inizia contenuto braintree (script all'interno del content --}}
+                    <div class="content">
 
-            <input id="nonce" name="payment_method_nonce" type="hidden" />
-            <button id="pay-button" class="button" type="submit"><span>Effettua il pagamento</span></button>
-        </form>
+                      <form method="post" id="payment-form" action="{{ url('/checkout') }}">
+                        @csrf
+                        @method('post')
+
+                          {{-- ricordare che ci sono input nascosti che utente non dovrà modificare --}}
+
+                          <section>
+                            {{-- <label for="email">email utente: </label> --}}
+                            <input type="hidden" type="text" name="email" value="{{ $email }}" type="hidden">
+                            <label id="input-amount" for="amount">
+                                <h2 class="input-label">
+                                  totale da pagare: {importo che arriva dal carrello.}
+                                </h2>
+
+                                <div class="input-wrapper amount-wrapper">
+                                    {{-- questo input sarà hidden perché il prezzo da pagare arriverà dal carrello --}}
+                                    <input id="amount" name="amount" type="tel" type="hidden" min="1" placeholder="Amount" value="10" style="display: none;">
+                                </div>
+                            </label>
+
+                            <div class="bt-drop-in-wrapper">
+                                <div id="bt-dropin"></div>
+                            </div>
+                          </section>
 
 
-        <script src="https://js.braintreegateway.com/web/dropin/1.26.1/js/dropin.min.js"></script>
-        <script src="https://js.braintreegateway.com/web/3.73.1/js/hosted-fields.min.js"></script>
-        <script>
-            var form = document.querySelector('#payment-form');
-            // esempio email utente che ha pagato
-            var email = "{{ $email }}";
-            var client_token = "{{ $token }}";
+
+                          <input id="nonce" name="payment_method_nonce" type="hidden" />
+                          <button id="pay-button" class="button" type="submit"><span>Effettua il pagamento</span></button>
+                      </form>
 
 
-            braintree.dropin.create({
-              authorization: client_token,
-              selector: '#bt-dropin',
-              paypal: {
-                flow: 'vault'
-              }
-            }, function (createErr, instance) {
-              if (createErr) {
-                console.log('Create Error', createErr);
-                return;
-              }
-              form.addEventListener('submit', function (event) {
-                event.preventDefault();
+                      <script src="https://js.braintreegateway.com/web/dropin/1.26.1/js/dropin.min.js"></script>
+                      <script src="https://js.braintreegateway.com/web/3.73.1/js/hosted-fields.min.js"></script>
+                      <script>
+                          var form = document.querySelector('#payment-form');
+                          // esempio email utente che ha pagato
+                          var email = "{{ $email }}";
+                          var client_token = "{{ $token }}";
 
-                instance.requestPaymentMethod(function (err, payload) {
 
-                  if (err) {
-                    console.log('Request Payment Method Error', err);
-                    return;
-                  }
+                          braintree.dropin.create({
+                            authorization: client_token,
+                            selector: '#bt-dropin',
+                            paypal: {
+                              flow: 'vault'
+                            }
+                          }, function (createErr, instance) {
+                            if (createErr) {
+                              console.log('Create Error', createErr);
+                              return;
+                            }
+                            form.addEventListener('submit', function (event) {
+                              event.preventDefault();
 
-                  // Add the nonce to the form and submit
-                  document.querySelector('#nonce').value = payload.nonce;
-                  form.submit();
-                });
-              });
-            });
-        </script>
+                              instance.requestPaymentMethod(function (err, payload) {
 
-      </div>
+                                if (err) {
+                                  console.log('Request Payment Method Error', err);
+                                  return;
+                                }
+
+                                // Add the nonce to the form and submit
+                                document.querySelector('#nonce').value = payload.nonce;
+                                form.submit();
+                              });
+                            });
+                          });
+                      </script>
+
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
 
     </body>
 </html>

@@ -56,7 +56,7 @@ Route::get('/restaurant/{id}', 'Controller@restaurantShow') -> name('restaurant-
 
 
   // test per rotta PAGAMENTO CI STO LAVORANDO MI STA EXP LA TESTA!!!!
-  Route::get('/test', function() {
+  Route::get('/pay', function() {
     $gateway = new Braintree\Gateway([
         'environment' => config('services.braintree.environment'),
         'merchantId' => config('services.braintree.merchantId'),

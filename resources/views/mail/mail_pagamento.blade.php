@@ -12,7 +12,8 @@
   </head>
   <body>
 
-    <h1>pagamento avvenuto con successo</h1>
+    <h1>pagamento avvenuto con successo da parte di: </h1>
+    <h1>{{$user}}</h1>
 
   </body>
 </html>

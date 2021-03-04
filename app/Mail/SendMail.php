@@ -30,6 +30,8 @@ class SendMail extends Mailable
     {
         return $this
         -> from('no-reply-team1@delivebooteam1.it')
-        -> view('mail.mail_registrazione');
+        -> view('mail.mail_registrazione', [
+          'user' => $this -> user
+        ]);
     }
 }

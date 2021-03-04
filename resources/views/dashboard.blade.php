@@ -17,7 +17,7 @@
             <h1>
                 {{ $mail_cut }}
             </h1>
-            
+
             <form action="{{ route('plates-create') }}">
                 <button id="pls-plate" type="submit">
                     <i class="fas fa-plus"></i>
@@ -71,7 +71,7 @@
 
         <div class="right-side-dash">
             <div class="header-right-dash">
-
+                
                 <h3>Welcome
                     <span>{{ Auth::user() -> name }}!</span>
                 </h3>

@@ -25,9 +25,14 @@
           </div>
         @endif
 
-        @foreach ($plates as $item)
-            {{$item}} <br>
+        @foreach ($plates_selected as $item)
+          <ul>
+            <li>{{$item -> plate_name}}</li>
+            <li>{{$item -> price / 100}}</li>
+          </ul>
         @endforeach
+
+        Delivery cost: {{$delivery_cost}} <br> <br>
 
         <label for="first_name">first_name: </label>
         <input type="text" name="first_name" value="">
@@ -47,8 +52,6 @@
         <label for="address">address: </label>
         <input type="text" name="address" value="">
         <br>
-
-
 
         <br>
         <input type="submit" value="SALVA">

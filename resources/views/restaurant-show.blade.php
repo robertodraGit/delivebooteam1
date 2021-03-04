@@ -8,6 +8,7 @@
   </head>
   <body>
     <h1>ciaone da {{$restaurant -> name}}</h1>
+    <h1>costo consegna: {{$restaurant -> delivery_cost / 100}}</h1>
 
     <div id="app">
       @foreach ($restaurant -> plates as $plate)
@@ -33,11 +34,14 @@
         </div> --}}
         </div>
         <div>
-          Totale: @{{total}}
+          Totale: @{{total}} + {{$restaurant -> delivery_cost / 100}} (consegna)
+
           <button @click='get_cart()'>
             Carrello
           </button>
+          
           <br>
+          
           <button @click='reset_cart()'>
             Svuota carrello
           </button>

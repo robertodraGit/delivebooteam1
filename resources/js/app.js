@@ -83,29 +83,21 @@ function  init() {
 
         get_cart: function() {
           axios.post('http://localhost:8000/create/order', {
-                    total_cart: this.total,
-                    cart: this.cart_new
+                    cart: this.cart
                   })
                 .then(cart => {
 
-                  this.checkout = cart_new.data.total_cart;
+                  this.checkout = cart.data.total_cart;
 
                   for(let i=0; i<cart.data.length; i++) {
                     this.order.push(cart.data[i]);
                   }
-
-                  console.log(this.order);
-                  // redirectToOrder();
+                  window.location.href = 'http://localhost:8000/create/order';
                 })
                 .catch(error => {
                   console.log(error);
                 });
         },
-
-        redirectToOrder: function() {
-          window.location = 'http://localhost:8000/create/order';
-        }
-
       },
   });
 }

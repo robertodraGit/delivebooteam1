@@ -17,22 +17,26 @@ class PaymentController extends Controller
   public function create(Request $request) {
 
     $data = $request -> all();
-    $toPay = $data['total_cart'];
-    unset($data['total_cart']);
+    $plates_selected = [];
+    $to_pay = 0;
+    $delivery_cost = 0;
 
-    $platesAll = Plate::all();
+    foreach ($data as $value) {
+      foreach ($value as $item) {
 
-    foreach ($data as $key => $value) {
-      // foreach nell'array del carrello
-    }
+        $plate_select = Plate::findOrFail($item['plate_id']);
+        $delivery_cost = ($plate_select -> user -> delivery_cost) / 100;
+        
+        $discounted = $plate_select -> price * (100 - $plate_select -> discount);
 
-    foreach ($platesAll as $plate) {
-      if ($plate['user_id'] == $user) {
-        $plates[] = $plate;
+        $discounted = round($discounted / 10000, 2);
+        $to_pay += $discounted;
+
+        $plates_selected[] = $plate_select;
       }
     }
 
-    return view('orders.order-create', compact('plates_selected', 'toPay'));
+    return view('orders.order-create', compact('plates_selected', 'to_pay', 'delivery_cost'));
   }
 
   public function store(Request $request) {

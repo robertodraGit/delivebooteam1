@@ -37,6 +37,10 @@
           <button @click='get_cart()'>
             Carrello
           </button>
+          <br>
+          <button @click='reset_cart()'>
+            Svuota carrello
+          </button>
         </div>
       </div>
     

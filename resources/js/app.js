@@ -76,14 +76,19 @@ function  init() {
           this.cart.push(plate);
         },
 
+        reset_cart: function() {
+          this.cart = [];
+          this.cart_new = [];
+        },
+
         get_cart: function() {
           axios.post('http://localhost:8000/create/order', {
                     total_cart: this.total,
-                    cart: this.cart
+                    cart: this.cart_new
                   })
                 .then(cart => {
 
-                  this.checkout = cart.data.total_cart;
+                  this.checkout = cart_new.data.total_cart;
 
                   for(let i=0; i<cart.data.length; i++) {
                     this.order.push(cart.data[i]);

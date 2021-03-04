@@ -12,7 +12,7 @@ class DashboardController extends Controller
     {
         $this->middleware('auth');
     }
-  
+
     public function dashboard() {
 
         $user = Auth::user();
@@ -24,7 +24,7 @@ class DashboardController extends Controller
         $email_user = $user -> email;
         $word = '@';
         $mail_cut = substr($email_user, 0, strpos($email_user, $word));
-  
+
         return view('dashboard', compact('mail_cut', 'feedbacks'));
     }
 

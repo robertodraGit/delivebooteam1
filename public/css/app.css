@@ -16420,7 +16420,7 @@ a.text-dark:focus {
   padding: 20px;
 }
 
-body {
+.pay-wallpaper {
   background-image: url("/img/wallpaper-pay.jpg");
   background-size: cover;
   background-repeat: no-repeat;

@@ -5760,6 +5760,49 @@ header .container img {
   background-position: center;
 }
 
+.container-auth .search,
+.container-auth .cart {
+  display: none;
+}
+
+.container-auth .card {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.container-auth .card input[type=text],
+.container-auth .card input[type=email],
+.container-auth .card input[type=password],
+.container-auth .card input[type=number] {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.container-auth .card .flex {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.container-auth .card .flex button,
+.container-auth .card .flex a {
+  height: 40px;
+  border-radius: 5px;
+  width: 49%;
+}
+
+.container-auth .card .flex button:hover,
+.container-auth .card .flex a:hover {
+  background-color: lightgray;
+}
+
+.container-auth .card .flex a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid;
+}
+
 * {
   margin: 0;
   padding: 0;

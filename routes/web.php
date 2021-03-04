@@ -76,7 +76,7 @@ Route::get('/dashboard/restaurant/comanda/{id}', 'OrderController@restaurantComa
       'token' => $token,
       'email' => $email
     ]);
-  });
+  }) -> name('pay');
 
 
   // CHECKOUT PAGAMENTO

@@ -39,7 +39,7 @@ class Controller extends BaseController
       // 2 cerca nel nome ristorante
       // 3 cerca nei piatti
 
-      $queries = ['oasi', 'gelato'];
+      $queries = ['pizza'];
       // ******
       // 1- ricerca per categorie
       // ******
@@ -72,16 +72,24 @@ class Controller extends BaseController
       $responseRestNames = DB::table('users')
         ->where(
             $whereClause
-      )->get();
+          )
+        ->select('users.id','users.name', 'users.address', 'users.phone', 'users.description', 'users.photo', 'users.delivery_cost')
+        ->get();
       // Risultato: un array di elementi che nel name hanno l'and di tutte le query
       // dd($responseRestNames);
 
-      dd('blocco');
+      // dd('blocco');
 
 
 
-      // Metodo come prima
-      $restaurants = User::all('id','name', 'address', 'phone', 'description', 'photo', 'delivery_cost');
+      // Se nessuna query inserita (1 avvio home-page):
+      $restaurants = DB::table('users')
+      ->select('users.id','users.name', 'users.address', 'users.phone', 'users.description', 'users.photo', 'users.delivery_cost')
+      ->inRandomOrder()
+      ->limit(10)
+      ->get();
+      dd($restaurants);
+
 
       foreach ($restaurants as $key => $restaurant) {
 

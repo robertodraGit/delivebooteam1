@@ -37,25 +37,27 @@ class Controller extends BaseController
 
       // 1 cerca nelle categorie rist
       // 2 cerca nel nome ristorante
-      // 3 cerca nei piatti
+      // 3 cerca nel nome dei piatti
 
-      $queries = ['pizza'];
+      //FARE IL CUT DELL'ULTIMA LETTERA
+      $queries = ['cinese', 'spuntini'];
       // ******
       // 1- ricerca per categorie
       // ******
 
       $responseTypologies = [];
-      foreach ($queries as $typology) {
 
-        $responseTypologies[] = DB::table('typology_user')
-              ->join('typologies', 'typology_user.typology_id', '=', 'typologies.id')
-              ->join('users', 'typology_user.user_id', '=', 'users.id')
-              ->select('users.id','users.name', 'users.address', 'users.phone', 'users.description', 'users.photo', 'users.delivery_cost')
-              ->where('typologies.typology', $typology)
-              ->get();
-      }
-      // Risultato: Un array di elementi User per categoria.
-      // dd($responseTypologies);
+      $responseTypologies = DB::table('typology_user')
+        ->join('users', 'users.id', '=', 'typology_user.user_id')
+        ->join('typologies', 'typologies.id', '=', 'typology_user.typology_id')
+        ->select('users.id','users.name', 'users.address', 'users.phone', 'users.description', 'users.photo', 'users.delivery_cost')
+        ->whereIn('typologies.typology', $queries)
+        ->groupBy('typology_user.user_id')
+        ->havingRaw('COUNT(typology_user.user_id) ='. count($queries))
+        ->get();
+      // Risultato: Un array di elementi User che corrispondono in AND alle categorie inserite.
+
+      dd($responseTypologies);
 
       // ******
       // 2 cerca nel nome ristorante
@@ -65,7 +67,7 @@ class Controller extends BaseController
 
       $whereClause = [];
       foreach ($queries as $query) {
-        $word = '%' . $query . '%';;
+        $word = '%' . $query . '%';
         $whereClause[] = ['name', 'like', $word];
       }
 

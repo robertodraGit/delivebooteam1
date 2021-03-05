@@ -43,7 +43,7 @@
                     </button>
                 </form>
 
-                <form class="" action="{{ route('orders-index') }}">
+                <form class="" action="{{ route('restaurant-order') }}">
                     <button>
                         Visualizza i tuoi ordini
                         <span class="order-color"></span><span class="order-color"></span><span class="order-color"></span><span class="order-color"></span>

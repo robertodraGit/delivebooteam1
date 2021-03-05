@@ -44,7 +44,7 @@ class Controller extends BaseController
       // aggiungere il voto medio e le altre cose al ristorante
 
 
-      $queries = ['piadina', 'poke'];
+      $queries = ['es', 'se'];
 
       //RIMUOVO L'ULTIMA LETTERA DI OGNI QUERY
       foreach ($queries as $index => $query) {
@@ -115,7 +115,7 @@ class Controller extends BaseController
           )
         ->select('*')
         ->get();
-      // dd($responsePlatesNames);
+      dd($responsePlatesNames);
 
       // dd('typ', $responseTypologies,
       //    'rest',  $responseRestNames,

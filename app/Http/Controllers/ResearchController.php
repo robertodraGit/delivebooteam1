@@ -35,7 +35,8 @@ class ResearchController extends Controller
 
     public function searchTypsRestsPlats($query){
       // Trasformo la query in array
-      $queries = ['piadina', 'poke'];
+      $queries = ['es', 'se'];
+      $originalQueries = $queries;
 
       //RIMUOVO L'ULTIMA LETTERA DI OGNI QUERY
       foreach ($queries as $index => $query) {
@@ -44,7 +45,12 @@ class ResearchController extends Controller
 
       // 1- ricerca per categorie
       $responseTypologies = $this->searchTypologies($queries);
-      dd($responseTypologies);
+      // 2 cerca nel nome ristorante
+      $responseRestNames = $this->searchRestNames($queries);
+      // 3 cerca nel nome dei piatti
+      $responsePlatesNames = $this->searchPlateNames($originalQueries);
+
+      dd($responsePlatesNames);
     }
 
     private function searchTypologies($queries){
@@ -66,9 +72,45 @@ class ResearchController extends Controller
         ->havingRaw('COUNT(typology_user.user_id) ='. count($queries))
         ->get();
 
-        $responseTypologies = $this->addRestaurantInfo($responseTypologies);
+        // $responseTypologies = $this->addRestaurantInfo($responseTypologies);
 
         return $responseTypologies;
+    }
+
+    private function searchRestNames($queries){
+      $whereClause = [];
+      foreach ($queries as $query) {
+        $word = '%' . $query . '%';
+        $whereClause[] = ['name', 'like', $word];
+      }
+
+      $responseRestNames = DB::table('users')
+        ->where(
+            $whereClause
+          )
+        ->select('users.id','users.name', 'users.address', 'users.phone', 'users.description', 'users.photo', 'users.delivery_cost')
+        ->get();
+
+      return $responseRestNames;
+    }
+
+    private function searchPlateNames($queries){
+      $responsePlatesNames = [];
+
+      $whereClause = [];
+      foreach ($queries as $query) {
+        $plate = '%' . $query . '%';
+        $whereClause[] = ['plate_name', 'like', $plate];
+      }
+
+      $responsePlatesNames = DB::table('plates')
+        ->where(
+            $whereClause
+          )
+        ->select('*')
+        ->get();
+
+      return $responsePlatesNames;
     }
 
     private function addRestaurantInfo($restaurants){

@@ -5765,6 +5765,13 @@ header .container img {
   display: none;
 }
 
+.container-auth .container-register,
+.container-auth .container-login {
+  width: 100%;
+  display: flex;
+  padding: 5% 10%;
+}
+
 .container-auth .card {
   max-width: 523px;
 }
@@ -5793,8 +5800,7 @@ header .container img {
   color: Infinity;
 }
 
-.container-auth .card button,
-.container-auth .card a {
+.container-auth .card button {
   height: 40px;
   border: 0;
   border-radius: 5px;
@@ -5802,25 +5808,31 @@ header .container img {
   background-color: #00ccbc;
 }
 
-.container-auth .card button:hover,
-.container-auth .card a:hover {
+.container-auth .card button:hover {
   background-color: #00c2b3;
 }
 
-.container-auth .card a {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: 1px solid;
-}
-
-.container-register .card {
-  margin: 5% 10%;
+.container-register {
+  justify-content: start;
 }
 
 .container-register .card button {
   width: 100px;
   cursor: pointer;
+}
+
+.container-login {
+  justify-content: end;
+}
+
+.container-login .card button {
+  width: 100%;
+  margin: 10px 0;
+}
+
+.container-login .card a {
+  text-decoration: none;
+  color: #00ccbc;
 }
 
 * {

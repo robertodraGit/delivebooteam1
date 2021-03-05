@@ -2,8 +2,7 @@
 
 @section('content')
 <div class="container-register">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
+    
             <div class="card">
 
                 @if ($errors->any())
@@ -112,7 +111,6 @@
                     </form>
                 </div>
             </div>
-        </div>
-    </div>
+
 </div>
 @endsection

@@ -1,11 +1,15 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
+<div class="container-login">
+   
             <div class="card">
-                <h2 class="card-header">{{ __('Login') }}</h2>
+                {{-- <h2 class="card-header">{{ __('Login') }}</h2> --}}
+
+                <div class="title">
+                    <h1>Ti diamo il benvenuto!</h1>
+                    <p>Sfrutta i dati a disposizione per far crescere il tuo business. Monitora le vendite, controlla i tuoi progressi e attira nuovi clienti con offerte speciali.</p>
+                </div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('login') }}">
@@ -69,7 +73,6 @@
                     </form>
                 </div>
             </div>
-        </div>
-    </div>
+
 </div>
 @endsection

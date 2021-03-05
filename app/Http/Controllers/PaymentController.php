@@ -1,7 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use Illuminate\Support\Facades\Validator;
+
 
 use Illuminate\Http\Request;
 use App\Order;
@@ -10,6 +12,10 @@ use App\User;
 
 use Illuminate\Support\Facades\Mail;
 use App\Mail\SendMail;
+use App\Mail\PayMail;
+
+
+
 
 
 class PaymentController extends Controller
@@ -26,7 +32,7 @@ class PaymentController extends Controller
 
         $plate_select = Plate::findOrFail($item['plate_id']);
         $delivery_cost = ($plate_select -> user -> delivery_cost) / 100;
-        
+
         $discounted = $plate_select -> price * (100 - $plate_select -> discount);
 
         $discounted = round($discounted / 10000, 2);
@@ -110,42 +116,83 @@ class PaymentController extends Controller
   //   return view('orders.order-edit', compact('order'));
   // }
 
+  public function pay() {
+    $gateway = new \Braintree\Gateway([
+        'environment' => config('services.braintree.environment'),
+        'merchantId' => config('services.braintree.merchantId'),
+        'publicKey' => config('services.braintree.publicKey'),
+        'privateKey' => config('services.braintree.privateKey')
+    ]);
+    $email = "email utente";
 
-  //METODO DI PAGAMENTO
-  public function process(Request $request) {
+    $token = $gateway->ClientToken()->generate();
 
-    $data = $request -> all();
-    dd($data);
-
-    $id = $request -> id;
-    $payload = $request -> payload;
-    $price = $request -> price;
-
-    // data pagamento
-    $now = date('Y-m-d H:i:s');
-
-    $nonce = $payload['nonce'];
+    return view('pagamento.payment', [
+      'token' => $token,
+      'email' => $email
+    ]);
+  }
 
 
-    $status = \Braintree\Transaction::sale([
-                                   'amount' => $price,
-                                    'paymentMethodNonce' => $nonce,
-                                    'options' => [
-                                   'submitForSettlement' => True
-                                     ]
+  public function checkout(Request $request) {
+
+    $gateway = new \Braintree\Gateway([
+        'environment' => config('services.braintree.environment'),
+        'merchantId' => config('services.braintree.merchantId'),
+        'publicKey' => config('services.braintree.publicKey'),
+        'privateKey' => config('services.braintree.privateKey')
+    ]);
+    // dd($request);
+
+    $emailPagamento = $_POST["email"];
+    $userMail = User::all() -> first() -> email;
+    // mail del ristorante
+    // dd($userMail);
+
+    $data = [];
+    // passaggio della mail utente
+    // dd($emailPagamento);
+
+    // invio mail al pagamento
+    Mail::to($userMail)->send(new PayMail($userMail));
+
+    // Mail::send('mail.mail_pagamento', $data, function($message) {
+    //   $message->from($userMail);
+    //   $message->to($emailPagamento);
+    // });
+
+
+    $amount = $_POST["amount"];
+    $nonce = $_POST["payment_method_nonce"];
+
+    $result = $gateway->transaction()->sale([
+        'amount' => $amount,
+        'paymentMethodNonce' => $nonce,
+        'customer' => [
+          'firstName' => 'Tony',
+          'lastName' => 'Stark',
+          'email' => 'tony@avengers.com'
+        ],
+        'options' => [
+        'submitForSettlement' => true
+        ]
     ]);
 
-    $order = Order::findOrFail($id);
-    // setto ordine in questione pagato
-    $order['payment_state'] = 1;
-    $order -> save();
+    if ($result->success) {
+        // header("Location: " . $baseUrl . "transaction.php?id=" . $transaction->id);
+        return back() -> with('success_message', 'transazione eseguita con successo.');
+    } else {
+        $errorString = "";
 
-    return response()->json($status, 200);
+        foreach($result->errors->deepAll() as $error) {
+            $errorString .= 'Error: ' . $error->code . ": " . $error->message . "\n";
+        }
+
+        // $_SESSION["errors"] = $errorString;
+        // header("Location: " . $baseUrl . "index.php");
+        return back() -> withErrors('An error occured with the message: ' . $result -> message);
+    }
   }
 
-
-  public function sendMail() {
-    Mail::to($user['email'])->send(new SendMail($user));
-  }
 
 }

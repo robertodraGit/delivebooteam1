@@ -92,7 +92,7 @@ function  init() {
                   for(let i=0; i<cart.data.length; i++) {
                     this.order.push(cart.data[i]);
                   }
-                  window.location.href = 'http://localhost:8000/create/order';
+                  // window.location.href = 'http://localhost:8000/create/order';
                 })
                 .catch(error => {
                   console.log(error);
@@ -103,3 +103,11 @@ function  init() {
 }
 
 document.addEventListener("DOMContentLoaded", init);
+
+// elemento Vue per il menu hamburger dashboard
+var sidemenu = new Vue({
+	el: '#sidemenu',
+	data: {
+		navOpen: true,
+	},
+})

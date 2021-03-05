@@ -5766,8 +5766,7 @@ header .container img {
 }
 
 .container-auth .card {
-  max-width: 500px;
-  margin: 0 auto;
+  max-width: 523px;
 }
 
 .container-auth .card input[type=text],
@@ -5775,32 +5774,53 @@ header .container img {
 .container-auth .card input[type=password],
 .container-auth .card input[type=number] {
   width: 100%;
+  height: 40px;
   margin-bottom: 20px;
 }
 
-.container-auth .card .flex {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
+.container-auth .card label,
+.container-auth .card p {
+  color: #828585;
 }
 
-.container-auth .card .flex button,
-.container-auth .card .flex a {
+.container-auth .card .title {
+  margin-bottom: 20px;
+}
+
+.container-auth .card .title h1 {
+  font-size: 40px;
+  margin-bottom: 10px;
+  color: Infinity;
+}
+
+.container-auth .card button,
+.container-auth .card a {
   height: 40px;
+  border: 0;
   border-radius: 5px;
-  width: 49%;
+  color: white;
+  background-color: #00ccbc;
 }
 
-.container-auth .card .flex button:hover,
-.container-auth .card .flex a:hover {
-  background-color: lightgray;
+.container-auth .card button:hover,
+.container-auth .card a:hover {
+  background-color: #00c2b3;
 }
 
-.container-auth .card .flex a {
+.container-auth .card a {
   display: flex;
   justify-content: center;
   align-items: center;
   border: 1px solid;
+}
+
+.container-register .card {
+  margin: 5% 10%;
+}
+
+.container-register .card button {
+  width: 100px;
+  cursor: pointer;
 }
 
 * {

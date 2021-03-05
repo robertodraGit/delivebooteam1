@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+<div class="container-register">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
@@ -16,7 +16,13 @@
                   </div>
                 @endif
 
-                <h2 class="card-header">{{ __('Register') }}</h2>
+                {{-- <h2 class="card-header">{{ __('Register') }}</h2> --}}
+
+                <div class="title">
+                    <h1>Diventa subito partner di Deliveroo</h1>
+                    <p>Aumenta le tue vendite fino al 30% grazie alle consegne a domicilio</p>
+                </div>
+
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('register') }}">

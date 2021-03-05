@@ -27,10 +27,48 @@ class ResearchController extends Controller
       ->get();
 
       $restaurants = $this->addRestaurantInfo($restaurants);
-      dd($restaurants);
+
       return response() -> json([
         'restaurants' => $restaurants
       ]);
+    }
+
+    public function searchTypsRestsPlats($query){
+      // Trasformo la query in array
+      $queries = ['piadina', 'poke'];
+
+      //RIMUOVO L'ULTIMA LETTERA DI OGNI QUERY
+      foreach ($queries as $index => $query) {
+        $queries[$index] = substr($queries[$index], 0, -1);
+      }
+
+      // 1- ricerca per categorie
+      $responseTypologies = $this->searchTypologies($queries);
+      dd($responseTypologies);
+    }
+
+    private function searchTypologies($queries){
+      $responseTypologies = [];
+
+      $whereClause = "";
+      foreach ($queries as $query) {
+        $typology = "'%" . $query . "%'";
+        $whereClause .=  'typologies.typology like ' . $typology . ' OR ';
+      }
+      $whereClause = substr($whereClause, 0, -4);
+
+      $responseTypologies = DB::table('typology_user')
+        ->join('users', 'users.id', '=', 'typology_user.user_id')
+        ->join('typologies', 'typologies.id', '=', 'typology_user.typology_id')
+        ->select('users.id','users.name', 'users.address', 'users.phone', 'users.description', 'users.photo', 'users.delivery_cost')
+        ->whereRaw($whereClause)
+        ->groupBy('typology_user.user_id')
+        ->havingRaw('COUNT(typology_user.user_id) ='. count($queries))
+        ->get();
+
+        $responseTypologies = $this->addRestaurantInfo($responseTypologies);
+
+        return $responseTypologies;
     }
 
     private function addRestaurantInfo($restaurants){

@@ -73,11 +73,11 @@
             <div class="header-right-dash">
 
                 {{-- MENU HAMBURGER --}}
-                <div id="sidebar">
-                    <span class="top"></span>
-                    <span class="center"></span>
-                    <span class="bottom"></span>
-                </div>
+
+                <button class="sidebar">
+                    <div class="bar"></div>
+                </button>
+
                 {{-- FINE MENU HAMBURGER --}}
 
                 <h3>Welcome

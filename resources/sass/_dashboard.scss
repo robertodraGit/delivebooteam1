@@ -1,7 +1,7 @@
 .container-dashboard {
-    width: 100vw;
     display: flex;
     justify-content: space-between;
+    width: 100vw;
     height: 100vh;
 }
 
@@ -9,14 +9,13 @@
     display: flex;
     flex-direction: column;
     width: 20%;
-    overflow: hidden;
     height: auto;
+    overflow: auto;
     background-color: $color_deliveroo;
     padding-left: 2rem;
     padding-top: 3rem;
     padding-right: 2rem;
     display: block;
-
     @media all and (min-width: 868px) and (max-width: 1199px) {
         width: 30%;
     }
@@ -167,7 +166,7 @@
             text-transform: uppercase;
             border-radius: $border_button;
             box-shadow: $shadow_button;
-            margin-top: 100px;
+            margin: 100px 0 50px 0;
         }
 
     }
@@ -201,41 +200,43 @@
         justify-content: space-between;
         padding-top: 3rem;
 
-        #sidebar {
-            display: none;
-            @media all and (min-width: 576px) and (max-width: 867px) {
-                display: block;
-                width: 40px;
-                height: 30px;
-            }
+        .sidebar {
+            position: relative;
+            display: block;
+            width: 35px;
+            height: 35px;
+            cursor: pointer;
+            appearance: none;
+            background: none;
+            outline: none;
+            border: none;
 
-            @media all and (max-width: 575px) {
-                display: block;
-                width: 40px;
-                height: 30px;
-            }
-
-            span {
-                @media all and (min-width: 576px) and (max-width: 867px) {
-                    display: block;
-                    background-color: $color_deliveroo;
-                    width: 100%;
-                    height: 6px;
-                    margin-bottom: 5px;
-                    border-radius: 10px;
-                }
-
-                @media all and (max-width: 575px) {
-                    display: block;
-                    background-color: $color_deliveroo;
-                    width: 100%;
-                    height: 6px;
-                    margin-bottom: 5px;
-                    border-radius: 10px;
-                }
-
-            }
         }
+
+        .sidebar .bar, .sidebar:after, .sidebar:before {
+            display: block;
+            content: '';
+            width: 100%;
+            height: 5px;
+            background-color: $color_deliveroo;
+            border-radius: 8px;
+            margin: 6px 0;
+            transition: 0.4s;
+        }
+
+        .sidebar.is-active:before {
+            transform: rotate(-45deg) translate(-8px, 6px);
+        }
+
+        .sidebar.is-active:after {
+            transform: rotate(45deg) translate(-9px, -8px);
+        }
+
+        .sidebar.is-active .bar {
+            outline: none;
+            opacity: 0;
+        }
+
 
         & > h3 {
 

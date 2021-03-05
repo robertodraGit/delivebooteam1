@@ -5769,11 +5769,11 @@ header .container img {
 .container-auth .container-login {
   width: 100%;
   display: flex;
-  padding: 5% 10%;
 }
 
 .container-auth .card {
   max-width: 523px;
+  padding: 5% 10% 10% 0;
 }
 
 .container-auth .card input[type=text],
@@ -5802,7 +5802,7 @@ header .container img {
 
 .container-auth .card button {
   height: 40px;
-  border: 0;
+  border: 1px solid white;
   border-radius: 5px;
   color: white;
   background-color: #00ccbc;
@@ -5823,6 +5823,33 @@ header .container img {
 
 .container-login {
   justify-content: end;
+}
+
+.container-login .image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 80px;
+  left: 0;
+  width: calc(90vw - 450px);
+  max-width: 50vw;
+  height: 100vh;
+}
+
+.container-login .image .background {
+  height: 100%;
+  width: 100%;
+  background-color: #00ccbc;
+  -webkit-clip-path: polygon(0 0, 28% 0, 100% 100%, 0 100%);
+          clip-path: polygon(0 0, 28% 0, 100% 100%, 0 100%);
+  position: absolute;
+  left: 0;
+}
+
+.container-login .image img {
+  position: relative;
+  width: 90%;
 }
 
 .container-login .card button {

@@ -2,6 +2,11 @@
 
 @section('content')
 <div class="container-login">
+
+            <div class="image">
+                <div class="background"></div>
+                <img src="/img/chart_illustration.svg" alt="">
+            </div>
    
             <div class="card">
                 {{-- <h2 class="card-header">{{ __('Login') }}</h2> --}}

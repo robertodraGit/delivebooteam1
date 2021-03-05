@@ -6,23 +6,36 @@
     <main>
 
         <div class="container">
-            
-          
-            <slider></slider>
-          
-          
+                   
+            <slider></slider>         
 
           <section>
-              <h1>Ristoranti</h1>
+              <h1>Piatti</h1>
 
               <div class="restaurants">
 
-                  <div class="card">info che arrivano dal db</div> <!-- foreach componente ristorante-->
-                  {{-- <div class="card">info</div>
-                  <div class="card">info</div>
-                  <div class="card">info</div>
-                  <div class="card">info</div>
-                  <div class="card">info</div> --}}
+                  {{-- @foreach ($restaurants as $restaurant) --}}
+                  {{-- @php   
+                      dd($restaurants);
+                  @endphp --}}
+                      {{-- <restaurant
+                      :restaurant_data = {{ $restaurant }}>
+                      </restaurant>
+                  @endforeach --}}
+
+                  @foreach ($plates as $plate)
+
+                    {{-- @php  
+                        dd($plates);
+                    @endphp --}}
+
+                    <plate
+                    :plate_data = {{ $plate }}
+                    >
+                    </plate>
+
+                @endforeach
+              
 
               </div>
           </section>

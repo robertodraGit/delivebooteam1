@@ -17,7 +17,6 @@ function  init() {
           restaurants: [],
           cart: [],
           order: [],
-          checkout: 0,
       },
       computed: {
 
@@ -87,12 +86,9 @@ function  init() {
                   })
                 .then(cart => {
 
-                  this.checkout = cart.data.total_cart;
-
                   for(let i=0; i<cart.data.length; i++) {
                     this.order.push(cart.data[i]);
                   }
-                  // window.location.href = 'http://localhost:8000/create/order';
                 })
                 .catch(error => {
                   console.log(error);

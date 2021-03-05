@@ -25,26 +25,37 @@
       <div class="cart-fixed" v-if='cart.length > 0'>
         Carrello: <br>
 
-        <p>@{{cart_new}}</p>
-
-        <div class='sub-cart-elements' v-for='plate in cart'>
-          {{-- <div>  
-                @{{plate.plate_name}} / 
-                @{{plate.plate_price}} € 
-        </div> --}}
+        <div v-for='item in cart_new'>
+          @{{item.plate_name}} / x @{{item.quantity}} = @{{item.plate_price}} €
         </div>
-        <div>
-          Totale: @{{total}} + {{$restaurant -> delivery_cost / 100}} (consegna)
 
-          <button @click='get_cart()'>
-            Carrello
-          </button>
+        <br>
+      
+        <div>
+          sub total: @{{total}} € <br>
+          {{$restaurant -> delivery_cost / 100}} € -> consegna
+          <br>
+
+          {{-- <form action="{{}}" method="post">
+
+            @csrf
+            @method('POST')
+
+
+
+          </form> --}}
+      
+            <button @click='get_cart()'>
+              Carrello
+            </button>
           
           <br>
-          
+
           <button @click='reset_cart()'>
             Svuota carrello
           </button>
+          
+
         </div>
       </div>
     

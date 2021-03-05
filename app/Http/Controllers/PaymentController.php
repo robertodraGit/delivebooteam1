@@ -22,7 +22,7 @@ class PaymentController extends Controller
 {
   public function create(Request $request) {
 
-    $data = $request -> all();
+    $data = $request -> json() -> all();
     $plates_selected = [];
     $to_pay = 0;
     $delivery_cost = 0;
@@ -36,6 +36,8 @@ class PaymentController extends Controller
         $discounted = $plate_select -> price * (100 - $plate_select -> discount);
 
         $discounted = round($discounted / 10000, 2);
+        $plate_select -> price = $discounted;
+
         $to_pay += $discounted;
 
         $plates_selected[] = $plate_select;

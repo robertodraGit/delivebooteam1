@@ -28,7 +28,7 @@
         @foreach ($plates_selected as $item)
           <ul>
             <li>{{$item -> plate_name}}</li>
-            <li>{{$item -> price / 100}}</li>
+            <li>{{$item -> price}}</li>
           </ul>
         @endforeach
 

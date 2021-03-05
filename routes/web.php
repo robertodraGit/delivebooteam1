@@ -56,11 +56,8 @@ Route::get('/dashboard/restaurant/comanda/{id}', 'OrderController@restaurantComa
       -> name('order-store');
 
 
-  // Route::post('send/mail', 'MailController@sendMail')
-  //     ->name('send-mail');
 
-
-  // test per rotta PAGAMENTO CI STO LAVORANDO MI STA EXP LA TESTA!!!!
+  //rotta PAGAMENTO 
   Route::get('/pay', 'PaymentController@pay') -> name('pay');
 
 

@@ -71,7 +71,15 @@
 
         <div class="right-side-dash">
             <div class="header-right-dash">
-                
+
+                {{-- MENU HAMBURGER --}}
+                <div id="sidebar">
+                    <span class="top"></span>
+                    <span class="center"></span>
+                    <span class="bottom"></span>
+                </div>
+                {{-- FINE MENU HAMBURGER --}}
+
                 <h3>Welcome
                     <span>{{ Auth::user() -> name }}!</span>
                 </h3>
@@ -123,7 +131,7 @@
                     </div>
                 </div>
                 {{-- CARD FEEDBACK --}}
-                <div class="card">
+                <div id="resp-card" class="card">
                     <h3>I tuoi feedback</h3>
                     <div class="percentual-feed">
                         <h1>90%</h1>

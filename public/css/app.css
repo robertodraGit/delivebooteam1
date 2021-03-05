@@ -16674,6 +16674,25 @@ a.text-dark:focus {
   padding: 0 1rem;
 }
 
+header {
+  background-color: white;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  height: 80px;
+}
+
+header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 80%;
+  height: 100%;
+  margin: 0 auto;
+}
+
+header .container img {
+  width: 150px;
+}
+
 .plates_container {
   padding: 20px;
 }
@@ -16780,22 +16799,8 @@ a.text-dark:focus {
   }
 }
 
-.container-welcome header {
-  background-color: #3490dc;
-  height: 100px;
-}
-
-.container-welcome header .container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 80%;
-  height: 100%;
-  margin: 0 auto;
-}
-
 .container-welcome main {
-  background-color: #e3342f;
+  padding: 20px 0;
   min-height: 500px;
 }
 
@@ -16819,6 +16824,8 @@ a.text-dark:focus {
 
 .container-welcome footer {
   background-color: #2e3333;
+  padding-top: 50px;
+  padding-bottom: 20px;
   min-height: 200px;
 }
 
@@ -16830,6 +16837,7 @@ a.text-dark:focus {
 .container-welcome footer .container nav {
   display: flex;
   justify-content: space-between;
+  padding-bottom: 20px;
 }
 
 .container-welcome footer .container nav ul,
@@ -16963,10 +16971,53 @@ a.text-dark:focus {
 }
 
 .pay-wallpaper {
-  background-image: url("/img/wallpaper-pay.jpg");
+  background-image: url("/img/wallpaper.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+}
+
+.container-auth .search,
+.container-auth .cart {
+  display: none;
+}
+
+.container-auth .card {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.container-auth .card input[type=text],
+.container-auth .card input[type=email],
+.container-auth .card input[type=password],
+.container-auth .card input[type=number] {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.container-auth .card .flex {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.container-auth .card .flex button,
+.container-auth .card .flex a {
+  height: 40px;
+  border-radius: 5px;
+  width: 49%;
+}
+
+.container-auth .card .flex button:hover,
+.container-auth .card .flex a:hover {
+  background-color: lightgray;
+}
+
+.container-auth .card .flex a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid;
 }
 
 * {

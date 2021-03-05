@@ -14,8 +14,10 @@
     .card {
     
         max-width: 523px;
-        padding: 5% 10% 10% 0;
-        // margin: 5% 10%;
+        
+
+        position: relative;
+        z-index: 2;
         // border: 1px solid;
     
         input[type=text],

@@ -5773,7 +5773,8 @@ header .container img {
 
 .container-auth .card {
   max-width: 523px;
-  padding: 5% 10% 10% 0;
+  position: relative;
+  z-index: 2;
 }
 
 .container-auth .card input[type=text],
@@ -5821,30 +5822,29 @@ header .container img {
   cursor: pointer;
 }
 
-.container-login {
-  justify-content: end;
+.container-login .card button {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.container-login .card a {
+  text-align: center;
+  text-decoration: none;
+  color: #00ccbc;
 }
 
 .container-login .image {
   display: flex;
   justify-content: center;
   align-items: center;
-  position: absolute;
-  top: 80px;
-  left: 0;
-  width: calc(90vw - 450px);
-  max-width: 50vw;
-  height: 100vh;
 }
 
 .container-login .image .background {
-  height: 100%;
   width: 100%;
   background-color: #00ccbc;
-  -webkit-clip-path: polygon(0 0, 28% 0, 100% 100%, 0 100%);
-          clip-path: polygon(0 0, 28% 0, 100% 100%, 0 100%);
   position: absolute;
   left: 0;
+  z-index: 0;
 }
 
 .container-login .image img {
@@ -5852,14 +5852,48 @@ header .container img {
   width: 90%;
 }
 
-.container-login .card button {
-  width: 100%;
-  margin: 10px 0;
+@media screen and (max-width: 800px) {
+  .container-login {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .container-login .card {
+    padding-bottom: 60px;
+    margin: 20px 30px 0;
+  }
+
+  .container-login .image .background {
+    height: 50%;
+    -webkit-clip-path: polygon(0 0, 0% 0, 100% 100%, 0 100%);
+            clip-path: polygon(0 0, 0% 0, 100% 100%, 0 100%);
+  }
 }
 
-.container-login .card a {
-  text-decoration: none;
-  color: #00ccbc;
+@media screen and (min-width: 801px) {
+  .container-login {
+    justify-content: end;
+  }
+
+  .container-login .card {
+    padding-top: 5%;
+    padding-right: 10%;
+  }
+
+  .container-login .image {
+    position: absolute;
+    top: 80px;
+    left: 0;
+    width: calc(90vw - 450px);
+    max-width: 50vw;
+    height: 100vh;
+  }
+
+  .container-login .image .background {
+    height: 100%;
+    -webkit-clip-path: polygon(0 0, 28% 0, 100% 100%, 0 100%);
+            clip-path: polygon(0 0, 28% 0, 100% 100%, 0 100%);
+  }
 }
 
 * {

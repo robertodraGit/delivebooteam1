@@ -6,7 +6,7 @@
           <ham-menu           
               :login = "'{{ route("login") }}'"
               :register = "'{{ route("register") }}'"
-              {{-- :dashboard = "'{{ route("restaurant") }}'" --}}
+              :dashboard = "'{{ route("dashboard") }}'"
               >
           </ham-menu>      
  

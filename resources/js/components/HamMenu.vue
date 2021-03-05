@@ -6,7 +6,7 @@
               <!-- <li><a href="{{ __('Login') }}">Accedi</a></li> -->
               <li><a :href="this.register">Register</a></li>
               <li><a :href="this.login">Login</a></li>
-              <!-- <li><a :href="this.dashboard">Dashboard</a></li> -->
+              <li><a :href="this.dashboard">Dashboard</a></li>
             </ul>
         </nav>
         <span class="bm-cross-button cross-style" 
@@ -40,7 +40,7 @@
           
           login: this.login,
           register: this.register,
-          // dashboard: this.dashboard,
+          dashboard: this.dashboard,
 
           isSideBarOpen: false,
         };
@@ -50,7 +50,7 @@
         // route
         login: String,
         register: String,
-        // dashboard: String,
+        dashboard: String,
   
       },
       methods: {

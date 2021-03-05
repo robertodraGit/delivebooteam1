@@ -5815,11 +5815,32 @@ header .container img {
 
 .container-register {
   justify-content: start;
+  background-image: url("/img/register-backg.svg");
+  background-size: cover;
+  background-position: center bottom;
+  background-repeat: no-repeat;
+}
+
+.container-register .card {
+  margin-bottom: 20px;
 }
 
 .container-register .card button {
   width: 100px;
   cursor: pointer;
+}
+
+@media screen and (max-width: 800px) {
+  .card {
+    margin: 5% 10%;
+  }
+}
+
+@media screen and (min-width: 801px) {
+  .card {
+    margin-top: 5%;
+    margin-left: 10%;
+  }
 }
 
 .container-login .card button {

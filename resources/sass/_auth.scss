@@ -1,0 +1,46 @@
+.container-auth{
+
+    .search,
+    .cart{
+        display: none;
+    }
+    
+    .card {
+    
+        max-width: 500px;
+        margin: 0 auto;
+        // border: 1px solid;
+    
+        input[type=text],
+        input[type=email],
+        input[type=password],
+        input[type=number]{
+            width: 100%;
+            margin-bottom: 20px;
+        }
+    
+        .flex {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+    
+    
+            button, a {
+                height: 40px;
+                border-radius: 5px;
+                width: 49%;
+    
+                &:hover{
+                    background-color: lightgray;
+                }
+            }
+            a{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border: 1px solid;
+            }
+        }
+    }
+
+}

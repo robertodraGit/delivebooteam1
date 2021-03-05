@@ -16,7 +16,7 @@
                   </div>
                 @endif
 
-                <div class="card-header">{{ __('Register') }}</div>
+                <h2 class="card-header">{{ __('Register') }}</h2>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('register') }}">

@@ -5746,7 +5746,7 @@ readers do not read off random characters that represent icons */
 }
 
 .pay-wallpaper {
-  background-image: url("/img/wallpaper-pay.jpg");
+  background-image: url("/img/wallpaper.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;

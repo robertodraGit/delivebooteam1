@@ -9,32 +9,30 @@
                    
             <slider></slider>         
 
+            {{-- lista ristoranti --}}
           <section>
-              <h1>Piatti</h1>
+              <h1>Restaurants</h1>
 
               <div class="restaurants">
 
-                  {{-- @foreach ($restaurants as $restaurant) --}}
-                  {{-- @php   
-                      dd($restaurants);
-                  @endphp --}}
-                      {{-- <restaurant
-                      :restaurant_data = {{ $restaurant }}>
-                      </restaurant>
-                  @endforeach --}}
+                <div v-for="restaurant in restaurants" :key="restaurant.id">
+                    <restaurant
+                      :restaurant_data="restaurant"
+                    ></restaurant>
+                </div>
 
-                  @foreach ($plates as $plate)
+                  {{-- @foreach ($plates as $plate) --}}
 
                     {{-- @php  
                         dd($plates);
                     @endphp --}}
 
-                    <plate
+                    {{-- <plate
                     :plate_data = {{ $plate }}
                     >
-                    </plate>
+                    </plate> --}}
 
-                @endforeach
+                {{-- @endforeach --}}
               
 
               </div>

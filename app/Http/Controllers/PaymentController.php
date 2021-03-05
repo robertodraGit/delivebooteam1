@@ -142,7 +142,7 @@ class PaymentController extends Controller
         'publicKey' => config('services.braintree.publicKey'),
         'privateKey' => config('services.braintree.privateKey')
     ]);
-    dd($request);
+    // dd($request);
 
     $emailPagamento = $_POST["email"];
     $userMail = User::all() -> first() -> email;
@@ -179,8 +179,8 @@ class PaymentController extends Controller
     ]);
 
     if ($result->success) {
-        header("Location: " . $baseUrl . "transaction.php?id=" . $transaction->id);
-        return back() -> with('success_message', 'transazione eseguita con successo. Id transazione:' . $transaction -> id );
+        // header("Location: " . $baseUrl . "transaction.php?id=" . $transaction->id);
+        return back() -> with('success_message', 'transazione eseguita con successo.');
     } else {
         $errorString = "";
 
@@ -194,10 +194,5 @@ class PaymentController extends Controller
     }
   }
 
-
-
-  // public function sendMail() {
-  //   Mail::to($user['email'])->send(new SendMail($user));
-  // }
 
 }

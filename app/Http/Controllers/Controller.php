@@ -5,16 +5,16 @@ use App\Plate;
 use App\User;
 use App\Feedback;
 
-use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
-use Illuminate\Foundation\Bus\DispatchesJobs;
-use Illuminate\Foundation\Validation\ValidatesRequests;
+// use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+// use Illuminate\Foundation\Bus\DispatchesJobs;
+// use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
 
 use Illuminate\Support\Facades\DB;
 
 class Controller extends BaseController
 {
-    use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
+    // use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
     public function index()
     {
@@ -39,11 +39,18 @@ class Controller extends BaseController
       // 2 cerca nel nome ristorante
       // 3 cerca nel nome dei piatti
 
-      //FARE IL CUT DELL'ULTIMA LETTERA
-      //NElle categorie cerca il nome super esatto, da modificare
-      // posso dividere tutto in sottofunzioni.
 
-      $queries = ['dessert'];
+      // posso dividere tutto in sottofunzioni.
+      // aggiungere il voto medio e le altre cose al ristorante
+
+
+      $queries = ['piadina', 'poke'];
+
+      //RIMUOVO L'ULTIMA LETTERA DI OGNI QUERY
+      foreach ($queries as $index => $query) {
+        $queries[$index] = substr($queries[$index], 0, -1);
+      }
+
       // ******
       // 1- ricerca per categorie
       // ******
@@ -52,18 +59,15 @@ class Controller extends BaseController
 
       $whereClause = "";
       foreach ($queries as $query) {
-        $typology = "'" . $query . "'";
+        $typology = "'%" . $query . "%'";
         $whereClause .=  'typologies.typology like ' . $typology . ' OR ';
       }
       $whereClause = substr($whereClause, 0, -4);
-
-      // dd($whereClause);
 
       $responseTypologies = DB::table('typology_user')
         ->join('users', 'users.id', '=', 'typology_user.user_id')
         ->join('typologies', 'typologies.id', '=', 'typology_user.typology_id')
         ->select('users.id','users.name', 'users.address', 'users.phone', 'users.description', 'users.photo', 'users.delivery_cost')
-        // ->whereIn('typologies.typology', $queries)
         ->whereRaw($whereClause)
         ->groupBy('typology_user.user_id')
         ->havingRaw('COUNT(typology_user.user_id) ='. count($queries))
@@ -113,19 +117,16 @@ class Controller extends BaseController
         ->get();
       // dd($responsePlatesNames);
 
-      dd('typ', $responseTypologies,
-         'rest',  $responseRestNames,
-         'plate', $responsePlatesNames);
+      // dd('typ', $responseTypologies,
+      //    'rest',  $responseRestNames,
+      //    'plate', $responsePlatesNames);
 
 
-      // dd('blocco');
       // Se nessuna query inserita (1 avvio home-page):
-      $restaurants = DB::table('users')
+
+      $restaurants = User::inRandomOrder()->limit(10)
       ->select('users.id','users.name', 'users.address', 'users.phone', 'users.description', 'users.photo', 'users.delivery_cost')
-      ->inRandomOrder()
-      ->limit(10)
       ->get();
-      dd($restaurants);
 
       foreach ($restaurants as $key => $restaurant) {
 

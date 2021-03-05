@@ -37,6 +37,8 @@ Route::get('/home/allrestaurant', 'Controller@allRestaurant') -> name('show-all-
 Route::get('/home/getallrestaurant', 'Controller@getAllRestaurant') -> name('get-all-restaurant');
 Route::get('/restaurant/{id}', 'Controller@restaurantShow') -> name('restaurant-show');
 
+//Rotte definitive API ricerca
+Route::get('getallrestaurants', 'ResearchController@getAllRestaurants') -> name('get-all-restaurants');
 
 //Dashboard -> visualizza ordini
 Route::get('/dashboard/restaurant/orders', 'OrderController@restaurantOrder') -> name('restaurant-order');

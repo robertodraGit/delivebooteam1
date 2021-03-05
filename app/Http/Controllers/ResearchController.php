@@ -35,7 +35,7 @@ class ResearchController extends Controller
 
     public function searchTypsRestsPlats($query){
       // Trasformo la query in array
-      $queries = ['es', 'se'];
+      $queries = ['pizza'];
       $originalQueries = $queries;
 
       //RIMUOVO L'ULTIMA LETTERA DI OGNI QUERY
@@ -43,14 +43,18 @@ class ResearchController extends Controller
         $queries[$index] = substr($queries[$index], 0, -1);
       }
 
-      // 1- ricerca per categorie
+      // 1- ricerca per tipologie
       $responseTypologies = $this->searchTypologies($queries);
       // 2 cerca nel nome ristorante
       $responseRestNames = $this->searchRestNames($queries);
       // 3 cerca nel nome dei piatti
       $responsePlatesNames = $this->searchPlateNames($originalQueries);
 
-      dd($responsePlatesNames);
+      return response() -> json([
+        'typology-resoult' => $responseTypologies,
+        'rest-name-resoult' => $responseRestNames,
+        'plates-resoult' => $responsePlatesNames,
+      ]);
     }
 
     private function searchTypologies($queries){
@@ -72,7 +76,7 @@ class ResearchController extends Controller
         ->havingRaw('COUNT(typology_user.user_id) ='. count($queries))
         ->get();
 
-        // $responseTypologies = $this->addRestaurantInfo($responseTypologies);
+        $responseTypologies = $this->addRestaurantInfo($responseTypologies);
 
         return $responseTypologies;
     }
@@ -90,6 +94,8 @@ class ResearchController extends Controller
           )
         ->select('users.id','users.name', 'users.address', 'users.phone', 'users.description', 'users.photo', 'users.delivery_cost')
         ->get();
+
+      $responseRestNames = $this->addRestaurantInfo($responseRestNames);
 
       return $responseRestNames;
     }
@@ -117,28 +123,29 @@ class ResearchController extends Controller
 
       foreach ($restaurants as $key => $restaurant) {
 
+        $rest = User::findOrFail($restaurant -> id);
         // Fa ritornare il voto medio
         $votes = [];
-        foreach ($restaurant->feedback as $feedback) {
+        foreach ($rest->feedback as $feedback) {
           $votes[] = $feedback-> rate;
         };
 
         if ($votes) {
           $average = array_sum($votes)/count($votes);
-          $restaurants[$key]['average_rate'] = $average;
+          $restaurants[$key] -> average_rate = $average;
         } else {
-          $restaurants[$key]['average_rate'] = 'no-info';
+          $restaurants[$key] -> average_rate = 'no-info';
         }
 
         // Fa ritornare le tipologie
         $typologies = [];
-        foreach ($restaurant->typologies as $typology) {
+        foreach ($rest->typologies as $typology) {
           $typologies[] = $typology -> typology;
         }
 
-        $restaurants[$key]['typologies'] = $typologies;
+        $restaurants[$key]->typologies = $typologies;
 
-        return $restaurants;
       };
+      return $restaurants;
     }
 }

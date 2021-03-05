@@ -15780,6 +15780,161 @@ a.text-dark:focus {
   color: white;
 }
 
+.header-plate {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 100px;
+  padding: 10px 50px;
+  background-color: #eeeeee;
+}
+
+.header-plate h1 {
+  color: #00CCBC;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.header-plate img {
+  width: 120px;
+}
+
+.form-block {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  padding: 25px 50px;
+  background-color: #D0EB99;
+}
+
+.form-block h4 {
+  color: #450063;
+  font-weight: bold;
+  margin-bottom: 35px;
+}
+
+.form-block span {
+  margin-right: 10px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.form-block select {
+  text-indent: 6px;
+  height: 30px;
+  width: 125px;
+  border: none;
+  border-radius: 5px;
+  outline: none;
+  border: 1px solid #A3AFAF;
+  box-shadow: inset 1px 5px 8px rgba(0, 0, 0, 0.07);
+}
+
+.textbox {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.textbox label {
+  color: #2E3333;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.textbox input {
+  text-indent: 10px;
+  width: 30%;
+  height: 38px;
+  border-radius: 6px;
+  outline: none;
+  border: 1px solid #A3AFAF;
+  box-shadow: inset 1px 5px 8px rgba(0, 0, 0, 0.07);
+}
+
+.textbox textarea {
+  text-indent: 8px;
+  width: 30%;
+  border-radius: 6px;
+  outline: none;
+  border: 1px solid #A3AFAF;
+  box-shadow: inset 1px 5px 8px rgba(0, 0, 0, 0.07);
+}
+
+.text-checkbox {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 150px;
+}
+
+.text-checkbox label {
+  color: #2E3333;
+  font-size: 18px;
+  font-weight: bold;
+  margin: 0 10px 0 0;
+}
+
+.text-checkbox input {
+  width: 30px;
+  height: 20px;
+  border-style: none;
+  outline: none;
+  border: 1px solid #A3AFAF;
+}
+
+.textbox-discount {
+  margin-top: 10px;
+  margin-bottom: 15px;
+}
+
+.textbox-discount label {
+  color: #2E3333;
+  font-size: 18px;
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.textbox-discount input {
+  text-indent: 8px;
+  width: 4%;
+  height: 34px;
+  border-radius: 6px;
+  border: none;
+  outline: none;
+  border: 1px solid #A3AFAF;
+  box-shadow: inset 1px 5px 8px rgba(0, 0, 0, 0.07);
+}
+
+.img-box {
+  margin-top: 25px;
+}
+
+.img-box label {
+  color: #2E3333;
+  font-size: 18px;
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.button-save {
+  margin-top: 35px;
+}
+
+.button-save input {
+  font-size: 20px;
+  font-weight: bold;
+  color: #ffffff;
+  background-color: #00CCBC;
+  text-transform: uppercase;
+  height: 50px;
+  width: 150px;
+  border: none;
+  border-radius: 20px;
+  box-shadow: 0px 0px 10px 8px rgba(255, 255, 255, 0.5);
+}
+
 .cart-fixed {
   position: fixed;
   top: 10%;

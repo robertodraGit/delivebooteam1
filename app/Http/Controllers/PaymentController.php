@@ -15,17 +15,17 @@ use App\Mail\SendMail;
 use App\Mail\PayMail;
 
 
-
-
-
 class PaymentController extends Controller
 {
-  public function create(Request $request) {
+  public function getCart(Request $request) {
 
     $data = $request -> json() -> all();
+    
     $plates_selected = [];
     $to_pay = 0;
     $delivery_cost = 0;
+
+    $data_array = [];
 
     foreach ($data as $value) {
       foreach ($value as $item) {
@@ -44,8 +44,24 @@ class PaymentController extends Controller
       }
     }
 
-    return view('orders.order-create', compact('plates_selected', 'to_pay', 'delivery_cost'));
+    $data_array['plates'] = $plates_selected;
+    $data_array['topay'] = $to_pay;
+    $data_array['delivery'] = $delivery_cost;
+
+    session() -> flash('data', $data_array);
+
+    return redirect() -> route('order-create');
   }
+
+  public function create() {
+
+    session()->keep(['data']);
+
+    $data_array = session() -> get('data');
+
+    return view('orders.order-checkout', compact('data_array'));
+  }
+
 
   public function store(Request $request) {
     $data = $request -> all();

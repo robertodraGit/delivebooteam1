@@ -36,19 +36,10 @@
           {{$restaurant -> delivery_cost / 100}} € -> consegna
           <br>
 
-          {{-- <form action="{{}}" method="post">
-
-            @csrf
-            @method('POST')
-
-
-
-          </form> --}}
+          <button @click='get_cart()'>
+            Carrello
+          </button>
       
-            <button @click='get_cart()'>
-              Carrello
-            </button>
-          
           <br>
 
           <button @click='reset_cart()'>

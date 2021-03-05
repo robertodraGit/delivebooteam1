@@ -11,7 +11,7 @@
 
 
 
-      <form action="{{ route('order-store')}}" method="post">
+      <form action="{{ route('order-store') }}" method="post">
         @csrf
         @method('POST')
 
@@ -25,14 +25,15 @@
           </div>
         @endif
 
-        @foreach ($plates_selected as $item)
+        @foreach ($data_array['plates'] as $item)
           <ul>
             <li>{{$item -> plate_name}}</li>
             <li>{{$item -> price}}</li>
           </ul>
         @endforeach
 
-        Delivery cost: {{$delivery_cost}} <br> <br>
+        Delivery cost: {{$data_array['delivery']}} <br> 
+        Total to pay: {{$data_array['topay']}} <br>
 
         <label for="first_name">first_name: </label>
         <input type="text" name="first_name" value="">

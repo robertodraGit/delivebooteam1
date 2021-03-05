@@ -17,6 +17,7 @@ function  init() {
           restaurants: [],
           cart: [],
           order: [],
+          cacca: 50,
       },
       computed: {
 
@@ -80,20 +81,29 @@ function  init() {
           this.cart_new = [];
         },
 
+
+
         get_cart: function() {
-          axios.post('http://localhost:8000/create/order', {
+
+          axios.post('http://localhost:8000/keep-cart', {
                     cart: this.cart
                   })
                 .then(cart => {
 
-                  for(let i=0; i<cart.data.length; i++) {
-                    this.order.push(cart.data[i]);
+                  if (cart.status === 200) {
+
+                    for(let i=0; i<cart.data.length; i++) {
+                      this.order.push(cart.data[i]);
+                    }
+                  window.location='http://localhost:8000/create/order';
                   }
+                
                 })
                 .catch(error => {
                   console.log(error);
                 });
         },
+
       },
   });
 }

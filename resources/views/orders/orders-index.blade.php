@@ -31,6 +31,8 @@
                 Rifiutato
             @endif
             <br>
+            <a href="{{route('restaurant-comanda', $order -> id)}}">Apri comanda</a>
+            <br>
             TASTO DA ABORTIRE:
             <a href="{{ route('order-show', $order -> id) }}"> PAGA </a>
 

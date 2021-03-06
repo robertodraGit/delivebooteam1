@@ -52,18 +52,23 @@ Route::get('test/research', function() {
 });
 
 // rotte x tutti gli order nel db
-  Route::get('/orders', 'OrderController@index')
+Route::get('/orders', 'OrderController@index')
     -> name('orders-index');
-  Route::get('/order/{id}', 'OrderController@show')
+Route::get('/order/{id}', 'OrderController@show')
     -> name('order-show');
 
-
-  Route::post('/create/order', 'PaymentController@create')
+  // route to get data from frontend
+Route::post('/keep-cart', 'PaymentController@getCart') 
+    -> name('get-cart');
+  // route to checkout view with data from frontend-cart
+Route::get('/create/order', 'PaymentController@create')
       -> name('order-create');
-  Route::post('/new/order/store', 'PaymentController@store')
+  // route stores datas for new orders and let window go to payment page
+Route::post('/new/order/store', 'PaymentController@storeOrder')
       -> name('order-store');
 
 
   //rotta PAGAMENTO 
+
   Route::get('/pay', 'PaymentController@pay') -> name('pay');
   Route::post('/checkout', 'PaymentController@checkout') ->name('checkout');

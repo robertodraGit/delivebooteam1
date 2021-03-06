@@ -16,16 +16,53 @@ function  init() {
       data: {
           restaurants: [],
           cart: [],
+          order: [],
+          checkout: 0,
       },
       computed: {
-        total() {
+
+        cart_new: function() {
+
+          let cart_order = [];
+          this.cart.forEach(element => {
+
+            if(!cart_order.some(plate => plate.plate_id == element.plate_id)) {
+
+              let new_element = element;
+              new_element['quantity'] = 1;
+              cart_order.push(new_element);
+
+            } else {
+
+              for(let i=0; i<cart_order.length; i++) {
+
+                if(cart_order[i].plate_id == element.plate_id) {
+
+                  cart_order[i].quantity++;
+
+                  cart_order[i].plate_price = parseFloat(cart_order[i].quantity).toFixed(2) *
+                  parseFloat(element.plate_price).toFixed(2);
+
+                  cart_order[i].plate_price = cart_order[i].plate_price.toFixed(2);
+                }
+              }
+            }
+          });
+
+          return cart_order;
+        },
+
+        total: function() {
+
           let total = 0;
-          for (let i = 0; i < this.cart.length; i++) {
-            total += parseFloat(this.cart[i].plate_price);
+          for (let i = 0; i < this.cart_new.length; i++) {
+            total += parseFloat(this.cart_new[i].plate_price);
           }
           return total.toFixed(2);
         },
+
       },
+
       methods: {
         get_all_restaurants: function(){
           axios.get('http://localhost:8000/home/getallrestaurant')
@@ -39,8 +76,36 @@ function  init() {
           this.cart.push(plate);
         },
 
+        reset_cart: function() {
+          this.cart = [];
+          this.cart_new = [];
+        },
+
+        get_cart: function() {
+          axios.post('http://localhost:8000/create/order', {
+                    cart: this.cart
+                  })
+                .then(cart => {
+
+                  this.checkout = cart.data.total_cart;
+
+                  for(let i=0; i<cart.data.length; i++) {
+                    this.order.push(cart.data[i]);
+                  }
+                  // window.location.href = 'http://localhost:8000/create/order';
+                })
+                .catch(error => {
+                  console.log(error);
+                });
+        },
       },
   });
 }
 
 document.addEventListener("DOMContentLoaded", init);
+
+// menu hamburger dashboard
+const menu_btn = document.querySelector('.sidebar');
+menu_btn.addEventListener('click', function () {
+    menu_btn.classList.toggle('is-active');
+});

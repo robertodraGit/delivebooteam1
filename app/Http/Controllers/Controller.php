@@ -18,11 +18,28 @@ class Controller extends BaseController
 
     public function index()
     {
-      // $plate_data = Plate::all();
-      // mettere where visible : 1
-      // dd($plate_data);
-      // return view('welcome', compact('plate_data'));
-      return view('welcome-home');
+      $users = User::inRandomOrder() -> limit(5) -> get();
+      // dd($users);
+      $idUser = [];
+      foreach ($users as $user) {
+        $idUser[] = $user['id'];
+      }
+      // dd($idUser);
+      $plates = [];
+
+      $platesAll = Plate::all();
+      // $plate['user_id'] == $idUser
+      foreach ($platesAll as $plate) {
+        if (in_array($plate['user_id'], $idUser)) {
+          $plates[] = $plate;
+        }
+      }
+
+      $restaurants = User::inRandomOrder() -> first();
+
+
+      // dd($plates);
+      return view('welcome-home', compact('plates', 'restaurants'));
     }
 
     public function allRestaurant(){

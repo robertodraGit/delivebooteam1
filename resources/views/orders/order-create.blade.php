@@ -25,22 +25,14 @@
           </div>
         @endif
 
-        @foreach ($plates as $key => $plate)
-
-          <label
-            for="plate_id_{{$key}}"
-          >
-            {{$plate -> plate_name}}
-          </label>
-
-          <input type="checkbox"
-            name="plate_id_{{$key}}"
-            value="{{ $plate -> id }}"
-          >
-          {{-- <span>{{ $plat}}</span> --}}
-          <br>
-
+        @foreach ($plates_selected as $item)
+          <ul>
+            <li>{{$item -> plate_name}}</li>
+            <li>{{$item -> price / 100}}</li>
+          </ul>
         @endforeach
+
+        Delivery cost: {{$delivery_cost}} <br> <br>
 
         <label for="first_name">first_name: </label>
         <input type="text" name="first_name" value="">
@@ -60,8 +52,6 @@
         <label for="address">address: </label>
         <input type="text" name="address" value="">
         <br>
-
-
 
         <br>
         <input type="submit" value="SALVA">

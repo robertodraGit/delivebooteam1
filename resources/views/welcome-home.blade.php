@@ -2,39 +2,38 @@
 
 @section('content')
 
-  {{-- HEADER --}}
-    <header>
-        <div class="container">
-            <div class="menu"> <!-- vue -->
-                <a href="#">menu</a>
-            </div> 
-            <div class="logo">logo</div>
-            <input type="text" placeholder="Piatti">
-            <div class="cart">cart</div>
-        </div>
-    </header>
-
     {{-- MAIN --}}
     <main>
 
         <div class="container">
-            
-          <div id="app">
-            <slider></slider>
-          </div>
-          
+                   
+            <slider></slider>         
 
+            {{-- lista ristoranti --}}
           <section>
-              <h1>Ristoranti</h1>
+              <h1>Restaurants</h1>
 
               <div class="restaurants">
 
-                  <div class="card">info che arrivano dal db</div> <!-- foreach componente ristorante-->
-                  {{-- <div class="card">info</div>
-                  <div class="card">info</div>
-                  <div class="card">info</div>
-                  <div class="card">info</div>
-                  <div class="card">info</div> --}}
+                <div v-for="restaurant in restaurants" :key="restaurant.id">
+                    <restaurant
+                      :restaurant_data="restaurant"
+                    ></restaurant>
+                </div>
+
+                  {{-- @foreach ($plates as $plate) --}}
+
+                    {{-- @php  
+                        dd($plates);
+                    @endphp --}}
+
+                    {{-- <plate
+                    :plate_data = {{ $plate }}
+                    >
+                    </plate> --}}
+
+                {{-- @endforeach --}}
+              
 
               </div>
           </section>

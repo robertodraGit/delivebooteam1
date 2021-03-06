@@ -42,6 +42,12 @@ class ResearchController extends Controller
       foreach ($queries as $index => $q) {
         $queries[$index] = substr($queries[$index], 0, -1);
       }
+      //Rimuovo le parole di 1 carattere (per le congiunzioni)
+      foreach ($queries as $index => $word) {
+        if (strlen($word) <= 1) {
+          unset($queries[$index]);
+        }
+      }
 
       // 1- ricerca per tipologie
       $responseTypologies = $this->searchTypologies($queries);

@@ -37,11 +37,19 @@ Route::get('/home/allrestaurant', 'Controller@allRestaurant') -> name('show-all-
 Route::get('/home/getallrestaurant', 'Controller@getAllRestaurant') -> name('get-all-restaurant');
 Route::get('/restaurant/{id}', 'Controller@restaurantShow') -> name('restaurant-show');
 
+//Rotte definitive API ricerca
+Route::get('getallrestaurants', 'ResearchController@getAllRestaurants') -> name('get-all-restaurants');
+Route::get('getrestaurantsinit', 'ResearchController@getRestaurantsInit') -> name('get-restaurants-init');
+Route::get('search/{query}', 'ResearchController@searchTypsRestsPlats') -> name('search-typs-rests-plats');
 
 //Dashboard -> visualizza ordini
 Route::get('/dashboard/restaurant/orders', 'OrderController@restaurantOrder') -> name('restaurant-order');
 Route::get('/dashboard/restaurant/comanda/{id}', 'OrderController@restaurantComanda') -> name('restaurant-comanda');
 
+//Da cancellare: rotta test Research
+Route::get('test/research', function() {
+  return view('test-research');
+});
 
 // rotte x tutti gli order nel db
 Route::get('/orders', 'OrderController@index')
@@ -60,10 +68,7 @@ Route::post('/new/order/store', 'PaymentController@storeOrder')
       -> name('order-store');
 
 
-
   //rotta PAGAMENTO 
-Route::get('/pay', 'PaymentController@pay') -> name('pay');
 
-
-  // CHECKOUT PAGAMENTO
-Route::post('/checkout', 'PaymentController@checkout') ->name('checkout');
+  Route::get('/pay', 'PaymentController@pay') -> name('pay');
+  Route::post('/checkout', 'PaymentController@checkout') ->name('checkout');

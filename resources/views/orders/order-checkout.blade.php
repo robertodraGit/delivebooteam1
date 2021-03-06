@@ -33,7 +33,13 @@
         @endforeach
 
         Delivery cost: {{$data_array['delivery']}} <br> 
-        Total to pay: {{$data_array['topay']}} <br>
+        Total to pay: {{$data_array['topay'] + $data_array['delivery']}} <br>
+        
+        @foreach ($data_array['plates'] as $key => $item)
+          <input type="hidden" name='plate_{{$key +1}}' value='{{$item}}'>
+        @endforeach
+
+        <input type="hidden" name='delivery' value='{{$data_array['delivery']}}'>
 
         <label for="first_name">first_name: </label>
         <input type="text" name="first_name" value="">

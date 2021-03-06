@@ -49,14 +49,14 @@ Route::get('/orders', 'OrderController@index')
 Route::get('/order/{id}', 'OrderController@show')
     -> name('order-show');
 
-
+  // route to get data from frontend
 Route::post('/keep-cart', 'PaymentController@getCart') 
     -> name('get-cart');
-
+  // route to checkout view with data from frontend-cart
 Route::get('/create/order', 'PaymentController@create')
       -> name('order-create');
-
-Route::post('/new/order/store', 'PaymentController@store')
+  // route stores datas for new orders and let window go to payment page
+Route::post('/new/order/store', 'PaymentController@storeOrder')
       -> name('order-store');
 
 

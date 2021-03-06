@@ -9,8 +9,6 @@
 
       <div class="col-md-12">
 
-
-
       <form action="{{ route('order-store') }}" method="post">
         @csrf
         @method('POST')
@@ -25,7 +23,7 @@
           </div>
         @endif
 
-        @foreach ($data_array['plates'] as $item)
+        {{-- @foreach ($data_array['plates'] as $item)
           <ul>
             <li>{{$item -> plate_name}}</li>
             <li>{{$item -> price}}</li>
@@ -37,9 +35,7 @@
         
         @foreach ($data_array['plates'] as $key => $item)
           <input type="hidden" name='plate_{{$key +1}}' value='{{$item}}'>
-        @endforeach
-
-        <input type="hidden" name='delivery' value='{{$data_array['delivery']}}'>
+        @endforeach --}}
 
         <label for="first_name">first_name: </label>
         <input type="text" name="first_name" value="">

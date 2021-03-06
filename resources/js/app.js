@@ -104,10 +104,8 @@ function  init() {
 
 document.addEventListener("DOMContentLoaded", init);
 
-// elemento Vue per il menu hamburger dashboard
-var sidemenu = new Vue({
-	el: '#sidemenu',
-	data: {
-		navOpen: true,
-	},
-})
+// menu hamburger dashboard
+const menu_btn = document.querySelector('.sidebar');
+menu_btn.addEventListener('click', function () {
+    menu_btn.classList.toggle('is-active');
+});

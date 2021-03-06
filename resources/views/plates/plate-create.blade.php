@@ -9,79 +9,97 @@
     <title>Crea piatto</title>
 </head>
 <body>
-    
-    <h1>
-        Crea un nuovo piatto
-    </h1>
+    <header class="header-plate">
+        <h1>
+            Crea un nuovo piatto
+        </h1>
+        <a href="{{ route('index') }}">
+            <img src="{{ asset('/images/deliveroo-logo.svg') }}" alt="">
+        </a>
+    </header>
 
-    <form action="{{ route('plates-store') }}" method="POST" enctype="multipart/form-data">
+    <section class="form-block">
+        <form action="{{ route('plates-store') }}" method="POST" enctype="multipart/form-data">
 
-        @csrf
-        @method('POST')
+            @csrf
+            @method('POST')
 
-        @if ($errors->any())
-          <div class="alert alert-danger">
-              <ul>
-                  @foreach ($errors->all() as $error)
-                      <li>{{ $error }}</li>
-                  @endforeach
-              </ul>
-          </div>
-        @endif
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
 
-        <label for="plate_name" >Nome piatto</label>
-        <input name='plate_name' type="text" required maxlength="30">
-        <br>
+            <h4>Compila il form qui per aggiungere il tuo nuovo piatto</h4>
 
-        <label for="ingredients">Ingredienti:</label>
-        <input name='ingredients' type="textbox" required minlength="2" maxlength="2000">
-        <br>
+            <div class="textbox">
+                <label for="plate_name" >Nome piatto</label>
+                <input name='plate_name' type="text" placeholder="Nome" required maxlength="30">
+            </div>
 
-        <label for="description">Descrizione:</label>
-        <input name='description' type="text" minlength="2" maxlength="255">
-        <br>
+            <div class="textbox">
+                <label for="ingredients">Ingredienti:</label>
+                <input name='ingredients' type="textbox" placeholder="Ingredienti" required minlength="2" maxlength="2000">
+            </div>
 
-        <label for="price_euro">Prezzo (EURO):</label>
-        <input name='price_euro' type="number" min="0" max="9999">
+            <div class="textbox">
+                <label for="description">Descrizione:</label>
+                {{-- <input name='description' type="text" minlength="2" maxlength="255"> --}}
+                <textarea name='description' rows="3" cols="80" minlength="2" maxlength="255"></textarea>
+            </div>
 
-        <label for="price_cents">Prezzo (CENTESIMI):</label>
-        <input name='price_cents' type="number" min="0" max="99">
+            <div class="textbox">
+                <label for="price_euro">Prezzo (EURO):</label>
+                <input name='price_euro' type="number" placeholder="Prezzo in Euro" min="0" max="9999">
+            </div>
 
-        <br>
+            <div class="textbox">
+                <label for="price_cents">Prezzo (CENTESIMI):</label>
+                <input name='price_cents' type="number" placeholder="Prezzo in Centesimi" min="0" max="99">
+            </div>
 
-        <label for="visible">Visibile:</label>
-        <input name='visible' value="1" type="checkbox">
-        <br>
+            <div class="text-checkbox">
+                <label for="visible">Visibile:</label>
+                <input name='visible' value="1" type="checkbox">
+            </div>
 
-        <label for="availability">Disponibile:</label>
-        <input name='availability' value="1" type="checkbox">
-        <br>
+            <div class="text-checkbox">
+                <label for="availability">Disponibile:</label>
+                <input name='availability' value="1" type="checkbox">
+            </div>
 
-        <label for="discount">Sconto in percentuale:</label>
-        <input name='discount' type="number" required min="0" max="100">
-        <br>
+            <div class="textbox-discount">
+                <label for="discount">Sconto in percentuale:</label>
+                <input name='discount' type="number" required min="0" max="100">
+            </div>
 
-        <select name="category_id">
+            <span>Categoria del piatto:</span>
+            <select name="category_id">
+                @foreach ($categories as $cat)
 
-            @foreach ($categories as $cat)
+                    <option value="{{ $cat -> id }}">
+                        {{ $cat -> category }}
+                    </option>
 
-                <option value="{{ $cat -> id }}">
-                    {{ $cat -> category }}
-                </option>
+                @endforeach
 
-            @endforeach
+            </select>
 
-        </select>
-        <br>
+            <div class="img-box">
+                <label for="img">Foto</label>
+                <input name='img' type="file">
+            </div>
 
-        <label for="img">Foto</label>
-        <input name='img' type="file">
+            <div class="button-save">
+                <input type="submit" value="Salva">
+            </div>
 
-        <br>
-
-        <input type="submit" value="Salva">
-
-    </form>
+        </form>
+    </section>
 
     <script src="{{ asset('js/app.js') }}"></script>
 </body>

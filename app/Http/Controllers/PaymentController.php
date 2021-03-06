@@ -53,11 +53,13 @@ class PaymentController extends Controller
     return redirect() -> route('order-create');
   }
 
-  public function create() {
+  public function create(Request $request) {
 
     session()->keep(['data']);
 
     $data_array = session() -> get('data');
+
+    $request->session()->reflash();
 
     return view('orders.order-checkout', compact('data_array'));
   }
@@ -65,47 +67,27 @@ class PaymentController extends Controller
 
   public function storeOrder(Request $request) {
 
+    session()->keep(['data']);
+    $data_array = session() -> get('data');
     $data = $request -> all();
-    
-    foreach ($data as $key => $value) {
-      $exp_key = explode('_', $key);
-      if($exp_key[0] == 'plate'){
-        $id_plates[]=json_decode($value, true);
-       }
+
+    foreach ($data_array as $key_data) {
+      $new_arr[]=$key_data;
     }
 
     $data['payment_state'] = 0;
-    $to_pay = 0;
+    $to_pay = $new_arr[1] + $new_arr[2];
 
-    foreach ($id_plates as $item) {
+    unset($new_arr[1]);
+    unset($new_arr[2]);
 
-      $plate_select = Plate::findOrFail($item['id']);
-      $delivery_cost = ($plate_select -> user -> delivery_cost) / 100;
-
-      $discounted = $plate_select -> price * (100 - $plate_select -> discount);
-
-      $discounted = round($discounted / 10000, 2);
-      $plate_select -> price = $discounted;
-
-      $to_pay += $discounted;
-
-      $plates_selected[] = $plate_select;
+    foreach($new_arr as $subplate) {
+      foreach($subplate as $plate_models) {
+        $plates_final[] = $plate_models['id'];
+      }
     }
 
-    foreach ($data as $key => $value) {
-      $exp_key = explode('_', $key);
-      if($exp_key[0] == 'plate'){
-        unset($data[$key]);
-       }
-    }
-
-    $data['total_price'] = $to_pay + $delivery_cost;
-    unset($data['delivery']);
-
-    // al momento il TOTAL_PRICE della tabella order sarà il totale dei
-    // piatti (scontati ovviamente) + delivery, decidere se cambiare
-
-    // dd($data, $id_plates, $delivery_cost, $to_pay, $data['total_price']);
+    $data['total_price'] = (int)($to_pay * 100);
 
     Validator::make($data, [
 
@@ -121,7 +103,7 @@ class PaymentController extends Controller
 
     $newOrder = Order::make($data);
     $newOrder -> save();
-    $newOrder -> plates() -> attach($id_plates);
+    $newOrder -> plates() -> attach($plates_final);
  
     return view('orders.order-show', compact('newOrder'));
   }

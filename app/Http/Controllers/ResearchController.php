@@ -35,11 +35,11 @@ class ResearchController extends Controller
 
     public function searchTypsRestsPlats($query){
       // Trasformo la query in array
-      $queries = ['pizza'];
+      $queries = explode(" ", $query);
       $originalQueries = $queries;
 
       //RIMUOVO L'ULTIMA LETTERA DI OGNI QUERY
-      foreach ($queries as $index => $query) {
+      foreach ($queries as $index => $q) {
         $queries[$index] = substr($queries[$index], 0, -1);
       }
 

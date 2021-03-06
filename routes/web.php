@@ -46,6 +46,10 @@ Route::get('search/{query}', 'ResearchController@searchTypsRestsPlats') -> name(
 Route::get('/dashboard/restaurant/orders', 'OrderController@restaurantOrder') -> name('restaurant-order');
 Route::get('/dashboard/restaurant/comanda/{id}', 'OrderController@restaurantComanda') -> name('restaurant-comanda');
 
+//Da cancellare: rotta test Research
+Route::get('test/research', function() {
+  return view('test-research');
+});
 
 // rotte x tutti gli order nel db
   Route::get('/orders', 'OrderController@index')

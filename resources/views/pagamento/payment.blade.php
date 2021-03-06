@@ -130,7 +130,7 @@
 
                             <section>
                               {{-- <label for="email">email utente: </label> --}}
-                              <input type="hidden" type="text" name="email" value="{{ $email }}" type="hidden">
+                              <input type="text" name="email" value="{{ $email }}">
                               <label id="input-amount" for="amount">
                                   <h2 class="input-label">
                                     totale da pagare: {importo che arriva dal carrello.}
@@ -138,7 +138,7 @@
 
                                   <div class="input-wrapper amount-wrapper">
                                       {{-- questo input sarà hidden perché il prezzo da pagare arriverà dal carrello --}}
-                                      <input id="amount" name="amount" type="tel" type="hidden" min="1" placeholder="Amount" value="10" style="display: none;">
+                                      <input id="amount" name="amount" type="tel" min="1" placeholder="Amount" value="10" >
                                   </div>
                               </label>
 

@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
 // Ricerca avviabile solo con almeno una parola inserita lunga 3 caratteri.
-// Mettere restituzione dell'errore.
+// Restituisce messaggio di errore in caso contrario.
 
 // Restituzione tutti i ristoranti
 // Restituzione pochi ristoranti casuali per HomePage
@@ -64,6 +64,12 @@ class ResearchController extends Controller
         }
       }
 
+      if (count($queries) === 0) {
+        return response() -> json([
+          'error' => 'Parole nel campo di ricerca troppo corte. Almeno 3 caratteri richiesti.'
+        ]);
+      }
+
       // 1- ricerca per tipologie
       $responseTypologies = $this->searchTypologies($queries);
       // 2 cerca nel nome ristorante
@@ -96,6 +102,12 @@ class ResearchController extends Controller
         }
       }
 
+      if (count($queries) === 0) {
+        return response() -> json([
+          'error' => 'Parole nel campo di ricerca troppo corte. Almeno 3 caratteri richiesti.'
+        ]);
+      }
+
       $whereClause = [];
       foreach ($queries as $query) {
         $word = '%' . $query . '%';
@@ -119,7 +131,12 @@ class ResearchController extends Controller
 
       // Trasformo la query in array
       $queries = explode(" ", $query);
-      $originalQueries = $queries;
+
+      if (count($queries) === 0) {
+        return response() -> json([
+          'error' => 'Parole nel campo di ricerca troppo corte. Almeno 3 caratteri richiesti.'
+        ]);
+      }
 
       $responsePlatesNames = [];
 

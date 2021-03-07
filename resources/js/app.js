@@ -18,7 +18,18 @@ function  init() {
           cart: [],
           order: [],
           cacca: 50,
+
+          // ricerca
+          searchInput: "",
           searchResult: [],
+
+          // flags
+          no_result: 0,
+          research_error: 0,
+          category: 1,
+          restaurants: 1,
+          plates: 1,
+
       },
       computed: {
 
@@ -62,6 +73,26 @@ function  init() {
           return total.toFixed(2);
         },
 
+        search_typologies_result: function(){
+          return this.searchResult.typology_resoult;
+        },
+
+        search_rest_name_result: function(){
+          return this.searchResult.rest_name_resoult;
+        },
+
+        search_plate_name_result: function(){
+          return this.searchResult.plates_resoult;
+        },
+
+      },
+
+      watch: {
+        searchInput: function(newVal){
+          if (newVal === "") {
+            this.research_error = 0;
+          }
+        },
       },
 
       methods: {
@@ -87,7 +118,25 @@ function  init() {
             }
             })
             .then((response) => {
-              console.log(response.data);
+              this.searchResult = response.data;
+              if (response.data.error) {
+                console.log(response.data.error);
+                this.research_error = 1;
+              }
+              if (this.searchResult.typology_resoult.length === 0) {
+                this.category = 0;
+              }
+              if (this.searchResult.rest_name_resoult.length === 0) {
+                this.restaurants = 0;
+              }
+              if (this.searchResult.plates_resoult.length === 0) {
+                this.plates = 0;
+              }
+
+              console.log('ALL', this.searchResult);
+              console.log('T', this.search_typologies_result);
+              console.log('R', this.search_rest_name_result);
+              console.log('P', this.search_plate_name_result);
             })
             .catch(function (error) {
               console.log(error);

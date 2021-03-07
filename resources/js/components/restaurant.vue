@@ -19,7 +19,7 @@
     export default {
         mounted() {
             // console.log('restaurant mounted.')
-            console.log('componente restaurant:', this.restaurant_data);
+            // console.log('componente restaurant:', this.restaurant_data);
         },
 
         data: function() {

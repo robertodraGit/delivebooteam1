@@ -78,9 +78,9 @@ class ResearchController extends Controller
       $responsePlatesNames = $this->searchPlateNamesInit($originalQueries);
 
       return response() -> json([
-        'typology-resoult' => $responseTypologies,
-        'rest-name-resoult' => $responseRestNames,
-        'plates-resoult' => $responsePlatesNames,
+        'typology_resoult' => $responseTypologies,
+        'rest_name_resoult' => $responseRestNames,
+        'plates_resoult' => $responsePlatesNames,
       ]);
     }
 

@@ -52,6 +52,7 @@ class ResearchController extends Controller
       // Trasformo la query in array
       $queries = explode(" ", $query);
       $originalQueries = $queries;
+      $literalResearch = $query;
 
       // RIMUOVO L'ULTIMA LETTERA DI OGNI QUERY
       foreach ($queries as $index => $q) {
@@ -73,7 +74,7 @@ class ResearchController extends Controller
       }
 
       // 1- ricerca per tipologie
-      $responseTypologies = $this->searchTypologies($queries);
+      $responseTypologies = $this->searchTypologies($queries, $literalResearch);
       // 2 cerca nel nome ristorante
       $responseRestNames = $this->searchRestNamesInit($queries);
       // 3 cerca nel nome dei piatti
@@ -160,8 +161,16 @@ class ResearchController extends Controller
       return $responsePlatesNames;
     }
 
-    private function searchTypologies($queries){
-      $responseTypologies = [];
+    private function searchTypologies($queries, $literalResearch){
+      //Ricerca letterale
+      $responseLiteralTypologies = DB::table('typology_user')
+        ->join('users', 'users.id', '=', 'typology_user.user_id')
+        ->join('typologies', 'typologies.id', '=', 'typology_user.typology_id')
+        ->select('users.id','users.name', 'users.address', 'users.phone', 'users.description', 'users.photo', 'users.delivery_cost')
+        ->where('typologies.typology', 'like', $literalResearch)
+        ->get();
+
+      $responseLiteralTypologies = $this->addRestaurantInfo($responseLiteralTypologies);
 
       $whereClause = "";
       foreach ($queries as $query) {
@@ -170,6 +179,7 @@ class ResearchController extends Controller
       }
       $whereClause = substr($whereClause, 0, -4);
 
+      //Ricerca non letterale (scompone le parole)
       $responseTypologies = DB::table('typology_user')
         ->join('users', 'users.id', '=', 'typology_user.user_id')
         ->join('typologies', 'typologies.id', '=', 'typology_user.typology_id')
@@ -181,7 +191,11 @@ class ResearchController extends Controller
 
         $responseTypologies = $this->addRestaurantInfo($responseTypologies);
 
-        return $responseTypologies;
+        // Elimino i duplicati
+        $allResults = $responseLiteralTypologies->merge($responseTypologies);
+        $allResults = $allResults->unique();
+
+        return $allResults;
     }
 
     private function searchRestNamesInit($queries){

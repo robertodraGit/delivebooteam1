@@ -11,13 +11,25 @@ function  init() {
       mounted: function () {
        this.$nextTick(function () {
          console.log("App montata!");
-         this.get_all_restaurants();
+         this.getRestaurantsInit();
        })},
       data: {
           restaurants: [],
           cart: [],
           order: [],
           cacca: 50,
+
+          // ricerca
+          searchInput: "",
+          searchResult: [],
+
+          // flags
+          no_result: 0,
+          research_error: 0,
+          research_category: 1,
+          research_restaurants: 1,
+          research_plates: 1,
+
       },
       computed: {
 
@@ -61,15 +73,77 @@ function  init() {
           return total.toFixed(2);
         },
 
+        search_typologies_result: function(){
+          return this.searchResult.typology_resoult;
+        },
+
+        search_rest_name_result: function(){
+          return this.searchResult.rest_name_resoult;
+        },
+
+        search_plate_name_result: function(){
+          return this.searchResult.plates_resoult;
+        },
+
+      },
+
+      watch: {
+        searchInput: function(newVal){
+          if (newVal === "") {
+            this.research_error = 0;
+          }
+        },
       },
 
       methods: {
-        get_all_restaurants: function(){
-          axios.get('http://localhost:8000/home/getallrestaurant')
-                .then(res => {
-                  this.restaurants = res.data.restaurants;
-                  // console.log(this.restaurants);
-                });
+
+        getRestaurantsInit: function(){
+          axios.get('/getrestaurantsinit', {
+            params: {
+            }
+            })
+            .then((response) => {
+              console.log('Primi ristoranti casuali: ', response.data.restaurants);
+              this.restaurants = response.data.restaurants;
+            })
+            .catch(function (error) {
+              console.log(error);
+            })
+        },
+
+        startResearch: function(queries){
+          console.log(queries);
+          axios.get('/search/' + queries, {
+            params: {
+            }
+            })
+            .then((response) => {
+              this.searchResult = response.data;
+
+              if (response.data.error) {
+                console.log(response.data.error);
+                this.research_error = 1;
+              } else {
+
+                if (this.searchResult.typology_resoult.length === 0) {
+                  this.research_category = 0;
+                }
+                if (this.searchResult.rest_name_resoult.length === 0) {
+                  this.research_restaurants = 0;
+                }
+                if (this.searchResult.plates_resoult.length === 0) {
+                  this.research_plates = 0;
+                }
+              }
+
+              console.log('ALL', this.searchResult);
+              console.log('T', this.search_typologies_result);
+              console.log('R', this.search_rest_name_result);
+              console.log('P', this.search_plate_name_result);
+            })
+            .catch(function (error) {
+              console.log(error);
+            })
         },
 
         pushInCart: function(plate) {
@@ -97,7 +171,7 @@ function  init() {
                     }
                   window.location='http://localhost:8000/create/order';
                   }
-                
+
                 })
                 .catch(error => {
                   console.log(error);
@@ -111,7 +185,7 @@ function  init() {
 document.addEventListener("DOMContentLoaded", init);
 
 // menu hamburger dashboard
-const menu_btn = document.querySelector('.sidebar');
-menu_btn.addEventListener('click', function () {
-    menu_btn.classList.toggle('is-active');
-});
+// const menu_btn = document.querySelector('.sidebar');
+// menu_btn.addEventListener('click', function () {
+//     menu_btn.classList.toggle('is-active');
+// });

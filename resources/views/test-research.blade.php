@@ -12,6 +12,9 @@
       <input type="text" name="" value="" v-model="researchInput">
       <button type="button" name="button" @click="startResearch(researchInput)">GO</button>
       <p>@{{researchInput}}</p>
+      <button type="button" name="button" @click="getAllRestByName(researchInput)">Get all rests by name</button>
+      <button type="button" name="button" @click="getAllPlateByName(researchInput)">Get all plates by name</button>
+
     </div>
 
 
@@ -42,6 +45,34 @@
                 startResearch: function(queries){
                   console.log(queries);
                   axios.get('/search/' + queries, {
+                    params: {
+                    }
+                    })
+                    .then(function (response) {
+                      console.log(response.data);
+                    })
+                    .catch(function (error) {
+                      console.log(error);
+                    })
+                },
+
+                getAllRestByName: function(queries){
+                  console.log(queries);
+                  axios.get('/getallrestbyname/' + queries, {
+                    params: {
+                    }
+                    })
+                    .then(function (response) {
+                      console.log(response.data);
+                    })
+                    .catch(function (error) {
+                      console.log(error);
+                    })
+                },
+
+                getAllPlateByName: function(queries){
+                  console.log(queries);
+                  axios.get('/getallplatebyname/' + queries, {
                     params: {
                     }
                     })

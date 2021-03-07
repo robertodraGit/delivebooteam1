@@ -26,9 +26,9 @@ function  init() {
           // flags
           no_result: 0,
           research_error: 0,
-          category: 1,
-          restaurants: 1,
-          plates: 1,
+          research_category: 1,
+          research_restaurants: 1,
+          research_plates: 1,
 
       },
       computed: {
@@ -119,18 +119,21 @@ function  init() {
             })
             .then((response) => {
               this.searchResult = response.data;
+
               if (response.data.error) {
                 console.log(response.data.error);
                 this.research_error = 1;
-              }
-              if (this.searchResult.typology_resoult.length === 0) {
-                this.category = 0;
-              }
-              if (this.searchResult.rest_name_resoult.length === 0) {
-                this.restaurants = 0;
-              }
-              if (this.searchResult.plates_resoult.length === 0) {
-                this.plates = 0;
+              } else {
+
+                if (this.searchResult.typology_resoult.length === 0) {
+                  this.research_category = 0;
+                }
+                if (this.searchResult.rest_name_resoult.length === 0) {
+                  this.research_restaurants = 0;
+                }
+                if (this.searchResult.plates_resoult.length === 0) {
+                  this.research_plates = 0;
+                }
               }
 
               console.log('ALL', this.searchResult);

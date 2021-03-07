@@ -2,17 +2,17 @@
   <input class="search" type="text" placeholder="Piatti, ristoranti o tipi di cucina" v-on:keyup.enter="startResearch($event.target.value)" v-model="searchInput">
   <div class="results">
 
-    <div class="category" v-if="!no_result && !research_error && category">
+    <div class="category" v-if="!no_result && !research_error && research_category">
       <h3>Categorie</h3>
 
     </div>
 
-    <div class="restaurants" v-if="!no_result && !research_error && restaurants">
+    <div class="restaurants" v-if="!no_result && !research_error && research_restaurants">
       <h3>Ristoranti</h3>
 
     </div>
 
-    <div class="plates" v-if="!no_result && !research_error && plates">
+    <div class="plates" v-if="!no_result && !research_error && research_plates">
       <h3>Piatti</h3>
 
     </div>

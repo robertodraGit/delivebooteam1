@@ -16,6 +16,7 @@
               <div class="restaurants">
 
                 <div  v-for="restaurant in restaurants" :key="restaurant.id">
+                    <p>@{{restaurant}}</p>
                     <restaurant
                       :restaurant_data="restaurant"
                     ></restaurant>

@@ -53,13 +53,15 @@ class ResearchController extends Controller
       $queries = explode(" ", $query);
       $originalQueries = $queries;
 
-      //RIMUOVO L'ULTIMA LETTERA DI OGNI QUERY
+      // RIMUOVO L'ULTIMA LETTERA DI OGNI QUERY
       foreach ($queries as $index => $q) {
-        $queries[$index] = substr($queries[$index], 0, -1);
+        if (strlen($queries[$index]) > 3) {
+          $queries[$index] = substr($queries[$index], 0, -1);
+        }
       }
-      //Rimuovo le parole di 1 carattere (per le congiunzioni)
+      // Rimuovo le parole di 2 caratter1 (per le congiunzioni)
       foreach ($queries as $index => $word) {
-        if (strlen($word) <= 1) {
+        if (strlen($word) <= 2) {
           unset($queries[$index]);
         }
       }

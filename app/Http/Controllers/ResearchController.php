@@ -9,6 +9,17 @@ use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
+// Ricerca avviabile solo con almeno una parola inserita lunga 3 caratteri
+
+// Restituzione tutti i ristoranti
+// Restituzione pochi ristoranti casuali per HomePage
+// Restituzione ricerca per tipologie
+//
+// Restituzione 5 piatti per barra ricerca
+// Restituzione 5 ristoranti (ricerca nel nome) per barra ricerca
+// Restituzione tutti i piatti per home page
+// Restituzione tutti i ristoranti (ricerca per nome) per home page
+
 class ResearchController extends Controller
 {
     public function getAllRestaurants() {
@@ -33,6 +44,7 @@ class ResearchController extends Controller
       ]);
     }
 
+    //Restituisce tipologie, 5 rest name e 5 plate name.
     public function searchTypsRestsPlats($query){
       // Trasformo la query in array
       $queries = explode(" ", $query);
@@ -52,9 +64,9 @@ class ResearchController extends Controller
       // 1- ricerca per tipologie
       $responseTypologies = $this->searchTypologies($queries);
       // 2 cerca nel nome ristorante
-      $responseRestNames = $this->searchRestNames($queries);
+      $responseRestNames = $this->searchRestNamesInit($queries);
       // 3 cerca nel nome dei piatti
-      $responsePlatesNames = $this->searchPlateNames($originalQueries);
+      $responsePlatesNames = $this->searchPlateNamesInit($originalQueries);
 
       return response() -> json([
         'typology-resoult' => $responseTypologies,
@@ -87,7 +99,7 @@ class ResearchController extends Controller
         return $responseTypologies;
     }
 
-    private function searchRestNames($queries){
+    private function searchRestNamesInit($queries){
       $whereClause = [];
       foreach ($queries as $query) {
         $word = '%' . $query . '%';
@@ -99,6 +111,8 @@ class ResearchController extends Controller
             $whereClause
           )
         ->select('users.id','users.name', 'users.address', 'users.phone', 'users.description', 'users.photo', 'users.delivery_cost')
+        ->inRandomOrder()
+        ->limit(5)
         ->get();
 
       $responseRestNames = $this->addRestaurantInfo($responseRestNames);
@@ -106,7 +120,7 @@ class ResearchController extends Controller
       return $responseRestNames;
     }
 
-    private function searchPlateNames($queries){
+    private function searchPlateNamesInit($queries){
       $responsePlatesNames = [];
 
       $whereClause = [];
@@ -120,6 +134,8 @@ class ResearchController extends Controller
             $whereClause
           )
         ->select('*')
+        ->inRandomOrder()
+        ->limit(5)
         ->get();
 
       return $responsePlatesNames;

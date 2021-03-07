@@ -15785,39 +15785,255 @@ a.text-dark:focus {
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  height: 100px;
+  height: 80px;
   padding: 10px 50px;
   background-color: #eeeeee;
+}
+
+@media all and (min-width: 725px) and (max-width: 967px) {
+  .header-plate {
+    padding: 10px 30px;
+  }
+}
+
+@media all and (min-width: 576px) and (max-width: 724px) {
+  .header-plate {
+    padding: 10px 25px;
+  }
+}
+
+@media all and (min-width: 441px) and (max-width: 575px) {
+  .header-plate {
+    padding: 10px 30px;
+  }
+}
+
+@media all and (max-width: 440px) {
+  .header-plate {
+    height: 60px;
+    padding: 10px 20px;
+  }
 }
 
 .header-plate h1 {
   color: #00CCBC;
   text-transform: uppercase;
   font-weight: bold;
+  margin: 0;
+}
+
+@media all and (min-width: 968px) and (max-width: 1199px) {
+  .header-plate h1 {
+    font-size: 30px;
+  }
+}
+
+@media all and (min-width: 725px) and (max-width: 967px) {
+  .header-plate h1 {
+    font-size: 24px;
+  }
+}
+
+@media all and (min-width: 576px) and (max-width: 724px) {
+  .header-plate h1 {
+    font-size: 22px;
+  }
+}
+
+@media all and (min-width: 441px) and (max-width: 575px) {
+  .header-plate h1 {
+    font-size: 18px;
+  }
+}
+
+@media all and (max-width: 440px) {
+  .header-plate h1 {
+    font-size: 12px;
+  }
 }
 
 .header-plate img {
   width: 120px;
 }
 
+@media all and (min-width: 725px) and (max-width: 967px) {
+  .header-plate img {
+    width: 90px;
+  }
+}
+
+@media all and (min-width: 576px) and (max-width: 724px) {
+  .header-plate img {
+    width: 80px;
+  }
+}
+
+@media all and (min-width: 441px) and (max-width: 575px) {
+  .header-plate img {
+    width: 70px;
+  }
+}
+
+@media all and (max-width: 440px) {
+  .header-plate img {
+    width: 60px;
+  }
+}
+
 .form-block {
+  position: relative;
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  height: auto;
   padding: 25px 50px;
   background-color: #D0EB99;
+}
+
+@media all and (min-width: 725px) and (max-width: 967px) {
+  .form-block {
+    padding: 25px 30px;
+  }
+}
+
+@media all and (min-width: 576px) and (max-width: 724px) {
+  .form-block {
+    padding: 25px;
+  }
+}
+
+@media all and (min-width: 441px) and (max-width: 575px) {
+  .form-block {
+    padding: 25px 30px;
+  }
+}
+
+@media all and (max-width: 440px) {
+  .form-block {
+    padding: 25px 20px;
+  }
+}
+
+.form-block img {
+  position: absolute;
+  top: 15%;
+  right: 12%;
+  width: 600px;
+}
+
+@media all and (min-width: 1200px) and (max-width: 1599px) {
+  .form-block img {
+    top: 21%;
+    width: 420px;
+  }
+}
+
+@media all and (min-width: 968px) and (max-width: 1199px) {
+  .form-block img {
+    top: 26%;
+    right: 10%;
+    width: 350px;
+  }
+}
+
+@media all and (min-width: 725px) and (max-width: 967px) {
+  .form-block img {
+    display: none;
+  }
+}
+
+@media all and (min-width: 576px) and (max-width: 724px) {
+  .form-block img {
+    display: none;
+  }
+}
+
+@media all and (min-width: 441px) and (max-width: 575px) {
+  .form-block img {
+    display: none;
+  }
+}
+
+@media all and (max-width: 440px) {
+  .form-block img {
+    display: none;
+  }
 }
 
 .form-block h4 {
   color: #450063;
   font-weight: bold;
-  margin-bottom: 35px;
+  margin-bottom: 10px;
+}
+
+@media all and (min-width: 725px) and (max-width: 967px) {
+  .form-block h4 {
+    font-size: 20px;
+  }
+}
+
+@media all and (min-width: 576px) and (max-width: 724px) {
+  .form-block h4 {
+    font-size: 16px;
+  }
+}
+
+@media all and (min-width: 441px) and (max-width: 575px) {
+  .form-block h4 {
+    font-size: 12px;
+  }
+}
+
+@media all and (max-width: 440px) {
+  .form-block h4 {
+    font-size: 10px;
+  }
+}
+
+.form-block h6 {
+  color: red;
+  margin-bottom: 25px;
+}
+
+@media all and (min-width: 576px) and (max-width: 724px) {
+  .form-block h6 {
+    font-size: 14px;
+  }
+}
+
+@media all and (min-width: 441px) and (max-width: 575px) {
+  .form-block h6 {
+    font-size: 10px;
+  }
+}
+
+@media all and (max-width: 440px) {
+  .form-block h6 {
+    font-size: 8px;
+  }
 }
 
 .form-block span {
   margin-right: 10px;
   font-size: 18px;
   font-weight: bold;
+}
+
+@media all and (min-width: 576px) and (max-width: 724px) {
+  .form-block span {
+    font-size: 16px;
+  }
+}
+
+@media all and (min-width: 441px) and (max-width: 575px) {
+  .form-block span {
+    font-size: 14px;
+  }
+}
+
+@media all and (max-width: 440px) {
+  .form-block span {
+    font-size: 12px;
+  }
 }
 
 .form-block select {
@@ -15829,6 +16045,12 @@ a.text-dark:focus {
   outline: none;
   border: 1px solid #A3AFAF;
   box-shadow: inset 1px 5px 8px rgba(0, 0, 0, 0.07);
+}
+
+@media all and (max-width: 440px) {
+  .form-block select {
+    width: 115px;
+  }
 }
 
 .textbox {
@@ -15843,6 +16065,24 @@ a.text-dark:focus {
   font-weight: bold;
 }
 
+@media all and (min-width: 576px) and (max-width: 724px) {
+  .textbox label {
+    font-size: 16px;
+  }
+}
+
+@media all and (min-width: 441px) and (max-width: 575px) {
+  .textbox label {
+    font-size: 14px;
+  }
+}
+
+@media all and (max-width: 440px) {
+  .textbox label {
+    font-size: 12px;
+  }
+}
+
 .textbox input {
   text-indent: 10px;
   width: 30%;
@@ -15851,6 +16091,37 @@ a.text-dark:focus {
   outline: none;
   border: 1px solid #A3AFAF;
   box-shadow: inset 1px 5px 8px rgba(0, 0, 0, 0.07);
+}
+
+@media all and (min-width: 968px) and (max-width: 1199px) {
+  .textbox input {
+    width: 40%;
+  }
+}
+
+@media all and (min-width: 725px) and (max-width: 967px) {
+  .textbox input {
+    width: 45%;
+  }
+}
+
+@media all and (min-width: 576px) and (max-width: 724px) {
+  .textbox input {
+    width: 55%;
+  }
+}
+
+@media all and (min-width: 441px) and (max-width: 575px) {
+  .textbox input {
+    width: 100%;
+  }
+}
+
+@media all and (max-width: 440px) {
+  .textbox input {
+    height: 34px;
+    width: 100%;
+  }
 }
 
 .textbox textarea {
@@ -15862,6 +16133,36 @@ a.text-dark:focus {
   box-shadow: inset 1px 5px 8px rgba(0, 0, 0, 0.07);
 }
 
+@media all and (min-width: 968px) and (max-width: 1199px) {
+  .textbox textarea {
+    width: 40%;
+  }
+}
+
+@media all and (min-width: 725px) and (max-width: 967px) {
+  .textbox textarea {
+    width: 45%;
+  }
+}
+
+@media all and (min-width: 576px) and (max-width: 724px) {
+  .textbox textarea {
+    width: 55%;
+  }
+}
+
+@media all and (min-width: 441px) and (max-width: 575px) {
+  .textbox textarea {
+    width: 100%;
+  }
+}
+
+@media all and (max-width: 440px) {
+  .textbox textarea {
+    width: 100%;
+  }
+}
+
 .text-checkbox {
   display: flex;
   justify-content: space-between;
@@ -15869,11 +16170,41 @@ a.text-dark:focus {
   width: 150px;
 }
 
+@media all and (min-width: 441px) and (max-width: 575px) {
+  .text-checkbox {
+    width: 130px;
+  }
+}
+
+@media all and (max-width: 440px) {
+  .text-checkbox {
+    width: 120px;
+  }
+}
+
 .text-checkbox label {
   color: #2E3333;
   font-size: 18px;
   font-weight: bold;
   margin: 0 10px 0 0;
+}
+
+@media all and (min-width: 576px) and (max-width: 724px) {
+  .text-checkbox label {
+    font-size: 16px;
+  }
+}
+
+@media all and (min-width: 441px) and (max-width: 575px) {
+  .text-checkbox label {
+    font-size: 14px;
+  }
+}
+
+@media all and (max-width: 440px) {
+  .text-checkbox label {
+    font-size: 12px;
+  }
 }
 
 .text-checkbox input {
@@ -15884,9 +16215,29 @@ a.text-dark:focus {
   border: 1px solid #A3AFAF;
 }
 
+@media all and (min-width: 441px) and (max-width: 575px) {
+  .text-checkbox input {
+    width: 25px;
+    height: 15px;
+  }
+}
+
+@media all and (max-width: 440px) {
+  .text-checkbox input {
+    width: 25px;
+    height: 15px;
+  }
+}
+
 .textbox-discount {
   margin-top: 10px;
   margin-bottom: 15px;
+}
+
+@media all and (max-width: 575px) {
+  .textbox-discount {
+    width: 85%;
+  }
 }
 
 .textbox-discount label {
@@ -15896,15 +16247,39 @@ a.text-dark:focus {
   margin-right: 10px;
 }
 
+@media all and (min-width: 576px) and (max-width: 724px) {
+  .textbox-discount label {
+    font-size: 16px;
+  }
+}
+
+@media all and (min-width: 441px) and (max-width: 575px) {
+  .textbox-discount label {
+    font-size: 14px;
+  }
+}
+
+@media all and (max-width: 440px) {
+  .textbox-discount label {
+    font-size: 12px;
+  }
+}
+
 .textbox-discount input {
   text-indent: 8px;
-  width: 4%;
+  width: 80px;
   height: 34px;
   border-radius: 6px;
   border: none;
   outline: none;
   border: 1px solid #A3AFAF;
   box-shadow: inset 1px 5px 8px rgba(0, 0, 0, 0.07);
+}
+
+@media all and (max-width: 440px) {
+  .textbox-discount input {
+    width: 65px;
+  }
 }
 
 .img-box {
@@ -15918,8 +16293,38 @@ a.text-dark:focus {
   margin-right: 10px;
 }
 
+@media all and (min-width: 576px) and (max-width: 724px) {
+  .img-box label {
+    font-size: 16px;
+  }
+}
+
+@media all and (min-width: 441px) and (max-width: 575px) {
+  .img-box label {
+    font-size: 14px;
+  }
+}
+
+@media all and (max-width: 440px) {
+  .img-box label {
+    font-size: 12px;
+  }
+}
+
 .button-save {
   margin-top: 35px;
+}
+
+@media all and (min-width: 441px) and (max-width: 575px) {
+  .button-save {
+    margin-top: 30px;
+  }
+}
+
+@media all and (max-width: 440px) {
+  .button-save {
+    margin-top: 25px;
+  }
 }
 
 .button-save input {
@@ -15933,6 +16338,32 @@ a.text-dark:focus {
   border: none;
   border-radius: 20px;
   box-shadow: 0px 0px 10px 8px rgba(255, 255, 255, 0.5);
+  transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out;
+}
+
+@media all and (min-width: 441px) and (max-width: 575px) {
+  .button-save input {
+    height: 40px;
+    width: 140px;
+  }
+}
+
+@media all and (max-width: 440px) {
+  .button-save input {
+    height: 30px;
+    width: 130px;
+  }
+}
+
+.required::after {
+  content: " *";
+  color: red;
+}
+
+.button-save input:hover {
+  color: #00CCBC;
+  background-color: #F6C90E;
+  transform: scale(1.02);
 }
 
 .cart-fixed {
@@ -16165,46 +16596,6 @@ a.text-dark:focus {
   display: flex;
   justify-content: space-between;
   padding-top: 3rem;
-}
-
-.right-side-dash .header-right-dash .sidebar {
-  position: relative;
-  display: block;
-  width: 35px;
-  height: 35px;
-  cursor: pointer;
-  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
-  background: none;
-  outline: none;
-  border: none;
-}
-
-.right-side-dash .header-right-dash .sidebar .bar,
-.right-side-dash .header-right-dash .sidebar:after,
-.right-side-dash .header-right-dash .sidebar:before {
-  display: block;
-  content: "";
-  width: 100%;
-  height: 5px;
-  background-color: #00CCBC;
-  border-radius: 8px;
-  margin: 6px 0;
-  transition: 0.4s;
-}
-
-.right-side-dash .header-right-dash .sidebar.is-active:before {
-  transform: rotate(-45deg) translate(-8px, 6px);
-}
-
-.right-side-dash .header-right-dash .sidebar.is-active:after {
-  transform: rotate(45deg) translate(-9px, -8px);
-}
-
-.right-side-dash .header-right-dash .sidebar.is-active .bar {
-  outline: none;
-  opacity: 0;
 }
 
 @media all and (min-width: 868px) and (max-width: 1199px) {

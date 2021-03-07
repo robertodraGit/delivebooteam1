@@ -148,15 +148,17 @@
         }
 
         @media all and (min-width: 576px) and (max-width: 724px) {
-            font-size: 16px;
+            font-size: 18px;
         }
 
         @media all and (min-width: 441px) and (max-width: 575px) {
-            font-size: 12px;
+            text-align: center;
+            font-size: 14px;
         }
 
         @media all and (max-width: 440px) {
-            font-size: 10px;
+            text-align: center;
+            font-size: 12px;
         }
 
     }
@@ -170,10 +172,12 @@
         }
 
         @media all and (min-width: 441px) and (max-width: 575px) {
+            text-align: center;
             font-size: 10px;
         }
 
         @media all and (max-width: 440px) {
+            text-align: center;
             font-size: 8px;
         }
 
@@ -427,6 +431,7 @@
 
 .button-save {
     margin-top: 35px;
+    margin-bottom: 20px;
 
     @media all and (min-width: 441px) and (max-width: 575px) {
         margin-top: 30px;
@@ -470,7 +475,7 @@
 
 // HOVER
 .button-save input:hover {
-    color: $color_deliveroo;
+    color: $color_text_3;
     background-color: $primary;
     transform: scale(1.02);
 }

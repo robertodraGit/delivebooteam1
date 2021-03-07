@@ -55,12 +55,12 @@
             </div>
 
             <div class="textbox">
-                <label class="required" for="price_euro">Prezzo (EURO):</label>
+                <label class="required" for="price_euro">Prezzo in €:</label>
                 <input name='price_euro' type="number" placeholder="Prezzo in Euro" min="0" max="9999">
             </div>
 
             <div class="textbox">
-                <label class="required" for="price_cents">Prezzo (CENTESIMI):</label>
+                <label class="required" for="price_cents">Prezzo in CENTESIMI:</label>
                 <input name='price_cents' type="number" placeholder="Prezzo in Centesimi" min="0" max="99">
             </div>
 

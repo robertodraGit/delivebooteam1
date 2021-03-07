@@ -6,7 +6,7 @@
       </section>
 
       <section class="description">
-        <p>{{average_rate}}({{feedback_number}})</p>
+        <p>{{average_rate}}({{rate_number}})</p>
         <h2 class="title">{{name}}</h2>
         <p>{{typologies_string}}</p>
         <p>Consegna: {{delivery_cost/100}}€</p>
@@ -33,7 +33,8 @@
             'photo': this.restaurant_data.photo,
             'delivery_cost': this.restaurant_data.delivery_cost,
             'average_rate': this.restaurant_data.average_rate,
-            'typologies_raw':this.restaurant_data.typologies
+            'typologies_raw': this.restaurant_data.typologies,
+            'rate_number': this.restaurant_data.rate_number,
           };
         },
 
@@ -49,17 +50,13 @@
           typologies_string: function(){
             let typologies = "";
             this.typologies_raw.forEach((typology, i) => {
-              typologies += typology.typology + ', ';
+              typologies += typology + ', ';
             });
             typologies = typologies.slice(0, -2);
             typologies += '.';
 
             return typologies;
           },
-
-          feedback_number: function(){
-            return this.restaurant_data.feedback.length;
-          }
 
         },
 

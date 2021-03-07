@@ -6,8 +6,8 @@
     <main>
 
         <div class="container">
-                   
-            <slider></slider>         
+
+            <slider></slider>
 
             {{-- lista ristoranti --}}
           <section>
@@ -15,25 +15,11 @@
 
               <div class="restaurants">
 
-                <div v-for="restaurant in restaurants" :key="restaurant.id">
+                <div  v-for="restaurant in restaurants" :key="restaurant.id">
                     <restaurant
                       :restaurant_data="restaurant"
                     ></restaurant>
                 </div>
-
-                  {{-- @foreach ($plates as $plate) --}}
-
-                    {{-- @php  
-                        dd($plates);
-                    @endphp --}}
-
-                    {{-- <plate
-                    :plate_data = {{ $plate }}
-                    >
-                    </plate> --}}
-
-                {{-- @endforeach --}}
-              
 
               </div>
           </section>

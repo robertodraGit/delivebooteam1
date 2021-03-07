@@ -11,13 +11,14 @@ function  init() {
       mounted: function () {
        this.$nextTick(function () {
          console.log("App montata!");
-         this.get_all_restaurants();
+         this.getRestaurantsInit();
        })},
       data: {
           restaurants: [],
           cart: [],
           order: [],
           cacca: 50,
+          searchResult: [],
       },
       computed: {
 
@@ -64,12 +65,33 @@ function  init() {
       },
 
       methods: {
-        get_all_restaurants: function(){
-          axios.get('http://localhost:8000/home/getallrestaurant')
-                .then(res => {
-                  this.restaurants = res.data.restaurants;
-                  // console.log(this.restaurants);
-                });
+
+        getRestaurantsInit: function(){
+          axios.get('/getrestaurantsinit', {
+            params: {
+            }
+            })
+            .then((response) => {
+              console.log('Primi ristoranti casuali: ', response.data.restaurants);
+              this.restaurants = response.data.restaurants;
+            })
+            .catch(function (error) {
+              console.log(error);
+            })
+        },
+
+        startResearch: function(queries){
+          console.log(queries);
+          axios.get('/search/' + queries, {
+            params: {
+            }
+            })
+            .then((response) => {
+              console.log(response.data);
+            })
+            .catch(function (error) {
+              console.log(error);
+            })
         },
 
         pushInCart: function(plate) {
@@ -97,7 +119,7 @@ function  init() {
                     }
                   window.location='http://localhost:8000/create/order';
                   }
-                
+
                 })
                 .catch(error => {
                   console.log(error);
@@ -111,7 +133,7 @@ function  init() {
 document.addEventListener("DOMContentLoaded", init);
 
 // menu hamburger dashboard
-const menu_btn = document.querySelector('.sidebar');
-menu_btn.addEventListener('click', function () {
-    menu_btn.classList.toggle('is-active');
-});
+// const menu_btn = document.querySelector('.sidebar');
+// menu_btn.addEventListener('click', function () {
+//     menu_btn.classList.toggle('is-active');
+// });

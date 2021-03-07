@@ -240,9 +240,12 @@ class ResearchController extends Controller
         if ($votes) {
           $average = array_sum($votes)/count($votes);
           $restaurants[$key] -> average_rate = $average;
+          $restaurants[$key] -> rate_number = count($votes);
         } else {
           $restaurants[$key] -> average_rate = 'no-info';
+          $restaurants[$key] -> rate_number = '0';
         }
+
 
         // Fa ritornare le tipologie
         $typologies = [];

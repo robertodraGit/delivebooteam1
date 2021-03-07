@@ -128,6 +128,8 @@ class ResearchController extends Controller
         $plate = '%' . $query . '%';
         $whereClause[] = ['plate_name', 'like', $plate];
       }
+      $whereClause[] = ['visible', '=', '1'];
+      $whereClause[] = ['destroyed', '=', '0'];
 
       $responsePlatesNames = DB::table('plates')
         ->where(
@@ -192,6 +194,8 @@ class ResearchController extends Controller
         $plate = '%' . $query . '%';
         $whereClause[] = ['plate_name', 'like', $plate];
       }
+      $whereClause[] = ['visible', '=', '1'];
+      $whereClause[] = ['destroyed', '=', '0'];
 
       $responsePlatesNames = DB::table('plates')
         ->where(

@@ -9,7 +9,8 @@ use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
-// Ricerca avviabile solo con almeno una parola inserita lunga 3 caratteri
+// Ricerca avviabile solo con almeno una parola inserita lunga 3 caratteri.
+// Mettere restituzione dell'errore.
 
 // Restituzione tutti i ristoranti
 // Restituzione pochi ristoranti casuali per HomePage
@@ -22,6 +23,7 @@ use Illuminate\Http\Request;
 
 class ResearchController extends Controller
 {
+    // Restituzione tutti i ristoranti
     public function getAllRestaurants() {
       $restaurants = User::all('users.id','users.name', 'users.address', 'users.phone', 'users.description', 'users.photo', 'users.delivery_cost');
 
@@ -32,6 +34,7 @@ class ResearchController extends Controller
       ]);
     }
 
+    // Restituzione pochi ristoranti casuali per HomePage
     public function getRestaurantsInit(){
       $restaurants = User::inRandomOrder()->limit(10)
       ->select('users.id','users.name', 'users.address', 'users.phone', 'users.description', 'users.photo', 'users.delivery_cost')
@@ -44,7 +47,7 @@ class ResearchController extends Controller
       ]);
     }
 
-    //Restituisce tipologie, 5 rest name e 5 plate name.
+    // Restituisce tipologie, 5 rest name e 5 plate name.
     public function searchTypsRestsPlats($query){
       // Trasformo la query in array
       $queries = explode(" ", $query);
@@ -73,6 +76,67 @@ class ResearchController extends Controller
         'rest-name-resoult' => $responseRestNames,
         'plates-resoult' => $responsePlatesNames,
       ]);
+    }
+
+    // Restituzione tutti i ristoranti (ricerca per nome) per home page
+    public function searchRestNamesAll($query){
+
+      // Trasformo la query in array
+      $queries = explode(" ", $query);
+      $originalQueries = $queries;
+
+      //RIMUOVO L'ULTIMA LETTERA DI OGNI QUERY
+      foreach ($queries as $index => $q) {
+        $queries[$index] = substr($queries[$index], 0, -1);
+      }
+      //Rimuovo le parole di 1 carattere (per le congiunzioni)
+      foreach ($queries as $index => $word) {
+        if (strlen($word) <= 1) {
+          unset($queries[$index]);
+        }
+      }
+
+      $whereClause = [];
+      foreach ($queries as $query) {
+        $word = '%' . $query . '%';
+        $whereClause[] = ['name', 'like', $word];
+      }
+
+      $responseRestNames = DB::table('users')
+        ->where(
+            $whereClause
+          )
+        ->select('users.id','users.name', 'users.address', 'users.phone', 'users.description', 'users.photo', 'users.delivery_cost')
+        ->get();
+
+      $responseRestNames = $this->addRestaurantInfo($responseRestNames);
+
+      return $responseRestNames;
+    }
+
+    // Restituzione tutti i piatti per home page
+    public function searchPlateNamesAll($query){
+
+      // Trasformo la query in array
+      $queries = explode(" ", $query);
+      $originalQueries = $queries;
+
+      $responsePlatesNames = [];
+
+      $whereClause = [];
+      foreach ($queries as $query) {
+        $plate = '%' . $query . '%';
+        $whereClause[] = ['plate_name', 'like', $plate];
+      }
+
+      $responsePlatesNames = DB::table('plates')
+        ->where(
+            $whereClause
+          )
+        ->select('*')
+        ->get();
+
+      return $responsePlatesNames;
     }
 
     private function searchTypologies($queries){

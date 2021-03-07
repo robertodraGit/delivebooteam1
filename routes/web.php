@@ -41,6 +41,8 @@ Route::get('/restaurant/{id}', 'Controller@restaurantShow') -> name('restaurant-
 Route::get('getallrestaurants', 'ResearchController@getAllRestaurants') -> name('get-all-restaurants');
 Route::get('getrestaurantsinit', 'ResearchController@getRestaurantsInit') -> name('get-restaurants-init');
 Route::get('search/{query}', 'ResearchController@searchTypsRestsPlats') -> name('search-typs-rests-plats');
+Route::get('getallrestbyname/{query}', 'ResearchController@searchRestNamesAll') -> name('get-all-rest-by-name');
+Route::get('getallplatebyname/{query}', 'ResearchController@searchPlateNamesAll') -> name('get-all-plate-by-name');
 
 //Dashboard -> visualizza ordini
 Route::get('/dashboard/restaurant/orders', 'OrderController@restaurantOrder') -> name('restaurant-order');
@@ -58,7 +60,7 @@ Route::get('/order/{id}', 'OrderController@show')
     -> name('order-show');
 
   // route to get data from frontend
-Route::post('/keep-cart', 'PaymentController@getCart') 
+Route::post('/keep-cart', 'PaymentController@getCart')
     -> name('get-cart');
   // route to checkout view with data from frontend-cart
 Route::get('/create/order', 'PaymentController@create')
@@ -68,7 +70,7 @@ Route::post('/new/order/store', 'PaymentController@storeOrder')
       -> name('order-store');
 
 
-  //rotta PAGAMENTO 
+  //rotta PAGAMENTO
 
   Route::get('/pay', 'PaymentController@pay') -> name('pay');
   Route::post('/checkout', 'PaymentController@checkout') ->name('checkout');

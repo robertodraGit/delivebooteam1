@@ -5428,33 +5428,53 @@ readers do not read off random characters that represent icons */
   font-size: 1em;
 }
 
-.main-edit-restaurant {
+.sides-flex-edit-restaurant {
+  width: 80%;
   display: flex;
   justify-content: center;
-  align-items: center;
+  border: 1px solid;
+  margin: auto;
+  padding: 50px 0;
 }
 
-.user-info {
-  width: 1140px;
-  margin: 2.5rem 3rem;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+.sides-flex-edit-restaurant input[type=text],
+.sides-flex-edit-restaurant textarea,
+.sides-flex-edit-restaurant input[type=number] {
+  width: 100%;
 }
 
-.user-info .propic-user {
-  width: 300px;
-  height: auto;
+.sides-flex-edit-restaurant input {
+  height: 40px;
 }
 
-.user-info .left-side-edit-restaurant {
-  padding: 0 1rem;
-  width: 60%;
+.sides-flex-edit-restaurant textarea {
+  height: 100px;
 }
 
-.user-info .right-side-edit-restaurant {
-  width: 40%;
-  padding: 0 1rem;
+.sides-flex-edit-restaurant .left-side-edit-restaurant {
+  border: 1px solid;
+}
+
+.sides-flex-edit-restaurant .left-side-edit-restaurant .restaurant-image {
+  width: 200px;
+  height: 200px;
+  margin: auto;
+  border: 1px solid;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-color: #00ccbc;
+}
+
+.sides-flex-edit-restaurant .right-side-edit-restaurant {
+  border: 1px solid;
+  flex-grow: 1;
+}
+
+@media screen and (max-width: 800px) {
+  .sides-flex-edit-restaurant {
+    flex-direction: column;
+  }
 }
 
 header {

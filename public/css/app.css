@@ -5937,6 +5937,21 @@ header .container img {
   }
 }
 
+.container-email .card {
+  margin: 80px auto;
+  border: 1px solid lightgray;
+  border-radius: 10px;
+  padding: 5%;
+}
+
+.container-email .card h1 {
+  margin-bottom: 20px;
+}
+
+.container-email .card button {
+  cursor: pointer;
+}
+
 * {
   margin: 0;
   padding: 0;

@@ -7,7 +7,7 @@
 
         <div class="container">
 
-            <slider></slider>
+            {{-- <slider></slider> --}}
 
             {{-- lista ristoranti --}}
           <section>

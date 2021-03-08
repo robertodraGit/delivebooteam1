@@ -21,6 +21,7 @@ function  init() {
 
           // ricerca
           searchInput: "",
+          oldSearchInput: "",
           searchResult: [],
 
           // flags
@@ -115,6 +116,7 @@ function  init() {
 
         startResearch: function(queries){
           console.log(queries);
+          this.oldSearchInput = queries;
           this.loading = 1;
           this.result_tendina = 1;
           this.no_result = 0;
@@ -133,6 +135,12 @@ function  init() {
               if (response.data.error) {
                 console.log(response.data.error);
                 this.research_error = 1;
+              } else if (
+                response.data.typology_resoult.length === 0 &&
+                response.data.rest_name_resoult.length === 0 &&
+                response.data.plates_resoult.length === 0
+              ) {
+                this.no_result = 1;
               } else {
                 if (this.searchResult.typology_resoult.length != 0) {
                   this.research_category = 1;

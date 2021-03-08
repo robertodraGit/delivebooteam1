@@ -15,7 +15,7 @@
   
       {{-- logo --}}
       <a href="{{route('index')}}" class="logo">
-          <img src="storage/img/logo-teal.svg" alt=""> 
+          <img src="{{ asset('/images/deliveroo-logo.svg') }}" alt=""> 
       </a>
   
       {{-- search bar --}}

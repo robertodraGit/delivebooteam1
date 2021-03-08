@@ -9,11 +9,23 @@
 
       <div class="col-md-12">
 
+      
+      
 
-
-      <form action="{{ route('order-store')}}" method="post">
+      <form action="{{ route('order-store') }}" method="post">
         @csrf
         @method('POST')
+
+        @foreach ($data_array['plates'] as $item)
+          <ul>
+            <li>{{$item -> plate_name}}</li>
+            <li>{{$item -> price}}</li>
+          </ul>
+        @endforeach
+
+        Delivery cost: {{$data_array['delivery']}} <br> 
+        Total to pay: {{$data_array['topay'] + $data_array['delivery']}} 
+        <br>
 
         @if ($errors->any())
           <div class="alert alert-danger">
@@ -25,14 +37,9 @@
           </div>
         @endif
 
-        @foreach ($plates_selected as $item)
-          <ul>
-            <li>{{$item -> plate_name}}</li>
-            <li>{{$item -> price / 100}}</li>
-          </ul>
+        @foreach ($data_array['plates'] as $key => $item)
+          <input type="hidden" name='plate_{{$key +1}}' value='{{$item}}'>
         @endforeach
-
-        Delivery cost: {{$delivery_cost}} <br> <br>
 
         <label for="first_name">first_name: </label>
         <input type="text" name="first_name" value="">

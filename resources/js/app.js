@@ -21,6 +21,7 @@ function  init() {
 
           // ricerca
           searchInput: "",
+          oldSearchInput: "",
           searchResult: [],
 
           // flags
@@ -30,6 +31,7 @@ function  init() {
           research_category: 0,
           research_restaurants: 0,
           research_plates: 0,
+          loading: 0,
 
       },
       computed: {
@@ -91,7 +93,6 @@ function  init() {
       watch: {
         searchInput: function(newVal){
           if (newVal === "") {
-            this.research_error = 0;
             this.result_tendina = 0;
           }
         },
@@ -115,35 +116,41 @@ function  init() {
 
         startResearch: function(queries){
           console.log(queries);
+          this.oldSearchInput = queries;
+          this.loading = 1;
+          this.result_tendina = 1;
+          this.no_result = 0;
+          this.research_error = 0;
+          this.research_category = 0;
+          this.research_restaurants = 0;
+          this.research_plates = 0;
           axios.get('/search/' + queries, {
             params: {
             }
             })
             .then((response) => {
               this.searchResult = response.data;
-
+              this.$forceUpdate();
+              this.result_tendina = 1;
+              this.loading = 0;
               if (response.data.error) {
                 console.log(response.data.error);
                 this.research_error = 1;
+              } else if (
+                response.data.typology_resoult.length === 0 &&
+                response.data.rest_name_resoult.length === 0 &&
+                response.data.plates_resoult.length === 0
+              ) {
+                this.no_result = 1;
               } else {
-
-                if (this.searchResult.typology_resoult.length === 0) {
-                  this.research_category = 0;
-                } else {
+                if (this.searchResult.typology_resoult.length != 0) {
                   this.research_category = 1;
-                  this.result_tendina = 1;
                 }
-                if (this.searchResult.rest_name_resoult.length === 0) {
-                  this.research_restaurants = 0;
-                } else {
+                if (this.searchResult.rest_name_resoult.length != 0) {
                   this.research_restaurants = 1;
-                  this.result_tendina = 1;
                 }
-                if (this.searchResult.plates_resoult.length === 0) {
-                  this.research_plates = 0;
-                } else {
+                if (this.searchResult.plates_resoult.length != 0) {
                   this.research_plates = 1;
-                  this.result_tendina = 1;
                 }
               }
 
@@ -157,6 +164,33 @@ function  init() {
             })
         },
 
+        changeRestResult: function(){
+          this.restaurants = this.search_typologies_result;
+          this.closeSearchBar();
+        },
+
+        closeSearchBar: function(){
+          this.result_tendina = 0;
+          this.searchInput = "";
+        },
+
+        showRestByName: function(){
+          queries = this.oldSearchInput;
+          axios.get('/getallrestbyname/' + queries, {
+            params: {
+            }
+            })
+            .then((response) => {
+              console.log('allbyname', response.data);
+              this.restaurants = response.data;
+              this.$forceUpdate();
+            })
+            .catch(function (error) {
+              console.log(error);
+            })
+          this.closeSearchBar();
+        },
+
         pushInCart: function(plate) {
           this.cart.push(plate);
         },
@@ -165,8 +199,6 @@ function  init() {
           this.cart = [];
           this.cart_new = [];
         },
-
-
 
         get_cart: function() {
 
@@ -200,4 +232,3 @@ document.addEventListener("DOMContentLoaded", init);
 // menu_btn.addEventListener('click', function () {
 //     menu_btn.classList.toggle('is-active');
 // });
-

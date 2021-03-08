@@ -84,6 +84,8 @@ class ResearchController extends Controller
         'typology_resoult' => $responseTypologies,
         'rest_name_resoult' => $responseRestNames,
         'plates_resoult' => $responsePlatesNames,
+        'total_plates_number' => $this->getRestAndPlateNumber($queries)['total_plates_names'],
+        'total_restNames_number' => $this->getRestAndPlateNumber($queries)['total_rest_names'],
       ]);
     }
 
@@ -195,7 +197,12 @@ class ResearchController extends Controller
         $allResults = $responseLiteralTypologies->merge($responseTypologies);
         $allResults = $allResults->unique();
 
-        return $allResults;
+        $response = [];
+        foreach ($allResults as $key => $res) {
+          $response[] = $res;
+        }
+
+        return $response;
     }
 
     private function searchRestNamesInit($queries){
@@ -255,6 +262,7 @@ class ResearchController extends Controller
 
         if ($votes) {
           $average = array_sum($votes)/count($votes);
+          $average = round ($average , 1);
           $restaurants[$key] -> average_rate = $average;
           $restaurants[$key] -> rate_number = count($votes);
         } else {
@@ -273,5 +281,38 @@ class ResearchController extends Controller
 
       };
       return $restaurants;
+    }
+
+    private function getRestAndPlateNumber($queries){
+      $whereClause = [];
+      foreach ($queries as $query) {
+        $word = '%' . $query . '%';
+        $whereClause[] = ['name', 'like', $word];
+      }
+
+      $totalRestNames = DB::table('users')
+        ->where(
+            $whereClause
+          )
+        ->count();
+
+      $whereClause = [];
+      foreach ($queries as $query) {
+        $plate = '%' . $query . '%';
+        $whereClause[] = ['plate_name', 'like', $plate];
+      }
+      $whereClause[] = ['visible', '=', '1'];
+      $whereClause[] = ['destroyed', '=', '0'];
+
+      $totalPlatesNames = DB::table('plates')
+      ->where(
+          $whereClause
+        )
+      ->count();
+
+      return [
+        'total_rest_names' => $totalRestNames,
+        'total_plates_names' => $totalPlatesNames,
+      ];
     }
 }

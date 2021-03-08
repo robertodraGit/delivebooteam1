@@ -17,6 +17,7 @@
 
 
     <div id="app" class="container-welcome">
+
       {{-- msg pagamento a scomparsa --}}
       <div v-if="messageVisible">
         @if (session('success_message'))
@@ -36,9 +37,11 @@
           </div>
         @endif
       </div>
+      {{-- fine session msg a comparsa del payment --}}
 
-        @include('components.header')
-        @yield('content')
+      @include('components.header')
+      @yield('content')
+
     </div>
 
 

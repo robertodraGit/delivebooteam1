@@ -10,7 +10,7 @@
               :logout = "'{{ route("logout") }}'"
               :user = "'{{ Auth::user() }}'"
               >
-          </ham-menu>      
+          </ham-menu>   
  
   
       {{-- logo --}}

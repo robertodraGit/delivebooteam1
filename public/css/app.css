@@ -16519,6 +16519,7 @@ a.text-dark:focus {
 #search-bar .results .plates .plate_result:hover {
   background-color: #00CCBC;
   cursor: pointer;
+  text-decoration: none !important;
 }
 
 #search-bar .results .restaurants .rest_result .img,

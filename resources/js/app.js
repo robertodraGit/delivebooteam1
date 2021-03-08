@@ -250,6 +250,16 @@ function  init() {
                 });
         },
 
+        plate_final_price: function(price, discount) {
+          if (discount > 0) {
+            let sconto_euro = (discount * price / 100) / 100;
+            price = price / 100;
+            return (price - sconto_euro).toFixed(2);
+          } else {
+            return price;
+          }
+        },
+
       },
   });
 }

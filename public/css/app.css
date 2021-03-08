@@ -17227,19 +17227,114 @@ a.text-dark:focus {
   height: auto;
 }
 
+.home_plates {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.home_plates .home_plate_container {
+  min-height: 13px;
+  width: 280px;
+  font-size: 16px;
+  position: relative;
+  padding: 10px;
+}
+
+.home_plates a {
+  text-decoration: none;
+  color: black;
+}
+
+.home_plates * {
+  margin: 0;
+  padding: 0;
+}
+
+.home_plates .img {
+  width: 100%;
+  height: 150px;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: 5px;
+  position: relative;
+}
+
+.home_plates .description {
+  width: 100%;
+  height: 130px;
+  padding: 5px;
+}
+
+.home_plates .description .title {
+  font-size: 0.9em;
+  font-weight: bold;
+}
+
+.home_plates .description .price {
+  font-style: italic;
+  color: #00CCBC;
+  display: inline-block;
+  font-size: 1.2em;
+}
+
+.home_plates .description .price.line {
+  text-decoration: line-through;
+  color: #8285A5;
+  font-size: 0.9em;
+}
+
+.home_plates .description .discounted_price {
+  color: #00CCBC;
+  text-decoration: none;
+  font-size: 1.2em;
+}
+
+.home_plates .description .ingredients {
+  font-size: 0.8em;
+  color: #8285A5;
+}
+
+.home_plates .description .plate_description {
+  font-size: 0.8em;
+  max-height: 50px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.home_plates .discount {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  width: 60px;
+  height: 60px;
+  border: 1px solid yellow;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #FB5058;
+  color: white;
+  font-weight: bold;
+  transform: rotate(325deg);
+}
+
 .restaurant_container {
-  min-height: 15px;
-  margin-bottom: 10px;
-  font-size: 18px;
+  min-height: 13px;
+  width: 280px;
+  font-size: 16px;
+  padding: 10px;
+}
+
+.restaurant_container a {
+  text-decoration: none;
+  color: black;
 }
 
 .restaurant_container * {
   margin: 0;
   padding: 0;
-}
-
-.restaurant_container section {
-  border: 1px solid black;
 }
 
 .restaurant_container .img {
@@ -17248,16 +17343,40 @@ a.text-dark:focus {
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
+  border-radius: 5px;
 }
 
 .restaurant_container .description {
   width: 260px;
-  height: 200px;
+  height: 130px;
   padding: 5px;
 }
 
 .restaurant_container .description .title {
-  font-size: 1em;
+  font-size: 0.9em;
+  font-weight: bold;
+}
+
+.restaurant_container .description .rate {
+  font-size: 0.9em;
+  font-style: italic;
+  color: #00CCBC;
+}
+
+.restaurant_container .description .rate .rate_number {
+  color: #8285A5;
+  padding: 3px;
+}
+
+.restaurant_container .description .typology {
+  font-size: 0.9em;
+  color: #8285A5;
+}
+
+.restaurant_container .description .delivery_cost {
+  font-size: 0.8em;
+  font-weight: bold;
+  color: #8285A5;
 }
 
 .sides-flex-edit-restaurant {

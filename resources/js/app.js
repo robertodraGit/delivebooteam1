@@ -163,6 +163,15 @@ function  init() {
             })
         },
 
+        changeRestResult: function(){
+          this.restaurants = this.search_typologies_result;
+          this.closeSearchBar();
+        },
+
+        closeSearchBar: function(){
+          this.result_tendina = 0;
+        },
+
         pushInCart: function(plate) {
           this.cart.push(plate);
         },
@@ -204,4 +213,3 @@ document.addEventListener("DOMContentLoaded", init);
 // menu_btn.addEventListener('click', function () {
 //     menu_btn.classList.toggle('is-active');
 // });
-

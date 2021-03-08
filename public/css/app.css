@@ -16409,6 +16409,26 @@ a.text-dark:focus {
   padding: 0 8px;
 }
 
+#search-bar .close {
+  width: 25px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  z-index: 1500;
+  right: 0;
+  top: 0;
+}
+
+#search-bar .close:hover {
+  cursor: pointer;
+}
+
+#search-bar .close .fas.fa-times {
+  font-size: 15px;
+}
+
 #search-bar * {
   margin: 0;
   padding: 0;
@@ -16433,6 +16453,8 @@ a.text-dark:focus {
   left: 0;
   width: 100%;
   background-color: white;
+  max-height: 320px;
+  overflow-y: auto;
 }
 
 #search-bar .results > * {
@@ -16460,6 +16482,13 @@ a.text-dark:focus {
 #search-bar .results .plates {
   padding: 10px;
   border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+#search-bar .results .restaurants .total_results,
+#search-bar .results .plates .total_results {
+  font-size: 0.9em;
+  font-weight: bold;
+  color: #017E8A;
 }
 
 #search-bar .results .restaurants .rest_result,

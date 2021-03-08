@@ -2,11 +2,14 @@
 
   <i class="fas fa-search search-icon"></i>
   <input class="search" type="text" placeholder="Piatti, ristoranti o tipi di cucina" v-on:keyup.enter="startResearch($event.target.value)" v-model="searchInput">
-  <div class="results" v-if="result_tendina">
+  <div class="close" @click="closeSearchBar()">
+    <i class="fas fa-times"></i>
+  </div>
 
+  <div class="results" v-if="result_tendina">
     <div class="category" v-if="!no_result && !research_error && research_category">
       <p class="section_title">Categorie</p>
-      <div class="category_result">
+      <div @click="changeRestResult()" class="category_result">
         <i class="fas fa-search"></i>
         <span>@{{oldSearchInput}}</span>
         <span>(@{{search_typologies_result.length}})</span>
@@ -16,7 +19,7 @@
     <div class="restaurants" v-if="!no_result && !research_error && research_restaurants">
       <p class="section_title">Ristoranti</p>
       <div v-for="restaurant in search_rest_name_result" class="rest_result">
-
+        
         <div class="img" :style="{'background-image':'url(' + '/storage/restaurant_icon/' + restaurant.photo + ')'}">
 
         </div>
@@ -29,6 +32,7 @@
         </div>
 
       </div>
+      <p class="total_results">@{{searchResult.total_restNames_number}} ristoranti. Vedi tutti.</p>
     </div>
 
     <div class="plates" v-if="!no_result && !research_error && research_plates">
@@ -45,6 +49,7 @@
         </div>
 
       </div>
+      <p class="total_results">@{{searchResult.total_plates_number}} piatti. Vedi tutti.</p>
     </div>
 
     <div class="no-results info" v-show="no_result">

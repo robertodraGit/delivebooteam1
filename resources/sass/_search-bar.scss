@@ -22,6 +22,26 @@
     padding: 0 8px;
   }
 
+  .close {
+    width: 25px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    z-index: 1500;
+    right: 0;
+    top: 0;
+
+    &:hover{
+      cursor: pointer;
+    }
+
+    .fas.fa-times{
+      font-size: 15px;
+    }
+  }
+
   & * {
     margin: 0;
     padding: 0;
@@ -45,6 +65,8 @@
     left: 0;
     width: 100%;
     background-color: white;
+    max-height: 320px;
+    overflow-y: auto;
     & > * {
       @include debug-border;
       min-height: 25px;
@@ -70,6 +92,12 @@
     .restaurants, .plates {
       padding: 10px;
       border: 1px solid rgba(0, 0, 0, 0.08);
+
+      .total_results {
+        font-size: 0.9em;
+        font-weight: bold;
+        color: $color_text_1;
+      }
 
       .rest_result, .plate_result {
         display: flex;

@@ -30,6 +30,7 @@ function  init() {
           research_category: 0,
           research_restaurants: 0,
           research_plates: 0,
+          loading: 0,
 
       },
       computed: {
@@ -91,7 +92,6 @@ function  init() {
       watch: {
         searchInput: function(newVal){
           if (newVal === "") {
-            this.research_error = 0;
             this.result_tendina = 0;
           }
         },
@@ -115,35 +115,33 @@ function  init() {
 
         startResearch: function(queries){
           console.log(queries);
+          this.loading = 1;
+          this.result_tendina = 1;
+          this.no_result = 0;
+          this.research_error = 0;
+          this.research_category = 0;
+          this.research_restaurants = 0;
+          this.research_plates = 0;
           axios.get('/search/' + queries, {
             params: {
             }
             })
             .then((response) => {
               this.searchResult = response.data;
-
+              this.result_tendina = 1;
+              this.loading = 0;
               if (response.data.error) {
                 console.log(response.data.error);
                 this.research_error = 1;
               } else {
-
-                if (this.searchResult.typology_resoult.length === 0) {
-                  this.research_category = 0;
-                } else {
+                if (this.searchResult.typology_resoult.length != 0) {
                   this.research_category = 1;
-                  this.result_tendina = 1;
                 }
-                if (this.searchResult.rest_name_resoult.length === 0) {
-                  this.research_restaurants = 0;
-                } else {
+                if (this.searchResult.rest_name_resoult.length != 0) {
                   this.research_restaurants = 1;
-                  this.result_tendina = 1;
                 }
-                if (this.searchResult.plates_resoult.length === 0) {
-                  this.research_plates = 0;
-                } else {
+                if (this.searchResult.plates_resoult.length != 0) {
                   this.research_plates = 1;
-                  this.result_tendina = 1;
                 }
               }
 
@@ -165,8 +163,6 @@ function  init() {
           this.cart = [];
           this.cart_new = [];
         },
-
-
 
         get_cart: function() {
 

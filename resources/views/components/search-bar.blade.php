@@ -1,6 +1,6 @@
 <div id="search-bar">
   <input class="search" type="text" placeholder="Piatti, ristoranti o tipi di cucina" v-on:keyup.enter="startResearch($event.target.value)" v-model="searchInput">
-  <div class="results">
+  <div class="results" v-if="result_tendina">
 
     <div class="category" v-if="!no_result && !research_error && research_category">
       <h3>Categorie</h3>

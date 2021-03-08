@@ -195,7 +195,12 @@ class ResearchController extends Controller
         $allResults = $responseLiteralTypologies->merge($responseTypologies);
         $allResults = $allResults->unique();
 
-        return $allResults;
+        $response = [];
+        foreach ($allResults as $key => $res) {
+          $response[] = $res;
+        }
+
+        return $response;
     }
 
     private function searchRestNamesInit($queries){
@@ -255,7 +260,7 @@ class ResearchController extends Controller
 
         if ($votes) {
           $average = array_sum($votes)/count($votes);
-          $average = round ($average , 1); 
+          $average = round ($average , 1);
           $restaurants[$key] -> average_rate = $average;
           $restaurants[$key] -> rate_number = count($votes);
         } else {

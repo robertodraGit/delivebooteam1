@@ -31,8 +31,6 @@
 
     <div class="plates" v-if="!no_result && !research_error && research_plates">
       <p>Piatti</p>
-    
-      </div>
 
     </div>
 
@@ -44,7 +42,7 @@
       <p>Nessun risultato: prova ad inserire parole più lunghe.</p>
     </div>
 
-    <div class="loading" v-show="loading">
+    <div class="loading" v-if="loading">
       <p>Ricerca in corso...</p>
     </div>
 

@@ -17272,11 +17272,16 @@ a.text-dark:focus {
 }
 
 .home_plates .description .price {
-  font-size: 0.9em;
   font-style: italic;
+  color: #00CCBC;
+  display: inline-block;
+  font-size: 1.2em;
+}
+
+.home_plates .description .price.line {
   text-decoration: line-through;
   color: #8285A5;
-  display: inline-block;
+  font-size: 0.9em;
 }
 
 .home_plates .description .discounted_price {

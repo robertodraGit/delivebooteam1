@@ -54,12 +54,15 @@
       font-weight: bold;
     }
     .price {
-      font-size: 0.9em;
       font-style: italic;
+      color: $color_deliveroo;
+      display: inline-block;
+      font-size: 1.2em;
+    }
+    .price.line {
       text-decoration: line-through;
       color: $soft-text;
-      display: inline-block;
-
+      font-size: 0.9em;
     }
     .discounted_price {
       color: $color_deliveroo;

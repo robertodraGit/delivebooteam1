@@ -44,7 +44,7 @@
                         <h2 class="title">@{{plate.plate_name}}</h2>
                         <p class="ingredients">Ingredienti: @{{plate.ingredients}}</p>
                         <p class="plate_description">Descrizione: @{{plate.description}}</p>
-                        <span class="price">@{{plate.price/100}}€</span>
+                        <span :class="['price' ,{'line': plate.discount > 0}]">@{{plate.price/100}}€</span>
                         <span v-show="plate.discount > 0" class="discounted_price">@{{plate_final_price(plate.price, plate.discount)}}€</span>
                       </section>
                     </a>

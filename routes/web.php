@@ -137,3 +137,6 @@ Route::get('/dashboard/restaurant/comanda/{id}', 'OrderController@restaurantComa
         return back() -> withErrors('An error occured with the message: ' . $result -> message);
     }
   });
+
+  // logout
+  Route::get('/logout', 'Auth\LoginController@logout');

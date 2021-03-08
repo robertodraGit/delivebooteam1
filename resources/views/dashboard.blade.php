@@ -43,7 +43,7 @@
                     </button>
                 </form>
 
-                <form class="" action="{{ route('orders-index') }}">
+                <form class="" action="{{ route('restaurant-order') }}">
                     <button>
                         Visualizza i tuoi ordini
                         <span class="order-color"></span><span class="order-color"></span><span class="order-color"></span><span class="order-color"></span>
@@ -71,7 +71,15 @@
 
         <div class="right-side-dash">
             <div class="header-right-dash">
-                
+
+                {{-- MENU HAMBURGER --}}
+
+                <button class="sidebar">
+                    <div class="bar"></div>
+                </button>
+
+                {{-- FINE MENU HAMBURGER --}}
+
                 <h3>Welcome
                     <span>{{ Auth::user() -> name }}!</span>
                 </h3>
@@ -123,7 +131,7 @@
                     </div>
                 </div>
                 {{-- CARD FEEDBACK --}}
-                <div class="card">
+                <div id="resp-card" class="card">
                     <h3>I tuoi feedback</h3>
                     <div class="percentual-feed">
                         <h1>90%</h1>

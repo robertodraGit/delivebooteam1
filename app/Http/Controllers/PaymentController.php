@@ -15,17 +15,17 @@ use App\Mail\SendMail;
 use App\Mail\PayMail;
 
 
-
-
-
 class PaymentController extends Controller
 {
-  public function create(Request $request) {
+  public function getCart(Request $request) {
 
-    $data = $request -> all();
+    $data = $request -> json() -> all();
+    
     $plates_selected = [];
     $to_pay = 0;
     $delivery_cost = 0;
+
+    $data_array = [];
 
     foreach ($data as $value) {
       foreach ($value as $item) {
@@ -36,58 +36,69 @@ class PaymentController extends Controller
         $discounted = $plate_select -> price * (100 - $plate_select -> discount);
 
         $discounted = round($discounted / 10000, 2);
+        $plate_select -> price = $discounted;
+
         $to_pay += $discounted;
 
         $plates_selected[] = $plate_select;
       }
     }
 
-    return view('orders.order-create', compact('plates_selected', 'to_pay', 'delivery_cost'));
+    $data_array['plates'] = $plates_selected;
+    $data_array['topay'] = $to_pay;
+    $data_array['delivery'] = $delivery_cost;
+
+    session() -> flash('data', $data_array);
+
+    return redirect() -> route('order-create');
   }
 
-  public function store(Request $request) {
+  public function create(Request $request) {
+
+    session() -> keep(['data']);
+
+    $data_array = session() -> get('data');
+
+    $request->session()->reflash();
+
+    return view('orders.order-checkout', compact('data_array'));
+  }
+
+
+  public function storeOrder(Request $request) {
+
     $data = $request -> all();
-    // dd($data);
-
-    // result è un array con id dei plates selected
-    foreach ($data as $key => $value) {
-      $exp_key = explode('_', $key);
-      if($exp_key[0] == 'plate'){
-         $id_plates[] = $value;
-       }
-    }
-    // dd($id_plates);
-
-    $tot_price = 0;
-    $plates = Plate::all();
-    $platesAttach = [];
-
-    foreach ($plates as $plate) {
-      foreach ($id_plates as $id_frontend) {
-        // dd($id_frontend, $plate -> id);
-        if ($id_frontend == $plate -> id) {
-          $tot_price = $tot_price + $plate -> price;
-          $platesAttach[] = $plate;
-        }
-      }
-    }
-    // dd($tot_price);
-
-    $data['total_price'] = $tot_price;
-
-    // array di piatti ordinati
-    $platesOrd = [];
+    $topay = 0;
 
     foreach ($data as $key => $value) {
       $exp_key = explode('_', $key);
       if($exp_key[0] == 'plate'){
-         $platesOrd[] = $value;
-         unset($data[$key]);
+        $id_plates[]=json_decode($value, true);
        }
     }
-    // dd($platesOrd, $data);
 
     $data['payment_state'] = 0;
+
+    foreach($id_plates as $subplate) {
+        $plates_id_final[] = $subplate['id'];
+    }
+
+    foreach ($plates_id_final as $plate_id) {
+
+      $plate_model_select = Plate::findOrFail($plate_id);
+      $delivery_cost = ($plate_model_select -> user -> delivery_cost);
+
+      $discounted = $plate_model_select -> price * (100 - $plate_model_select -> discount);
+
+      $discounted = round($discounted / 10000, 2);
+      $plate_model_select -> price = $discounted;
+
+      $topay += $discounted;
+
+      $plates_models_selected[] = $plate_model_select['id'];
+    }
+
+    $data['total_price'] = (int)($topay * 100) + $delivery_cost;
 
     Validator::make($data, [
 
@@ -103,18 +114,10 @@ class PaymentController extends Controller
 
     $newOrder = Order::make($data);
     $newOrder -> save();
-    $newOrder -> plates() -> attach($id_plates);
-    // dd($newOrder);
-
-
+    $newOrder -> plates() -> attach($plates_models_selected);
+ 
     return view('orders.order-show', compact('newOrder'));
   }
-
-  // public function edit($id) {
-  //   $order = Order::findOrFail($id);
-  //   // dd($order);
-  //   return view('orders.order-edit', compact('order'));
-  // }
 
   public function pay() {
     $gateway = new \Braintree\Gateway([

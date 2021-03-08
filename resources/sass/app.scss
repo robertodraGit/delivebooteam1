@@ -6,14 +6,16 @@
 @import 'variables';
 
 // Bootstrap
-// @import '~bootstrap/scss/bootstrap';
+@import '~bootstrap/scss/bootstrap';
 
 // Fontawesome
 @import '~@fortawesome/fontawesome-free/css/all.css';
 
 // other
 @import 'plate';
+@import 'plate_create';
 @import 'cart';
+@import 'search-bar';
 
 @import 'dashboard';
 @import 'dashboard_plates';
@@ -23,7 +25,7 @@
 @import 'edit_restaurant';
 
 // nuovi file scss, commento da cencellare è solo un promemoria
-// @import 'header';
+@import 'header';
 // @import 'jumbotron';
 @import 'home';
 @import 'animations';
@@ -31,6 +33,9 @@
 @import 'welcome';
 @import 'carousel';
 @import 'pay';
+
+// auth
+@import 'auth';
 
 
 * {

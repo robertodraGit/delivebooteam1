@@ -2,50 +2,30 @@
 
 @section('content')
 
-  {{-- HEADER --}}
-    <header>
-        <div class="container">
-            <div class="menu"> <!-- vue -->
-                <a href="#">menu</a>
-            </div>
-            <div class="logo">logo</div>
-            <input type="text" placeholder="Piatti">
-            <div class="cart">cart</div>
-        </div>
-    </header>
-
     {{-- MAIN --}}
     <main>
 
         <div class="container">
 
-          <div class="plates_container">
+            <slider></slider>
 
-            <div id="app">
+            {{-- lista ristoranti --}}
+          <section>
+              <h1>Restaurants</h1>
 
-              @foreach ($plates as $plate)
-                <plate
-                :plate_data = {{ $plate }}
-                >
-                </plate>
-              @endforeach
+              <div class="restaurants">
 
-              <h1>Ristoranti</h1>
+                <div  v-for="restaurant in restaurants" :key="restaurant.id">
+                    <p>@{{restaurant}}</p>
+                    <restaurant
+                      :restaurant_data="restaurant"
+                    ></restaurant>
+                </div>
 
-
-                <restaurant
-                :restaurant_data = {{ $restaurants }}
-                >
-                </restaurant>
-
-
-            </div>
-
-
-          </div>
+              </div>
+          </section>
 
         </div>
-
 
     </main>
 
@@ -79,5 +59,4 @@
             <div class="copyright">copyright</div>
         </div>
     </footer>
-
 @endsection

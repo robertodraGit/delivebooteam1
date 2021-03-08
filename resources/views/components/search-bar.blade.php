@@ -18,21 +18,23 @@
 
     <div class="restaurants" v-if="!no_result && !research_error && research_restaurants">
       <p class="section_title">Ristoranti</p>
-      <div v-for="restaurant in search_rest_name_result" class="rest_result">
-        
-        <div class="img" :style="{'background-image':'url(' + '/storage/restaurant_icon/' + restaurant.photo + ')'}">
+      <a :href="'/restaurant/' + restaurant.id" v-for="restaurant in search_rest_name_result">
+        <div class="rest_result">
+
+          <div class="img" :style="{'background-image':'url(' + '/storage/restaurant_icon/' + restaurant.photo + ')'}">
+
+          </div>
+
+          <div class="description">
+            <h1 class="rest_name">@{{restaurant.name}}</h1>
+            <i class="far fa-star"></i>
+            <span class="average_rate">@{{restaurant.average_rate}}</span>
+            <span class="rate_number">(@{{restaurant.rate_number}})</span>
+          </div>
 
         </div>
-
-        <div class="description">
-          <h1 class="rest_name">@{{restaurant.name}}</h1>
-          <i class="far fa-star"></i>
-          <span class="average_rate">@{{restaurant.average_rate}}</span>
-          <span class="rate_number">(@{{restaurant.rate_number}})</span>
-        </div>
-
-      </div>
-      <p class="total_results">@{{searchResult.total_restNames_number}} ristoranti. Vedi tutti.</p>
+      </a>
+      <p class="total_results" @click="showRestByName()">@{{searchResult.total_restNames_number}} ristoranti. Vedi tutti.</p>
     </div>
 
     <div class="plates" v-if="!no_result && !research_error && research_plates">

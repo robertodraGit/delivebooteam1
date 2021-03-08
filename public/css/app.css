@@ -16491,12 +16491,25 @@ a.text-dark:focus {
   color: #017E8A;
 }
 
+#search-bar .results .restaurants .total_results:hover,
+#search-bar .results .plates .total_results:hover {
+  cursor: pointer;
+  font-size: 1em;
+}
+
 #search-bar .results .restaurants .rest_result,
 #search-bar .results .restaurants .plate_result,
 #search-bar .results .plates .rest_result,
 #search-bar .results .plates .plate_result {
   display: flex;
   margin-bottom: 2px;
+}
+
+#search-bar .results .restaurants .rest_result a,
+#search-bar .results .restaurants .plate_result a,
+#search-bar .results .plates .rest_result a,
+#search-bar .results .plates .plate_result a {
+  text-decoration: none;
 }
 
 #search-bar .results .restaurants .rest_result:hover,
@@ -16525,6 +16538,7 @@ a.text-dark:focus {
 #search-bar .results .plates .plate_result .description {
   padding: 5px;
   flex-grow: 1;
+  color: black;
 }
 
 #search-bar .results .restaurants .rest_result .description .rest_name,
@@ -16532,6 +16546,7 @@ a.text-dark:focus {
 #search-bar .results .plates .rest_result .description .rest_name,
 #search-bar .results .plates .plate_result .description .rest_name {
   font-size: 1em;
+  font-weight: bold;
 }
 
 #search-bar .results .restaurants .rest_result .description .average_rate,

@@ -172,6 +172,23 @@ function  init() {
           this.result_tendina = 0;
         },
 
+        showRestByName: function(){
+          queries = this.oldSearchInput;
+          axios.get('/getallrestbyname/' + queries, {
+            params: {
+            }
+            })
+            .then((response) => {
+              console.log('allbyname', response.data);
+              this.restaurants = response.data;
+              this.$forceUpdate();
+            })
+            .catch(function (error) {
+              console.log(error);
+            })
+          this.closeSearchBar();
+        },
+
         pushInCart: function(plate) {
           this.cart.push(plate);
         },

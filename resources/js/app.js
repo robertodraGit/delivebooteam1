@@ -130,6 +130,7 @@ function  init() {
             })
             .then((response) => {
               this.searchResult = response.data;
+              this.$forceUpdate();
               this.result_tendina = 1;
               this.loading = 0;
               if (response.data.error) {
@@ -170,6 +171,7 @@ function  init() {
 
         closeSearchBar: function(){
           this.result_tendina = 0;
+          this.searchInput = "";
         },
 
         showRestByName: function(){

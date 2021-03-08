@@ -21,9 +21,8 @@
       <a :href="'/restaurant/' + restaurant.id" v-for="restaurant in search_rest_name_result">
         <div class="rest_result">
 
-          <div class="img" :style="{'background-image':'url(' + '/storage/restaurant_icon/' + restaurant.photo + ')'}">
-
-          </div>
+          <div v-if="restaurant.photo != null" class="img" :style="{'background-image':'url(' + '/storage/restaurant_icon/' + restaurant.photo + ')'}"></div>
+          <div v-else class="img" :style="{'background-image':'url(' + '/storage/placeholder.svg' + ')'}"></div>
 
           <div class="description">
             <h1 class="rest_name">@{{restaurant.name}}</h1>
@@ -41,9 +40,8 @@
       <p class="section_title">Piatti</p>
       <div v-for="plate in search_plate_name_result" class="plate_result">
 
-        <div class="img" :style="{'background-image':'url(' + '/storage/plates/' + plate.img + ')'}">
-
-        </div>
+        <div v-if="plate.img != null" class="img" :style="{'background-image':'url(' + '/storage/plates/' + plate.img + ')'}"></div>
+        <div v-else class="img" :style="{'background-image':'url(' + '/storage/placeholder.svg' + ')'}"></div>
 
         <div class="description">
           <h1 class="plate_name">@{{plate.plate_name}}</h1>

@@ -7,7 +7,7 @@
 
         <div class="container">
 
-            {{-- <slider></slider> --}}
+            <slider></slider>
 
             {{-- lista ristoranti --}}
           <section v-if="displayRestaurants">
@@ -16,7 +16,7 @@
               <div class="restaurants">
 
                 <div  v-for="restaurant in restaurants" :key="restaurant.id">
-                    <p>@{{restaurant}}</p>
+                    {{-- <p>@{{restaurant}}</p> --}}
                     <restaurant
                       :restaurant_data="restaurant"
                     ></restaurant>
@@ -31,7 +31,16 @@
             <div class="plates">
 
               <div v-for="plate in plates" :key="plate.id">
-                  <p>Bozza del piatto: @{{plate.plate_name}}</p> 
+                  <div class="plate_container">
+                    <a href="#">
+                      <section v-if="plate.img != null" class="img" :style="{'background-image':'url(' + '/storage/plates/' + plate.img + ')'}"></section>
+                      <div v-else class="img" :style="{'background-image':'url(' + '/storage/placeholder.svg' + ')'}"></div>
+
+                      <section class="description">
+                        <h2 class="title">@{{plate.plate_name}}</h2>
+                      </section>
+                    </a>
+                  </div>
               </div>
 
             </div>

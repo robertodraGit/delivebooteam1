@@ -1,0 +1,46 @@
+// @mixin flex-centratura {
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+// }
+// @mixin debug-border {
+//   border: 1px solid black;
+// }
+// .plates {
+//   .plate_container {
+//     @include debug-border;
+//     min-height: 13px;
+//     font-size: 16px;
+//     padding: 10px;
+//   }
+//
+//   a {
+//     text-decoration: none;
+//     color: black;
+//   }
+//
+//   & * {
+//     margin: 0;
+//     padding: 0;
+//   }
+//
+//   section {
+//     @include debug-border;
+//   }
+//
+//   .img{
+//     width: 260px;
+//     height: 150px;
+//     background-position: center;
+//     background-size: cover;
+//     background-repeat: no-repeat;
+//     border-radius: 5px;
+//   }
+//
+//   .description {
+//     width: 260px;
+//     height: 130px;
+//     padding: 5px;
+//   }
+//
+// }

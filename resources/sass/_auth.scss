@@ -4,11 +4,20 @@
     .cart{
         display: none;
     }
+    .container-register,
+    .container-login{
+        width: 100%;
+        display: flex;
+        
+    }
     
     .card {
     
-        max-width: 500px;
-        margin: 0 auto;
+        max-width: 523px;
+        
+
+        position: relative;
+        z-index: 2;
         // border: 1px solid;
     
         input[type=text],
@@ -16,31 +25,41 @@
         input[type=password],
         input[type=number]{
             width: 100%;
+            height: 40px;
             margin-bottom: 20px;
         }
+        label, p {
+        
+            color: #828585;
+        
+        }
     
-        .flex {
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
+        
+            .title {
+                margin-bottom: 20px;
+
+                h1 {
+                    font-size: 40px;
+                    margin-bottom: 10px;
+                    color: 2e3333;
+                }
+                
+            }
     
     
-            button, a {
+            button {
                 height: 40px;
-                border-radius: 5px;
-                width: 49%;
+                border: 1px solid white; border-radius: 5px;
+                color: white;
+                background-color: #00ccbc;
+            
     
                 &:hover{
-                    background-color: lightgray;
+                    background-color: #00c2b3;
                 }
             }
-            a{
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                border: 1px solid;
-            }
-        }
+            
+        
     }
 
 }

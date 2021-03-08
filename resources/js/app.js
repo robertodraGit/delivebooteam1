@@ -12,6 +12,11 @@ function  init() {
        this.$nextTick(function () {
          console.log("App montata!");
          this.getRestaurantsInit();
+         // msg payment
+         this.messageVisible = true,
+         setTimeout(function(scope){
+           scope.messageVisible = false;
+         }, 5000, this);
        })},
       data: {
           restaurants: [],
@@ -32,11 +37,14 @@ function  init() {
           research_category: 0,
           research_restaurants: 0,
           research_plates: 0,
+        
+          messageVisible: '',
           loading: 0,
 
           // page flags
           displayRestaurants: 1,
           displayPlates: 0,
+
 
       },
       computed: {
@@ -102,7 +110,6 @@ function  init() {
           }
         },
       },
-
       methods: {
 
         getRestaurantsInit: function(){

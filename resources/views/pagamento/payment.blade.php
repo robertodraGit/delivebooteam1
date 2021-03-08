@@ -149,7 +149,7 @@
 
 
 
-                            <input id="nonce" name="payment_method_nonce" type="hidden" />
+                            <input id="nonce" name="payment_method_nonce" type="text" />
                             <button id="pay-button" class="button" type="submit"><span>Effettua il pagamento</span></button>
                         </form>
 

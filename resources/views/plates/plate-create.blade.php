@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
+    <script src="{{ asset('js/app.js') }}"></script>
     <link rel="stylesheet" href="{{asset('/css/app.css')}}">
     <title>Crea piatto</title>
 </head>
@@ -19,6 +19,7 @@
     </header>
 
     <section class="form-block">
+        <img src="{{ asset('img/restaurants-dash.png') }}" alt="">
         <form action="{{ route('plates-store') }}" method="POST" enctype="multipart/form-data">
 
             @csrf
@@ -35,14 +36,15 @@
             @endif
 
             <h4>Compila il form qui per aggiungere il tuo nuovo piatto</h4>
+            <h6>* I campi contrassegnati sono obbligatori</h6>
 
             <div class="textbox">
-                <label for="plate_name" >Nome piatto</label>
+                <label class="required" for="plate_name">Nome piatto:</label>
                 <input name='plate_name' type="text" placeholder="Nome" required maxlength="30">
             </div>
 
             <div class="textbox">
-                <label for="ingredients">Ingredienti:</label>
+                <label class="required" for="ingredients">Ingredienti:</label>
                 <input name='ingredients' type="textbox" placeholder="Ingredienti" required minlength="2" maxlength="2000">
             </div>
 
@@ -53,12 +55,12 @@
             </div>
 
             <div class="textbox">
-                <label for="price_euro">Prezzo (EURO):</label>
+                <label class="required" for="price_euro">Prezzo in €:</label>
                 <input name='price_euro' type="number" placeholder="Prezzo in Euro" min="0" max="9999">
             </div>
 
             <div class="textbox">
-                <label for="price_cents">Prezzo (CENTESIMI):</label>
+                <label class="required" for="price_cents">Prezzo in CENTESIMI:</label>
                 <input name='price_cents' type="number" placeholder="Prezzo in Centesimi" min="0" max="99">
             </div>
 
@@ -73,7 +75,7 @@
             </div>
 
             <div class="textbox-discount">
-                <label for="discount">Sconto in percentuale:</label>
+                <label class="required" for="discount">Sconto in percentuale:</label>
                 <input name='discount' type="number" required min="0" max="100">
             </div>
 
@@ -90,17 +92,14 @@
             </select>
 
             <div class="img-box">
-                <label for="img">Foto</label>
+                <label for="img">Foto del piatto</label>
                 <input name='img' type="file">
             </div>
 
             <div class="button-save">
                 <input type="submit" value="Salva">
             </div>
-
         </form>
     </section>
-
-    <script src="{{ asset('js/app.js') }}"></script>
 </body>
 </html>

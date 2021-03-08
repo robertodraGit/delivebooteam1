@@ -17,18 +17,19 @@ function  init() {
           restaurants: [],
           cart: [],
           order: [],
-          cacca: 50,
+          cacca: 100,
 
           // ricerca
           searchInput: "",
           searchResult: [],
 
           // flags
+          result_tendina: 0,
           no_result: 0,
           research_error: 0,
-          research_category: 1,
-          research_restaurants: 1,
-          research_plates: 1,
+          research_category: 0,
+          research_restaurants: 0,
+          research_plates: 0,
 
       },
       computed: {
@@ -91,6 +92,7 @@ function  init() {
         searchInput: function(newVal){
           if (newVal === "") {
             this.research_error = 0;
+            this.result_tendina = 0;
           }
         },
       },
@@ -127,12 +129,21 @@ function  init() {
 
                 if (this.searchResult.typology_resoult.length === 0) {
                   this.research_category = 0;
+                } else {
+                  this.research_category = 1;
+                  this.result_tendina = 1;
                 }
                 if (this.searchResult.rest_name_resoult.length === 0) {
                   this.research_restaurants = 0;
+                } else {
+                  this.research_restaurants = 1;
+                  this.result_tendina = 1;
                 }
                 if (this.searchResult.plates_resoult.length === 0) {
                   this.research_plates = 0;
+                } else {
+                  this.research_plates = 1;
+                  this.result_tendina = 1;
                 }
               }
 
@@ -189,3 +200,4 @@ document.addEventListener("DOMContentLoaded", init);
 // menu_btn.addEventListener('click', function () {
 //     menu_btn.classList.toggle('is-active');
 // });
+

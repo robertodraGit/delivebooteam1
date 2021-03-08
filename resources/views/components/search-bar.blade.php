@@ -1,9 +1,11 @@
-<div id="search-bar">
+<div id="search-bar" :class="{ 'active' : result_tendina}">
+
+  <i class="fas fa-search search-icon"></i>
   <input class="search" type="text" placeholder="Piatti, ristoranti o tipi di cucina" v-on:keyup.enter="startResearch($event.target.value)" v-model="searchInput">
   <div class="results" v-if="result_tendina">
 
     <div class="category" v-if="!no_result && !research_error && research_category">
-      <p>Categorie</p>
+      <p class="section_title">Categorie</p>
       <div class="category_result">
         <i class="fas fa-search"></i>
         <span>@{{oldSearchInput}}</span>
@@ -12,7 +14,7 @@
     </div>
 
     <div class="restaurants" v-if="!no_result && !research_error && research_restaurants">
-      <p>Ristoranti</p>
+      <p class="section_title">Ristoranti</p>
       <div v-for="restaurant in search_rest_name_result" class="rest_result">
 
         <div class="img" :style="{'background-image':'url(' + '/storage/restaurant_icon/' + restaurant.photo + ')'}">
@@ -30,19 +32,30 @@
     </div>
 
     <div class="plates" v-if="!no_result && !research_error && research_plates">
-      <p>Piatti</p>
+      <p class="section_title">Piatti</p>
+      <div v-for="plate in search_plate_name_result" class="plate_result">
 
+        <div class="img" :style="{'background-image':'url(' + '/storage/plates/' + plate.img + ')'}">
+
+        </div>
+
+        <div class="description">
+          <h1 class="plate_name">@{{plate.plate_name}}</h1>
+          <span class="plate_price">@{{plate.price/100}}€</span>
+        </div>
+
+      </div>
     </div>
 
-    <div class="no-results" v-show="no_result">
+    <div class="no-results info" v-show="no_result">
       <p>Nessun risultato</p>
     </div>
 
-    <div class="error" v-show="research_error">
+    <div class="error info" v-show="research_error">
       <p>Nessun risultato: prova ad inserire parole più lunghe.</p>
     </div>
 
-    <div class="loading" v-if="loading">
+    <div class="loading info" v-show="loading">
       <p>Ricerca in corso...</p>
     </div>
 

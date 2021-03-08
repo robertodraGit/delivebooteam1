@@ -200,44 +200,6 @@
         justify-content: space-between;
         padding-top: 3rem;
 
-        .sidebar {
-            position: relative;
-            display: block;
-            width: 35px;
-            height: 35px;
-            cursor: pointer;
-            appearance: none;
-            background: none;
-            outline: none;
-            border: none;
-
-        }
-
-        .sidebar .bar, .sidebar:after, .sidebar:before {
-            display: block;
-            content: '';
-            width: 100%;
-            height: 5px;
-            background-color: $color_deliveroo;
-            border-radius: 8px;
-            margin: 6px 0;
-            transition: 0.4s;
-        }
-
-        .sidebar.is-active:before {
-            transform: rotate(-45deg) translate(-8px, 6px);
-        }
-
-        .sidebar.is-active:after {
-            transform: rotate(45deg) translate(-9px, -8px);
-        }
-
-        .sidebar.is-active .bar {
-            outline: none;
-            opacity: 0;
-        }
-
-
         & > h3 {
 
             @media all and (min-width: 868px) and (max-width: 1199px) {
@@ -469,6 +431,7 @@
 
         h2 {
             margin-bottom: 1rem;
+
             @media all and (max-width: 575px) {
                 font-size: 18px;
             }
@@ -501,6 +464,18 @@
                 width: 70%;
                 height: 100%;
 
+                h3 {
+
+                    @media all and (min-width: 576px) and (max-width: 867px) {
+                        font-size: 18px;
+                    }
+
+                    @media all and (max-width: 575px) {
+                        font-size: 15px;
+                    }
+
+                }
+
                 & > hr {
                     border-color: $variable2;
                 }
@@ -519,6 +494,7 @@
                 flex-direction: column;
                 justify-content: space-between;
                 align-items: flex-end;
+
                 @media all and (min-width: 576px) and (max-width: 867px) {
                     width: 20%;
                     height: 100%;
@@ -535,9 +511,20 @@
                     box-shadow: $shadow_button;
 
                     @media all and (min-width: 576px) and (max-width: 867px) {
+                        padding: 0.2rem $padding_button;
+                        font-size: 11px;
+                        height: 42px;
+                        width: 70px;
                         margin-bottom: 0;
                     }
 
+                    @media all and (max-width: 575px) {
+                        padding: 0.2rem $padding_button;
+                        font-size: 11px;
+                        height: 42px;
+                        width: 70px;
+                        margin-bottom: 0;
+                    }
                 }
             }
         }

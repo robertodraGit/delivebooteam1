@@ -7,6 +7,8 @@
               :login = "'{{ route("login") }}'"
               :register = "'{{ route("register") }}'"
               :dashboard = "'{{ route("dashboard") }}'"
+              :logout = "'{{ route("logout") }}'"
+              :user = "'{{ Auth::user() }}'"
               >
           </ham-menu> --}}
 

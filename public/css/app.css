@@ -5826,7 +5826,9 @@ header .container img {
   border: 1px solid white;
   border-radius: 5px;
   color: white;
+  padding: 0 5px;
   background-color: #00ccbc;
+  cursor: pointer;
 }
 
 .container-auth .card button:hover {
@@ -5847,7 +5849,6 @@ header .container img {
 
 .container-register .card button {
   width: 100px;
-  cursor: pointer;
 }
 
 @media screen and (max-width: 800px) {
@@ -5946,10 +5947,6 @@ header .container img {
 
 .container-email .card h1 {
   margin-bottom: 20px;
-}
-
-.container-email .card button {
-  cursor: pointer;
 }
 
 * {

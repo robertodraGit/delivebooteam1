@@ -74,10 +74,6 @@
 
                 {{-- MENU HAMBURGER --}}
 
-                <button class="sidebar">
-                    <div class="bar"></div>
-                </button>
-
                 {{-- FINE MENU HAMBURGER --}}
 
                 <h3>Welcome

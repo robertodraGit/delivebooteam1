@@ -19,7 +19,7 @@
 
 @import 'dashboard';
 @import 'dashboard_plates';
-
+@import 'plate-home';
 
 @import 'restaurant';
 @import 'edit_restaurant';
@@ -44,4 +44,13 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+.alertpay{
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 40px;
+  padding: 10px;
+  z-index: 999;
 }

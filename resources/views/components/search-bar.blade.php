@@ -38,18 +38,20 @@
 
     <div class="plates" v-if="!no_result && !research_error && research_plates">
       <p class="section_title">Piatti</p>
-      <div v-for="plate in search_plate_name_result" class="plate_result">
+      <a v-for="plate in search_plate_name_result" :href="'/restaurant/' + plate.user_id">
+        <div class="plate_result">
 
-        <div v-if="plate.img != null" class="img" :style="{'background-image':'url(' + '/storage/plates/' + plate.img + ')'}"></div>
-        <div v-else class="img" :style="{'background-image':'url(' + '/storage/placeholder.svg' + ')'}"></div>
+          <div v-if="plate.img != null" class="img" :style="{'background-image':'url(' + '/storage/plates/' + plate.img + ')'}"></div>
+          <div v-else class="img" :style="{'background-image':'url(' + '/storage/placeholder.svg' + ')'}"></div>
 
-        <div class="description">
-          <h1 class="plate_name">@{{plate.plate_name}}</h1>
-          <span class="plate_price">@{{plate.price/100}}€</span>
+          <div class="description">
+            <h1 class="plate_name">@{{plate.plate_name}}</h1>
+            <span class="plate_price">@{{plate.price/100}}€</span>
+          </div>
+
         </div>
-
-      </div>
-      <p class="total_results">@{{searchResult.total_plates_number}} piatti. Vedi tutti.</p>
+      </a>
+      <p class="total_results" @click="showPlatesbyName()">@{{searchResult.total_plates_number}} piatti. Vedi tutti.</p>
     </div>
 
     <div class="no-results info" v-show="no_result">

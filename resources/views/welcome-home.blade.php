@@ -10,7 +10,7 @@
             {{-- <slider></slider> --}}
 
             {{-- lista ristoranti --}}
-          <section>
+          <section v-if="displayRestaurants">
               <h1>Restaurants</h1>
 
               <div class="restaurants">
@@ -23,6 +23,18 @@
                 </div>
 
               </div>
+          </section>
+
+          <section v-if="displayPlates">
+            <h1>Plates</h1>
+
+            <div class="plates">
+
+              <div v-for="plate in plates" :key="plate.id">
+                  <p>Bozza del piatto: @{{plate.plate_name}}</p> 
+              </div>
+
+            </div>
           </section>
 
         </div>

@@ -15,6 +15,7 @@ function  init() {
        })},
       data: {
           restaurants: [],
+          plates: [],
           cart: [],
           order: [],
           cacca: 100,
@@ -24,7 +25,7 @@ function  init() {
           oldSearchInput: "",
           searchResult: [],
 
-          // flags
+          // search bar flags
           result_tendina: 0,
           no_result: 0,
           research_error: 0,
@@ -32,6 +33,10 @@ function  init() {
           research_restaurants: 0,
           research_plates: 0,
           loading: 0,
+
+          // page flags
+          displayRestaurants: 1,
+          displayPlates: 0,
 
       },
       computed: {
@@ -166,6 +171,9 @@ function  init() {
 
         changeRestResult: function(){
           this.restaurants = this.search_typologies_result;
+          this.displayPlates = 0;
+          this.displayRestaurants = 1;
+          this.$forceUpdate();
           this.closeSearchBar();
         },
 
@@ -183,12 +191,33 @@ function  init() {
             .then((response) => {
               console.log('allbyname', response.data);
               this.restaurants = response.data;
+              this.displayPlates = 0;
+              this.displayRestaurants = 1;
               this.$forceUpdate();
             })
             .catch(function (error) {
               console.log(error);
             })
           this.closeSearchBar();
+        },
+
+        showPlatesbyName: function(){
+          this.displayRestaurants = 0;
+          this.displayPlates = 1;
+          this.closeSearchBar();
+          queries = this.oldSearchInput;
+          axios.get('/getallplatebyname/' + queries, {
+            params: {
+            }
+            })
+            .then((response) => {
+              console.log("all plates ->", response.data);
+              this.plates = response.data;
+              this.$forceUpdate();
+            })
+            .catch(function (error) {
+              console.log(error);
+            })
         },
 
         pushInCart: function(plate) {

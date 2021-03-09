@@ -17397,6 +17397,11 @@ a.text-dark:focus {
   color: #8285A5;
 }
 
+.container-restaurant #search-bar,
+.container-restaurant .cart {
+  display: none;
+}
+
 .sides-flex-edit-restaurant {
   width: 80%;
   display: flex;
@@ -17757,7 +17762,7 @@ header .container img {
   background-position: center;
 }
 
-.container-auth .search,
+.container-auth #search-bar,
 .container-auth .cart {
   display: none;
 }

@@ -262,7 +262,7 @@ function  init() {
             price = price / 100;
             return (price - sconto_euro).toFixed(2);
           } else {
-            return price/100;
+            return price / 100;
           }
         },
 

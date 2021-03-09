@@ -6,14 +6,16 @@
 @import 'variables';
 
 // Bootstrap
-// @import '~bootstrap/scss/bootstrap';
+@import '~bootstrap/scss/bootstrap';
 
 // Fontawesome
 @import '~@fortawesome/fontawesome-free/css/all.css';
 
 // other
 @import 'plate';
+@import 'plate_create';
 @import 'cart';
+@import 'search-bar';
 
 @import 'dashboard';
 @import 'dashboard_plates';
@@ -34,6 +36,9 @@
 
 // auth
 @import 'auth';
+@import 'register';
+@import 'login';
+@import 'email';
 
 
 * {

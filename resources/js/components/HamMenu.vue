@@ -3,10 +3,19 @@
       <div ref="sideNav" class="bm-menu">
         <nav class="bm-item-list">
             <ul>
-              <!-- <li><a href="{{ __('Login') }}">Accedi</a></li> -->
-              <li><a :href="this.register">Register</a></li>
-              <li><a :href="this.login">Login</a></li>
-              <li><a :href="this.dashboard">Dashboard</a></li>
+                
+                <span v-if="this.user">
+                  <li><a :href="this.dashboard">Dashboard</a></li>
+                  <li><a :href="this.logout">Logout</a></li>
+                </span>
+
+                <span v-else>
+
+                  <li><a :href="this.register">Register</a></li>
+                  <li><a :href="this.login">Login</a></li>
+
+                </span>
+              
             </ul>
         </nav>
         <span class="bm-cross-button cross-style" 
@@ -38,26 +47,28 @@
       data() {
         return {
           
-          login: this.login,
-          register: this.register,
-          dashboard: this.dashboard,
+          // login: this.login,
+          // register: this.register,
+          // dashboard: this.dashboard,
+          // logout: this.logout,
+          // user: this.user,
 
           isSideBarOpen: false,
         };
       },
       props: {
 
-        // route
         login: String,
         register: String,
         dashboard: String,
-  
+        logout: String,
+        user: ""
       },
+
       methods: {
         openMenu() {
           this.$emit('openMenu');
           this.isSideBarOpen = true;
-          console.log(this.$emit('openMenu'));
           if (!this.noOverlay) {
             document.body.classList.add('bm-overlay');
           }

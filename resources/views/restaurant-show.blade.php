@@ -98,8 +98,8 @@
           </div>
           <div class="more_info">
             <h4 class="more-info-title">Descrizione:</h4>
-            <p>{{$restaurant -> description}}</p>
-            <p>Contattaci allo: {{$restaurant -> phone}}</p>
+            <p class="rest_desc">{{$restaurant -> description}}</p>
+            <p class="rest_phone">Contattaci allo: {{$restaurant -> phone}}</p>
           </div>
 
         </section>

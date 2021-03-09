@@ -15553,7 +15553,8 @@ a.text-dark:focus {
 }
 
 .plate_container {
-  margin: 10px;
+  margin: 10px 0;
+  margin-right: 10px;
   display: flex;
   flex-shrink: 0;
   flex-grow: 0;
@@ -15591,6 +15592,7 @@ a.text-dark:focus {
   margin: 8px 0;
   overflow: hidden;
   text-overflow: ellipsis;
+  position: relative;
 }
 
 .plate_container .plate_text .ingredienti {
@@ -15600,10 +15602,20 @@ a.text-dark:focus {
   text-overflow: ellipsis;
 }
 
-.plate_container .plate_text .prezzo_intero,
+.plate_container .plate_text .prices {
+  position: absolute;
+  bottom: 5px;
+  left: 5px;
+}
+
+.plate_container .plate_text .prezzo_intero {
+  font-size: 0.9em;
+  font-weight: bold;
+}
+
 .plate_container .plate_text .prezzo_scontato {
-  font-size: 1.2em;
-  height: 25%;
+  font-size: 1em;
+  font-weight: bold;
 }
 
 .plate_container .plate_img {
@@ -15637,7 +15649,7 @@ a.text-dark:focus {
 .plate_container .plate_text .prezzo_barrato {
   text-decoration: line-through;
   color: red;
-  font-size: 1em;
+  font-size: 0.9em;
 }
 
 .plate_container .plate_esaurito {
@@ -17516,6 +17528,7 @@ header .cart_header .box .header_price {
   display: flex;
   align-items: center;
   padding: 8px 0;
+  margin-top: 5px;
 }
 
 .rest_info_show .rest_info_right .delivery-box i {
@@ -17558,6 +17571,7 @@ header .cart_header .box .header_price {
   border-radius: 5px;
   padding: 15px;
   width: 70%;
+  margin-top: 25px;
 }
 
 .rest_info_show .more_info .more-info-title {
@@ -17565,10 +17579,23 @@ header .cart_header .box .header_price {
   font-weight: 700;
 }
 
+.rest_info_show .more_info .rest_desc {
+  color: #303841;
+  font-style: oblique;
+  margin: 0;
+}
+
+.rest_info_show .more_info .rest_phone {
+  font-size: 0.8em;
+  margin: 0;
+  margin-top: 8px;
+}
+
 #rest_show_main {
   max-width: 950px;
   margin: auto;
   display: flex;
+  padding: 0 25px;
   align-items: flex-start;
 }
 
@@ -17582,6 +17609,7 @@ header .cart_header .box .header_price {
 
 #rest_show_main .rest_show_right {
   min-height: 200px;
+  min-width: 265px;
   border: 1px solid black;
   width: 30%;
 }

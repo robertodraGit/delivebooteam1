@@ -13,8 +13,10 @@ cut del testo da vue (ok ma non va da responsive) -->
     <div class="plate_text" @click="display_details_method">
       <h2 class="title">{{nome}}</h2>
       <p class="descrizione">{{descrizione_short}}</p>
-      <span :class="['prezzo_intero' ,{'prezzo_barrato': this.sconto > 0}]">{{prezzo_euro}}€</span>
-      <span v-if="this.sconto > 0" class="prezzo_scontato">{{prezzo_sconto}}€</span>
+      <div class="prices">
+        <span :class="['prezzo_intero' ,{'prezzo_barrato': this.sconto > 0}]">{{prezzo_euro}}€</span>
+        <span v-if="this.sconto > 0" class="prezzo_scontato">{{prezzo_sconto}}€</span>
+      </div>
     </div>
 
     <div v-if="immagine != null" class="plate_img" @click="display_details_method"

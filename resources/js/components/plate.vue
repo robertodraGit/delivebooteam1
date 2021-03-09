@@ -17,13 +17,17 @@ cut del testo da vue (ok ma non va da responsive) -->
       <span v-if="this.sconto > 0" class="prezzo_scontato">{{prezzo_sconto}}€</span>
     </div>
 
-    <div class="plate_img" @click="display_details_method"
+    <div v-if="immagine != null" class="plate_img" @click="display_details_method"
       :style="{'background-image':'url(' + url_img +')'}">
+      <span v-if="this.sconto > 0" class="sconto">{{sconto}}%</span>
+    </div>
+    <div v-else class="plate_img" @click="display_details_method"
+      style="background-image: url(/storage/placeholder.svg)">
       <span v-if="this.sconto > 0" class="sconto">{{sconto}}%</span>
     </div>
 
     <div v-if="this.disponibile == 0" class="plate_esaurito">
-      <p>Esaurito</p>
+      <img src="/storage/img/sold-out.png" alt="">
     </div>
 
       <!-- Dettagli al click -->
@@ -38,8 +42,10 @@ cut del testo da vue (ok ma non va da responsive) -->
           </section>
 
           <section class="show">
-            <div class="plate_img" :style="{'background-image':'url(' + url_img +')'}">
-            </div>
+
+            <div v-if="immagine != null" class="plate_img" :style="{'background-image':'url(' + url_img +')'}"></div>
+            <div class="plate_img" style="background-image: url(/storage/placeholder.svg)"></div>
+
             <p class="descrizione">{{descrizione}}</p>
             <p>Ingredienti: <br> {{ingredienti}}</p>
 
@@ -63,7 +69,7 @@ cut del testo da vue (ok ma non va da responsive) -->
               <span>Cancella</span>
             </div>
 
-            <div 
+            <div
               @click="pushItemInCart()"
               class="button button-strong">
               <strong>TOTALE {{ total_price }}€</strong>
@@ -140,6 +146,7 @@ cut del testo da vue (ok ma non va da responsive) -->
       mounted() {
           console.log('Plate mounted');
           // console.log(this.plate_data);
+          // console.log(this.immagine);
       },
 
       props: {
@@ -172,20 +179,20 @@ cut del testo da vue (ok ma non va da responsive) -->
         },
 
         pushItemInCart: function() {
-          
+
           let plate = {};
-          
+
           for (let i = 0; i < this.quantity; i++) {
-            
+
             plate = {
               "plate_id": this.plate_id,
               "plate_price" : this.prezzo_sconto,
-              "plate_name": this.nome, 
+              "plate_name": this.nome,
             };
 
             this.$emit('carrello', plate);
-          }          
-        }, 
+          }
+        },
       },
     }
 </script>

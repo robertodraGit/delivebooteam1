@@ -126,9 +126,6 @@
 
         <section class="rest_show_left">
 
-          {{-- <h1>ciaone da {{$restaurant -> name}}</h1>
-          <h1>costo consegna: {{$restaurant -> delivery_cost / 100}}</h1>
-
           @foreach ($restaurant -> plates as $plate)
             @if ($plate -> visible)
               <plate
@@ -138,7 +135,7 @@
 
               ></plate>
             @endif
-          @endforeach --}}
+          @endforeach
 
         </section>
 

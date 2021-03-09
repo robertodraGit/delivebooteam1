@@ -26,7 +26,8 @@ header {
 .rest_info_show {
   max-width: 950px;
   margin: auto;
-  padding-top: 20px;
+  margin-top: 30px;
+  padding: 20px 25px;
   padding-bottom: 15px;
   min-height: 200px;
   font-size: 15px;
@@ -41,6 +42,7 @@ header {
   }
   .rest_info_right {
     width: 30%;
+    min-width: 265px;
     .rest_photo {
       width: 100%;
       height: 170px;
@@ -118,13 +120,16 @@ header {
   display: flex;
   align-items: flex-start;
   // DEBUG:
-  border: 1px solid black;
+  // border: 1px solid black;
 
   .rest_show_left {
     min-height: 400px;
     // DEBUG:
-    border: 1px solid black;
+    // border: 1px solid black;
     width: 70%;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
   }
 
   .rest_show_right {

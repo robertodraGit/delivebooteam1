@@ -5451,29 +5451,37 @@ readers do not read off random characters that represent icons */
   height: 100px;
 }
 
+.sides-flex-edit-restaurant .left-side-edit-restaurant,
+.sides-flex-edit-restaurant .right-side-edit-restaurant {
+  background-color: white;
+  padding: 10px;
+}
+
 .sides-flex-edit-restaurant .left-side-edit-restaurant {
-  border: 1px solid;
+  border-radius: 40px 0 0 40px;
 }
 
 .sides-flex-edit-restaurant .left-side-edit-restaurant .restaurant-image {
   width: 200px;
   height: 200px;
-  margin: auto;
-  border: 1px solid;
+  border-radius: 50%;
+  margin: 0 auto;
+  border: 1px solid lightgray;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  background-color: #00ccbc;
+  background-color: #d7d7d7;
 }
 
 .sides-flex-edit-restaurant .right-side-edit-restaurant {
-  border: 1px solid;
   flex-grow: 1;
+  border-radius: 0 40px 40px 0;
 }
 
 @media screen and (max-width: 800px) {
   .sides-flex-edit-restaurant {
     flex-direction: column;
+    align-items: center;
   }
 }
 

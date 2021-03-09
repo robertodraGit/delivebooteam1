@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Mail\PayMail;
 use App\User;
 
-Route::get('/', 'Controller@index') -> name ('index');
+Route::get('/', 'Controller@index') -> name ('index'); 
 
 Auth::routes();
 

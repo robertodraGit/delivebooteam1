@@ -48,11 +48,12 @@
                         <span class="order-color"></span><span class="order-color"></span><span class="order-color"></span><span class="order-color"></span>
                     </button>
                 </form>
-                <button>
-                    Statistiche ordini
-                    <span class="order-color"></span><span class="order-color"></span><span class="order-color"></span><span class="order-color"></span>
-                </button>
-
+                <form class="" action="{{ route('stats') }}">
+                    <button>
+                        Statistiche ordini
+                        <span class="order-color"></span><span class="order-color"></span><span class="order-color"></span><span class="order-color"></span>
+                    </button>
+                </form>
                 <a
                     class="btn btn-danger"
                     href="{{ route('logout') }}"

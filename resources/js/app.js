@@ -267,6 +267,23 @@ function  init() {
           }
         },
 
+        remove_plate: function(plate){
+          console.log(plate);
+        },
+
+        add_plate: function(plate){
+          console.log(plate);
+          let newPlate = {
+            "plate_id": plate.plate_id,
+            "plate_price": plate.original_price,
+            "plate_name": plate.plate_name,
+            "delivery_cost": plate.delivery_cost,
+          };
+          console.log(newPlate);
+          this.cart.push(newPlate);
+          this.$forceUpdate();
+        },
+
       },
   });
 }

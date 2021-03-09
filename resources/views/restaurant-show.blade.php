@@ -149,7 +149,10 @@
             </button>
 
             <div v-for='item in cart_new'>
-              @{{item.quantity}} @{{item.plate_name}} @{{item.plate_price}}€
+              <span @click="remove_plate(item)">-</span>
+              @{{item.quantity}}
+              <span @click="add_plate(item)">+</span>
+               @{{item.plate_name}} @{{item.plate_price}}€
             </div>
 
             <div>
@@ -178,7 +181,6 @@
 
 
       </main>
-
 
     </div>
     @include('components.footer')

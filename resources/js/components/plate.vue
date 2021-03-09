@@ -146,8 +146,8 @@ cut del testo da vue (ok ma non va da responsive) -->
       },
 
       mounted() {
-          console.log('Plate mounted');
-          console.log(this.delivery_cost);
+          // console.log('Plate mounted');
+          // console.log(this.delivery_cost);
           // console.log(this.plate_data);
           // console.log(this.immagine);
       },
@@ -172,7 +172,7 @@ cut del testo da vue (ok ma non va da responsive) -->
         },
 
         close_details: function(){
-          this.quantity = 1;
+          // this.quantity = 1;
           this.display_details = false;
         },
 
@@ -193,9 +193,11 @@ cut del testo da vue (ok ma non va da responsive) -->
               "plate_price" : this.prezzo_sconto,
               "plate_name": this.nome,
               "delivery_cost": this.delivery_cost,
+              "original_price": this.prezzo_sconto,
             };
 
             this.$emit('carrello', plate);
+            this.close_details();
           }
         },
       },

@@ -17770,11 +17770,15 @@ header .cart_header .box .header_price {
 }
 
 #rest_show_main .rest_show_right .cassa:hover {
-  cursor: default;
+  cursor: pointer;
 }
 
 #rest_show_main .rest_show_right .cassa.disabled {
   background-color: #E2E5E5;
+}
+
+#rest_show_main .rest_show_right .cassa.disabled:hover {
+  cursor: default;
 }
 
 header {

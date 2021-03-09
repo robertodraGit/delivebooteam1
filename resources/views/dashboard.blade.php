@@ -14,7 +14,7 @@
             </div>
 
             <h1>
-                {{ $mail_cut }} +100
+                {{ $mail_cut }}
             </h1>
 
             <form action="{{ route('plates-create') }}">

@@ -32,7 +32,7 @@
 
               <div class="home_plate_container" v-for="plate in plates" :key="plate.id">
                   {{-- <div class="home_plate_container"> --}}
-                    <a href="#">
+                    <a :href="'/restaurant/' + plate.user_id">
                       <section v-if="plate.img != null" class="img" :style="{'background-image':'url(' + '/storage/plates/' + plate.img + ')'}">
                         <p v-show="plate.discount > 0" class="discount">@{{plate.discount}}%</p>
                       </section>

@@ -43,6 +43,17 @@ class DashboardController extends Controller
         }
         $userOrdersId = array_unique($userOrdersId);
         $userOrders = Order::findOrFail($userOrdersId);
+        $userOrders = $userOrders -> sortByDesc('updated_at');
+
+        $reordered = [];
+        foreach ($userOrders as $order_item) {
+            $reordered[] = $order_item;
+        }
+
+        $orders_3 = [];
+        for ($j=0; $j < 3; $j++) { 
+            $orders_3[] = $reordered[$j];
+        }
 
         $current = Carbon::now();
         $monthsAgo = $current -> subMonths(3);
@@ -62,7 +73,7 @@ class DashboardController extends Controller
         ->datasets([
             [
                 "label" => "Last 3 Months",
-                'backgroundColor' => "rgba(0, 204, 188, 0.31)",
+                'backgroundColor' => "rgba(0, 204, 188, 0.71)",
                 'data' => $counterPerMonth,
             ],
         ])
@@ -106,7 +117,7 @@ class DashboardController extends Controller
             ]
         ]);
 
-        return view('dashboard', compact('mail_cut', 'feedbacks', 'chartjsDashboard'));
+        return view('dashboard', compact('mail_cut', 'feedbacks', 'chartjsDashboard', 'orders_3', 'reordered'));
     }
 
     public function stats() {

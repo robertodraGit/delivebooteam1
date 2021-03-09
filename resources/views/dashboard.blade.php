@@ -91,33 +91,24 @@
                 <div class="card">
                     <h3>Gli ultimi ordini</h3>
                     {{-- LISTA ORDINI NELLA CARD --}}
+                    @foreach ($orders_3 as $item_3)
+
                     <div class="mini-card">
-                        <h5>Pippo Ronaldo</h5>
+                        <h5>{{$item_3 -> first_name}} {{$item_3 -> last_name}}</h5>
                         <hr>
                         <div class="price-right">
-                            <p>Status: pagato</p>
-                            <span>23,65€</span>
+                            @if ($item_3 -> payment_state)
+                                <p>Ordine pagato</p>
+                            @else
+                                <p>Ordine da pagare</p>
+                            @endif 
+                            <span>{{$item_3 -> total_price / 100}} €</span>
                         </div>
-                        <p>Cellulare: 3333333</p>
+                        <p>Cellulare: {{$item_3 -> phone}}</p>
                     </div>
-                    <div class="mini-card">
-                        <h5>Pippo Ronaldo</h5>
-                        <hr>
-                        <div class="price-right">
-                            <p>Status: pagato</p>
-                            <span>23,65€</span>
-                        </div>
-                        <p>Cellulare: 3333333</p>
-                    </div>
-                    <div class="mini-card">
-                        <h5>Pippo Ronaldo</h5>
-                        <hr>
-                        <div class="price-right">
-                            <p>Status: pagato</p>
-                            <span>23,65€</span>
-                        </div>
-                        <p>Cellulare: 3333333</p>
-                    </div>
+                        
+                    @endforeach
+
                 </div>
                 {{-- CARD STATISTICS --}}
                 <div class="card">
@@ -144,74 +135,42 @@
                 </h2>
 
                 {{-- CARD ORDINI --}}
-                <div class="card-order">
-                    <div class='card-relative'>
+                @foreach ($reordered as $item_reor)
+                
+                    <div class="card-order">
+                        <div class='card-relative'>
 
-                        <div class="order-info">
-                            <h3>
-                                Pippo Ronaldo
-                            </h3>
-                            <hr>
-                            <p>Status: pagato</p>
-                            <p>Cellulare: 3333333</p>
-                        </div>
-
-                        <div class="right-card-order">
-                            <div>
-                                23,65 €
+                            <div class="order-info">
+                                <h3>
+                                    {{$item_reor -> first_name}} {{$item_reor -> last_name}}
+                                </h3>
+                                <hr>
+                                @if ($item_reor -> payment_state)
+                                    <p>Ordine pagato</p>
+                                @else
+                                    <p>Ordine da pagare</p>
+                                @endif 
+                                    <p>Cellulare: {{$item_reor -> phone}}</p>
                             </div>
-                            <div>
-                                <button>Apri comanda</button>
+
+                            <div class="right-card-order">
+                                <div>
+                                    {{$item_reor -> total_price / 100}} €
+                                </div>
+                                <div>
+                                    <form action="{{ route('restaurant-comanda', $item_reor -> id) }}">
+                                        <button class="btn btn-success" type="submit">
+                                            Apri comanda
+                                            <span class="plate-color"></span><span class="plate-color"></span><span class="plate-color"></span><span class="plate-color"></span>
+                                        </button>
+                                    </form>
+                                </div>
                             </div>
-                        </div>
 
-                    </div>
-                </div>
-                <div class="card-order">
-                    <div class='card-relative'>
-
-                        <div class="order-info">
-                            <h3>
-                                Pippo Ronaldo
-                            </h3>
-                            <hr>
-                            <p>Status: pagato</p>
-                            <p>Cellulare: 3333333</p>
-                        </div>
-
-                        <div class="right-card-order">
-                            <div>
-                                23,65 €
-                            </div>
-                            <div>
-                                <button>Apri comanda</button>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-                <div class="card-order">
-                    <div class='card-relative'>
-
-                        <div class="order-info">
-                            <h3>
-                                Pippo Ronaldo
-                            </h3>
-                            <hr>
-                            <p>Status: pagato</p>
-                            <p>Cellulare: 3333333</p>
-                        </div>
-
-                        <div class="right-card-order">
-                            <div>
-                                23,65 €
-                            </div>
-                            <div>
-                                <button>Apri comanda</button>
-                            </div>
                         </div>
                     </div>
-                </div>
+
+                @endforeach
             </div>
             {{-- fine card ORDINI --}}
 

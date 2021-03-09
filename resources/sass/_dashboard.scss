@@ -1,7 +1,7 @@
 .container-dashboard {
-    width: 100vw;
     display: flex;
     justify-content: space-between;
+    width: 100vw;
     height: 100vh;
 }
 
@@ -9,23 +9,24 @@
     display: flex;
     flex-direction: column;
     width: 20%;
-    overflow: hidden;
     height: auto;
+    overflow: auto;
     background-color: $color_deliveroo;
     padding-left: 2rem;
     padding-top: 3rem;
     padding-right: 2rem;
     display: block;
-
     @media all and (min-width: 868px) and (max-width: 1199px) {
         width: 30%;
     }
 
-    @media all and (min-width: 400px) and (max-width: 867px) {
+    @media all and (min-width: 576px) and (max-width: 867px) {
         display: none;
     }
 
-
+    @media all and (max-width: 575px) {
+        display: none;
+    }
 
     .img-user {
         display: flex;
@@ -46,6 +47,12 @@
             width: 90px;
             height: 90px;
         }
+
+        @media all and (min-width: 576px) and (max-width: 867px) {
+            width: 50px;
+            height: 50px;
+        }
+
 
         & > img {
             width: 100%;
@@ -159,7 +166,7 @@
             text-transform: uppercase;
             border-radius: $border_button;
             box-shadow: $shadow_button;
-            margin-top: 100px;
+            margin: 100px 0 50px 0;
         }
 
     }
@@ -178,7 +185,11 @@
         width: 70%;
     }
 
-    @media all and (min-width: 400px) and (max-width: 867px) {
+    @media all and (min-width: 576px) and (max-width: 867px) {
+        width: 100%;
+    }
+
+    @media all and (max-width: 575px) {
         width: 100%;
     }
 
@@ -195,10 +206,13 @@
                 font-size: 20px;
             }
 
-            @media all and (min-width: 300px) and (max-width: 867px) {
-                font-size: 18px;
+            @media all and (min-width: 576px) and (max-width: 867px) {
+                display: none;
             }
 
+            @media all and (max-width: 575px) {
+                display: none;
+            }
 
         }
 
@@ -209,10 +223,13 @@
                 font-size: 25px;
             }
 
-            @media all and (min-width: 300px) and (max-width: 867px) {
-                font-size: 22px;
+            @media all and (min-width: 576px) and (max-width: 867px) {
+                display: none;
             }
 
+            @media all and (max-width: 575px) {
+                display: none;
+            }
 
         }
 
@@ -224,10 +241,9 @@
                 width: 100px;
             }
 
-            @media all and (min-width: 300px) and (max-width: 867px) {
-                width: 80px;
+            @media all and (max-width: 575px) {
+                width: 70px;
             }
-
 
         }
     }
@@ -241,7 +257,12 @@
             flex-direction: column;
         }
 
-        @media all and (min-width: 400px) and (max-width: 867px) {
+        @media all and (min-width: 576px) and (max-width: 867px) {
+            display: flex;
+            flex-direction: column;
+        }
+
+        @media all and (max-width: 575px) {
             display: flex;
             flex-direction: column;
         }
@@ -283,10 +304,13 @@
                     font-size: 20px;
                 }
 
-                @media all and (min-width: 300px) and (max-width: 867px) {
+                @media all and (min-width: 576px) and (max-width: 867px) {
                     font-size: 18px;
                 }
 
+                @media all and (max-width: 575px) {
+                    font-size: 16px;
+                }
 
             }
 
@@ -346,6 +370,11 @@
                     border: 15px solid $color_deliveroo;
                 }
 
+                @media all and (max-width: 575px) {
+                    width: 130px;
+                    height: 130px;
+                    border: 14px solid $color_deliveroo;
+                }
 
                 & > h1 {
                     margin: 0;
@@ -356,11 +385,13 @@
                         font-size: 30px;
                     }
 
-                    @media all and (min-width: 300px) and (max-width: 867px) {
+                    @media all and (min-width: 576px) and (max-width: 867px) {
                         font-size: 26px;
                     }
 
-
+                    @media all and (max-width: 575px) {
+                        font-size: 22px;
+                    }
                 }
 
                 & > h4 {
@@ -372,12 +403,20 @@
                         font-size: 16px;
                     }
 
-                    @media all and (min-width: 300px) and (max-width: 867px) {
+                    @media all and (min-width: 576px) and (max-width: 867px) {
                         font-size: 14px;
                     }
 
-
+                    @media all and (max-width: 575px) {
+                        font-size: 12px;
+                    }
                 }
+            }
+        }
+
+        #resp-card {
+            @media all and (max-width: 575px) {
+                height: 200px;
             }
         }
     }
@@ -392,6 +431,11 @@
 
         h2 {
             margin-bottom: 1rem;
+
+            @media all and (max-width: 575px) {
+                font-size: 18px;
+            }
+
         }
     }
 
@@ -420,6 +464,18 @@
                 width: 70%;
                 height: 100%;
 
+                h3 {
+
+                    @media all and (min-width: 576px) and (max-width: 867px) {
+                        font-size: 18px;
+                    }
+
+                    @media all and (max-width: 575px) {
+                        font-size: 15px;
+                    }
+
+                }
+
                 & > hr {
                     border-color: $variable2;
                 }
@@ -438,7 +494,8 @@
                 flex-direction: column;
                 justify-content: space-between;
                 align-items: flex-end;
-                @media all and (min-width: 300px) and (max-width: 867px) {
+
+                @media all and (min-width: 576px) and (max-width: 867px) {
                     width: 20%;
                     height: 100%;
                 }
@@ -453,10 +510,21 @@
                     margin-bottom: 10px;
                     box-shadow: $shadow_button;
 
-                    @media all and (min-width: 300px) and (max-width: 867px) {
+                    @media all and (min-width: 576px) and (max-width: 867px) {
+                        padding: 0.2rem $padding_button;
+                        font-size: 11px;
+                        height: 42px;
+                        width: 70px;
                         margin-bottom: 0;
                     }
 
+                    @media all and (max-width: 575px) {
+                        padding: 0.2rem $padding_button;
+                        font-size: 11px;
+                        height: 42px;
+                        width: 70px;
+                        margin-bottom: 0;
+                    }
                 }
             }
         }

@@ -135,24 +135,6 @@ class PaymentController extends Controller
     ], compact('newOrder', 'restoraunt', 'token'));
   }
 
-  public function pay() {
-    $gateway = new \Braintree\Gateway([
-        'environment' => config('services.braintree.environment'),
-        'merchantId' => config('services.braintree.merchantId'),
-        'publicKey' => config('services.braintree.publicKey'),
-        'privateKey' => config('services.braintree.privateKey')
-    ]);
-    $email = "email utente";
-
-    $token = $gateway->ClientToken()->generate();
-
-    return view('pagamento.payment', [
-      'token' => $token,
-      'email' => $email
-    ]);
-  }
-
-
   public function checkout(Request $request) {
     // dd($request);
 
@@ -164,10 +146,7 @@ class PaymentController extends Controller
     ]);
     $payState = $_POST["payment_state"];
     $order_id = $_POST["order_id"];
-    $order = Order::findOrFail($order_id);
-    // dd($order["payment_state"]);
-    $order["payment_state"] = 1;
-    $order -> update();
+
 
 
     // dd($payState, $request);
@@ -189,10 +168,7 @@ class PaymentController extends Controller
     // dd($amount, $request);
     // dd("dati pagante: ", $payingEmail, $name, $lastName , "dati rest: ", $restEmail, $restName);
 
-    $user = Auth::user();
-
-    // invio mail al pagamento
-    Mail::to($user)->send(new PayMail($payingEmail));
+    // $user = Auth::user();
 
 
     $result = $gateway->transaction()->sale([
@@ -205,12 +181,19 @@ class PaymentController extends Controller
           // 'lastName' => 'gigio',
         ],
         'options' => [
-        'submitForSettlement' => true
+          // mettere true se si vuole mandare in autorizzato
+        'submitForSettlement' => false
         ]
     ]);
 
     if ($result->success) {
+        // invio mail al pagamento
+        Mail::to($payingEmail)->send(new PayMail($restEmail));
         // dd($result);
+        $order = Order::findOrFail($order_id);
+        // dd($order["payment_state"]);
+        $order["payment_state"] = 1;
+        $order -> update();
 
         // invio mail al pagamento
         return redirect() -> route('index') -> with("success_message", "transazione eseguita con successo. Ti abbiamo inviato un' email di conferma");

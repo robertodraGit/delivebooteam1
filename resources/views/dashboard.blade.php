@@ -5,12 +5,11 @@
     <div class="container-dashboard">
 
         <div class="left-side-dash">
-
             <div class="img-user">
                 @if (Auth::user() -> photo)
                     <img src="{{ asset('/storage/restaurant_icon/' . Auth::user() -> photo) }}" alt="">
                 @else
-                    <img src="{{ asset('/images/user.svg') }}" alt="">
+                    <img src="{{ asset('storage/user.svg') }}" alt="">
                 @endif
             </div>
 

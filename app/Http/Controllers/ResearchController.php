@@ -152,6 +152,7 @@ class ResearchController extends Controller
       }
       $whereClause[] = ['visible', '=', '1'];
       $whereClause[] = ['destroyed', '=', '0'];
+      $whereClause[] = ['availability', '=', '1'];
 
       $responsePlatesNames = DB::table('plates')
         ->where(
@@ -236,6 +237,7 @@ class ResearchController extends Controller
       }
       $whereClause[] = ['visible', '=', '1'];
       $whereClause[] = ['destroyed', '=', '0'];
+      $whereClause[] = ['availability', '=', '1'];
 
       $responsePlatesNames = DB::table('plates')
         ->where(
@@ -303,6 +305,7 @@ class ResearchController extends Controller
       }
       $whereClause[] = ['visible', '=', '1'];
       $whereClause[] = ['destroyed', '=', '0'];
+      $whereClause[] = ['availability', '=', '1'];
 
       $totalPlatesNames = DB::table('plates')
       ->where(

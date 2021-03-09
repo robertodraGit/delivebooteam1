@@ -23,7 +23,6 @@ function  init() {
           plates: [],
           cart: [],
           order: [],
-          cacca: 100,
 
           // ricerca
           searchInput: "",
@@ -272,9 +271,3 @@ function  init() {
 }
 
 document.addEventListener("DOMContentLoaded", init);
-
-// menu hamburger dashboard
-// const menu_btn = document.querySelector('.sidebar');
-// menu_btn.addEventListener('click', function () {
-//     menu_btn.classList.toggle('is-active');
-// });

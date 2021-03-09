@@ -36,7 +36,7 @@ function  init() {
           research_category: 0,
           research_restaurants: 0,
           research_plates: 0,
-        
+
           messageVisible: '',
           loading: 0,
 
@@ -262,7 +262,7 @@ function  init() {
             price = price / 100;
             return (price - sconto_euro).toFixed(2);
           } else {
-            return price;
+            return price/100;
           }
         },
 

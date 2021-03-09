@@ -46,7 +46,7 @@
 
           <div class="description">
             <h1 class="plate_name">@{{plate.plate_name}}</h1>
-            <span class="plate_price">@{{plate.price/100}}€</span>
+            <span class="plate_price">@{{plate_final_price(plate.price, plate.discount)}}€</span>
           </div>
 
         </div>

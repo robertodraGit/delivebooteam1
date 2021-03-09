@@ -61,17 +61,18 @@
 
 
       <div class="rest_info_show">
-        <h2>{{$restaurant -> name}}</h2>
-        <div class="rate-box">
-            {{-- stelline piene --}}
-            @if ($vote_int > 0)
-              @for ($i=0; $i < $vote_int; $i++)
-                <i class="fas fa-star"></i>
-              @endfor
-            @endif
-            {{-- stellina parziale --}}
-            @if ($vote_decimal > 0)
-              @if ($vote_decimal >= 1 && $vote_decimal < 3)
+        <section class="rest_info_left">
+
+          <h2 class="rest_name">{{$restaurant -> name}}</h2>
+          <div class="rate-box">
+              {{-- stelline piene --}}
+              @if ($vote_int > 0)
+                @for ($i=0; $i < $vote_int; $i++)
+                  <i class="fas fa-star"></i>
+                @endfor
+              @endif
+              {{-- stellina parziale --}}
+              @if ($vote_decimal >= 0 && $vote_decimal < 3)
                 <i class="far fa-star"></i>
               @endif
               @if ($vote_decimal >= 4 && $vote_decimal < 7 )
@@ -80,17 +81,45 @@
               @if ($vote_decimal >= 8)
                 <i class="fas fa-star"></i>
               @endif
-            @endif
-            {{-- stelline rimanenti --}}
-            @if (5 - $vote_int > 0)
-              @for ($i=0; $i < (5 - $vote_int - 1); $i++)
-                <i class="far fa-star"></i>
-              @endfor
-            @endif
+              {{-- stelline rimanenti --}}
+              @if (5 - $vote_int > 0)
+                @for ($i=0; $i < (5 - $vote_int - 1); $i++)
+                  <i class="far fa-star"></i>
+                @endfor
+              @endif
 
-            <span class="rate">{{$average_vote}}</span>
-            <span class="feed_number">({{$vote_number}} valutazioni)</span>
-        </div>
+              <span class="rate">{{$average_vote}}</span>
+              <span class="feed_number">({{$vote_number}} valutazioni)</span>
+          </div>
+          <div class="typology-box">
+            @foreach ($restaurant -> typologies as $typ)
+              <span>{{$typ -> typology}}</span>
+            @endforeach
+          </div>
+          <div class="more_info">
+            <h4 class="more-info-title">Descrizione:</h4>
+            <p>{{$restaurant -> description}}</p>
+            <p>Contattaci allo: {{$restaurant -> phone}}</p>
+          </div>
+
+        </section>
+
+        <section class="rest_info_right">
+          <div class="rest_photo">
+            @if ($restaurant -> photo != null)
+              <div class="photo" style="background-image: url(/storage/restaurant_icon/{{$restaurant -> photo}})"></div>
+            @else
+              <div class="photo" style="background-image: url(/storage/placeholder.svg)"></div>
+            @endif
+          </div>
+          <div class="delivery-box">
+            <i class="fas fa-bicycle"></i>
+            <div class="">
+              <p class="rest_address">Indirizzo: {{$restaurant -> address}}</p>
+              <p class="rest_delivery_cost">Prezzo di consegna: {{($restaurant -> delivery_cost / 100)}}€</p>
+            </div>
+          </div>
+        </section>
       </div>
 
       <main id="rest_show_main">

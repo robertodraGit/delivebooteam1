@@ -23,7 +23,6 @@ function  init() {
           plates: [],
           cart: [],
           order: [],
-          cacca: 100,
 
           // ricerca
           searchInput: "",
@@ -37,7 +36,7 @@ function  init() {
           research_category: 0,
           research_restaurants: 0,
           research_plates: 0,
-        
+
           messageVisible: '',
           loading: 0,
 
@@ -263,7 +262,7 @@ function  init() {
             price = price / 100;
             return (price - sconto_euro).toFixed(2);
           } else {
-            return price;
+            return price / 100;
           }
         },
 
@@ -272,9 +271,3 @@ function  init() {
 }
 
 document.addEventListener("DOMContentLoaded", init);
-
-// menu hamburger dashboard
-// const menu_btn = document.querySelector('.sidebar');
-// menu_btn.addEventListener('click', function () {
-//     menu_btn.classList.toggle('is-active');
-// });

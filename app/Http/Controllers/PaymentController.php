@@ -135,24 +135,6 @@ class PaymentController extends Controller
     ], compact('newOrder', 'restoraunt', 'token'));
   }
 
-  public function pay() {
-    $gateway = new \Braintree\Gateway([
-        'environment' => config('services.braintree.environment'),
-        'merchantId' => config('services.braintree.merchantId'),
-        'publicKey' => config('services.braintree.publicKey'),
-        'privateKey' => config('services.braintree.privateKey')
-    ]);
-    $email = "email utente";
-
-    $token = $gateway->ClientToken()->generate();
-
-    return view('pagamento.payment', [
-      'token' => $token,
-      'email' => $email
-    ]);
-  }
-
-
   public function checkout(Request $request) {
     // dd($request);
 
@@ -186,7 +168,7 @@ class PaymentController extends Controller
     // dd($amount, $request);
     // dd("dati pagante: ", $payingEmail, $name, $lastName , "dati rest: ", $restEmail, $restName);
 
-    $user = Auth::user();
+    // $user = Auth::user();
 
 
     $result = $gateway->transaction()->sale([
@@ -206,7 +188,7 @@ class PaymentController extends Controller
 
     if ($result->success) {
         // invio mail al pagamento
-        Mail::to($user)->send(new PayMail($payingEmail));
+        Mail::to($payingEmail)->send(new PayMail($restEmail));
         // dd($result);
         $order = Order::findOrFail($order_id);
         // dd($order["payment_state"]);

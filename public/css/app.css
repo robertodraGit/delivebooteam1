@@ -15965,15 +15965,21 @@ a.text-dark:focus {
   margin-bottom: 10px;
 }
 
-@media all and (min-width: 725px) and (max-width: 967px) {
+@media all and (min-width: 968px) and (max-width: 1199px) {
   .form-block h4 {
     font-size: 20px;
   }
 }
 
-@media all and (min-width: 576px) and (max-width: 724px) {
+@media all and (min-width: 725px) and (max-width: 967px) {
   .form-block h4 {
     font-size: 18px;
+  }
+}
+
+@media all and (min-width: 576px) and (max-width: 724px) {
+  .form-block h4 {
+    font-size: 16px;
   }
 }
 
@@ -16097,21 +16103,27 @@ a.text-dark:focus {
   box-shadow: inset 1px 5px 8px rgba(0, 0, 0, 0.07);
 }
 
+@media all and (min-width: 1200px) and (max-width: 1599px) {
+  .textbox input {
+    width: 36%;
+  }
+}
+
 @media all and (min-width: 968px) and (max-width: 1199px) {
   .textbox input {
-    width: 40%;
+    width: 42%;
   }
 }
 
 @media all and (min-width: 725px) and (max-width: 967px) {
   .textbox input {
-    width: 45%;
+    width: 48%;
   }
 }
 
 @media all and (min-width: 576px) and (max-width: 724px) {
   .textbox input {
-    width: 55%;
+    width: 56%;
   }
 }
 
@@ -16137,21 +16149,27 @@ a.text-dark:focus {
   box-shadow: inset 1px 5px 8px rgba(0, 0, 0, 0.07);
 }
 
+@media all and (min-width: 1200px) and (max-width: 1599px) {
+  .textbox textarea {
+    width: 36%;
+  }
+}
+
 @media all and (min-width: 968px) and (max-width: 1199px) {
   .textbox textarea {
-    width: 40%;
+    width: 42%;
   }
 }
 
 @media all and (min-width: 725px) and (max-width: 967px) {
   .textbox textarea {
-    width: 45%;
+    width: 48%;
   }
 }
 
 @media all and (min-width: 576px) and (max-width: 724px) {
   .textbox textarea {
-    width: 55%;
+    width: 56%;
   }
 }
 
@@ -17402,29 +17420,37 @@ a.text-dark:focus {
   height: 100px;
 }
 
+.sides-flex-edit-restaurant .left-side-edit-restaurant,
+.sides-flex-edit-restaurant .right-side-edit-restaurant {
+  background-color: white;
+  padding: 10px;
+}
+
 .sides-flex-edit-restaurant .left-side-edit-restaurant {
-  border: 1px solid;
+  border-radius: 40px 0 0 40px;
 }
 
 .sides-flex-edit-restaurant .left-side-edit-restaurant .restaurant-image {
   width: 200px;
   height: 200px;
-  margin: auto;
-  border: 1px solid;
+  border-radius: 50%;
+  margin: 0 auto;
+  border: 1px solid lightgray;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  background-color: #00ccbc;
+  background-color: #d7d7d7;
 }
 
 .sides-flex-edit-restaurant .right-side-edit-restaurant {
-  border: 1px solid;
   flex-grow: 1;
+  border-radius: 0 40px 40px 0;
 }
 
 @media screen and (max-width: 800px) {
   .sides-flex-edit-restaurant {
     flex-direction: column;
+    align-items: center;
   }
 }
 
@@ -17777,7 +17803,9 @@ header .container img {
   border: 1px solid white;
   border-radius: 5px;
   color: white;
+  padding: 0 5px;
   background-color: #00ccbc;
+  cursor: pointer;
 }
 
 .container-auth .card button:hover {
@@ -17798,7 +17826,6 @@ header .container img {
 
 .container-register .card button {
   width: 100px;
-  cursor: pointer;
 }
 
 @media screen and (max-width: 800px) {
@@ -17886,6 +17913,17 @@ header .container img {
     -webkit-clip-path: polygon(0 0, 28% 0, 100% 100%, 0 100%);
             clip-path: polygon(0 0, 28% 0, 100% 100%, 0 100%);
   }
+}
+
+.container-email .card {
+  margin: 80px auto;
+  border: 1px solid lightgray;
+  border-radius: 10px;
+  padding: 5%;
+}
+
+.container-email .card h1 {
+  margin-bottom: 20px;
 }
 
 * {

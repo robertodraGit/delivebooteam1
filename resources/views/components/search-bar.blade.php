@@ -46,12 +46,12 @@
 
           <div class="description">
             <h1 class="plate_name">@{{plate.plate_name}}</h1>
-            <span class="plate_price">@{{plate.price/100}}€</span>
+            <span class="plate_price">@{{plate_final_price(plate.price, plate.discount)}}€</span>
           </div>
 
         </div>
       </a>
-      <p class="total_results" @click="showPlatesbyName()">@{{searchResult.total_plates_number}} piatti. Vedi tutti.</p>
+      <p class="total_results" @click="showPlatesbyName()">Mostra tutti i piatti</p>
     </div>
 
     <div class="no-results info" v-show="no_result">

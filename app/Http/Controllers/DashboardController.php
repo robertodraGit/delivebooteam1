@@ -76,17 +76,13 @@ class DashboardController extends Controller
         $chartjs1 = app()->chartjs
         ->name('platesOrdered')
         ->type('bar')
-        // ->size(['width' => 400, 'height' => 200])
+        ->size(['width' => 500, 'height' => 200])
         ->labels($plates)
         ->datasets([
             [
                 "label" => "Ordinazioni per piatto",
-                'backgroundColor' => "rgba(38, 185, 154, 0.31)",
-                'borderColor' => "rgba(38, 185, 154, 0.7)",
-                "pointBorderColor" => "rgba(38, 185, 154, 0.7)",
-                "pointBackgroundColor" => "rgba(38, 185, 154, 0.7)",
-                "pointHoverBackgroundColor" => "#fff",
-                "pointHoverBorderColor" => "rgba(220,220,220,1)",
+                'backgroundColor' => "rgba(0, 204, 188, 0.31)",
+                'hoverBackgroundColor' => 'rgba(0, 204, 188, 0.51)',
                 'data' => $plateOrdersId,
             ],
         ])
@@ -125,16 +121,18 @@ class DashboardController extends Controller
 
         $chartjs2 = app()->chartjs
         ->name('feedbacks')
-        ->type('bar')
-        // ->size(['width' => 400, 'height' => 200])
+        ->type('line')
+        ->size(['width' => 500, 'height' => 200])
         ->labels([1, 2, 3, 4, 5])
         ->datasets([
             [
                 "label" => "Feedbacks",
-                'backgroundColor' => "rgba(38, 185, 154, 0.31)",
-                'borderColor' => "rgba(38, 185, 154, 0.7)",
-                "pointBorderColor" => "rgba(38, 185, 154, 0.7)",
-                "pointBackgroundColor" => "rgba(38, 185, 154, 0.7)",
+                'backgroundColor' => "rgba(0, 204, 188, 0.31)",
+                'borderColor' => "rgba(0, 204, 188, 1)",
+                'pointRadius' => 6,
+                'pointHoverRadius' => 8,
+                "pointBorderColor" => "rgba(0, 204, 188, 0.7)",
+                "pointBackgroundColor" => "rgba(0, 204, 188, 1)",
                 "pointHoverBackgroundColor" => "#fff",
                 "pointHoverBorderColor" => "rgba(220,220,220,1)",
                 'data' => $counterFeedbacks,
@@ -151,7 +149,10 @@ class DashboardController extends Controller
                 'xAxes' => [
                     [
                         'ticks' => [
-                            'beginAtZero' => true,
+                            // 'beginAtZero' => true,
+                            'max' => 100,
+                            'min' => 20,
+                            'stepSize' => 10,
                         ],
                         'stacked' => true,
                         'gridLines' => [
@@ -162,7 +163,10 @@ class DashboardController extends Controller
                 'yAxes' => [
                     [
                         'ticks' => [
-                            'beginAtZero' => true,
+                            // 'beginAtZero' => true,
+                            // 'max' => 100,
+                            'min' => 20,
+                            'stepSize' => 10,
                         ],
                         'stacked' => true,
                         'gridLines' => [

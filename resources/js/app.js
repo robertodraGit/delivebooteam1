@@ -23,7 +23,6 @@ function  init() {
           plates: [],
           cart: [],
           order: [],
-          cacca: 100,
 
           // ricerca
           searchInput: "",

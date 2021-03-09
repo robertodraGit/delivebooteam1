@@ -51,7 +51,7 @@
 
         </div>
       </a>
-      <p class="total_results" @click="showPlatesbyName()">@{{searchResult.total_plates_number}} piatti. Vedi tutti.</p>
+      <p class="total_results" @click="showPlatesbyName()">Mostra tutti i piatti</p>
     </div>
 
     <div class="no-results info" v-show="no_result">

@@ -164,10 +164,7 @@ class PaymentController extends Controller
     ]);
     $payState = $_POST["payment_state"];
     $order_id = $_POST["order_id"];
-    $order = Order::findOrFail($order_id);
-    // dd($order["payment_state"]);
-    $order["payment_state"] = 1;
-    $order -> update();
+
 
 
     // dd($payState, $request);
@@ -191,9 +188,6 @@ class PaymentController extends Controller
 
     $user = Auth::user();
 
-    // invio mail al pagamento
-    Mail::to($user)->send(new PayMail($payingEmail));
-
 
     $result = $gateway->transaction()->sale([
         'amount' => $amount,
@@ -205,12 +199,19 @@ class PaymentController extends Controller
           // 'lastName' => 'gigio',
         ],
         'options' => [
-        'submitForSettlement' => true
+          // mettere true se si vuole mandare in autorizzato
+        'submitForSettlement' => false
         ]
     ]);
 
     if ($result->success) {
+        // invio mail al pagamento
+        Mail::to($user)->send(new PayMail($payingEmail));
         // dd($result);
+        $order = Order::findOrFail($order_id);
+        // dd($order["payment_state"]);
+        $order["payment_state"] = 1;
+        $order -> update();
 
         // invio mail al pagamento
         return redirect() -> route('index') -> with("success_message", "transazione eseguita con successo. Ti abbiamo inviato un' email di conferma");

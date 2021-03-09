@@ -131,7 +131,7 @@
 
             <div class="last-order">
                 <h2>
-                    I tuoi ultimi 10 ordini
+                    I tuoi ultimi ordini
                 </h2>
 
                 {{-- CARD ORDINI --}}

@@ -270,7 +270,7 @@ class DashboardController extends Controller
 
         $chartjs2 = app()->chartjs
         ->name('feedbacks')
-        ->type('line')
+        ->type('radar')
         ->size(['width' => 500, 'height' => 200])
         ->labels([1, 2, 3, 4, 5])
         ->datasets([
@@ -296,34 +296,40 @@ class DashboardController extends Controller
                 ]
             ],
             'scales' => [
-                'xAxes' => [
-                    [
-                        'ticks' => [
-                            // 'beginAtZero' => true,
-                            'max' => 100,
-                            'min' => 20,
-                            'stepSize' => 10,
-                        ],
-                        'stacked' => true,
-                        'gridLines' => [
-                            'display' => true,
-                        ],
-                    ]
+                'anglelines' => [
+                    'display' => true,
                 ],
-                'yAxes' => [
-                    [
-                        'ticks' => [
-                            // 'beginAtZero' => true,
-                            // 'max' => 100,
-                            'min' => 20,
-                            'stepSize' => 10,
-                        ],
-                        'stacked' => true,
-                        'gridLines' => [
-                            'display' => true,
-                        ],
-                    ]
+                'ticks' => [
+                    'suggestedMin' => 0,
                 ]
+                // 'xAxes' => [
+                //     [
+                //         'ticks' => [
+                //             'beginAtZero' => true,
+                //             // 'max' => 100,
+                //             // 'min' => 20,
+                //             // 'stepSize' => 10,
+                //         ],
+                //         'stacked' => true,
+                //         'gridLines' => [
+                //             'display' => true,
+                //         ],
+                //     ]
+                // ],
+                // 'yAxes' => [
+                //     [
+                //         'ticks' => [
+                //             'beginAtZero' => true,
+                //             // 'max' => 100,
+                //             // 'min' => 20,
+                //             // 'stepSize' => 10,
+                //         ],
+                //         'stacked' => true,
+                //         'gridLines' => [
+                //             'display' => true,
+                //         ],
+                //     ]
+                // ]
             ]
         ]);
 

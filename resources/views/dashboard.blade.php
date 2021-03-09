@@ -80,7 +80,7 @@
                 </h3>
 
                 <a href="{{ route('index') }}">
-                    <img src="{{ asset('/images/deliveroo-logo.svg') }}" alt="">
+                    <img src="{{ asset('storage/img/deliveroo-logo.svg') }}" alt="">
                 </a>
             </div>
 

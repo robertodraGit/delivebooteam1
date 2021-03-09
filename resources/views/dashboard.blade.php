@@ -5,14 +5,13 @@
     <div class="container-dashboard">
 
         <div class="left-side-dash">
-            <div class="img-user">
-                @if (Auth::user() -> photo)
-                    <img src="{{ asset('/storage/restaurant_icon/' . Auth::user() -> photo) }}" alt="">
-                @else
-                    <img src="{{ asset('storage/user.svg') }}" alt="">
-                @endif
-            </div>
-
+            @if (Auth::user() -> photo)
+                <div class="img-user" style="background-image: url({{ asset('/storage/restaurant_icon/' . Auth::user() -> photo) }})">
+                </div>
+            @else
+                <div class="img-user" style="background-image: url({{ asset('storage/user.svg') }})">
+                </div>
+            @endif
             <h1>
                 {{ $mail_cut }}
             </h1>
@@ -75,7 +74,7 @@
 
                 {{-- FINE MENU HAMBURGER --}}
 
-                <h3>Welcome
+                <h3>Benvenuto/a
                     <span>{{ Auth::user() -> name }}!</span>
                 </h3>
 

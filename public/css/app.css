@@ -15852,6 +15852,10 @@ a.text-dark:focus {
   }
 }
 
+.header-plate h1 > #name-plate {
+  color: #2E3333;
+}
+
 .header-plate img {
   width: 120px;
 }
@@ -16333,6 +16337,17 @@ a.text-dark:focus {
   }
 }
 
+.img-box a {
+  margin-top: 15px;
+}
+
+@media all and (max-width: 440px) {
+  .img-box a {
+    width: 150px;
+    height: 35px;
+  }
+}
+
 .button-save {
   margin-top: 35px;
   margin-bottom: 20px;
@@ -16645,6 +16660,8 @@ a.text-dark:focus {
   margin: 20px auto;
   border-radius: 50%;
   border: 2px solid #ffffff;
+  background-size: cover;
+  background-position: center;
 }
 
 @media all and (min-width: 1200px) and (max-width: 1600px) {

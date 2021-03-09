@@ -15965,15 +15965,21 @@ a.text-dark:focus {
   margin-bottom: 10px;
 }
 
-@media all and (min-width: 725px) and (max-width: 967px) {
+@media all and (min-width: 968px) and (max-width: 1199px) {
   .form-block h4 {
     font-size: 20px;
   }
 }
 
-@media all and (min-width: 576px) and (max-width: 724px) {
+@media all and (min-width: 725px) and (max-width: 967px) {
   .form-block h4 {
     font-size: 18px;
+  }
+}
+
+@media all and (min-width: 576px) and (max-width: 724px) {
+  .form-block h4 {
+    font-size: 16px;
   }
 }
 
@@ -16097,21 +16103,27 @@ a.text-dark:focus {
   box-shadow: inset 1px 5px 8px rgba(0, 0, 0, 0.07);
 }
 
+@media all and (min-width: 1200px) and (max-width: 1599px) {
+  .textbox input {
+    width: 36%;
+  }
+}
+
 @media all and (min-width: 968px) and (max-width: 1199px) {
   .textbox input {
-    width: 40%;
+    width: 42%;
   }
 }
 
 @media all and (min-width: 725px) and (max-width: 967px) {
   .textbox input {
-    width: 45%;
+    width: 48%;
   }
 }
 
 @media all and (min-width: 576px) and (max-width: 724px) {
   .textbox input {
-    width: 55%;
+    width: 56%;
   }
 }
 
@@ -16137,21 +16149,27 @@ a.text-dark:focus {
   box-shadow: inset 1px 5px 8px rgba(0, 0, 0, 0.07);
 }
 
+@media all and (min-width: 1200px) and (max-width: 1599px) {
+  .textbox textarea {
+    width: 36%;
+  }
+}
+
 @media all and (min-width: 968px) and (max-width: 1199px) {
   .textbox textarea {
-    width: 40%;
+    width: 42%;
   }
 }
 
 @media all and (min-width: 725px) and (max-width: 967px) {
   .textbox textarea {
-    width: 45%;
+    width: 48%;
   }
 }
 
 @media all and (min-width: 576px) and (max-width: 724px) {
   .textbox textarea {
-    width: 55%;
+    width: 56%;
   }
 }
 

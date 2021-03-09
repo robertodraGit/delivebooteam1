@@ -36,7 +36,7 @@
 
   </head>
   <body>
-    <div id="app">
+    <div id="app" class="rest-show-container">
 
       <header>
         <div class="container">
@@ -130,7 +130,7 @@
             @if ($plate -> visible)
               <plate
                 :plate_data='{{$plate}}'
-
+                :delivery_cost='{{$restaurant -> delivery_cost}}'
                 @@carrello='pushInCart($event)'
 
               ></plate>
@@ -140,31 +140,38 @@
         </section>
 
         <section class="rest_show_right">
+          <button v-if="cart.length === 0" class="cassa disabled">
+            Vai alla cassa
+          </button>
           <div class="cart-fixed" v-if='cart.length > 0'>
-            Carrello: <br>
+            <button class="cassa" @click='get_cart()'>
+              Vai alla cassa
+            </button>
 
             <div v-for='item in cart_new'>
-              @{{item.plate_name}} / x @{{item.quantity}} = @{{item.plate_price}} €
+              @{{item.quantity}} @{{item.plate_name}} @{{item.plate_price}}€
             </div>
 
-            <br>
-
             <div>
-              sub total: @{{total}} € <br>
-              {{$restaurant -> delivery_cost / 100}} € -> consegna
-              <br>
 
-              <button @click='get_cart()'>
-                Carrello
-              </button>
+              <div class="">
+                <span>Subtotale</span>
+                <span>@{{total}}€</span>
+              </div>
 
-              <br>
+              <div class="">
+                <span>Spese di consegna</span>
+                <span>{{$restaurant -> delivery_cost / 100}}€</span>
+              </div>
 
               <button @click='reset_cart()'>
                 Svuota carrello
               </button>
 
+              <p>Totale: @{{((delivery_cost + (total * 100))/100).toFixed(2)}}€</p>
+
             </div>
+
           </div>
 
         </section>
@@ -174,5 +181,6 @@
 
 
     </div>
+    @include('components.footer')
   </body>
 </html>

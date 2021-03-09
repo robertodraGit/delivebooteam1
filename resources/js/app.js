@@ -228,6 +228,7 @@ function  init() {
 
         pushInCart: function(plate) {
           this.cart.push(plate);
+          this.delivery_cost = plate.delivery_cost;
         },
 
         reset_cart: function() {

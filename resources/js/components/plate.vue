@@ -147,12 +147,14 @@ cut del testo da vue (ok ma non va da responsive) -->
 
       mounted() {
           console.log('Plate mounted');
+          console.log(this.delivery_cost);
           // console.log(this.plate_data);
           // console.log(this.immagine);
       },
 
       props: {
-        plate_data: Object
+        plate_data: Object,
+        delivery_cost: Number
       },
 
       watch: {
@@ -190,6 +192,7 @@ cut del testo da vue (ok ma non va da responsive) -->
               "plate_id": this.plate_id,
               "plate_price" : this.prezzo_sconto,
               "plate_name": this.nome,
+              "delivery_cost": this.delivery_cost,
             };
 
             this.$emit('carrello', plate);

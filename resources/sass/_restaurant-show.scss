@@ -1,3 +1,7 @@
+.rest-show-container {
+  padding-bottom: 30px;
+}
+
 header {
 
   .cart_header {
@@ -105,7 +109,7 @@ header {
   .more_info {
     border: 1px solid rgba(0, 0, 0, 0.08);
     border-radius: 5px;
-    padding: 15px;
+    padding: 10px;
     width: 70%;
     margin-top: 25px;
 
@@ -137,7 +141,8 @@ header {
 
   .rest_show_left {
     min-height: 400px;
-    // DEBUG:
+    // DEBUG:    min-width: 265px;
+
     // border: 1px solid black;
     width: 70%;
     display: flex;
@@ -151,5 +156,21 @@ header {
     // DEBUG:
     border: 1px solid black;
     width: 30%;
+
+    .cassa {
+      width: 90%;
+      padding: 8px 25px;
+      border-radius: 5px;
+      border: 0;
+      color: white;
+      font-size: 1.1em;
+      background-color: $color_deliveroo;
+      &:hover {
+        cursor: default;
+      }
+    }
+    .cassa.disabled {
+      background-color: $disabled-button;
+    }
   }
 }

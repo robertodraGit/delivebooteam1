@@ -17769,7 +17769,8 @@ header .container img {
 
 .container-auth .container-register,
 .container-auth .container-login {
-  width: 100%;
+  max-width: 90;
+  margin: 0 auto;
   display: flex;
 }
 
@@ -17819,7 +17820,7 @@ header .container img {
 
 .container-register {
   justify-content: start;
-  background-image: url("/img/register-backg.svg");
+  background-image: url("/storage/polygon.svg");
   background-size: cover;
   background-position: center bottom;
   background-repeat: no-repeat;

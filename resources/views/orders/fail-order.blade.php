@@ -7,7 +7,8 @@
   </head>
   <body>
 
-    <div class="order-pay-container">
+    <div style="height: 100vh;" id="fail-pay">
+      <a href="{{ route('index') }}">
 
       @if (session('error_message'))
         <div class="alertpay alert-danger">
@@ -72,8 +73,23 @@
 
 
         </div>
-
+      </a>
     </div>
+
+    <script type="text/javascript">
+
+    $(document).ready(function() {
+
+      var el = getElementById('fail-pay');
+
+      el.click(function() {
+
+        window.location.href= 'http://localhost:8000';
+
+      });
+    });
+
+    </script>
 
   </body>
 </html>

@@ -5,7 +5,6 @@
     <div class="container-dashboard">
 
         <div class="left-side-dash">
-
             <div class="img-user">
                 @if (Auth::user() -> photo)
                     <img src="{{ asset('/storage/restaurant_icon/' . Auth::user() -> photo) }}" alt="">

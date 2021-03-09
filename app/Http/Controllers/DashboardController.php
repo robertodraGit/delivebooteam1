@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
+use Carbon\Carbon;
+
 use App\Order;
 use App\Plate;
 
@@ -19,16 +21,92 @@ class DashboardController extends Controller
     public function dashboard() {
 
         $user = Auth::user();
-
-        // restituisco feedback dell'user
         $feedbacks = $user -> feedback;
-
-        // restituisco email utente senza @provider etc
         $email_user = $user -> email;
         $word = '@';
         $mail_cut = substr($email_user, 0, strpos($email_user, $word));
+        
+        $months_label = [];
 
-        return view('dashboard', compact('mail_cut', 'feedbacks'));
+        for ($i=0; $i > -3; $i--) { 
+            $months_label[] = date('M', strtotime($i . ' month'));
+        }
+
+        $userOrdersId = [];
+        foreach ($user -> plates as $plate) {
+          $orders = [];
+          foreach ($plate -> orders as $order) {
+            $orders[] = $order;
+            $userOrdersId[] = $order -> id;
+          }
+          $plateOrdersId[] = $orders;
+        }
+        $userOrdersId = array_unique($userOrdersId);
+        $userOrders = Order::findOrFail($userOrdersId);
+
+        $current = Carbon::now();
+        $monthsAgo = $current -> subMonths(3);
+        $counterPerMonth = array (0,0,0);
+
+        foreach ($userOrders as $order_x) {
+            if($current -> diffInDays($order_x -> updated_at) < 90) {
+                $counterPerMonth[0] += 1;
+            }
+        }
+
+        $chartjsDashboard = app()->chartjs
+        ->name('lastMonths')
+        ->type('bar')
+        ->size(['width' => 300, 'height' => 295])
+        ->labels($months_label)
+        ->datasets([
+            [
+                "label" => "Last 3 Months",
+                'backgroundColor' => "rgba(0, 204, 188, 0.31)",
+                'data' => $counterPerMonth,
+            ],
+        ])
+        ->optionsRaw([
+            'responsive' => true,
+            'legend' => [
+                'display' => true,
+                'labels' => [
+                    'fontColor' => '#000'
+                ]
+            ],
+            'scales' => [
+                'xAxes' => [
+                    [
+                        'ticks' => [
+                            'beginAtZero' => true,
+                            // 'max' => 100,
+                            // 'min' => 0,
+                            // 'stepSize' => 10,
+                        ],
+                        'stacked' => true,
+                        'gridLines' => [
+                            'display' => true,
+                        ],
+                    ]
+                ],
+                'yAxes' => [
+                    [
+                        'ticks' => [
+                            'beginAtZero' => true,
+                            // 'max' => 100,
+                            // 'min' => 20,
+                            // 'stepSize' => 10,
+                        ],
+                        'stacked' => true,
+                        'gridLines' => [
+                            'display' => true,
+                        ],
+                    ]
+                ]
+            ]
+        ]);
+
+        return view('dashboard', compact('mail_cut', 'feedbacks', 'chartjsDashboard'));
     }
 
     public function stats() {
@@ -50,10 +128,6 @@ class DashboardController extends Controller
         }
         $plateOrdersId[] = count($orders);
         }
-  
-        $userOrdersId = array_unique($userOrdersId);
-        $userOrders = Order::findOrFail($userOrdersId);
-
 
         $counterFeedbacks = array (0,0,0,0,0);
         
@@ -81,12 +155,75 @@ class DashboardController extends Controller
         ->datasets([
             [
                 "label" => "Ordinazioni per piatto",
-                'backgroundColor' => "rgba(0, 204, 188, 0.31)",
+                'backgroundColor' => [
+                    "rgba(31, 255, 236, 0.41)",
+                    "rgba(250, 125, 15, 0.41)",
+                    "rgba(231, 13, 75, 0.41)",
+                    "rgba(0, 224, 206, 0.41)",
+                    "rgba(255, 252, 49, 0.41)",
+                    "rgba(112, 215, 208, 0.41)",
+                    "rgba(224, 221, 0, 0.41)",
+                    "rgba(120, 215, 247, 0.41)",
+                    "rgba(221, 28, 26, 0.41)",
+                    "rgba(6, 174, 213, 0.41)",
+                    "rgba(6, 186, 99, 0.41)",
+                    "rgba(139, 148, 163, 0.41)",
+                    "rgba(203, 255, 77, 0.41)",
+                    "rgba(84, 84, 84, 0.41)",
+                    "rgba(107, 170, 117, 0.41)",
+                    "rgba(59, 65, 60, 0.41)",
+                    "rgba(222, 60, 75, 0.41)",
+                    "rgba(92, 255, 241, 0.41)",
+                    "rgba(252, 168, 95, 0.41)",
+                    "rgba(244, 65, 116, 0.41)",
+                    "rgba(31, 255, 236, 0.41)",
+                    "rgba(250, 125, 15, 0.41)",
+                    "rgba(231, 13, 75, 0.41)",
+                    "rgba(0, 224, 206, 0.41)",
+                    "rgba(180, 86, 4, 0.41)",
+                    "rgba(154, 9, 50, 0.41)",
+                    "rgba(255, 252, 49, 0.41)",
+                    "rgba(112, 215, 208, 0.41)",
+                    "rgba(224, 221, 0, 0.41)",
+                    "rgba(120, 215, 247, 0.41)",
+                    "rgba(221, 28, 26, 0.41)",
+                    "rgba(6, 174, 213, 0.41)",
+                    "rgba(6, 186, 99, 0.41)",
+                    "rgba(139, 148, 163, 0.41)",
+                    "rgba(203, 255, 77, 0.41)",
+                    "rgba(84, 84, 84, 0.41)",
+                    "rgba(107, 170, 117, 0.41)",
+                    "rgba(59, 65, 60, 0.41)",
+                    "rgba(222, 60, 75, 0.41)",
+                    "rgba(92, 255, 241, 0.41)",
+                    "rgba(252, 168, 95, 0.41)",
+                    "rgba(244, 65, 116, 0.41)",
+                    "rgba(31, 255, 236, 0.41)",
+                    "rgba(250, 125, 15, 0.41)",
+                    "rgba(231, 13, 75, 0.41)",
+                    "rgba(0, 224, 206, 0.41)",
+                    "rgba(180, 86, 4, 0.41)",
+                    "rgba(154, 9, 50, 0.41)",
+                    "rgba(255, 252, 49, 0.41)",
+                    "rgba(112, 215, 208, 0.41)",
+                    "rgba(224, 221, 0, 0.41)",
+                    "rgba(120, 215, 247, 0.41)",
+                    "rgba(221, 28, 26, 0.41)",
+                    "rgba(6, 174, 213, 0.41)",
+                    "rgba(6, 186, 99, 0.41)",
+                    "rgba(139, 148, 163, 0.41)",
+                    "rgba(203, 255, 77, 0.41)",
+                    "rgba(84, 84, 84, 0.41)",
+                    "rgba(107, 170, 117, 0.41)",
+                    "rgba(59, 65, 60, 0.41)",
+                    "rgba(222, 60, 75, 0.41)",
+                ],
                 'hoverBackgroundColor' => 'rgba(0, 204, 188, 0.51)',
                 'data' => $plateOrdersId,
             ],
         ])
         ->optionsRaw([
+            'responsive' => true,
             'legend' => [
                 'display' => true,
                 'labels' => [
@@ -109,6 +246,7 @@ class DashboardController extends Controller
                     [
                         'ticks' => [
                             'beginAtZero' => true,
+                            'stepSize' => 1,
                         ],
                         'stacked' => true,
                         'gridLines' => [
@@ -139,6 +277,7 @@ class DashboardController extends Controller
             ],
         ])
         ->optionsRaw([
+            'responsive' => true,
             'legend' => [
                 'display' => true,
                 'labels' => [

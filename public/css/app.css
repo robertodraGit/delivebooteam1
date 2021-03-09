@@ -16977,8 +16977,11 @@ a.text-dark:focus {
   margin: 0;
 }
 
-.right-side-dash .container-card .card .graph-chart-js > h3 {
-  text-align: center;
+.right-side-dash .container-card .card .graph-chart-js {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
 }
 
 .right-side-dash .container-card .card .percentual-feed {
@@ -17934,8 +17937,32 @@ header .container img {
 }
 
 .statistics-box .graph {
-  width: 50%;
+  width: 60%;
   padding: 3rem 0;
+}
+
+@media (max-width: 1400px) {
+  .statistics-box .graph {
+    width: 70%;
+  }
+}
+
+@media (max-width: 1100px) {
+  .statistics-box .graph {
+    width: 80%;
+  }
+}
+
+@media (max-width: 870px) {
+  .statistics-box .graph {
+    width: 90%;
+  }
+}
+
+@media (max-width: 768px) {
+  .statistics-box .graph {
+    width: 100%;
+  }
 }
 
 * {

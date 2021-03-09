@@ -343,8 +343,11 @@
                 }
             }
 
-            .graph-chart-js > h3 {
-                text-align: center;
+            .graph-chart-js {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                height: 100%;
             }
 
             .percentual-feed {

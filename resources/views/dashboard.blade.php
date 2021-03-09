@@ -123,7 +123,9 @@
                 <div class="card">
                     <h3>Le tue statistiche</h3>
                     <div class="graph-chart-js">
-                        <h3>Grafico statistiche</h3>
+                        <div>
+                            {!! $chartjsDashboard->render() !!}
+                        </div>
                     </div>
                 </div>
                 {{-- CARD FEEDBACK --}}

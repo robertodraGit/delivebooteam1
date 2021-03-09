@@ -5,51 +5,147 @@
     <title></title>
     <link rel="stylesheet" href="{{asset('/css/app.css')}}">
     <script src="{{asset('/js/app.js')}}" ></script>
+
+    @php
+      // Fa ritornare il voto medio
+      $average_vote;
+      $vote_number;
+      $vote_int;
+      $vote_decimal;
+
+      $votes = [];
+      foreach ($restaurant -> feedback as $feedback) {
+        $votes[] = $feedback-> rate;
+      };
+
+      if ($votes) {
+        $average_vote = array_sum($votes)/count($votes);
+        $average_vote = round ($average_vote , 1);
+        $vote_number = count($votes);
+        $vote_int = intval($average_vote);
+        $vote_decimal = ($average_vote - $vote_int) * 10;
+        $vote_decimal = number_format($vote_decimal);
+      } else {
+        $average_vote = 0;
+        $vote_number = 0;
+        $vote_int = 0;
+        $vote_decimal = 0;
+      }
+      // dd($average_vote, $vote_int, $vote_decimal * 10);
+    @endphp
+
   </head>
   <body>
-    <h1>ciaone da {{$restaurant -> name}}</h1>
-    <h1>costo consegna: {{$restaurant -> delivery_cost / 100}}</h1>
-
     <div id="app">
-      @foreach ($restaurant -> plates as $plate)
-        @if ($plate -> visible)
-          <plate
-            :plate_data='{{$plate}}'
 
-            @@carrello='pushInCart($event)'
+      <header>
+        <div class="container">
+          <a href="{{route('index')}}" class="logo">
+              <img src="{{asset('storage/img/deliveroo-logo.svg')}}" alt="">
+          </a>
+          <div class="cart_header">
 
-          ></plate>
-        @endif
-      @endforeach
+            <div class="box">
 
-      <div class="cart-fixed" v-if='cart.length > 0'>
-        Carrello: <br>
+              <svg height="24" width="24" viewBox="0 0 24 24">
+                  <path d="M14 15V13H10V15H14ZM15 15H19.1872L19.7172 13H15V15ZM14 12V10H15V12H19.9822L20.5122 10H3.48783L4.01783 12H9V10H10V12H14ZM14 18V16H10V18H14ZM15 18H18.3922L18.9222 16H15V18ZM9 15V13H4.28283L4.81283 15H9ZM9 18V16H5.07783L5.60783 18H9ZM7 8V3H17V8H23L20 20H4L1 8H7ZM9 8H15V5H9V8Z"></path>
+              </svg>
 
-        <div v-for='item in cart_new'>
-          @{{item.plate_name}} / x @{{item.quantity}} = @{{item.plate_price}} €
+              <p class="header_price">@{{total}}€</p>
+
+            </div>
+
+          </div>
         </div>
+      </header>
 
-        <br>
-      
-        <div>
-          sub total: @{{total}} € <br>
-          {{$restaurant -> delivery_cost / 100}} € -> consegna
-          <br>
 
-          <button @click='get_cart()'>
-            Carrello
-          </button>
-      
-          <br>
+      <div class="rest_info_show">
+        <h2>{{$restaurant -> name}}</h2>
+        <div class="rate-box">
+            {{-- stelline piene --}}
+            @if ($vote_int > 0)
+              @for ($i=0; $i < $vote_int; $i++)
+                <i class="fas fa-star"></i>
+              @endfor
+            @endif
+            {{-- stellina parziale --}}
+            @if ($vote_decimal > 0)
+              @if ($vote_decimal >= 1 && $vote_decimal < 3)
+                <i class="far fa-star"></i>
+              @endif
+              @if ($vote_decimal >= 4 && $vote_decimal < 7 )
+                <i class="fas fa-star-half-alt"></i>
+              @endif
+              @if ($vote_decimal >= 8)
+                <i class="fas fa-star"></i>
+              @endif
+            @endif
+            {{-- stelline rimanenti --}}
+            @if (5 - $vote_int > 0)
+              @for ($i=0; $i < (5 - $vote_int - 1); $i++)
+                <i class="far fa-star"></i>
+              @endfor
+            @endif
 
-          <button @click='reset_cart()'>
-            Svuota carrello
-          </button>
-          
-
+            <span class="rate">{{$average_vote}}</span>
+            <span class="feed_number">({{$vote_number}} valutazioni)</span>
         </div>
       </div>
-    
+
+      <main id="rest_show_main">
+
+        <section class="rest_show_left">
+
+          {{-- <h1>ciaone da {{$restaurant -> name}}</h1>
+          <h1>costo consegna: {{$restaurant -> delivery_cost / 100}}</h1>
+
+          @foreach ($restaurant -> plates as $plate)
+            @if ($plate -> visible)
+              <plate
+                :plate_data='{{$plate}}'
+
+                @@carrello='pushInCart($event)'
+
+              ></plate>
+            @endif
+          @endforeach --}}
+
+        </section>
+
+        <section class="rest_show_right">
+          <div class="cart-fixed" v-if='cart.length > 0'>
+            Carrello: <br>
+
+            <div v-for='item in cart_new'>
+              @{{item.plate_name}} / x @{{item.quantity}} = @{{item.plate_price}} €
+            </div>
+
+            <br>
+
+            <div>
+              sub total: @{{total}} € <br>
+              {{$restaurant -> delivery_cost / 100}} € -> consegna
+              <br>
+
+              <button @click='get_cart()'>
+                Carrello
+              </button>
+
+              <br>
+
+              <button @click='reset_cart()'>
+                Svuota carrello
+              </button>
+
+            </div>
+          </div>
+
+        </section>
+
+
+      </main>
+
 
     </div>
   </body>

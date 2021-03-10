@@ -11,7 +11,7 @@
     <h3>Lista di tutti i tuoi piatti</h3>
     <div class="button-dashboard">
         <form class="" action="{{ route('dashboard') }}">
-            <button type="button">Torna alla dashboard</button>
+            <button type="submit">Torna alla dashboard</button>
         </form>
     </div>
     <div class="dashboard_plate">

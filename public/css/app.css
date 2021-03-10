@@ -16957,6 +16957,11 @@ a.text-dark:focus {
   --n: 4;
 }
 
+.left-side-dash .buttons-left-dash button:disabled {
+  background-color: #cacaca;
+  color: #6b6b6b;
+}
+
 .left-side-dash .buttons-left-dash a {
   width: 100%;
   font-size: 16px;

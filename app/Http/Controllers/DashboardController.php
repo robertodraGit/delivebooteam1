@@ -31,7 +31,7 @@ class DashboardController extends Controller
         for ($i=0; $i > -3; $i--) { 
             $months_label[] = date('M', strtotime($i . ' month'));
         }
-
+        
         $userOrdersId = [];
         foreach ($user -> plates as $plate) {
           $orders = [];
@@ -51,8 +51,10 @@ class DashboardController extends Controller
         }
 
         $orders_3 = [];
-        for ($j=0; $j < 3; $j++) { 
-            $orders_3[] = $reordered[$j];
+        if (count($reordered) > 0) {   
+            for ($j=0; $j < 3; $j++) { 
+                $orders_3[] = $reordered[$j];
+            }
         }
 
         $current = Carbon::now();
@@ -171,8 +173,12 @@ class DashboardController extends Controller
         ]);
 
         $smallFeedbacks = [];
-        for ($L=0; $L < 12; $L++) { 
-            $smallFeedbacks[] = $feedbacks[$L];
+        $feedMax = 0;
+        if (count($feedbacks) > 0) {
+            while ($feedMax <= 12) {
+                $smallFeedbacks[] = $feedbacks[$feedMax];
+                $feedMax++;
+            }
         }
 
         return view('dashboard', compact('mail_cut', 'smallFeedbacks', 'chartjsDashboard','chartjsFeedbacks', 'orders_3'));

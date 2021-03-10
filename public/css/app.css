@@ -6733,7 +6733,7 @@ header .container img {
 .card-carousel {
   display: flex;
   justify-content: center;
-  width: 100%;
+  width: calc( 100% - 60px);
 }
 
 .card-carousel--overflow-container {
@@ -6742,7 +6742,6 @@ header .container img {
 
 .card-carousel--nav__left,
 .card-carousel--nav__right {
-  display: inline-block;
   width: 30px;
   height: 30px;
   padding: 10px;

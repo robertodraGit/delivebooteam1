@@ -3,19 +3,15 @@
   <div class="container">
 
       {{-- menu --}}
-          <ham-menu
-              :login = "'{{ route("login") }}'"
-              :register = "'{{ route("register") }}'"
-              :dashboard = "'{{ route("dashboard") }}'"
-              :logout = "'{{ route("logout") }}'"
-              :user = "'{{ Auth::user() }}'"
-              >
-          </ham-menu>
-
-
-      
-
-      
+        <ham-menu
+            :login = "'{{ route("login") }}'"
+            :register = "'{{ route("register") }}'"
+            :dashboard = "'{{ route("dashboard") }}'"
+            :logout = "'{{ route("logout") }}'"
+            :user = "'{{ Auth::user() }}'"
+            >
+        </ham-menu>
+  
       @include('components.search-bar')
 
       {{-- cart --}}

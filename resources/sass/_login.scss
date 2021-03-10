@@ -22,7 +22,7 @@
 
         .background {
             
-            width: 100%;
+            width: 100%; height: 100%;
             background-color: #00ccbc;
             position: absolute;
             left: 0;
@@ -37,7 +37,7 @@
 
 }
 // media md, s
-@media screen and (max-width: 800px) { // < 800 compreso
+@media screen and (max-width: 929px) { // < 929px compreso
     
     .container-login {
         flex-direction: column;
@@ -62,14 +62,15 @@
 
 
 // media lg
-@media screen and (min-width: 801px) { // > 801 compreso
+@media screen and (min-width: 930px) { // > 930px compreso
 
     .container-login {
         justify-content: end;  
+        width: 90%;
 
         .card {
-            margin-top: 5%;
-            margin-right: 10%;
+            padding-top: 5%;
+            // padding-right: 10%;
         }
         .image {
             position: absolute;
@@ -79,6 +80,7 @@
 
             .background {
                 height: 100%;
+                bottom: 0;
                 clip-path: polygon(0 0,28% 0,100% 100%,0 100%);
             }
         }

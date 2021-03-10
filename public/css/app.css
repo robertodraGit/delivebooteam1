@@ -16074,7 +16074,6 @@ a.text-dark:focus {
   position: relative;
   display: flex;
   flex-direction: column;
-  height: auto;
   padding: 25px 50px;
   background-color: #D0EB99;
 }
@@ -16103,7 +16102,7 @@ a.text-dark:focus {
   }
 }
 
-.form-block img {
+.form-block > img {
   position: absolute;
   top: 15%;
   right: 12%;
@@ -16111,14 +16110,14 @@ a.text-dark:focus {
 }
 
 @media all and (min-width: 1200px) and (max-width: 1599px) {
-  .form-block img {
+  .form-block > img {
     top: 21%;
     width: 420px;
   }
 }
 
 @media all and (min-width: 968px) and (max-width: 1199px) {
-  .form-block img {
+  .form-block > img {
     top: 26%;
     right: 10%;
     width: 350px;
@@ -16126,25 +16125,25 @@ a.text-dark:focus {
 }
 
 @media all and (min-width: 725px) and (max-width: 967px) {
-  .form-block img {
+  .form-block > img {
     display: none;
   }
 }
 
 @media all and (min-width: 576px) and (max-width: 724px) {
-  .form-block img {
+  .form-block > img {
     display: none;
   }
 }
 
 @media all and (min-width: 441px) and (max-width: 575px) {
-  .form-block img {
+  .form-block > img {
     display: none;
   }
 }
 
 @media all and (max-width: 440px) {
-  .form-block img {
+  .form-block > img {
     display: none;
   }
 }
@@ -16532,6 +16531,16 @@ a.text-dark:focus {
     width: 150px;
     height: 35px;
   }
+}
+
+.img-position {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+}
+
+.img-position > #img-plate {
+  width: 240px;
 }
 
 .button-save {
@@ -17517,6 +17526,20 @@ a.text-dark:focus {
   }
 }
 
+@media all and (min-width: 576px) and (max-width: 767px) {
+  .dashboard_plate {
+    width: 95%;
+    margin: auto;
+  }
+}
+
+@media all and (max-width: 575px) {
+  .dashboard_plate {
+    width: 98%;
+    margin: auto;
+  }
+}
+
 .dashboard_plate .card-plate {
   display: flex;
   width: 100%;
@@ -17530,7 +17553,13 @@ a.text-dark:focus {
 
 @media all and (min-width: 768px) and (max-width: 991px) {
   .dashboard_plate .card-plate {
-    height: 250px;
+    height: 220px;
+  }
+}
+
+@media all and (min-width: 576px) and (max-width: 767px) {
+  .dashboard_plate .card-plate {
+    height: 180px;
   }
 }
 
@@ -17542,6 +17571,18 @@ a.text-dark:focus {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+}
+
+@media all and (min-width: 768px) and (max-width: 991px) {
+  .dashboard_plate .card-plate .column-img {
+    width: 200px;
+  }
+}
+
+@media all and (min-width: 576px) and (max-width: 767px) {
+  .dashboard_plate .card-plate .column-img {
+    width: 150px;
+  }
 }
 
 .dashboard_plate .card-plate .column-img h5 {
@@ -17561,7 +17602,13 @@ a.text-dark:focus {
 
 @media all and (min-width: 768px) and (max-width: 991px) {
   .dashboard_plate .card-plate .list-column > p {
-    font-size: 16px;
+    font-size: 14px;
+  }
+}
+
+@media all and (min-width: 576px) and (max-width: 767px) {
+  .dashboard_plate .card-plate .list-column > p {
+    font-size: 12px;
   }
 }
 
@@ -17580,7 +17627,13 @@ a.text-dark:focus {
 
 @media all and (min-width: 768px) and (max-width: 991px) {
   .dashboard_plate .card-plate .list-column .checked-box p {
-    font-size: 16px;
+    font-size: 14px;
+  }
+}
+
+@media all and (min-width: 576px) and (max-width: 767px) {
+  .dashboard_plate .card-plate .list-column .checked-box p {
+    font-size: 12px;
   }
 }
 
@@ -17595,7 +17648,7 @@ a.text-dark:focus {
 .dashboard_plate .card-plate .button-plate #edit-button {
   width: 130px;
   height: 45px;
-  background-color: #F6C90E;
+  background-color: #00CCBC;
   color: #ffffff;
   border: none;
   border-radius: 12px;
@@ -17604,7 +17657,30 @@ a.text-dark:focus {
   transition: 0.2s ease-in-out;
 }
 
+@media all and (min-width: 768px) and (max-width: 991px) {
+  .dashboard_plate .card-plate .button-plate #edit-button {
+    margin-bottom: 40px;
+  }
+}
+
+@media all and (min-width: 576px) and (max-width: 767px) {
+  .dashboard_plate .card-plate .button-plate #edit-button {
+    width: 120px;
+    height: 35px;
+    margin-bottom: 30px;
+  }
+}
+
+@media all and (max-width: 575px) {
+  .dashboard_plate .card-plate .button-plate #edit-button {
+    width: 120px;
+    height: 35px;
+    margin-bottom: 20px;
+  }
+}
+
 .dashboard_plate .card-plate .button-plate #edit-button:hover {
+  background-color: #F6C90E;
   color: #2E3333;
   transform: scale(1.02);
 }
@@ -17615,15 +17691,29 @@ a.text-dark:focus {
   width: 130px;
   height: 45px;
   text-align: center;
-  line-height: 45px;
   border: none;
-  background-color: red;
+  background-color: #00CCBC;
   border-radius: 12px;
   box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.3);
   transition: 0.2s ease-in-out;
 }
 
+@media all and (min-width: 576px) and (max-width: 767px) {
+  .dashboard_plate .card-plate .button-plate #delete-button {
+    width: 120px;
+    height: 35px;
+  }
+}
+
+@media all and (max-width: 575px) {
+  .dashboard_plate .card-plate .button-plate #delete-button {
+    width: 120px;
+    height: 35px;
+  }
+}
+
 .dashboard_plate .card-plate .button-plate #delete-button:hover {
+  background-color: red;
   color: #2E3333;
   transform: scale(1.02);
 }

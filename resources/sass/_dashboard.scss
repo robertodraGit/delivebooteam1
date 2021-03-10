@@ -36,6 +36,8 @@
         margin: 20px auto;
         border-radius: 50%;
         border: 2px solid $variable2;
+        background-size: cover;
+        background-position: center;
 
         @media all and (min-width: 1200px) and (max-width: 1600px) {
             width: 100px;

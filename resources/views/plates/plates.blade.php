@@ -1,89 +1,86 @@
-<section>
-  <h4>Benvenuto: {{$user -> name}}</h4>
-  <h3>Lista di tutti i piatti</h3>
+<header class="header-plate-ind">
+    <h4>Benvenuto/a
+        <span>{{$user -> name}}!</span>
+    </h4>
+    <a href="{{ route('index') }}">
+        <img src="{{ asset('storage/img/deliveroo-logo.svg') }}" alt="">
+    </a>
+</header>
 
-  <h3><a href="{{ route('dashboard') }}">Torna alla dashboard</a></h3>
+<section class="list-plate">
+    <h3>Lista di tutti i tuoi piatti</h3>
+    <div class="button-dashboard">
+        <form class="" action="{{ route('dashboard') }}">
+            <button type="button">Torna alla dashboard</button>
+        </form>
+    </div>
+    <div class="dashboard_plate">
+        @foreach ($user -> plates as $plate)
+            @if ($plate -> destroyed != 1)
+                <div class="card-plate">
+                    @php
+                    $url_img = "/storage/plates/" . $plate -> img;
+                    @endphp
+                    @if ($plate -> img !== null)
+                        <div class="column-img" style="background-image: url({{ $url_img }})">
+                        </div>
+                    @endif
+                    <div class="column-img" style="background-image: url({{ asset('/storage/placeholder.svg') }})">
+                        <h5>Nessuna immagine disponibile</h5>
+                    </div>
 
-  <ul>
-    @foreach ($user -> plates as $plate)
-      @if ($plate -> destroyed != 1)
-      <li>
-        <div class="dashboard_plate">
+                    <div class="list-column">
+                        <p>Nome piatto: {{$plate -> plate_name}}</p>
 
-          <div class="column">
-              <p>Nome piatto:</p>
-              <p>{{$plate -> plate_name}}</p>
-          </div>
+                        <p>Ingredienti: {{$plate -> ingredients}}</p>
 
-          <div class="column">
-              <p>Ingredienti:</p>
-              <p>{{$plate -> ingredients}}</p>
-          </div>
+                        <p>Descrizione: {{$plate -> description}}</p>
 
-          <div class="column">
-              <p>Descrizione:</p>
-              <p>{{$plate -> description}}</p>
-          </div>
+                        <p>Prezzo: {{($plate -> price) / 100}}€</p>
 
-          <div class="column">
-              <p>Prezzo</p>
-              <p>{{($plate -> price) / 100}}€</p>
-          </div>
+                        <p>Sconto: {{$plate -> discount}}%</p>
 
-          <div class="column">
-              <p>Visibile</p>
-              @if ($plate -> visible)
-                <input type="checkbox" disabled="disabled" checked>
-              @else
-                <input type="checkbox" disabled="disabled">
-              @endif
-          </div>
+                        <div class="checked-box">
+                            <p>Visibile</p>
+                            @if ($plate -> visible)
+                                <input type="checkbox" disabled="disabled" checked>
+                            @else
+                                <input type="checkbox" disabled="disabled">
+                            @endif
+                        </div>
 
-          <div class="column">
-              <p>Sconto %</p>
-              <p>{{$plate -> discount}}%</p>
-          </div>
+                        <div class="checked-box">
+                            <p>Disponibile</p>
+                            @if ($plate -> availability)
+                                <input type="checkbox" disabled="disabled" checked>
+                            @else
+                                <input type="checkbox" disabled="disabled">
+                            @endif
+                        </div>
 
-          <div class="column">
-            <p>Categoria</p>
-            @if ($plate -> category)
-              <p>{{$plate -> category -> category}}</p>  
+
+                        <p>Categoria:
+                        @if ($plate -> category)
+                            {{$plate -> category -> category}}
+                        @endif
+                        </p>
+
+                    </div>
+
+                    <div class="button-plate">
+                        <form action="{{ route('plates-edit', $plate -> id) }}">
+                            <button id="edit-button" type="submit">
+                                Modifica piatto
+                            </button>
+                        </form>
+                        <form action="{{ route('delete-plate', $plate -> id) }}">
+                            <button id="delete-button" type="submit">
+                                Elimina piatto
+                            </button>
+                        </form>
+                    </div>
+                </div>
             @endif
-        </div>
-
-          <div class="column">
-              <p>Disponibile</p>
-              @if ($plate -> availability)
-                <input type="checkbox" disabled="disabled" checked>
-              @else
-                <input type="checkbox" disabled="disabled">
-              @endif
-          </div>
-
-          <div class="column img">
-              <p>Immagine</p>
-              @php
-                $url_img = "/storage/plates/" . $plate -> img;
-              @endphp
-              <img src="{{$url_img}}" alt="">
-          </div>
-
-          <div class="column">
-            <form action="{{ route('plates-edit', $plate -> id) }}">
-              <button type="submit">
-                  Modifica Piatto
-              </button>
-            </form>
-          </div>
-
-          <div class="column">
-            <a href="{{route('delete-plate', $plate -> id)}}">Elimina piatto</a>
-          </div>
-
-        </div>
-
-      </li>
-    @endif
-    @endforeach
-  </ul>
+        @endforeach
+    </div>
 </section>

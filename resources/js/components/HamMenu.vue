@@ -3,16 +3,27 @@
       <div ref="sideNav" class="bm-menu">
         <nav class="bm-item-list">
             <ul>
-                
+
+                <li><a :href="this.welcome"
+                        :class="this.welcome_s
+                          ? 'active' : ''">HOME</a></li>
+
                 <span v-if="this.user">
-                  <li><a :href="this.dashboard">Dashboard</a></li>
+                  <li><a :href="this.dashboard"
+                          :class="this.dashboard_s
+                          ? 'active' : ''">Dashboard</a></li>
                   <li><a :href="this.logout">Logout</a></li>
                 </span>
-
+                
                 <span v-else>
 
-                  <li><a :href="this.register">Register</a></li>
-                  <li><a :href="this.login">Login</a></li>
+                  <li><a :href="this.register"
+                          :class="this.register_s
+                          ? 'active' : ''">Register</a></li>
+
+                  <li><a :href="this.login"
+                          :class="this.login_s
+                          ? 'active' : ''">Login</a></li>
 
                 </span>
               
@@ -58,11 +69,22 @@
       },
       props: {
 
+        // routes
+        welcome: String,
         login: String,
         register: String,
         dashboard: String,
         logout: String,
-        user: ""
+
+        // status
+        welcome_s: "",
+        login_s: "",
+        register_s: "",
+        dashboard_s: "",
+
+        // auth return
+        user: "",
+
       },
 
       methods: {
@@ -95,6 +117,15 @@
       cursor: pointer;
       width: 150px;
     }
+
+    .bm-item-list .active{
+      padding: 10px;
+      background: #00ccbc;
+    }
+    .bm-item-list li a.active{
+      color: white;
+
+    }
     
     .cross-style {
       position: absolute;
@@ -126,7 +157,7 @@
     .bm-item-list > * {
       padding: 0.7em;
     }
-    .bm-item-list > * > span {
+    .bm-item-list li {
       font-weight: 700;
     }
     .bm-item-list ul{

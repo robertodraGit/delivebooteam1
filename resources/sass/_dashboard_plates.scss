@@ -44,20 +44,30 @@
         text-align: center;
     }
 
-    h5 {
+    .button-dashboard {
         text-align: center;
-        margin: 30px 0 50px 0;
+        width: 100%;
+        margin: 20px auto 30px auto;
 
-        a {
-            text-decoration: none;
-            padding: 10px 20px;
+        button {
             color: $variable2;
-            outline: none;
             background-color: $color_deliveroo;
+            width: 200px;
+            height: 50px;
+            font-size: 16px;
+            font-weight: bold;
+            border: none;
             border-radius: 15px;
             box-shadow: $shadow_button;
+            transition: 0.2s ease-in-out;
+        }
+
+        button:hover {
+            color: $color_text_3;
+            transform: scale(1.02);
         }
     }
+
 }
 
 
@@ -95,6 +105,9 @@
             background-repeat: no-repeat;
             background-position: center;
 
+            h5 {
+                text-align: center
+            }
         }
 
         .list-column {
@@ -154,6 +167,12 @@
                 transition: 0.2s ease-in-out;
             }
 
+            #edit-button:hover {
+               color: $color_text_3;
+               transform: scale(1.02);
+           }
+
+
             #delete-button {
                 text-decoration: none;
                 color: $variable2;
@@ -167,24 +186,12 @@
                 box-shadow: $shadow_button;
                 transition: 0.2s ease-in-out;
             }
+
+            #delete-button:hover {
+                color: $color_text_3;
+                transform: scale(1.02);
+            }
+
         }
-    }
-}
-
-// HOVER
-
-.button-plate {
-
-    #edit-button:hover {
-       color: $color_text_3;
-       transform: scale(1.02);
-   }
-}
-
-.button-plate {
-
-    #delete-button:hover {
-        color: $color_text_3;
-        transform: scale(1.02);
     }
 }

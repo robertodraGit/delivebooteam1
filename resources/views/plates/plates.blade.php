@@ -9,9 +9,11 @@
 
 <section class="list-plate">
     <h3>Lista di tutti i tuoi piatti</h3>
-    <h5>
-        <a href="{{ route('dashboard') }}">Torna alla dashboard</a>
-    </h5>
+    <div class="button-dashboard">
+        <form class="" action="{{ route('dashboard') }}">
+            <button type="button">Torna alla dashboard</button>
+        </form>
+    </div>
     <div class="dashboard_plate">
         @foreach ($user -> plates as $plate)
             @if ($plate -> destroyed != 1)

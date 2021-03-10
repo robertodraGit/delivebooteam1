@@ -17278,19 +17278,28 @@ a.text-dark:focus {
   text-align: center;
 }
 
-.list-plate h5 {
+.list-plate .button-dashboard {
   text-align: center;
-  margin: 30px 0 50px 0;
+  width: 100%;
+  margin: 20px auto 30px auto;
 }
 
-.list-plate h5 a {
-  text-decoration: none;
-  padding: 10px 20px;
+.list-plate .button-dashboard button {
   color: #ffffff;
-  outline: none;
   background-color: #00CCBC;
+  width: 200px;
+  height: 50px;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
   border-radius: 15px;
   box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.5);
+  transition: 0.2s ease-in-out;
+}
+
+.list-plate .button-dashboard button:hover {
+  color: #2E3333;
+  transform: scale(1.02);
 }
 
 .dashboard_plate {
@@ -17330,6 +17339,10 @@ a.text-dark:focus {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+}
+
+.dashboard_plate .card-plate .column-img h5 {
+  text-align: center;
 }
 
 .dashboard_plate .card-plate .list-column {
@@ -17388,6 +17401,11 @@ a.text-dark:focus {
   transition: 0.2s ease-in-out;
 }
 
+.dashboard_plate .card-plate .button-plate #edit-button:hover {
+  color: #2E3333;
+  transform: scale(1.02);
+}
+
 .dashboard_plate .card-plate .button-plate #delete-button {
   text-decoration: none;
   color: #ffffff;
@@ -17402,12 +17420,7 @@ a.text-dark:focus {
   transition: 0.2s ease-in-out;
 }
 
-.button-plate #edit-button:hover {
-  color: #2E3333;
-  transform: scale(1.02);
-}
-
-.button-plate #delete-button:hover {
+.dashboard_plate .card-plate .button-plate #delete-button:hover {
   color: #2E3333;
   transform: scale(1.02);
 }

@@ -15824,13 +15824,13 @@ a.text-dark:focus {
 .plate_container .plate_detail {
   position: fixed;
   z-index: 1000;
-  width: 600px;
+  width: 450px;
   height: 80vh;
   max-height: 450px;
   top: 5%;
   left: 50%;
   transform: translate(-50%, 0);
-  border: 1px solid black;
+  border: 1px solid #c2c2c2;
   border-radius: 5px;
   background-color: white;
 }
@@ -15869,8 +15869,8 @@ a.text-dark:focus {
 
 .plate_container .plate_detail .show .plate_img {
   margin: auto;
-  width: 250px;
-  height: 250px;
+  width: 200px;
+  height: 200px;
   margin: 10px auto;
   border-radius: 50%;
 }
@@ -15938,13 +15938,13 @@ a.text-dark:focus {
 }
 
 .plate_container .plate_detail .total .button-light {
-  width: 150px;
+  width: 110px;
   border: 1px solid lightgrey;
   color: #00C2B3;
 }
 
 .plate_container .plate_detail .total .button-strong {
-  width: 300px;
+  width: 220px;
   background-color: #00C2B3;
   color: white;
 }
@@ -15958,6 +15958,11 @@ a.text-dark:focus {
     height: 100vh;
     border: 0;
     max-height: 100vh;
+  }
+
+  #rest_show_main .plate_detail .plate_img {
+    width: 125px;
+    height: 125px;
   }
 }
 
@@ -16877,7 +16882,7 @@ a.text-dark:focus {
   padding: 0.6rem 0.8rem;
   margin-top: 1rem;
   border: none;
-  border-radius: 22px;
+  border-radius: 8px;
   box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.3);
   transition: 0.2s ease-in-out;
 }
@@ -16908,7 +16913,7 @@ a.text-dark:focus {
   padding: 0.6rem 0.8rem;
   margin-top: 1rem;
   border: none;
-  border-radius: 22px;
+  border-radius: 8px;
   box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.3);
   position: relative;
   overflow: hidden;
@@ -16956,7 +16961,7 @@ a.text-dark:focus {
   width: 100%;
   font-size: 16px;
   text-transform: uppercase;
-  border-radius: 22px;
+  border-radius: 8px;
   box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.3);
   margin: 100px 0 50px 0;
 }
@@ -17081,7 +17086,7 @@ a.text-dark:focus {
 .right-side-dash .container-card .card {
   flex-basis: calc((100% / 3) - 40px);
   height: 500px;
-  border-radius: 10px;
+  border-radius: 5px;
   box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.3);
   margin: 50px 0px;
   padding: 15px;
@@ -17140,7 +17145,7 @@ a.text-dark:focus {
   height: calc(100% / 3);
   background-color: #00CCBC;
   color: #ffffff;
-  border-radius: 10px;
+  border-radius: 5px;
   box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.3);
 }
 
@@ -17339,7 +17344,7 @@ a.text-dark:focus {
 .right-side-dash .card-order .card-relative .right-card-order button {
   background-color: #ffffff;
   color: #00CCBC;
-  border-radius: 22px;
+  border-radius: 8px;
   border: none;
   padding: 0.6rem 0.8rem;
   margin-bottom: 10px;
@@ -17374,7 +17379,7 @@ a.text-dark:focus {
 .right-side-dash .footer-dash button {
   background-color: #00CCBC;
   color: #ffffff;
-  border-radius: 22px;
+  border-radius: 8px;
   border: none;
   padding: 0.6rem 0.8rem;
   transition: box-shadow 0.22s ease-in-out, color 0.22s ease-in-out;

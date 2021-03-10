@@ -185,6 +185,45 @@ function  init() {
           this.closeSearchBar();
         },
 
+        startResearchSlider: function(query){
+          console.log(query);
+          this.oldSearchInput = query;
+          this.no_result = 0;
+          this.research_error = 0;
+          this.research_category = 0;
+          axios.get('/search/' + query, {
+            params: {
+            }
+            })
+            .then((response) => {
+              this.searchResult = response.data;
+              this.$forceUpdate();
+              if (response.data.error) {
+                this.research_error = 1;
+              } else if (
+                response.data.typology_resoult.length === 0 
+              ) {
+                this.no_result = 1;
+              } else {
+                if (this.searchResult.typology_resoult.length != 0) {
+                  this.research_category = 1;
+                  this.changeRestResultSlider();
+                }
+              }
+            })
+            .catch(function (error) {
+              console.log(error);
+            })
+        },
+
+        changeRestResultSlider: function() {
+          this.restaurants = this.search_typologies_result;
+          this.displayPlates = 0;
+          this.displayRestaurants = 1;
+          this.$forceUpdate();
+          this.closeSearchBar();
+        },
+
         closeSearchBar: function(){
           this.result_tendina = 0;
           this.searchInput = "";

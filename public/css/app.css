@@ -17447,7 +17447,7 @@ a.text-dark:focus {
   font-weight: bold;
   border: none;
   border-radius: 15px;
-  box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.5);
+  box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.3);
   transition: 0.2s ease-in-out;
 }
 
@@ -17476,7 +17476,7 @@ a.text-dark:focus {
   margin-bottom: 35px;
   border-radius: 5px;
   background-color: #ffffff;
-  box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.5);
+  box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.3);
 }
 
 @media all and (min-width: 768px) and (max-width: 991px) {
@@ -17551,7 +17551,7 @@ a.text-dark:focus {
   border: none;
   border-radius: 12px;
   margin-bottom: 55px;
-  box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.5);
+  box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.3);
   transition: 0.2s ease-in-out;
 }
 
@@ -17570,7 +17570,7 @@ a.text-dark:focus {
   border: none;
   background-color: red;
   border-radius: 12px;
-  box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.5);
+  box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.3);
   transition: 0.2s ease-in-out;
 }
 

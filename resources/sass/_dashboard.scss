@@ -426,6 +426,37 @@
         }
     }
 
+    .card-feed {
+
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+
+        .mini-card-feed {
+            width: calc(100% / 4);
+            margin: 10px auto;
+            padding: 20px;
+            height: 200px;
+            background-color: $color_deliveroo;
+            color: $variable2;
+            border-radius: $border-card;
+            box-shadow: $shadow_button;
+    
+            .feedbacks-cards {
+                display: flex;
+                justify-content: space-between;
+            }
+    
+            @media all and (min-width: 1200px) and (max-width: 1600px) {
+    
+            }
+    
+            p {
+                margin: 0;
+            }
+        }
+
+    }
 
     .last-order {
         width: 100%;

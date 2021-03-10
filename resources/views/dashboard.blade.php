@@ -129,70 +129,32 @@
                 </div>
             </div>
 
-            <div class="last-order">
-                <h2>
-                    I tuoi ultimi ordini
-                </h2>
+            <div class="container-card">
+                <div class="card-feed">
 
-                {{-- CARD ORDINI --}}
-                @foreach ($reordered as $item_reor)
-                
-                    <div class="card-order">
-                        <div class='card-relative'>
-
-                            <div class="order-info">
-                                <h3>
-                                    {{$item_reor -> first_name}} {{$item_reor -> last_name}}
-                                </h3>
-                                <hr>
-                                @if ($item_reor -> payment_state)
-                                    <p>Ordine pagato</p>
-                                @else
-                                    <p>Ordine da pagare</p>
-                                @endif 
-                                    <p>Cellulare: {{$item_reor -> phone}}</p>
-                            </div>
-
-                            <div class="right-card-order">
-                                <div>
-                                    {{$item_reor -> total_price / 100}} €
-                                </div>
-                                <div>
-                                    <form action="{{ route('restaurant-comanda', $item_reor -> id) }}">
-                                        <button class="btn btn-success" type="submit">
-                                            Apri comanda
-                                            <span class="plate-color"></span><span class="plate-color"></span><span class="plate-color"></span><span class="plate-color"></span>
-                                        </button>
-                                    </form>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-
-                @endforeach
-            </div>
-            {{-- fine card ORDINI --}}
-
-            {{-- <div class="footer-dash">
-                <div>
-                    <form class="" action="{{ route('orders-index') }}">
-                        <button>
-                            Visualizza tutti gli ordini
-                        </button>
-                    </form>
-
-                </div> --}}
-
-
-            <div>
-                <ul>
                     @foreach ($feedbacks as $fb)
-                        <li>{{ $fb -> email }}</li> <br>
-                        <li>{{ $fb -> rate }}</li>
+                                <div class="mini-card-feed">
+                                    <div class="feedbacks-cards">
+                                        <div>
+                                            <h4>{{ $fb -> name }}</h4>
+                                            <br>
+                                            <p>{{ $fb -> email }}</p>
+                                            <br>
+                                            <label>Comment:
+                                                <h2>{{ $fb -> comment }}</h2>
+                                            </label>
+    
+                                        </div>
+                                        <div>
+                                            <h2>Rate: {{ $fb -> rate }}</h2>
+                                        </div>
+                                    </div>
+                                </div>
+                            
                     @endforeach
-                </ul>
+                </div>
             </div>
+
         </div>
 
     </div>

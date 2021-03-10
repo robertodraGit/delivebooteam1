@@ -17260,6 +17260,32 @@ a.text-dark:focus {
   }
 }
 
+.right-side-dash .card-feed {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.right-side-dash .card-feed .mini-card-feed {
+  width: calc(100% / 4);
+  margin: 10px auto;
+  padding: 20px;
+  height: 200px;
+  background-color: #00CCBC;
+  color: #ffffff;
+  border-radius: 5px;
+  box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.3);
+}
+
+.right-side-dash .card-feed .mini-card-feed .feedbacks-cards {
+  display: flex;
+  justify-content: space-between;
+}
+
+.right-side-dash .card-feed .mini-card-feed p {
+  margin: 0;
+}
+
 .right-side-dash .last-order {
   width: 100%;
   display: flex;

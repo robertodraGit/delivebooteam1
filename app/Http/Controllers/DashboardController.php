@@ -170,7 +170,7 @@ class DashboardController extends Controller
             ],
         ]);
 
-        return view('dashboard', compact('mail_cut', 'feedbacks', 'chartjsDashboard','chartjsFeedbacks', 'orders_3', 'reordered'));
+        return view('dashboard', compact('mail_cut', 'feedbacks', 'chartjsDashboard','chartjsFeedbacks', 'orders_3'));
     }
 
     public function stats() {

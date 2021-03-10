@@ -48,8 +48,10 @@ cut del testo da vue (ok ma non va da responsive) -->
             <div v-if="immagine != null" class="plate_img" :style="{'background-image':'url(' + url_img +')'}"></div>
             <div class="plate_img" style="background-image: url(/storage/placeholder.svg)"></div>
 
-            <p class="descrizione">{{descrizione}}</p>
-            <p>Ingredienti: <br> {{ingredienti}}</p>
+            <div class="plate_detail_info">
+              <p class="descrizione">{{descrizione}}</p>
+              <p>Ingredienti: <br> {{ingredienti}}</p>
+            </div>
 
             <div class="quantity_pannel">
 
@@ -200,6 +202,8 @@ cut del testo da vue (ok ma non va da responsive) -->
             this.close_details();
           }
         },
+
       },
+
     }
 </script>

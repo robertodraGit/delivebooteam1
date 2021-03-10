@@ -132,7 +132,6 @@
                 :plate_data='{{$plate}}'
                 :delivery_cost='{{$restaurant -> delivery_cost}}'
                 @@carrello='pushInCart($event)'
-
               ></plate>
             @endif
           @endforeach

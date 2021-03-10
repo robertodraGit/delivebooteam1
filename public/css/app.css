@@ -6532,6 +6532,18 @@ header .container img {
   width: 150px;
 }
 
+@media screen and (max-width: 980px) {
+  header #search-bar {
+    visibility: hidden;
+  }
+}
+
+@media screen and (min-width: 981px) {
+  header #search-bar {
+    visibility: visible;
+  }
+}
+
 .plates_container {
   padding: 20px;
 }
@@ -6643,17 +6655,17 @@ header .container img {
   min-height: 500px;
 }
 
-.container-welcome main .container {
+.container-welcome main .main-container-welcome {
   width: 90%;
   margin: 0 auto;
 }
 
-.container-welcome main .container .restaurants {
+.container-welcome main .main-container-welcome .restaurants {
   display: flex;
   flex-wrap: wrap;
 }
 
-.container-welcome main .container .restaurants .card {
+.container-welcome main .main-container-welcome .restaurants .card {
   width: calc(25% - 20px);
   margin: 10px;
   height: 400px;
@@ -6696,6 +6708,18 @@ header .container img {
 .container-welcome footer .container .copyright {
   text-align: center;
   color: #776144;
+}
+
+@media screen and (max-width: 980px) {
+  .main-container-welcome #search-bar {
+    visibility: visible;
+  }
+}
+
+@media screen and (min-width: 981px) {
+  .main-container-welcome #search-bar {
+    visibility: hidden;
+  }
 }
 
 .card-carousel-wrapper {

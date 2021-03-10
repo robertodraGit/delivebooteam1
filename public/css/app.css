@@ -17445,6 +17445,40 @@ a.text-dark:focus {
   text-align: center;
 }
 
+.list-plate .plate_orderer {
+  margin: 0 auto 5px auto;
+  padding: 8px;
+  display: flex;
+  border-radius: 5px;
+  background-color: #ffffff;
+  box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.3);
+  width: 85%;
+}
+
+.list-plate .plate_orderer i {
+  padding: 8px;
+}
+
+.list-plate .plate_orderer i:hover {
+  cursor: pointer;
+}
+
+.list-plate .plate_orderer i.my-active {
+  color: red;
+}
+
+.list-plate .plate_orderer i.my-inactive {
+  display: none;
+}
+
+.list-plate .plate_orderer .alph_order,
+.list-plate .plate_orderer .typ_order {
+  width: 50%;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+}
+
 .list-plate .button-dashboard {
   text-align: center;
   width: 100%;
@@ -17556,7 +17590,7 @@ a.text-dark:focus {
   width: 220px;
 }
 
-.dashboard_plate .card-plate .button-plate #edit-button {
+.dashboard_plate .card-plate .button-plate .edit-button {
   width: 130px;
   height: 45px;
   background-color: #F6C90E;
@@ -17568,12 +17602,12 @@ a.text-dark:focus {
   transition: 0.2s ease-in-out;
 }
 
-.dashboard_plate .card-plate .button-plate #edit-button:hover {
+.dashboard_plate .card-plate .button-plate .edit-button:hover {
   color: #2E3333;
   transform: scale(1.02);
 }
 
-.dashboard_plate .card-plate .button-plate #delete-button {
+.dashboard_plate .card-plate .button-plate .delete-button {
   text-decoration: none;
   color: #ffffff;
   width: 130px;
@@ -17587,7 +17621,7 @@ a.text-dark:focus {
   transition: 0.2s ease-in-out;
 }
 
-.dashboard_plate .card-plate .button-plate #delete-button:hover {
+.dashboard_plate .card-plate .button-plate .delete-button:hover {
   color: #2E3333;
   transform: scale(1.02);
 }

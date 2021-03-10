@@ -200,7 +200,7 @@ function  init() {
               if (response.data.error) {
                 this.research_error = 1;
               } else if (
-                response.data.typology_resoult.length === 0 
+                response.data.typology_resoult.length === 0
               ) {
                 this.no_result = 1;
               } else {
@@ -339,6 +339,32 @@ function  init() {
 
       },
   });
+
+  $(".alph_order .fas.fa-caret-up").click(function() {
+    console.log("ordina alfabeticamente Z-A");
+    $(".alph_order .fas.fa-caret-up").toggleClass("my-active");
+    $(".alph_order .fas.fa-caret-up").toggleClass("my-inactive");
+
+    $(".alph_order .fa-caret-down").toggleClass("my-active");
+    $(".alph_order .fa-caret-down").toggleClass("my-inactive");
+
+    $('.card-plate').sort(function (a, b) {
+      var contentA = $(a).find(".plate_name").text();
+      var contentB = $(b).find(".plate_name").text();
+      return (contentA < contentB) ? -1 : (contentA > contentB) ? 1 : 0;
+   }).appendTo(".dashboard_plate");
+
+  });
+
+  $(".alph_order .fas.fa-caret-down").click(function() {
+    console.log("ordina alfabeticamente A-Z");
+    $(".alph_order .fas.fa-caret-up").toggleClass("my-active");
+    $(".alph_order .fas.fa-caret-up").toggleClass("my-inactive");
+
+    $(".alph_order .fa-caret-down").toggleClass("my-active");
+    $(".alph_order .fa-caret-down").toggleClass("my-inactive");
+  });
+
 }
 
 document.addEventListener("DOMContentLoaded", init);

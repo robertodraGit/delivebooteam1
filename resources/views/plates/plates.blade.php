@@ -14,6 +14,23 @@
             <button type="button">Torna alla dashboard</button>
         </form>
     </div>
+
+    <div class="plate_orderer">
+
+      <div class="alph_order">
+        <i class="fas fa-caret-up my-active"></i>
+        <i class="fas fa-caret-down my-inactive"></i>
+        <span>Ordina per nome piatto</span>
+      </div>
+
+      <div class="typ_order">
+        <i class="fas fa-caret-up"></i>
+        <i class="fas fa-caret-down my-inactive"></i>
+        <span>Ordina per categorie</span>
+      </div>
+
+    </div>
+
     <div class="dashboard_plate">
         @foreach ($user -> plates as $plate)
             @if ($plate -> destroyed != 1)
@@ -30,7 +47,7 @@
                     </div>
 
                     <div class="list-column">
-                        <p>Nome piatto: {{$plate -> plate_name}}</p>
+                        <p>Nome piatto: <span class="plate_name">{{$plate -> plate_name}}</span></p>
 
                         <p>Ingredienti: {{$plate -> ingredients}}</p>
 
@@ -60,21 +77,23 @@
 
 
                         <p>Categoria:
-                        @if ($plate -> category)
-                            {{$plate -> category -> category}}
-                        @endif
+                          <span class="category_name">
+                            @if ($plate -> category)
+                                {{$plate -> category -> category}}
+                            @endif
+                          </span>
                         </p>
 
                     </div>
 
                     <div class="button-plate">
                         <form action="{{ route('plates-edit', $plate -> id) }}">
-                            <button id="edit-button" type="submit">
+                            <button class="edit-button" type="submit">
                                 Modifica piatto
                             </button>
                         </form>
                         <form action="{{ route('delete-plate', $plate -> id) }}">
-                            <button id="delete-button" type="submit">
+                            <button class="delete-button" type="submit">
                                 Elimina piatto
                             </button>
                         </form>

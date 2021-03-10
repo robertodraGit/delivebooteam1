@@ -121,9 +121,10 @@
                 {{-- CARD FEEDBACK --}}
                 <div id="resp-card" class="card">
                     <h3>I tuoi feedback</h3>
-                    <div class="percentual-feed">
-                        <h1>90%</h1>
-                        <h4>positivi</h4>
+                    <div class="graph-chart-js">
+                        <div>
+                            {!! $chartjsFeedbacks->render() !!}
+                        </div>
                     </div>
                 </div>
             </div>

@@ -65,6 +65,22 @@ class DashboardController extends Controller
             }
         }
 
+        $counterFeedbacks = array (0,0,0,0,0);
+        
+        foreach ($user -> feedback as $fdb) {
+            if ($fdb -> rate == 1) {
+                $counterFeedbacks[0] += 1;
+            } else if ($fdb -> rate == 2) {
+                $counterFeedbacks[1] += 1;
+            } else if ($fdb -> rate == 3) {
+                $counterFeedbacks[2] += 1;
+            } else if ($fdb -> rate == 4) {
+                $counterFeedbacks[3] += 1;
+            } else {
+                $counterFeedbacks[4] += 1;
+            }
+        }
+
         $chartjsDashboard = app()->chartjs
         ->name('lastMonths')
         ->type('bar')
@@ -72,8 +88,13 @@ class DashboardController extends Controller
         ->labels($months_label)
         ->datasets([
             [
-                "label" => "Last 3 Months",
-                'backgroundColor' => "rgba(0, 204, 188, 0.71)",
+                "label" => "Orders",
+                'backgroundColor' => [
+                    "rgba(0, 204, 188, 0.71)",
+                    "rgba(31, 255, 236, 0.41)",
+                    "rgba(250, 125, 15, 0.41)",
+                    "rgba(255, 252, 49, 0.41)",
+            ],
                 'data' => $counterPerMonth,
             ],
         ])
@@ -117,7 +138,39 @@ class DashboardController extends Controller
             ]
         ]);
 
-        return view('dashboard', compact('mail_cut', 'feedbacks', 'chartjsDashboard', 'orders_3', 'reordered'));
+        $chartjsFeedbacks = app()->chartjs
+        ->name('feedb')
+        ->type('doughnut')
+        ->size(['width' => 300, 'height' => 295])
+        ->labels(['1 Stella', '2 Stelle', '3 Stelle', '4 Stelle', '5 Stelle'])
+        ->datasets([
+            [
+                "label" => "Feedbacks",
+                'backgroundColor' => [
+                    "rgba(31, 255, 236, 0.41)",
+                    "rgba(250, 125, 15, 0.41)",
+                    "rgba(255, 252, 49, 0.41)",
+                    "rgba(222, 60, 75, 0.41)",
+                    "rgba(153, 247, 171, 0.41)",
+                ],
+                'data' => $counterFeedbacks,
+            ],
+        ])
+        ->optionsRaw([
+            'animation' => [
+                'rotate' => '-0.5 * Math.PI',
+                'animateRotate' => true,
+            ],            
+            'responsive' => true,
+            'legend' => [
+                'display' => true,
+                'labels' => [
+                    'fontColor' => '#000'
+                ]
+            ],
+        ]);
+
+        return view('dashboard', compact('mail_cut', 'feedbacks', 'chartjsDashboard','chartjsFeedbacks', 'orders_3', 'reordered'));
     }
 
     public function stats() {
@@ -272,7 +325,7 @@ class DashboardController extends Controller
         ->name('feedbacks')
         ->type('radar')
         ->size(['width' => 500, 'height' => 200])
-        ->labels([1, 2, 3, 4, 5])
+        ->labels(['1 Stella', '2 Stelle', '3 Stelle', '4 Stelle', '5 Stelle'])
         ->datasets([
             [
                 "label" => "Feedbacks",
@@ -288,6 +341,13 @@ class DashboardController extends Controller
             ],
         ])
         ->optionsRaw([
+            'scale' => [
+                'ticks' => [
+                    'beginAtZero' => true,
+                    'stepSize' => 15,
+                    // 'min' => 0,
+                ],
+            ],
             'responsive' => true,
             'legend' => [
                 'display' => true,
@@ -295,42 +355,6 @@ class DashboardController extends Controller
                     'fontColor' => '#000'
                 ]
             ],
-            'scales' => [
-                'anglelines' => [
-                    'display' => true,
-                ],
-                'ticks' => [
-                    'suggestedMin' => 0,
-                ]
-                // 'xAxes' => [
-                //     [
-                //         'ticks' => [
-                //             'beginAtZero' => true,
-                //             // 'max' => 100,
-                //             // 'min' => 20,
-                //             // 'stepSize' => 10,
-                //         ],
-                //         'stacked' => true,
-                //         'gridLines' => [
-                //             'display' => true,
-                //         ],
-                //     ]
-                // ],
-                // 'yAxes' => [
-                //     [
-                //         'ticks' => [
-                //             'beginAtZero' => true,
-                //             // 'max' => 100,
-                //             // 'min' => 20,
-                //             // 'stepSize' => 10,
-                //         ],
-                //         'stacked' => true,
-                //         'gridLines' => [
-                //             'display' => true,
-                //         ],
-                //     ]
-                // ]
-            ]
         ]);
 
         return view('dashboard.stats', compact('chartjs1', 'chartjs2'));

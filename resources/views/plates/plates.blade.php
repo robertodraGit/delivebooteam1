@@ -67,11 +67,15 @@
 
                     <div class="button-plate">
                         <form action="{{ route('plates-edit', $plate -> id) }}">
-                            <button type="submit">
+                            <button id="edit-button" type="submit">
                                 Modifica piatto
                             </button>
                         </form>
-                        <a href="{{ route('delete-plate', $plate -> id) }}">Elimina piatto</a>
+                        <form action="{{ route('delete-plate', $plate -> id) }}">
+                            <button id="delete-button" type="submit">
+                                Elimina piatto
+                            </button>
+                        </form>
                     </div>
                 </div>
             @endif

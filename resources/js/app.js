@@ -341,29 +341,80 @@ function  init() {
   });
 
   $(".alph_order .fas.fa-caret-up").click(function() {
-    console.log("ordina alfabeticamente Z-A");
-    $(".alph_order .fas.fa-caret-up").toggleClass("my-active");
+    // console.log("ordina alfabeticamente Z-A");
+    $(".alph_order .fas.fa-caret-up").addClass("my-active");
     $(".alph_order .fas.fa-caret-up").toggleClass("my-inactive");
 
-    $(".alph_order .fa-caret-down").toggleClass("my-active");
+    $(".alph_order .fa-caret-down").addClass("my-active");
     $(".alph_order .fa-caret-down").toggleClass("my-inactive");
 
-    $('.card-plate').sort(function (a, b) {
-      var contentA = $(a).find(".plate_name").text();
-      var contentB = $(b).find(".plate_name").text();
+    $(".typ_order .fas.fa-caret-up").removeClass("my-active");
+    $(".typ_order .fas.fa-caret-down").removeClass("my-active");
+
+    $('.card-plate').sort(function (b, a) {
+      let contentA = $(a).find(".plate_name").text();
+      let contentB = $(b).find(".plate_name").text();
       return (contentA < contentB) ? -1 : (contentA > contentB) ? 1 : 0;
    }).appendTo(".dashboard_plate");
 
   });
 
   $(".alph_order .fas.fa-caret-down").click(function() {
-    console.log("ordina alfabeticamente A-Z");
-    $(".alph_order .fas.fa-caret-up").toggleClass("my-active");
+    // console.log("ordina alfabeticamente A-Z");
+    $(".alph_order .fas.fa-caret-up").addClass("my-active");
     $(".alph_order .fas.fa-caret-up").toggleClass("my-inactive");
 
-    $(".alph_order .fa-caret-down").toggleClass("my-active");
+    $(".alph_order .fa-caret-down").addClass("my-active");
     $(".alph_order .fa-caret-down").toggleClass("my-inactive");
+
+    $(".typ_order .fas.fa-caret-up").removeClass("my-active");
+    $(".typ_order .fas.fa-caret-down").removeClass("my-active");
+
+    $('.card-plate').sort(function (a, b) {
+      let contentA = $(a).find(".plate_name").text();
+      let contentB = $(b).find(".plate_name").text();
+      return (contentA < contentB) ? -1 : (contentA > contentB) ? 1 : 0;
+   }).appendTo(".dashboard_plate");
   });
+
+  $(".typ_order .fas.fa-caret-up").click(function() {
+    // console.log("ordina categorie Z-A");
+    $(".typ_order .fas.fa-caret-up").addClass("my-active");
+    $(".typ_order .fas.fa-caret-up").toggleClass("my-inactive");
+
+    $(".typ_order .fa-caret-down").addClass("my-active");
+    $(".typ_order .fa-caret-down").toggleClass("my-inactive");
+
+    $(".alph_order .fas.fa-caret-up").removeClass("my-active");
+    $(".alph_order .fas.fa-caret-down").removeClass("my-active");
+
+    $('.card-plate').sort(function (b, a) {
+      let contentA = $(a).find(".category_name").text();
+      let contentB = $(b).find(".category_name").text();
+      return (contentA < contentB) ? -1 : (contentA > contentB) ? 1 : 0;
+   }).appendTo(".dashboard_plate");
+
+  });
+
+  $(".typ_order .fas.fa-caret-down").click(function() {
+    // console.log("ordina categorie A-Z");
+    $(".typ_order .fas.fa-caret-up").addClass("my-active");
+    $(".typ_order .fas.fa-caret-up").toggleClass("my-inactive");
+
+    $(".typ_order .fa-caret-down").addClass("my-active");
+    $(".typ_order .fa-caret-down").toggleClass("my-inactive");
+
+    $(".alph_order .fas.fa-caret-up").removeClass("my-active");
+    $(".alph_order .fas.fa-caret-down").removeClass("my-active");
+
+    $('.card-plate').sort(function (a, b) {
+      let contentA = $(a).find(".category_name").text();
+      let contentB = $(b).find(".category_name").text();
+      return (contentA < contentB) ? -1 : (contentA > contentB) ? 1 : 0;
+   }).appendTo(".dashboard_plate");
+
+  });
+
 
 }
 

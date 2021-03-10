@@ -32,7 +32,7 @@
     </div>
 
     <div class="dashboard_plate">
-        @foreach ($user -> plates as $plate)
+        @foreach ($user -> plates -> sortBy('plate_name') as $plate)
             @if ($plate -> destroyed != 1)
                 <div class="card-plate">
                     @php

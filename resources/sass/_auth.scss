@@ -6,7 +6,7 @@
     }
     .container-register,
     .container-login{
-        max-width: 90;
+        width: 100%;
         // border: 1px solid black;
         margin: 0 auto;
         display: flex;
@@ -16,8 +16,6 @@
     .card {
     
         max-width: 523px;
-        
-
         position: relative;
         z-index: 2;
         // border: 1px solid;

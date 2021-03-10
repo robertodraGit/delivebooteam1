@@ -17769,7 +17769,7 @@ header .container img {
 
 .container-auth .container-register,
 .container-auth .container-login {
-  max-width: 90;
+  width: 100%;
   margin: 0 auto;
   display: flex;
 }
@@ -17835,13 +17835,13 @@ header .container img {
 }
 
 @media screen and (max-width: 800px) {
-  .card {
+  .container-register .card {
     margin: 5% 10%;
   }
 }
 
 @media screen and (min-width: 801px) {
-  .card {
+  .container-register .card {
     margin-top: 5%;
     margin-left: 10%;
   }
@@ -17878,17 +17878,18 @@ header .container img {
 }
 
 @media screen and (max-width: 800px) {
-  .container-login {
+  .container-login .container-login {
     flex-direction: column;
     align-items: center;
+    background-color: blue;
   }
 
-  .container-login .card {
+  .container-login .container-login .card {
     padding-bottom: 60px;
     margin: 20px 30px 0;
   }
 
-  .container-login .image .background {
+  .container-login .container-login .image .background {
     height: 50%;
     -webkit-clip-path: polygon(0 0, 0% 0, 100% 100%, 0 100%);
             clip-path: polygon(0 0, 0% 0, 100% 100%, 0 100%);
@@ -17896,16 +17897,17 @@ header .container img {
 }
 
 @media screen and (min-width: 801px) {
-  .container-login {
+  .container-login .container-login {
     justify-content: end;
+    background-color: red;
   }
 
-  .container-login .card {
-    padding-top: 5%;
-    padding-right: 10%;
+  .container-login .container-login .card {
+    margin-top: 5%;
+    margin-right: 10%;
   }
 
-  .container-login .image {
+  .container-login .container-login .image {
     position: absolute;
     top: 80px;
     left: 0;
@@ -17914,7 +17916,7 @@ header .container img {
     height: 100vh;
   }
 
-  .container-login .image .background {
+  .container-login .container-login .image .background {
     height: 100%;
     -webkit-clip-path: polygon(0 0, 28% 0, 100% 100%, 0 100%);
             clip-path: polygon(0 0, 28% 0, 100% 100%, 0 100%);

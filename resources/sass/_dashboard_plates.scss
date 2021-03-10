@@ -1,29 +1,197 @@
 @mixin default-border {
-  border: 1px solid black;
+    border: 1px solid black;
 }
 
+.header-plate-ind {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+    padding: 10px 20px;
+    background-color: $complementary;
+
+    h4 {
+        color: $color_text_3;
+        margin: 0;
+    }
+
+    span {
+        font-size: 26px;
+        font-weight: bold;
+        color: $color_deliveroo;
+    }
+
+    a {
+        outline: none;
+
+        img {
+            width: 120px;
+        }
+    }
+
+}
+
+
+.list-plate {
+    min-height: calc(100vh - 80px);
+    padding: 30px 20px;
+    background-color: $color_deliveroo_2;
+
+    h3 {
+        color: $color_text_3;
+        font-weight: bold;
+        text-transform: uppercase;
+        text-align: center;
+    }
+
+    .button-dashboard {
+        text-align: center;
+        width: 100%;
+        margin: 20px auto 30px auto;
+
+        button {
+            color: $variable2;
+            background-color: $color_deliveroo;
+            width: 200px;
+            height: 50px;
+            font-size: 16px;
+            font-weight: bold;
+            border: none;
+            border-radius: 15px;
+            box-shadow: $shadow_button;
+            transition: 0.2s ease-in-out;
+        }
+
+        button:hover {
+            color: $color_text_3;
+            transform: scale(1.02);
+        }
+    }
+
+}
+
+
 .dashboard_plate {
-  display: flex;
-  flex-wrap: wrap;
+    width: 85%;
+    margin: auto;
 
-  .column {
-    width: 100px;
-    margin: 5px 0;
-    padding: 2px 5px;
-    @include default-border;
+    @media all and (min-width: 768px) and (max-width: 991px) {
+        width: 90%;
+        margin: auto;
+    }
 
-    & > *{
-      margin: 0;
-    }
-    & > p:first-child {
-      font-weight: bold;
-    }
-  }
-  .column.img {
 
-    & > img {
-      width: 50px;
-      height: auto;
+    .card-plate {
+        display: flex;
+        width: 100%;
+        height: 280px;
+        padding: 15px;
+        margin-bottom: 35px;
+        border-radius: 5px;
+        background-color: $variable2;
+        box-shadow: $shadow_button;
+
+        @media all and (min-width: 768px) and (max-width: 991px) {
+            height: 250px;
+        }
+
+
+        .column-img {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 250px;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+
+            h5 {
+                text-align: center
+            }
+        }
+
+        .list-column {
+            padding: 10px 25px;
+            width: calc(100% - 370px);
+
+            & > p {
+                font-size: 18px;
+                margin: 0;
+                font-weight: bold;
+
+                @media all and (min-width: 768px) and (max-width: 991px) {
+                    font-size: 16px;
+                }
+
+            }
+
+            .checked-box {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                width: 120px;
+
+                p {
+                    font-size: 18px;
+                    font-weight: bold;
+                    margin: 0;
+
+                    @media all and (min-width: 768px) and (max-width: 991px) {
+                        font-size: 16px;
+                    }
+
+                }
+
+                input {
+
+                }
+            }
+        }
+
+        .button-plate {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 220px;
+
+            #edit-button {
+                width: 130px;
+                height: 45px;
+                background-color: $primary;
+                color: $variable2;
+                border: none;
+                border-radius: 12px;
+                margin-bottom: 55px;
+                box-shadow: $shadow_button;
+                transition: 0.2s ease-in-out;
+            }
+
+            #edit-button:hover {
+               color: $color_text_3;
+               transform: scale(1.02);
+           }
+
+
+            #delete-button {
+                text-decoration: none;
+                color: $variable2;
+                width: 130px;
+                height: 45px;
+                text-align: center;
+                line-height: 45px;
+                border: none;
+                background-color: red;
+                border-radius: 12px;
+                box-shadow: $shadow_button;
+                transition: 0.2s ease-in-out;
+            }
+
+            #delete-button:hover {
+                color: $color_text_3;
+                transform: scale(1.02);
+            }
+
+        }
     }
-  }
 }

@@ -123,7 +123,7 @@ cut del testo da vue (ok ma non va da responsive) -->
             let sconto_euro = (this.sconto * this.prezzo_euro / 100).toFixed(2);
             return (this.prezzo_euro - sconto_euro).toFixed(2);
           } else {
-            return "Prezzo intero";
+            return this.prezzo_euro;
           }
         },
 

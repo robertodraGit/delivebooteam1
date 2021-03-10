@@ -10,7 +10,7 @@ function  init() {
       el: '#app',
       mounted: function () {
        this.$nextTick(function () {
-         console.log("App montata!");
+         // console.log("App montata!");
          this.getRestaurantsInit();
          // msg payment
          this.messageVisible = true,
@@ -50,33 +50,35 @@ function  init() {
 
         cart_new: function() {
 
-          let cart_order = [];
-          this.cart.forEach(element => {
+          //Controllo cart e conta gli elementi uguali.
+          //Ne lascia solo uno ma con le proprietà cambiate (quantity, plate_price).
 
-            if(!cart_order.some(plate => plate.plate_id == element.plate_id)) {
+          let newCart = [];
+          this.cart.forEach((plate, i) => {
+            //conto dei piatti uguali
+            let counter = 0;
+            this.cart.forEach((plate_confronto, i) => {
 
-              let new_element = element;
-              new_element['quantity'] = 1;
-              cart_order.push(new_element);
-
-            } else {
-
-              for(let i=0; i<cart_order.length; i++) {
-
-                if(cart_order[i].plate_id == element.plate_id) {
-
-                  cart_order[i].quantity++;
-
-                  cart_order[i].plate_price = parseFloat(cart_order[i].quantity).toFixed(2) *
-                  parseFloat(element.original_price).toFixed(2);
-
-                  cart_order[i].plate_price = cart_order[i].plate_price.toFixed(2);
+                if (plate.plate_id == plate_confronto.plate_id) {
+                  counter++;
                 }
-              }
+            });
+            if (!newCart.some(plate_new_cart => plate_new_cart.plate_id == plate.plate_id)) {
+              newCart.push(
+                {
+                  "plate_id": plate.plate_id,
+                  "original_price": plate.original_price,
+                  "plate_price": (parseFloat(counter) * parseFloat(plate.original_price)).toFixed(2),
+                  "plate_name": plate.plate_name,
+                  "delivery_cost": plate.delivery_cost,
+                  "quantity": counter,
+                }
+              );
             }
+
           });
 
-          return cart_order;
+          return newCart;
         },
 
         total: function() {
@@ -117,7 +119,7 @@ function  init() {
             }
             })
             .then((response) => {
-              console.log('Primi ristoranti casuali: ', response.data.restaurants);
+              // console.log('Primi ristoranti casuali: ', response.data.restaurants);
               this.restaurants = response.data.restaurants;
             })
             .catch(function (error) {
@@ -145,7 +147,7 @@ function  init() {
               this.result_tendina = 1;
               this.loading = 0;
               if (response.data.error) {
-                console.log(response.data.error);
+                // console.log(response.data.error);
                 this.research_error = 1;
               } else if (
                 response.data.typology_resoult.length === 0 &&
@@ -165,10 +167,10 @@ function  init() {
                 }
               }
 
-              console.log('ALL', this.searchResult);
-              console.log('T', this.search_typologies_result);
-              console.log('R', this.search_rest_name_result);
-              console.log('P', this.search_plate_name_result);
+              // console.log('ALL', this.searchResult);
+              // console.log('T', this.search_typologies_result);
+              // console.log('R', this.search_rest_name_result);
+              // console.log('P', this.search_plate_name_result);
             })
             .catch(function (error) {
               console.log(error);
@@ -195,7 +197,7 @@ function  init() {
             }
             })
             .then((response) => {
-              console.log('allbyname', response.data);
+              // console.log('allbyname', response.data);
               this.restaurants = response.data;
               this.displayPlates = 0;
               this.displayRestaurants = 1;
@@ -217,7 +219,7 @@ function  init() {
             }
             })
             .then((response) => {
-              console.log("all plates ->", response.data);
+              // console.log("all plates ->", response.data);
               this.plates = response.data;
               this.$forceUpdate();
             })
@@ -228,6 +230,7 @@ function  init() {
 
         pushInCart: function(plate) {
           this.cart.push(plate);
+          // console.log(plate);
           this.delivery_cost = plate.delivery_cost;
         },
 
@@ -278,7 +281,7 @@ function  init() {
           if (plate_index > -1) {
             this.$delete(this.cart, plate_index);
           }
-          console.log(this.cart_new);
+          // console.log(this.cart_new);
           this.$forceUpdate();
         },
 

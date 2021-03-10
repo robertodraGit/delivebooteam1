@@ -8,7 +8,7 @@ main {
   min-height: 500px;
   //end
 
-  .container {
+  .main-container-welcome {
     width: 90%;
     margin: 0 auto;
 
@@ -31,5 +31,27 @@ main {
 
   }
 
+} 
+
+@media screen and (max-width: 980px) {
+
+  .main-container-welcome{
+    
+    #search-bar{
+      visibility: visible;
+    }
+  }
 }
+
+@media screen and (min-width: 981px) {
+
+  .main-container-welcome{
+  
+    #search-bar {
+    
+      visibility: hidden;
+    }
+  }
+
 }
+

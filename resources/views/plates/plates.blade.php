@@ -21,13 +21,14 @@
                     @php
                     $url_img = "/storage/plates/" . $plate -> img;
                     @endphp
-                    @if ($plate -> img !== null)
+                    @if ($plate -> img)
                         <div class="column-img" style="background-image: url({{ $url_img }})">
                         </div>
+                    @else
+                        <div class="column-img" style="background-image: url({{ asset('/storage/placeholder.svg') }})">
+                            <h5>Nessuna immagine disponibile</h5>
+                        </div>
                     @endif
-                    <div class="column-img" style="background-image: url({{ asset('/storage/placeholder.svg') }})">
-                        <h5>Nessuna immagine disponibile</h5>
-                    </div>
 
                     <div class="list-column">
                         <p>Nome piatto: {{$plate -> plate_name}}</p>

@@ -44,7 +44,6 @@ function  init() {
           displayRestaurants: 1,
           displayPlates: 0,
 
-
       },
       computed: {
 

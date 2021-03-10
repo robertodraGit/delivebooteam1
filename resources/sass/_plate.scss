@@ -115,7 +115,7 @@ $colore_secondario: #00C2B3;
   .layover {
     position: fixed;
     z-index: 5;
-    width: 100vw;
+    width: 100%;
     height: 100vh;
     top: 0;
     left: 0;
@@ -128,6 +128,7 @@ $colore_secondario: #00C2B3;
     z-index: 1000;
     width: 600px;
     height: 80vh;
+    max-height: 450px;
     top: 5%;
     left: 50%;
     transform: translate(-50%, 0);
@@ -161,8 +162,8 @@ $colore_secondario: #00C2B3;
       overflow: auto;
       .plate_img {
         margin: auto;
-        width: 350px;
-        height: 350px;
+        width: 250px;
+        height: 250px;
         margin: 10px auto;
         border-radius: 50%;
       }
@@ -223,4 +224,20 @@ $colore_secondario: #00C2B3;
       }
     }
   }
+}
+@media all and (max-width: 700px) {
+
+  #rest_show_main {
+
+    .plate_detail {
+      top: 0;
+      left: 0;
+      transform: translate(0, 0);
+      width: 100%;
+      height: 100vh;
+      border: 0;
+      max-height: 100vh;
+    }
+  }
+
 }

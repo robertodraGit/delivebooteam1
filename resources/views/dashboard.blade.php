@@ -132,7 +132,7 @@
             <div class="container-card">
                 <div class="card-feed">
 
-                    @foreach ($feedbacks as $fb)
+                    @foreach ($smallFeedbacks as $fb)
                                 <div class="mini-card-feed">
                                     <div class="feedbacks-cards">
                                         <div>

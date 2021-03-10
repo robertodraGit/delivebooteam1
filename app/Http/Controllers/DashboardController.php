@@ -170,7 +170,12 @@ class DashboardController extends Controller
             ],
         ]);
 
-        return view('dashboard', compact('mail_cut', 'feedbacks', 'chartjsDashboard','chartjsFeedbacks', 'orders_3'));
+        $smallFeedbacks = [];
+        for ($L=0; $L < 12; $L++) { 
+            $smallFeedbacks[] = $feedbacks[$L];
+        }
+
+        return view('dashboard', compact('mail_cut', 'smallFeedbacks', 'chartjsDashboard','chartjsFeedbacks', 'orders_3'));
     }
 
     public function stats() {

@@ -10,7 +10,7 @@
 <section class="list-plate">
     <h3>Lista di tutti i tuoi piatti</h3>
     <h5>
-        <a href="{{ route('dashboard') }}">Torna alla dashboard</a>        
+        <a href="{{ route('dashboard') }}">Torna alla dashboard</a>
     </h5>
     <div class="dashboard_plate">
         @foreach ($user -> plates as $plate)
@@ -24,6 +24,7 @@
                         </div>
                     @endif
                     <div class="column-img" style="background-image: url({{ asset('/storage/placeholder.svg') }})">
+                        <h5>Nessuna immagine disponibile</h5>
                     </div>
 
                     <div class="list-column">
@@ -70,7 +71,7 @@
                                 Modifica piatto
                             </button>
                         </form>
-                        <a href="{{route('delete-plate', $plate -> id)}}">Elimina piatto</a>
+                        <a href="{{ route('delete-plate', $plate -> id) }}">Elimina piatto</a>
                     </div>
                 </div>
             @endif

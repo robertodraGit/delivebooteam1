@@ -17290,11 +17290,19 @@ a.text-dark:focus {
   outline: none;
   background-color: #00CCBC;
   border-radius: 15px;
+  box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.5);
 }
 
 .dashboard_plate {
   width: 85%;
   margin: auto;
+}
+
+@media all and (min-width: 768px) and (max-width: 991px) {
+  .dashboard_plate {
+    width: 90%;
+    margin: auto;
+  }
 }
 
 .dashboard_plate .card-plate {
@@ -17308,7 +17316,16 @@ a.text-dark:focus {
   box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.5);
 }
 
+@media all and (min-width: 768px) and (max-width: 991px) {
+  .dashboard_plate .card-plate {
+    height: 250px;
+  }
+}
+
 .dashboard_plate .card-plate .column-img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 250px;
   background-size: cover;
   background-repeat: no-repeat;
@@ -17326,6 +17343,12 @@ a.text-dark:focus {
   font-weight: bold;
 }
 
+@media all and (min-width: 768px) and (max-width: 991px) {
+  .dashboard_plate .card-plate .list-column > p {
+    font-size: 16px;
+  }
+}
+
 .dashboard_plate .card-plate .list-column .checked-box {
   display: flex;
   justify-content: space-between;
@@ -17339,6 +17362,12 @@ a.text-dark:focus {
   margin: 0;
 }
 
+@media all and (min-width: 768px) and (max-width: 991px) {
+  .dashboard_plate .card-plate .list-column .checked-box p {
+    font-size: 16px;
+  }
+}
+
 .dashboard_plate .card-plate .button-plate {
   display: flex;
   flex-direction: column;
@@ -17350,11 +17379,13 @@ a.text-dark:focus {
 .dashboard_plate .card-plate .button-plate button {
   width: 130px;
   height: 45px;
-  background-color: #F6C90E;
+  background-color: #00CCBC;
   color: #ffffff;
   border: none;
   border-radius: 12px;
   margin-bottom: 55px;
+  box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.5);
+  transition: 0.2s ease-in-out;
 }
 
 .dashboard_plate .card-plate .button-plate a {
@@ -17364,8 +17395,22 @@ a.text-dark:focus {
   height: 45px;
   text-align: center;
   line-height: 45px;
-  background-color: red;
+  background-color: #00CCBC;
   border-radius: 12px;
+  box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.5);
+  transition: 0.2s ease-in-out;
+}
+
+.button-plate button:hover {
+  background-color: #eeeeee;
+  color: #2E3333;
+  transform: scale(1.02);
+}
+
+.button-plate a:hover {
+  background-color: red;
+  color: #2E3333;
+  transform: scale(1.02);
 }
 
 .home_plates {

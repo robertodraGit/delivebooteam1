@@ -33,7 +33,7 @@
 
 
 .list-plate {
-    min-height: calC(100vh - 80px);
+    min-height: calc(100vh - 80px);
     padding: 30px 20px;
     background-color: $color_deliveroo_2;
 
@@ -55,6 +55,7 @@
             outline: none;
             background-color: $color_deliveroo;
             border-radius: 15px;
+            box-shadow: $shadow_button;
         }
     }
 }
@@ -63,6 +64,12 @@
 .dashboard_plate {
     width: 85%;
     margin: auto;
+
+    @media all and (min-width: 768px) and (max-width: 991px) {
+        width: 90%;
+        margin: auto;
+    }
+
 
     .card-plate {
         display: flex;
@@ -74,11 +81,20 @@
         background-color: $variable2;
         box-shadow: $shadow_button;
 
+        @media all and (min-width: 768px) and (max-width: 991px) {
+            height: 250px;
+        }
+
+
         .column-img {
+            display: flex;
+            justify-content: center;
+            align-items: center;
             width: 250px;
             background-size: cover;
             background-repeat: no-repeat;
             background-position: center;
+
         }
 
         .list-column {
@@ -89,6 +105,11 @@
                 font-size: 18px;
                 margin: 0;
                 font-weight: bold;
+
+                @media all and (min-width: 768px) and (max-width: 991px) {
+                    font-size: 16px;
+                }
+
             }
 
             .checked-box {
@@ -101,6 +122,11 @@
                     font-size: 18px;
                     font-weight: bold;
                     margin: 0;
+
+                    @media all and (min-width: 768px) and (max-width: 991px) {
+                        font-size: 16px;
+                    }
+
                 }
 
                 input {
@@ -119,11 +145,13 @@
             button {
                 width: 130px;
                 height: 45px;
-                background-color: $primary;
+                background-color: $color_deliveroo;
                 color: $variable2;
                 border: none;
                 border-radius: 12px;
                 margin-bottom: 55px;
+                box-shadow: $shadow_button;
+                transition: 0.2s ease-in-out;
             }
 
             a {
@@ -133,9 +161,31 @@
                 height: 45px;
                 text-align: center;
                 line-height: 45px;
-                background-color: red;
+                background-color: $color_deliveroo;
                 border-radius: 12px;
+                box-shadow: $shadow_button;
+                transition: 0.2s ease-in-out;
             }
         }
+    }
+}
+
+// HOVER
+
+.button-plate {
+
+    button:hover {
+       background-color: $complementary;
+       color: $color_text_3;
+       transform: scale(1.02);
+   }
+}
+
+.button-plate {
+
+    a:hover {
+        background-color: red;
+        color: $color_text_3;
+        transform: scale(1.02);
     }
 }

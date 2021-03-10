@@ -36,14 +36,18 @@
                 </div>
             @endif
 
+
             <h6>* I campi contrassegnati sono obbligatori</h6>
             <div class="textbox">
                 <label class="required" for="plate_name" >Nome piatto</label>
+
                 <input name='plate_name' value="{{$plate -> plate_name}}" type="text" required maxlength="30">
             </div>
 
             <div class="textbox">
+
                 <label class="required" for="ingredients">Ingredienti:</label>
+
                 <input name='ingredients' value="{{$plate -> ingredients}}" type="textbox" required minlength="2" maxlength="2000">
             </div>
 
@@ -58,7 +62,9 @@
             @endphp
 
             <div class="textbox">
+
                 <label class="required" for="price_euro">Prezzo (EURO):</label>
+
                 <input name='price_euro' value="{{$price_euro}}" type="number" min="0" max="9999">
             </div>
 
@@ -118,6 +124,15 @@
             </div>
         </form>
 
+        <a href="{{ route('plate-delete-img', $plate -> id) }}" class="btn btn-danger">Rimuovi foto piatto</a>
+
+        @if ($plate -> img)
+            @php
+                $photoUrl = '/storage/plates/' . $plate -> img;
+            @endphp
+            <h3>Foto del piatto</h3>
+            <img class="propic-user" src="{{asset($photoUrl)}}" alt="">
+        @endif
 
         @if ($plate -> img)
             @php
@@ -126,7 +141,6 @@
             <h3>Foto del piatto</h3>
             <img class="propic-user" src="{{ asset($photoUrl) }}" alt="">
         @endif
-
     </section>
 </body>
 </html>

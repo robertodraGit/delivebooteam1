@@ -16865,7 +16865,7 @@ a.text-dark:focus {
   margin-top: 1rem;
   border: none;
   border-radius: 22px;
-  box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.5);
+  box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.3);
   transition: 0.2s ease-in-out;
 }
 
@@ -16896,7 +16896,7 @@ a.text-dark:focus {
   margin-top: 1rem;
   border: none;
   border-radius: 22px;
-  box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.5);
+  box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.3);
   position: relative;
   overflow: hidden;
   z-index: 1;
@@ -16944,7 +16944,7 @@ a.text-dark:focus {
   font-size: 16px;
   text-transform: uppercase;
   border-radius: 22px;
-  box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.5);
+  box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.3);
   margin: 100px 0 50px 0;
 }
 
@@ -17069,7 +17069,7 @@ a.text-dark:focus {
   flex-basis: calc((100% / 3) - 40px);
   height: 500px;
   border-radius: 10px;
-  box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.5);
+  box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.3);
   margin: 50px 0px;
   padding: 15px;
 }
@@ -17128,7 +17128,7 @@ a.text-dark:focus {
   background-color: #00CCBC;
   color: #ffffff;
   border-radius: 10px;
-  box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.5);
+  box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.3);
 }
 
 .right-side-dash .container-card .card .mini-card hr {
@@ -17145,8 +17145,11 @@ a.text-dark:focus {
   margin: 0;
 }
 
-.right-side-dash .container-card .card .graph-chart-js > h3 {
-  text-align: center;
+.right-side-dash .container-card .card .graph-chart-js {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
 }
 
 .right-side-dash .container-card .card .percentual-feed {
@@ -17266,7 +17269,7 @@ a.text-dark:focus {
   border-radius: 18px;
   height: auto;
   margin-bottom: 2rem;
-  box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.5);
+  box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.3);
   padding: 10px;
 }
 
@@ -17327,7 +17330,7 @@ a.text-dark:focus {
   border: none;
   padding: 0.6rem 0.8rem;
   margin-bottom: 10px;
-  box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.5);
+  box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.3);
 }
 
 @media all and (min-width: 576px) and (max-width: 867px) {
@@ -17380,12 +17383,12 @@ a.text-dark:focus {
 
 .header-right-dash button:hover {
   color: #3a4750;
-  box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.5);
+  box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.3);
 }
 
 .footer-dash button:hover {
   color: #3a4750;
-  box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.5);
+  box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.3);
 }
 
 .header-plate-ind {
@@ -18335,6 +18338,42 @@ header .container img {
 
 .container-email .card h1 {
   margin-bottom: 20px;
+}
+
+.statistics-box {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.statistics-box .graph {
+  width: 60%;
+  padding: 3rem 0;
+}
+
+@media (max-width: 1400px) {
+  .statistics-box .graph {
+    width: 70%;
+  }
+}
+
+@media (max-width: 1100px) {
+  .statistics-box .graph {
+    width: 80%;
+  }
+}
+
+@media (max-width: 870px) {
+  .statistics-box .graph {
+    width: 90%;
+  }
+}
+
+@media (max-width: 768px) {
+  .statistics-box .graph {
+    width: 100%;
+  }
 }
 
 * {

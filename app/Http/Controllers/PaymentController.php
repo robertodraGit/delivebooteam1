@@ -47,6 +47,7 @@ class PaymentController extends Controller
     $data_array['plates'] = $plates_selected;
     $data_array['topay'] = $to_pay;
     $data_array['delivery'] = $delivery_cost;
+    $data_array['plateselect'] = $plate_select;
 
     session() -> flash('data', $data_array);
 

@@ -148,30 +148,38 @@
               Vai alla cassa
             </button>
 
-            <div v-for='item in cart_new'>
-              <span @click="remove_plate(item)">-</span>
-              @{{item.quantity}}
-              <span @click="add_plate(item)">+</span>
-               @{{item.plate_name}} @{{item.plate_price}}€
+            <div v-for='item in cart_new' class="item-cart-row">
+              <div class="item-cart-row-left">
+                <i @click="remove_plate(item)" class="far fa-minus-square change_quantity"></i>
+                <span class="item_cart_quant">@{{item.quantity}}</span>
+                <i @click="add_plate(item)" class="far fa-plus-square change_quantity"></i>
+                <span class="item_cart_name">@{{item.plate_name}}</span>
+              </div>
+              <div class="item-cart-row-right">
+                <span class="item_cart_price">@{{item.plate_price}}€</span>
+              </div>
             </div>
 
-            <div>
+            <div class="cart_costs">
 
-              <div class="">
+              <div class="sub_total">
                 <span>Subtotale</span>
                 <span>@{{total}}€</span>
               </div>
 
-              <div class="">
+              <div class="delivery_cost">
                 <span>Spese di consegna</span>
                 <span>{{$restaurant -> delivery_cost / 100}}€</span>
               </div>
 
-              <button @click='reset_cart()'>
+              <button class="reset_cart" @click='reset_cart()'>
                 Svuota carrello
               </button>
 
-              <p>Totale: @{{((delivery_cost + (total * 100))/100).toFixed(2)}}€</p>
+              <div class="total">
+                <span>Totale</span>
+                <span>@{{((delivery_cost + (total * 100))/100).toFixed(2)}}€</span>
+              </div>
 
             </div>
 

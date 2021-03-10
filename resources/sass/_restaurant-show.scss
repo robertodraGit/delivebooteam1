@@ -154,11 +154,11 @@ header {
     min-height: 200px;
     min-width: 265px;
     // DEBUG:
-    border: 1px solid black;
+    // border: 1px solid black;
     width: 30%;
 
     .cassa {
-      width: 90%;
+      width: 100%;
       padding: 8px 25px;
       border-radius: 5px;
       border: 0;
@@ -175,5 +175,51 @@ header {
         cursor: default;
       }
     }
+
+    .item-cart-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      .item-cart-row-left {
+        display: flex;
+        align-items: center;
+
+        .change_quantity {
+          color: $color_deliveroo;
+          font-size: 21px;
+        }
+        .item_cart_quant {
+          padding: 5px;
+        }
+        .item_cart_name{
+          padding: 5px;
+        }
+      }
+    }
+
+    .cart_costs {
+
+      .sub_total,
+      .delivery_cost,
+      .total {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .total {
+        margin-top: 15px;
+        font-weight: bold;
+      }
+      .reset_cart {
+        margin: 5px 0;
+        padding: 4px 6px;
+        color: white;
+        background-color: $color_deliveroo;
+        border-radius: 5px;
+        border: 0;
+      }
+    }
+
   }
+
 }

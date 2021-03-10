@@ -17755,12 +17755,11 @@ header .cart_header .box .header_price {
 #rest_show_main .rest_show_right {
   min-height: 200px;
   min-width: 265px;
-  border: 1px solid black;
   width: 30%;
 }
 
 #rest_show_main .rest_show_right .cassa {
-  width: 90%;
+  width: 100%;
   padding: 8px 25px;
   border-radius: 5px;
   border: 0;
@@ -17779,6 +17778,52 @@ header .cart_header .box .header_price {
 
 #rest_show_main .rest_show_right .cassa.disabled:hover {
   cursor: default;
+}
+
+#rest_show_main .rest_show_right .item-cart-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#rest_show_main .rest_show_right .item-cart-row .item-cart-row-left {
+  display: flex;
+  align-items: center;
+}
+
+#rest_show_main .rest_show_right .item-cart-row .item-cart-row-left .change_quantity {
+  color: #00CCBC;
+  font-size: 21px;
+}
+
+#rest_show_main .rest_show_right .item-cart-row .item-cart-row-left .item_cart_quant {
+  padding: 5px;
+}
+
+#rest_show_main .rest_show_right .item-cart-row .item-cart-row-left .item_cart_name {
+  padding: 5px;
+}
+
+#rest_show_main .rest_show_right .cart_costs .sub_total,
+#rest_show_main .rest_show_right .cart_costs .delivery_cost,
+#rest_show_main .rest_show_right .cart_costs .total {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#rest_show_main .rest_show_right .cart_costs .total {
+  margin-top: 15px;
+  font-weight: bold;
+}
+
+#rest_show_main .rest_show_right .cart_costs .reset_cart {
+  margin: 5px 0;
+  padding: 4px 6px;
+  color: white;
+  background-color: #00CCBC;
+  border-radius: 5px;
+  border: 0;
 }
 
 header {

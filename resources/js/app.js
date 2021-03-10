@@ -68,7 +68,7 @@ function  init() {
                   cart_order[i].quantity++;
 
                   cart_order[i].plate_price = parseFloat(cart_order[i].quantity).toFixed(2) *
-                  parseFloat(element.plate_price).toFixed(2);
+                  parseFloat(element.original_price).toFixed(2);
 
                   cart_order[i].plate_price = cart_order[i].plate_price.toFixed(2);
                 }
@@ -268,18 +268,30 @@ function  init() {
         },
 
         remove_plate: function(plate){
-          console.log(plate);
+
+          let plate_index = -1;
+          this.cart.forEach((item, i) => {
+            if (item.plate_id == plate.plate_id) {
+              plate_index = i;
+            }
+          });
+          if (plate_index > -1) {
+            this.$delete(this.cart, plate_index);
+          }
+          console.log(this.cart_new);
+          this.$forceUpdate();
         },
 
         add_plate: function(plate){
-          console.log(plate);
+          // console.log(plate);
           let newPlate = {
             "plate_id": plate.plate_id,
+            "original_price": plate.original_price,
             "plate_price": plate.original_price,
             "plate_name": plate.plate_name,
             "delivery_cost": plate.delivery_cost,
           };
-          console.log(newPlate);
+          // console.log(newPlate);
           this.cart.push(newPlate);
           this.$forceUpdate();
         },

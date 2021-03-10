@@ -15888,7 +15888,6 @@ a.text-dark:focus {
   position: relative;
   display: flex;
   flex-direction: column;
-  height: auto;
   padding: 25px 50px;
   background-color: #D0EB99;
 }
@@ -15917,7 +15916,7 @@ a.text-dark:focus {
   }
 }
 
-.form-block img {
+.form-block > img {
   position: absolute;
   top: 15%;
   right: 12%;
@@ -15925,14 +15924,14 @@ a.text-dark:focus {
 }
 
 @media all and (min-width: 1200px) and (max-width: 1599px) {
-  .form-block img {
+  .form-block > img {
     top: 21%;
     width: 420px;
   }
 }
 
 @media all and (min-width: 968px) and (max-width: 1199px) {
-  .form-block img {
+  .form-block > img {
     top: 26%;
     right: 10%;
     width: 350px;
@@ -15940,25 +15939,25 @@ a.text-dark:focus {
 }
 
 @media all and (min-width: 725px) and (max-width: 967px) {
-  .form-block img {
+  .form-block > img {
     display: none;
   }
 }
 
 @media all and (min-width: 576px) and (max-width: 724px) {
-  .form-block img {
+  .form-block > img {
     display: none;
   }
 }
 
 @media all and (min-width: 441px) and (max-width: 575px) {
-  .form-block img {
+  .form-block > img {
     display: none;
   }
 }
 
 @media all and (max-width: 440px) {
-  .form-block img {
+  .form-block > img {
     display: none;
   }
 }
@@ -16346,6 +16345,16 @@ a.text-dark:focus {
     width: 150px;
     height: 35px;
   }
+}
+
+.img-position {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+}
+
+.img-position > #img-plate {
+  width: 240px;
 }
 
 .button-save {

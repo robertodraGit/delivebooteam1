@@ -87,7 +87,6 @@
     position: relative;
     display: flex;
     flex-direction: column;
-    height: auto;
     padding: 25px 50px;
     background-color: $color_deliveroo_2;
 
@@ -107,7 +106,7 @@
         padding: 25px 20px;
     }
 
-    img {
+    & > img {
         position: absolute;
         top: 15%;
         right: 12%;
@@ -457,6 +456,18 @@
         }
     }
 }
+
+.img-position {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+
+    & > #img-plate {
+        width: 240px;
+    }
+}
+
+
 
 .button-save {
     margin-top: 35px;

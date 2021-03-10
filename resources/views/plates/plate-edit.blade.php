@@ -113,20 +113,20 @@
                 <a href="{{ route('plate-delete-img', $plate -> id) }}" class="btn btn-danger">Rimuovi foto piatto</a>
             </div>
 
+            <div class="img-position">
+                @if ($plate -> img)
+                    @php
+                    $photoUrl = '/storage/plates/' . $plate -> img;
+                    @endphp
+                    <h3>Immagine del piatto</h3>
+                    <img id="img-plate" src="{{ asset($photoUrl) }}" alt="">
+                @endif
+            </div>
+
             <div class="button-save">
                 <input type="submit" value="Aggiorna">
             </div>
         </form>
-
-
-        @if ($plate -> img)
-            @php
-                $photoUrl = '/storage/plates/' . $plate -> img;
-            @endphp
-            <h3>Foto del piatto</h3>
-            <img class="propic-user" src="{{ asset($photoUrl) }}" alt="">
-        @endif
-
     </section>
 </body>
 </html>

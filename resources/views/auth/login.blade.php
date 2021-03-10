@@ -77,7 +77,7 @@
 
             <div class="image">
                 <div class="background"></div>
-                <img src="/img/chart_illustration.svg" alt="">
+                <img src="/storage/pizza_chart.svg" alt="">
             </div>
 
 </div>

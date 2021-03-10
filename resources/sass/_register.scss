@@ -14,24 +14,30 @@
             width: 100px;
         }
     }
-
+}
 
 // media md, s
 @media screen and (max-width: 800px) {
-    .card {
-        margin: 5% 10%;
-        // border: 1px solid black;
+    .container-register {
+        
+        .card {
+            margin: 5% 10%;
+            // border: 1px solid black;
+        }
     }
 }
 
 // media lg
 @media screen and (min-width: 801px) {
-    .card {
-        margin-top: 5%;
-        margin-left: 10%;
-       
-        // border: 1px solid black;
+
+    .container-register {
+
+        .card {
+            margin-top: 5%;
+            margin-left: 10%;
+           
+            // border: 1px solid black;
+        }
     }
 }
 
-}

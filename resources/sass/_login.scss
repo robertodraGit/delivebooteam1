@@ -35,14 +35,13 @@
         
     }
 
-
+}
 // media md, s
 @media screen and (max-width: 800px) { // < 800 compreso
     
     .container-login {
         flex-direction: column;
         align-items: center;
-        background-color: blue; ///////////////////////////////////////////NON FUNZIONA
 
         .card {
             padding-bottom: 60px;
@@ -60,12 +59,13 @@
     
 }
 
+
+
 // media lg
 @media screen and (min-width: 801px) { // > 801 compreso
 
     .container-login {
         justify-content: end;  
-        background-color: red; //////////////////////////////////////////////NON FUNZIONA
 
         .card {
             margin-top: 5%;
@@ -85,4 +85,3 @@
     }
 }
 
-}

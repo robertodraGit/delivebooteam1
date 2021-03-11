@@ -53,22 +53,21 @@
     }
 
     .feed-bubble:hover {
-        animation:  shake 0.8s;
+        animation:  shake 0.7s;
     }
 
-    @keyframes shake{ 
-        0%{ 
-          transform: translateX(0) 
-        } 
-        25%{ 
-          transform: translateX(10px); 
-        } 
-          
-        50%{ 
-          transform: translateX(-10px); 
-        } 
-        100%{ 
-          transform: translateX(0px); 
-        } 
-      } 
+    @keyframes shake {
+        10%, 90% {
+          transform: rotate(2deg);
+        }
+        20%, 80% {
+          transform: rotate(-2deg);
+        }
+        30%, 50%, 70% {
+          transform: rotate(2deg);
+        }
+        40%, 60% {
+          transform: rotate(-2deg);
+        }
+      }  
 }

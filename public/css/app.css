@@ -20406,43 +20406,43 @@ header .container img {
 }
 
 .new-feed .feed-bubble:hover {
-  -webkit-animation: shake 0.8s;
-          animation: shake 0.8s;
+  -webkit-animation: shake 0.7s;
+          animation: shake 0.7s;
 }
 
 @-webkit-keyframes shake {
-  0% {
-    transform: translateX(0);
+  10%, 90% {
+    transform: rotate(2deg);
   }
 
-  25% {
-    transform: translateX(10px);
+  20%, 80% {
+    transform: rotate(-2deg);
   }
 
-  50% {
-    transform: translateX(-10px);
+  30%, 50%, 70% {
+    transform: rotate(2deg);
   }
 
-  100% {
-    transform: translateX(0px);
+  40%, 60% {
+    transform: rotate(-2deg);
   }
 }
 
 @keyframes shake {
-  0% {
-    transform: translateX(0);
+  10%, 90% {
+    transform: rotate(2deg);
   }
 
-  25% {
-    transform: translateX(10px);
+  20%, 80% {
+    transform: rotate(-2deg);
   }
 
-  50% {
-    transform: translateX(-10px);
+  30%, 50%, 70% {
+    transform: rotate(2deg);
   }
 
-  100% {
-    transform: translateX(0px);
+  40%, 60% {
+    transform: rotate(-2deg);
   }
 }
 

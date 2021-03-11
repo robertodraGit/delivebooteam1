@@ -160,6 +160,15 @@ $colore_secondario: #00C2B3;
       height: calc(100% - 150px);
       padding: 8px;
       overflow: auto;
+      display: flex;
+      flex-direction: column;
+      &:after {
+        content: "";
+        display: block;
+        height: 8px;
+        width: 100%;
+        flex-shrink: 0;
+      }
 
       .plate_img {
         margin: auto;
@@ -168,12 +177,15 @@ $colore_secondario: #00C2B3;
         margin: 10px auto;
         border-radius: 50%;
       }
+      .plate_detail_info {
+        flex-grow: 1;
+      }
       .quantity_pannel {
         width: 200px;
         height: 30px;
-        margin: 10px auto;
+        margin: 10px auto 0 auto;
         display: flex;
-        @include debug-border;
+        // @include debug-border;
         .remove_plate {
           width: 40px;
           height: 100%;
@@ -185,6 +197,8 @@ $colore_secondario: #00C2B3;
         .quantity {
           width: 120px;
           height: 100%;
+          font-weight: bold;
+          font-size: 1.2em;
           @include flex-centratura;
         }
         .add_plate {
@@ -194,6 +208,10 @@ $colore_secondario: #00C2B3;
           &:hover {
             cursor: pointer;
           }
+        }
+        .change_quantity {
+          color: $color_deliveroo;
+          font-size: 21px;
         }
       }
     }
@@ -238,10 +256,10 @@ $colore_secondario: #00C2B3;
       height: 100vh;
       border: 0;
       max-height: 100vh;
-      
+
       .plate_img {
-        width: 125px;
-        height: 125px;
+        width: 150px;
+        height: 150px;
       }
     }
   }

@@ -6532,18 +6532,6 @@ header .container img {
   width: 150px;
 }
 
-@media screen and (max-width: 980px) {
-  header #search-bar {
-    visibility: hidden;
-  }
-}
-
-@media screen and (min-width: 981px) {
-  header #search-bar {
-    visibility: visible;
-  }
-}
-
 .plates_container {
   padding: 20px;
 }
@@ -6708,18 +6696,6 @@ header .container img {
 .container-welcome footer .container .copyright {
   text-align: center;
   color: #776144;
-}
-
-@media screen and (max-width: 980px) {
-  .main-container-welcome #search-bar {
-    visibility: visible;
-  }
-}
-
-@media screen and (min-width: 981px) {
-  .main-container-welcome #search-bar {
-    visibility: hidden;
-  }
 }
 
 .card-carousel-wrapper {

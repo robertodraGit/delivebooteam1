@@ -79,24 +79,24 @@ footer {
 
 } 
 
-@media screen and (max-width: 980px) {
+// @media screen and (max-width: 980px) {
 
-  .main-container-welcome{
+//   .main-container-welcome{
     
-    #search-bar{
-      visibility: visible;
-    }
-  }
-}
+//     #search-bar{
+//       visibility: visible;
+//     }
+//   }
+// }
 
-@media screen and (min-width: 981px) {
+// @media screen and (min-width: 981px) {
 
-  .main-container-welcome{
+//   .main-container-welcome{
   
-    #search-bar {
+//     #search-bar {
     
-      visibility: hidden;
-    }
-  }
+//       visibility: hidden;
+//     }
+//   }
 
-}
+// }

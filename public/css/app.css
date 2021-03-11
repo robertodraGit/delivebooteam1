@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Nunito);/*!
+@import url(https://fonts.googleapis.com/css?family=Nunito);@import url(https://fonts.googleapis.com/css2?family=Redressed&display=swap);/*!
  * Font Awesome Free 5.15.2 by @fontawesome - https://fontawesome.com
  * License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
  */
@@ -20357,84 +20357,93 @@ header .container img {
   }
 }
 
-.card-2 {
-  height: auto;
-  border-radius: 5px;
-  box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.3);
-  margin: 50px 0px;
-  padding: 15px;
+.new-feed {
+  background-color: #E0F3F9;
+  min-height: 100vh;
+  padding: 30px 30px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
 }
 
-@media all and (min-width: 1200px) and (max-width: 1600px) {
-  .card-2 {
-    height: auto;
-  }
-}
-
-@media all and (min-width: 868px) and (max-width: 1199px) {
-  .card-2 {
-    height: auto;
-    flex-basis: 100%;
-    margin: 50px 0px 0px 0px;
-  }
-}
-
-.card-2 > h3 {
-  text-align: center;
-  text-transform: uppercase;
-  font-weight: bold;
-  color: #00CCBC;
-}
-
-@media all and (min-width: 1200px) and (max-width: 1600px) {
-  .card-2 > h3 {
-    font-size: 24px;
-  }
-}
-
-@media all and (min-width: 868px) and (max-width: 1199px) {
-  .card-2 > h3 {
-    font-size: 20px;
-  }
-}
-
-@media all and (min-width: 576px) and (max-width: 867px) {
-  .card-2 > h3 {
-    font-size: 18px;
-  }
-}
-
-@media all and (max-width: 575px) {
-  .card-2 > h3 {
-    font-size: 16px;
-  }
-}
-
-.card-2 .mini-card {
-  width: 90%;
-  margin: 10px auto;
-  padding: 20px;
-  height: auto;
-  background-color: #00CCBC;
-  color: #ffffff;
-  border-radius: 5px;
-  box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.3);
+.new-feed .feed-bubble {
   position: relative;
+  width: 280px;
+  margin: 25px 8px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  padding: 20px 15px;
+  border-radius: 1rem;
+  box-shadow: rgba(0, 0, 0, 0.08) 0px 3px 8px;
 }
 
-.card-2 .mini-card h1 {
+.new-feed .feed-bubble * {
+  margin-bottom: 0px;
+}
+
+.new-feed .feed-bubble p {
+  margin: 8px 0;
+  font-family: "Redressed", cursive;
+  font-size: 2rem;
+  font-weight: 0;
+  line-height: 1em;
+  flex-grow: 1;
+}
+
+.new-feed .feed-bubble::before {
+  content: "";
   position: absolute;
-  top: 10%;
-  right: 5%;
+  width: 0;
+  height: 0;
+  bottom: 100%;
+  left: 1.5em;
+  border: 0.75rem solid transparent;
+  border-top: none;
+  border-bottom-color: #fff;
+  filter: drop-shadow(0 -0.0625rem 0.0625rem rgba(0, 0, 0, 0.1));
 }
 
-.card-2 .mini-card hr {
-  margin: 0 0 5px 0;
-  border-color: #ffffff;
+.new-feed .feed-bubble:hover {
+  -webkit-animation: shake 0.8s;
+          animation: shake 0.8s;
 }
 
-.card-2 .mini-card p {
-  margin: 0;
+@-webkit-keyframes shake {
+  0% {
+    transform: translateX(0);
+  }
+
+  25% {
+    transform: translateX(10px);
+  }
+
+  50% {
+    transform: translateX(-10px);
+  }
+
+  100% {
+    transform: translateX(0px);
+  }
+}
+
+@keyframes shake {
+  0% {
+    transform: translateX(0);
+  }
+
+  25% {
+    transform: translateX(10px);
+  }
+
+  50% {
+    transform: translateX(-10px);
+  }
+
+  100% {
+    transform: translateX(0px);
+  }
 }
 
 * {

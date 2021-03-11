@@ -15563,12 +15563,7 @@ a.text-dark:focus {
   min-height: 500px;
 }
 
-.container-welcome main .main-container-welcome .restaurants {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.container-welcome main .main-container-welcome .restaurants .card {
+.container-welcome main .main-container-welcome .card {
   width: calc(25% - 20px);
   margin: 10px;
   height: 400px;
@@ -19110,12 +19105,7 @@ header .flex-container-header img {
   min-height: 500px;
 }
 
-.container-welcome main .main-container-welcome .restaurants {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.container-welcome main .main-container-welcome .restaurants .card {
+.container-welcome main .main-container-welcome .card {
   width: calc(25% - 20px);
   margin: 10px;
   height: 400px;

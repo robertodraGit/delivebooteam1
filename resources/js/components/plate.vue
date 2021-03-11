@@ -176,11 +176,13 @@ cut del testo da vue (ok ma non va da responsive) -->
         close_details: function(){
           // this.quantity = 1;
           this.display_details = false;
+          $("body").removeClass("scroll-hide");
         },
 
         display_details_method: function() {
           if (this.disponibile) {
             this.display_details = true;
+            $("body").addClass("scroll-hide");
           }
         },
 

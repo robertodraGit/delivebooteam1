@@ -18540,3 +18540,7 @@ header .container img {
   z-index: 999;
 }
 
+.scroll-hide {
+  overflow: hidden !important;
+}
+

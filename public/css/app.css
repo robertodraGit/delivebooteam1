@@ -16496,6 +16496,16 @@ a.text-dark:focus {
   height: calc(100% - 150px);
   padding: 8px;
   overflow: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.plate_container .plate_detail .show:after {
+  content: "";
+  display: block;
+  height: 8px;
+  width: 100%;
+  flex-shrink: 0;
 }
 
 .plate_container .plate_detail .show .plate_img {
@@ -16506,12 +16516,15 @@ a.text-dark:focus {
   border-radius: 50%;
 }
 
+.plate_container .plate_detail .show .plate_detail_info {
+  flex-grow: 1;
+}
+
 .plate_container .plate_detail .show .quantity_pannel {
   width: 200px;
   height: 30px;
-  margin: 10px auto;
+  margin: 10px auto 0 auto;
   display: flex;
-  border: 1px solid black;
 }
 
 .plate_container .plate_detail .show .quantity_pannel .remove_plate {
@@ -16529,6 +16542,8 @@ a.text-dark:focus {
 .plate_container .plate_detail .show .quantity_pannel .quantity {
   width: 120px;
   height: 100%;
+  font-weight: bold;
+  font-size: 1.2em;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -16544,6 +16559,11 @@ a.text-dark:focus {
 
 .plate_container .plate_detail .show .quantity_pannel .add_plate:hover {
   cursor: pointer;
+}
+
+.plate_container .plate_detail .show .quantity_pannel .change_quantity {
+  color: #00CCBC;
+  font-size: 21px;
 }
 
 .plate_container .plate_detail .total {
@@ -16592,8 +16612,8 @@ a.text-dark:focus {
   }
 
   #rest_show_main .plate_detail .plate_img {
-    width: 125px;
-    height: 125px;
+    width: 150px;
+    height: 150px;
   }
 }
 

@@ -17,16 +17,14 @@
           <section v-if="displayRestaurants">
               <h1>Restaurants</h1>
 
-              <div class="restaurants">
 
-                <div  v-for="restaurant in restaurants" :key="restaurant.id">
+                <div class="restaurants" v-for="restaurant in restaurants" :key="restaurant.id">
                     {{-- <p>@{{restaurant}}</p> --}}
                     <restaurant
                       :restaurant_data="restaurant"
                     ></restaurant>
                 </div>
-
-              </div>
+                  
           </section>
 
           <section v-if="displayPlates">

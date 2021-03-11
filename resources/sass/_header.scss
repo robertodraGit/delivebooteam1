@@ -24,26 +24,26 @@ header{
 
 
   // INIZIO HEADER DX RESPONSIVE
-  @media screen and (max-width: 980px) {
+  // @media screen and (max-width: 980px) {
 
-    header{
+  //   header{
       
-      #search-bar{
-        visibility: hidden;
-      }
-    }
-  }
+  //     #search-bar{
+  //       visibility: hidden;
+  //     }
+  //   }
+  // }
 
-  @media screen and (min-width: 981px) {
+  // @media screen and (min-width: 981px) {
 
-    header {
+  //   header {
 
-      #search-bar{
-        visibility: visible;
-      }
+  //     #search-bar{
+  //       visibility: visible;
+  //     }
 
-    }
-  }
+  //   }
+  // }
   // FINE HEADER DX RESPONSIVE
 
 

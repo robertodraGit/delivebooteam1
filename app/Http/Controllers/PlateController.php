@@ -42,7 +42,9 @@ class PlateController extends Controller
       $data['availability'] = 0;
     }
 
-
+    if ($data['price_cents'] == '00') {
+      $data['price_cents'] = 0;
+    }
 
     // trasformo il prezzo da due valori ad un valore
     $plate_price = ($data['price_euro'] * 100) + $data['price_cents'];
@@ -113,6 +115,10 @@ class PlateController extends Controller
 
     if (!array_key_exists('availability', $data)) {
       $data['availability'] = 0;
+    }
+
+    if ($data['price_cents'] == '00') {
+      $data['price_cents'] = 0;
     }
 
     Validator::make($data, [

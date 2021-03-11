@@ -93,6 +93,7 @@
           @include('components.header-dashboard-responsive')
           <section class="dashboard-content">
             @yield('dashboard-home')
+            @yield('create-plate')
           </section>
         </div>
 

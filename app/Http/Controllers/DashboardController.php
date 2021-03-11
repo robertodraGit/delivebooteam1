@@ -25,13 +25,13 @@ class DashboardController extends Controller
         $email_user = $user -> email;
         $word = '@';
         $mail_cut = substr($email_user, 0, strpos($email_user, $word));
-        
+
         $months_label = [];
 
-        for ($i=0; $i > -3; $i--) { 
+        for ($i=0; $i > -3; $i--) {
             $months_label[] = date('M', strtotime($i . ' month'));
         }
-        
+
         $userOrdersId = [];
         foreach ($user -> plates as $plate) {
           $orders = [];
@@ -51,8 +51,8 @@ class DashboardController extends Controller
         }
 
         $orders_3 = [];
-        if (count($reordered) > 0) {   
-            for ($j=0; $j < 3; $j++) { 
+        if (count($reordered) > 0) {
+            for ($j=0; $j < 3; $j++) {
                 $orders_3[] = $reordered[$j];
             }
         }
@@ -68,7 +68,7 @@ class DashboardController extends Controller
         }
 
         $counterFeedbacks = array (0,0,0,0,0);
-        
+
         foreach ($user -> feedback as $fdb) {
             if ($fdb -> rate == 1) {
                 $counterFeedbacks[0] += 1;
@@ -129,7 +129,7 @@ class DashboardController extends Controller
                             'beginAtZero' => true,
                             // 'max' => 100,
                             // 'min' => 20,
-                            // 'stepSize' => 10,
+                            'stepSize' => 1,
                         ],
                         'stacked' => true,
                         'gridLines' => [
@@ -162,7 +162,7 @@ class DashboardController extends Controller
             'animation' => [
                 'rotate' => '-0.5 * Math.PI',
                 'animateRotate' => true,
-            ],            
+            ],
             'responsive' => true,
             'legend' => [
                 'display' => true,
@@ -181,7 +181,15 @@ class DashboardController extends Controller
             }
         }
 
-        return view('dashboard', compact('mail_cut', 'smallFeedbacks', 'chartjsDashboard','chartjsFeedbacks', 'orders_3'));
+        return view('dashboard.dashboard-index', compact('mail_cut', 'smallFeedbacks', 'chartjsDashboard','chartjsFeedbacks', 'orders_3'));
+    }
+
+    public function feedbackPage() {
+
+        $feedbacks = Auth::user() ->  feedback;
+        $feedbacksOrder = $feedbacks -> sortByDesc('created_at');
+
+        return view('dashboard.feedbacks', compact('feedbacksOrder'));
     }
 
     public function stats() {
@@ -205,7 +213,7 @@ class DashboardController extends Controller
         }
 
         $counterFeedbacks = array (0,0,0,0,0);
-        
+
         foreach ($user -> feedback as $fdb) {
             if ($fdb -> rate == 1) {
                 $counterFeedbacks[0] += 1;
@@ -371,4 +379,8 @@ class DashboardController extends Controller
         return view('dashboard.stats', compact('chartjs1', 'chartjs2'));
     }
 
+    // public function dashProvvisoria(){
+    //   $user = Auth::user();
+    //   return view('dashboard.dashboard-index', compact('user'));
+    // }
 }

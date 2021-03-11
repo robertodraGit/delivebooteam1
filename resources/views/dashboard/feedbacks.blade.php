@@ -13,7 +13,7 @@
                 </div>
             @endif
             <h1>
-                {{ $mail_cut }}
+                {{ Auth::user() -> name }}
             </h1>
 
             <form action="{{ route('plates-create') }}">
@@ -27,6 +27,14 @@
 
             <div class="buttons-left-dash">
                 <h4>Dashboard</h4>
+
+                <form action="{{ route('dashboard') }}">
+                    <button class="btn btn-success" type="submit">
+                        Torna alla dashboard
+                        <span class="plate-color"></span><span class="plate-color"></span><span class="plate-color"></span><span class="plate-color"></span>
+                    </button>
+                </form>
+                
                 <form action="{{ route('restaurant-edit') }}">
                     <button class="btn btn-success" type="submit">
                         Modifica il tuo profilo
@@ -73,74 +81,42 @@
         </div>
 
         <div class="right-side-dash">
-            <div class="header-right-dash">
 
-                {{-- MENU HAMBURGER --}}
+            @if (!empty($feedbacksOrder))
+                <div class="card-2">
+                    @foreach ($feedbacksOrder as $fb)
+                        
+                        <div class="mini-card">
+                            <h4>{{$fb -> name}}</h4>
+                            <h5>{{$fb -> email}}</h5>
+                            <h1>{{$fb -> rate}}</h1>
+                            <p>{{$fb -> comment}}</p>
+                        </div>
 
-                {{-- FINE MENU HAMBURGER --}}
-
-                <h3>Benvenuto/a
-                    <span>{{ Auth::user() -> name }}!</span>
-                </h3>
-
-                <a href="{{ route('index') }}">
-                    <img src="{{ asset('storage/img/deliveroo-logo.svg') }}" alt="">
-                </a>
-            </div>
+                    @endforeach
+                </div>
+            @else
+                <div class="card-2">
+                    <div class="mini-card">
+                        <h4>Al momento non ci sono feedback</h4>
+                    </div>
+                </div>
+            @endif
 
             {{-- CONTAINER PRINCIPALE DELLE CARD --}}
-            <div class="container-card">
                 {{-- CARD ORDER--}}
-                <div class="card">
-                    <h3>Gli ultimi ordini</h3>
-                    {{-- LISTA ORDINI NELLA CARD --}}
-                    @if (!empty($orders_3))
-                        @foreach ($orders_3 as $item_3)
-                            <div class="mini-card">
-                                <h5>{{$item_3 -> first_name}} {{$item_3 -> last_name}}</h5>
-                                <hr>
-                                <div class="price-right">
-                                    @if ($item_3 -> payment_state)
-                                        <p>Ordine pagato</p>
-                                    @else
-                                        <p>Ordine da pagare</p>
-                                    @endif 
-                                    <span>{{$item_3 -> total_price / 100}} €</span>
-                                </div>
-                                <p>Cellulare: {{$item_3 -> phone}}</p>
-                            </div>      
-                        @endforeach
-                    @else
+                <div class="card-2">
+                    @foreach ($feedbacksOrder as $fb)
+                        
                         <div class="mini-card">
-                            <h3>Non hai ancora ordini!</h3>
-                        </div> 
-                    @endif
-                </div>
-                {{-- CARD STATISTICS --}}
-                <div class="card">
-                    <h3>Le tue statistiche</h3>
-                    <div class="graph-chart-js">
-                        <div>
-                            {!! $chartjsDashboard->render() !!}
+                            <h4>{{$fb -> name}}</h4>
+                            <h5>{{$fb -> email}}</h5>
+                            <h1>{{$fb -> rate}}</h1>
+                            <p>{{$fb -> comment}}</p>
                         </div>
-                    </div>
+
+                    @endforeach
                 </div>
-                {{-- CARD FEEDBACK --}}
-                <div id="resp-card" class="card">
-                    <h3>I tuoi feedback</h3>
-                    <form class="" action="{{ route('feedbacks') }}">
-                        <button>
-                            Visualizza tutti i feedbacks
-                            <span class="order-color"></span><span class="order-color"></span><span class="order-color"></span><span class="order-color"></span>
-                        </button>
-                    </form>
-                    <div class="graph-chart-js">
-                        <div>
-                            {!! $chartjsFeedbacks->render() !!}
-                        </div>
-                    </div>
-                </div>
-            </div>
 
         </div>
 

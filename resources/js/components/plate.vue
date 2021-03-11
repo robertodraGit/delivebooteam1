@@ -56,13 +56,13 @@ cut del testo da vue (ok ma non va da responsive) -->
             <div class="quantity_pannel">
 
               <div class="remove_plate" @click="remove_quantity">
-                -
+                <i class="far fa-minus-square change_quantity"></i>
               </div>
               <div class="quantity">
                 <span>{{ quantity }}</span>
               </div>
               <div class="add_plate" @click="add_quantity">
-                +
+                <i class="far fa-plus-square change_quantity"></i>
               </div>
 
             </div>

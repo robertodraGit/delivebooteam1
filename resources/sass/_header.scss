@@ -8,13 +8,11 @@ header{
     height: 80px;
   // end
 
-  .container {
+  .flex-container-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 80%;
-    height: 100%;
-    margin: 0 auto; 
+    height: 100%;  width: 100%;
 
     img{
       width: 150px;

@@ -18214,6 +18214,26 @@ header .container img {
   color: #776144;
 }
 
+@media all and (max-width: 600px) {
+  #footer .container {
+    width: 100%;
+  }
+
+  #footer .container nav {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #footer .container nav ul {
+    width: 100%;
+    min-height: 0;
+  }
+
+  #footer .container nav ul li:first-child {
+    font-weight: bold;
+  }
+}
+
 .plates_container {
   padding: 20px;
 }

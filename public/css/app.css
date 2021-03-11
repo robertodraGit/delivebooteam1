@@ -15751,7 +15751,7 @@ a.text-dark:focus {
 }
 
 .order-pay-container #order-summary .order-summary-box {
-  width: 40%;
+  width: 55%;
   background-color: #ffffff;
   padding: 2%;
   border-radius: 3px;
@@ -15761,6 +15761,7 @@ a.text-dark:focus {
   vertical-align: middle;
   padding: 2%;
   text-align: center;
+  overflow-x: scroll;
   margin: 10px 0;
   background-color: white;
   border-radius: 5px;
@@ -15776,14 +15777,16 @@ a.text-dark:focus {
 
 .pay-box {
   margin: 0;
-  width: 40%;
+  width: 55%;
 }
 
 .pay-box #pay-button {
   margin-top: 5px;
   border-radius: 3px;
+  background-color: #FB5058;
+  padding: 5%;
+  color: white;
   width: 100%;
-  padding: 20px;
 }
 
 .pay-box #pay-button span {
@@ -19617,7 +19620,7 @@ header .container img {
 }
 
 .order-pay-container #order-summary .order-summary-box {
-  width: 40%;
+  width: 55%;
   background-color: #ffffff;
   padding: 2%;
   border-radius: 3px;
@@ -19627,6 +19630,7 @@ header .container img {
   vertical-align: middle;
   padding: 2%;
   text-align: center;
+  overflow-x: scroll;
   margin: 10px 0;
   background-color: white;
   border-radius: 5px;
@@ -19642,14 +19646,16 @@ header .container img {
 
 .pay-box {
   margin: 0;
-  width: 40%;
+  width: 55%;
 }
 
 .pay-box #pay-button {
   margin-top: 5px;
   border-radius: 3px;
+  background-color: #FB5058;
+  padding: 5%;
+  color: white;
   width: 100%;
-  padding: 20px;
 }
 
 .pay-box #pay-button span {
@@ -20306,7 +20312,6 @@ header .container img {
 
 .alertpay {
   position: fixed;
-  display: block;
   top: 0;
   left: 0;
   width: 100%;
@@ -20315,6 +20320,17 @@ header .container img {
   line-height: 90px;
   padding-left: 50px;
   z-index: 1501;
+}
+
+@media all and (min-width: 0px) and (max-width: 799px) {
+  .alertpay {
+    padding: 5%;
+    height: 40px;
+    line-height: 40px;
+    height: auto;
+    padding: 0;
+    font-size: 16px;
+  }
 }
 
 .scroll-hide {

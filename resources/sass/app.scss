@@ -60,7 +60,6 @@
 }
 .alertpay{
   position: fixed;
-  display: block;
   top: 0;
   left: 0;
   width: 100%;
@@ -69,6 +68,16 @@
   line-height: 90px;
   padding-left: 50px;
   z-index: 1501;
+}
+@media all and (min-width: 0px) and (max-width: 799px) {
+  .alertpay{
+    padding: 5%;
+    height: 40px;
+    line-height: 40px;
+    height: auto;
+    padding: 0;
+    font-size: 16px;
+  }
 }
 
 .scroll-hide {

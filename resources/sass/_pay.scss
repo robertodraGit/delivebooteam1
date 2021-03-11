@@ -58,7 +58,7 @@
     .order-summary-box{
       // color: $color_deliveroo;
       // border: 2px solid $color_deliveroo_2;
-      width: 40%;
+      width: 55%;
       background-color: #ffffff;
       padding: 2%;
       border-radius: 3px;
@@ -67,7 +67,7 @@
         padding: 2%;
         text-align: center;
         // border: 1px solid $color_deliveroo_2;
-
+        overflow-x: scroll;
         margin: 10px 0;
         background-color: white;
         border-radius: 5px;
@@ -88,13 +88,14 @@
 }
 .pay-box{
   margin: 0;
-  width: 40%;
+  width: 55%;
   #pay-button{
     margin-top: 5px;
-    // border-color: $color_deliveroo_2;
     border-radius: 3px;
+    background-color: $discount-price;
+    padding: 5%;
+    color: white;
     width: 100%;
-    padding: 20px;
     span{
       font-size: 22px;
     }

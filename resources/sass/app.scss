@@ -11,9 +11,13 @@
 // Fontawesome
 @import '~@fortawesome/fontawesome-free/css/all.css';
 
+@import 'welcome';
+@import 'carousel';
+@import 'pay';
+
 // other
 @import 'plate';
-@import 'plate_create';
+@import 'plate_create_and_edit';
 @import 'cart';
 @import 'search-bar';
 
@@ -23,22 +27,23 @@
 
 @import 'restaurant';
 @import 'edit_restaurant';
+@import 'restaurant-show';
 
 // nuovi file scss, commento da cencellare è solo un promemoria
 @import 'header';
+@import 'footer';
 // @import 'jumbotron';
 @import 'home';
 @import 'animations';
-
-@import 'welcome';
-@import 'carousel';
-@import 'pay';
 
 // auth
 @import 'auth';
 @import 'register';
 @import 'login';
 @import 'email';
+
+//stats
+@import 'statistics';
 
 
 * {
@@ -54,4 +59,8 @@
   height: 40px;
   padding: 10px;
   z-index: 999;
+}
+
+.scroll-hide {
+  overflow: hidden !important;
 }

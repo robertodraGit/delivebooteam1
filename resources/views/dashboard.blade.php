@@ -5,14 +5,13 @@
     <div class="container-dashboard">
 
         <div class="left-side-dash">
-            <div class="img-user">
-                @if (Auth::user() -> photo)
-                    <img src="{{ asset('/storage/restaurant_icon/' . Auth::user() -> photo) }}" alt="">
-                @else
-                    <img src="{{ asset('storage/user.svg') }}" alt="">
-                @endif
-            </div>
-
+            @if (Auth::user() -> photo)
+                <div class="img-user" style="background-image: url({{ asset('/storage/restaurant_icon/' . Auth::user() -> photo) }})">
+                </div>
+            @else
+                <div class="img-user" style="background-image: url({{ asset('storage/user.svg') }})">
+                </div>
+            @endif
             <h1>
                 {{ $mail_cut }}
             </h1>
@@ -48,11 +47,12 @@
                         <span class="order-color"></span><span class="order-color"></span><span class="order-color"></span><span class="order-color"></span>
                     </button>
                 </form>
-                <button>
-                    Statistiche ordini
-                    <span class="order-color"></span><span class="order-color"></span><span class="order-color"></span><span class="order-color"></span>
-                </button>
-
+                <form class="" action="{{ route('stats') }}">
+                    <button>
+                        Statistiche ordini
+                        <span class="order-color"></span><span class="order-color"></span><span class="order-color"></span><span class="order-color"></span>
+                    </button>
+                </form>
                 <a
                     class="btn btn-danger"
                     href="{{ route('logout') }}"
@@ -75,7 +75,7 @@
 
                 {{-- FINE MENU HAMBURGER --}}
 
-                <h3>Welcome
+                <h3>Benvenuto/a
                     <span>{{ Auth::user() -> name }}!</span>
                 </h3>
 
@@ -90,39 +90,32 @@
                 <div class="card">
                     <h3>Gli ultimi ordini</h3>
                     {{-- LISTA ORDINI NELLA CARD --}}
+                    @foreach ($orders_3 as $item_3)
+
                     <div class="mini-card">
-                        <h5>Pippo Ronaldo</h5>
+                        <h5>{{$item_3 -> first_name}} {{$item_3 -> last_name}}</h5>
                         <hr>
                         <div class="price-right">
-                            <p>Status: pagato</p>
-                            <span>23,65€</span>
+                            @if ($item_3 -> payment_state)
+                                <p>Ordine pagato</p>
+                            @else
+                                <p>Ordine da pagare</p>
+                            @endif 
+                            <span>{{$item_3 -> total_price / 100}} €</span>
                         </div>
-                        <p>Cellulare: 3333333</p>
+                        <p>Cellulare: {{$item_3 -> phone}}</p>
                     </div>
-                    <div class="mini-card">
-                        <h5>Pippo Ronaldo</h5>
-                        <hr>
-                        <div class="price-right">
-                            <p>Status: pagato</p>
-                            <span>23,65€</span>
-                        </div>
-                        <p>Cellulare: 3333333</p>
-                    </div>
-                    <div class="mini-card">
-                        <h5>Pippo Ronaldo</h5>
-                        <hr>
-                        <div class="price-right">
-                            <p>Status: pagato</p>
-                            <span>23,65€</span>
-                        </div>
-                        <p>Cellulare: 3333333</p>
-                    </div>
+                        
+                    @endforeach
+
                 </div>
                 {{-- CARD STATISTICS --}}
                 <div class="card">
                     <h3>Le tue statistiche</h3>
                     <div class="graph-chart-js">
-                        <h3>Grafico statistiche</h3>
+                        <div>
+                            {!! $chartjsDashboard->render() !!}
+                        </div>
                     </div>
                 </div>
                 {{-- CARD FEEDBACK --}}
@@ -137,78 +130,46 @@
 
             <div class="last-order">
                 <h2>
-                    I tuoi ultimi 10 ordini
+                    I tuoi ultimi ordini
                 </h2>
 
                 {{-- CARD ORDINI --}}
-                <div class="card-order">
-                    <div class='card-relative'>
+                @foreach ($reordered as $item_reor)
+                
+                    <div class="card-order">
+                        <div class='card-relative'>
 
-                        <div class="order-info">
-                            <h3>
-                                Pippo Ronaldo
-                            </h3>
-                            <hr>
-                            <p>Status: pagato</p>
-                            <p>Cellulare: 3333333</p>
-                        </div>
-
-                        <div class="right-card-order">
-                            <div>
-                                23,65 €
+                            <div class="order-info">
+                                <h3>
+                                    {{$item_reor -> first_name}} {{$item_reor -> last_name}}
+                                </h3>
+                                <hr>
+                                @if ($item_reor -> payment_state)
+                                    <p>Ordine pagato</p>
+                                @else
+                                    <p>Ordine da pagare</p>
+                                @endif 
+                                    <p>Cellulare: {{$item_reor -> phone}}</p>
                             </div>
-                            <div>
-                                <button>Apri comanda</button>
+
+                            <div class="right-card-order">
+                                <div>
+                                    {{$item_reor -> total_price / 100}} €
+                                </div>
+                                <div>
+                                    <form action="{{ route('restaurant-comanda', $item_reor -> id) }}">
+                                        <button class="btn btn-success" type="submit">
+                                            Apri comanda
+                                            <span class="plate-color"></span><span class="plate-color"></span><span class="plate-color"></span><span class="plate-color"></span>
+                                        </button>
+                                    </form>
+                                </div>
                             </div>
-                        </div>
 
-                    </div>
-                </div>
-                <div class="card-order">
-                    <div class='card-relative'>
-
-                        <div class="order-info">
-                            <h3>
-                                Pippo Ronaldo
-                            </h3>
-                            <hr>
-                            <p>Status: pagato</p>
-                            <p>Cellulare: 3333333</p>
-                        </div>
-
-                        <div class="right-card-order">
-                            <div>
-                                23,65 €
-                            </div>
-                            <div>
-                                <button>Apri comanda</button>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-                <div class="card-order">
-                    <div class='card-relative'>
-
-                        <div class="order-info">
-                            <h3>
-                                Pippo Ronaldo
-                            </h3>
-                            <hr>
-                            <p>Status: pagato</p>
-                            <p>Cellulare: 3333333</p>
-                        </div>
-
-                        <div class="right-card-order">
-                            <div>
-                                23,65 €
-                            </div>
-                            <div>
-                                <button>Apri comanda</button>
-                            </div>
                         </div>
                     </div>
-                </div>
+
+                @endforeach
             </div>
             {{-- fine card ORDINI --}}
 

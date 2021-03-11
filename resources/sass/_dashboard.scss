@@ -36,6 +36,8 @@
         margin: 20px auto;
         border-radius: 50%;
         border: 2px solid $variable2;
+        background-size: cover;
+        background-position: center;
 
         @media all and (min-width: 1200px) and (max-width: 1600px) {
             width: 100px;
@@ -343,8 +345,11 @@
                 }
             }
 
-            .graph-chart-js > h3 {
-                text-align: center;
+            .graph-chart-js {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                height: 100%;
             }
 
             .percentual-feed {

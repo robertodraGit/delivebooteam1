@@ -27,6 +27,8 @@ Route::get('/restaurant/photo/delete', 'HomeController@deleteIcon')
 Route::get('/logout', 'Auth\LoginController@logout');
 Route::get('/restaurant/info/stats', 'DashboardController@stats') 
         -> name('stats');
+Route::get('/restaurant/info/feedbacks', 'DashboardController@feedbackPage') 
+        -> name('feedbacks');
 
 
 //Rotte plate

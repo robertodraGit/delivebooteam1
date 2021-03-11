@@ -17443,30 +17443,34 @@ a.text-dark:focus {
   border: 1px solid #017E8A !important;
 }
 
+.header-dashboard-responsive {
+  display: none;
+  justify-content: space-between;
+  align-items: center;
+  width: 80%;
+  height: 80px;
+  margin: 0 auto;
+}
+
+.header-dashboard-responsive .logo img {
+  width: 150px;
+  height: auto;
+}
+
 .container-dashboard {
   display: flex;
   justify-content: space-between;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
 }
 
 .left-side-dash {
   display: flex;
   flex-direction: column;
-  width: 20%;
-  height: auto;
-  overflow: auto;
+  width: 300px;
+  flex-shrink: 0;
+  min-height: 100vh;
   background-color: #00CCBC;
-  padding-left: 2rem;
-  padding-top: 3rem;
-  padding-right: 2rem;
-  display: block;
-}
-
-@media all and (min-width: 868px) and (max-width: 1199px) {
-  .left-side-dash {
-    width: 30%;
-  }
+  padding: 8px 20px;
 }
 
 @media all and (min-width: 576px) and (max-width: 867px) {
@@ -17554,13 +17558,12 @@ a.text-dark:focus {
 
 .left-side-dash .buttons-left-dash {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   flex-direction: column;
-  padding-top: 3rem;
+  padding-top: 20px;
 }
 
 .left-side-dash .buttons-left-dash h4 {
-  margin-top: 2.5rem;
   text-transform: uppercase;
   font-weight: bold;
   color: #ffffff;
@@ -17628,41 +17631,37 @@ a.text-dark:focus {
   text-transform: uppercase;
   border-radius: 8px;
   box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.3);
-  margin: 100px 0 50px 0;
+  margin: 25px 0;
 }
 
 .right-side-dash {
   display: flex;
   flex-direction: column;
-  width: 80%;
+  width: calc(100% - 300px);
   height: auto;
   overflow: auto;
   background-color: white;
   padding: 0 2rem;
 }
 
-@media all and (min-width: 868px) and (max-width: 1199px) {
-  .right-side-dash {
-    width: 70%;
-  }
-}
-
-@media all and (min-width: 576px) and (max-width: 867px) {
+@media all and (max-width: 867px) {
   .right-side-dash {
     width: 100%;
   }
-}
 
-@media all and (max-width: 575px) {
-  .right-side-dash {
-    width: 100%;
+  .right-side-dash .header-dashboard-responsive {
+    display: flex;
+  }
+
+  .right-side-dash #header-no-search {
+    display: none;
   }
 }
 
 .right-side-dash .header-right-dash {
   display: flex;
   justify-content: space-between;
-  padding-top: 3rem;
+  padding-top: 15px;
 }
 
 @media all and (min-width: 868px) and (max-width: 1199px) {
@@ -17753,7 +17752,7 @@ a.text-dark:focus {
   height: 500px;
   border-radius: 5px;
   box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.3);
-  margin: 50px 0px;
+  margin: 15px 0px;
   padding: 15px;
 }
 

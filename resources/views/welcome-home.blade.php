@@ -2,12 +2,14 @@
 
 @section('content')
 
+  <div class="header-responsive-home">
+    @include('components.search-bar')
+  </div>
+  
     {{-- MAIN --}}
     <main>
 
         <div class="main-container-welcome">
-
-          @include('components.search-bar')
 
             <slider></slider>
 
@@ -60,5 +62,5 @@
 
     </main>
     @include('components.footer')
-    
+
 @endsection

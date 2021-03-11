@@ -53,7 +53,7 @@
 
             <div class="textbox">
                 <label for="description">Descrizione:</label>
-                <textarea name='description' rows="3" cols="80" value="{{$plate -> description}}" type="text" minlength="2" maxlength="255"></textarea>
+                <textarea name='description' rows="3" cols="80" value="{{$plate -> description}}" type="text" minlength="2" maxlength="255">{{$plate -> description}}</textarea>
             </div>
 
             @php
@@ -116,6 +116,7 @@
             <div class="img-box">
                 <label for="img">Foto</label>
                 <input name='img' type="file">
+                <br>
                 <a href="{{ route('plate-delete-img', $plate -> id) }}" class="btn btn-danger">Rimuovi foto piatto</a>
             </div>
 
@@ -133,25 +134,6 @@
                 <input type="submit" value="Aggiorna">
             </div>
         </form>
-
-
-        <a href="{{ route('plate-delete-img', $plate -> id) }}" class="btn btn-danger">Rimuovi foto piatto</a>
-
-        @if ($plate -> img)
-            @php
-                $photoUrl = '/storage/plates/' . $plate -> img;
-            @endphp
-            <h3>Foto del piatto</h3>
-            <img class="propic-user" src="{{asset($photoUrl)}}" alt="">
-        @endif
-
-        @if ($plate -> img)
-            @php
-                $photoUrl = '/storage/plates/' . $plate -> img;
-            @endphp
-            <h3>Foto del piatto</h3>
-            <img class="propic-user" src="{{ asset($photoUrl) }}" alt="">
-        @endif
 
     </section>
 </body>

@@ -1,3 +1,9 @@
+.header-container-welcome, 
+.main-container-welcome, 
+.footer-container-welcome {
+  width: 900px;
+  margin: 0 auto;
+}
 .container-welcome{
 
   // MAIN
@@ -9,9 +15,6 @@
     //end
 
     .main-container-welcome {
-      width: 90%;
-      margin: 0 auto;
-
 
       .restaurants {
         display: flex;

@@ -15552,14 +15552,16 @@ a.text-dark:focus {
   }
 }
 
+.header-container-welcome,
+.main-container-welcome,
+.footer-container-welcome {
+  width: 900px;
+  margin: 0 auto;
+}
+
 .container-welcome main {
   padding: 20px 0;
   min-height: 500px;
-}
-
-.container-welcome main .main-container-welcome {
-  width: 90%;
-  margin: 0 auto;
 }
 
 .container-welcome main .main-container-welcome .restaurants {
@@ -15604,7 +15606,7 @@ a.text-dark:focus {
 .card-carousel {
   display: flex;
   justify-content: center;
-  width: 100%;
+  width: calc( 100% - 60px);
 }
 
 .card-carousel--overflow-container {
@@ -15613,7 +15615,6 @@ a.text-dark:focus {
 
 .card-carousel--nav__left,
 .card-carousel--nav__right {
-  display: inline-block;
   width: 30px;
   height: 30px;
   padding: 10px;
@@ -18913,16 +18914,15 @@ header {
   height: 80px;
 }
 
-header .container {
+header .flex-container-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 80%;
   height: 100%;
-  margin: 0 auto;
+  width: 100%;
 }
 
-header .container img {
+header .flex-container-header img {
   width: 150px;
 }
 
@@ -18933,23 +18933,18 @@ header .container img {
   min-height: 200px;
 }
 
-#footer .container {
-  width: 80%;
-  margin: 0 auto;
-}
-
-#footer .container nav {
+#footer .footer-container-welcome nav {
   display: flex;
   justify-content: space-between;
   padding-bottom: 20px;
 }
 
-#footer .container nav ul,
-#footer .container nav a {
+#footer .footer-container-welcome nav ul,
+#footer .footer-container-welcome nav a {
   color: white;
 }
 
-#footer .container nav ul {
+#footer .footer-container-welcome nav ul {
   list-style: none;
   border-radius: 10px;
   width: calc(100% / 3 - 10px);
@@ -18958,27 +18953,27 @@ header .container img {
   min-height: 200px;
 }
 
-#footer .container .copyright {
+#footer .footer-container-welcome .copyright {
   text-align: center;
   color: #776144;
 }
 
 @media all and (max-width: 600px) {
-  #footer .container {
+  #footer .footer-container-welcome {
     width: 100%;
   }
 
-  #footer .container nav {
+  #footer .footer-container-welcome nav {
     flex-direction: column;
     align-items: center;
   }
 
-  #footer .container nav ul {
+  #footer .footer-container-welcome nav ul {
     width: 100%;
     min-height: 0;
   }
 
-  #footer .container nav ul li:first-child {
+  #footer .footer-container-welcome nav ul li:first-child {
     font-weight: bold;
   }
 }
@@ -19089,14 +19084,16 @@ header .container img {
   }
 }
 
+.header-container-welcome,
+.main-container-welcome,
+.footer-container-welcome {
+  width: 900px;
+  margin: 0 auto;
+}
+
 .container-welcome main {
   padding: 20px 0;
   min-height: 500px;
-}
-
-.container-welcome main .main-container-welcome {
-  width: 90%;
-  margin: 0 auto;
 }
 
 .container-welcome main .main-container-welcome .restaurants {

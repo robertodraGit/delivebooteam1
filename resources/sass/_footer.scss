@@ -7,10 +7,7 @@
   min-height: 200px;
   //end
 
-  .container {
-
-    width: 80%;
-    margin: 0 auto;
+  .footer-container-welcome {
 
     nav {
       display: flex;
@@ -42,7 +39,7 @@
 @media all and (max-width: 600px) {
   #footer {
 
-    .container {
+    .footer-container-welcome {
       width: 100%;
 
       nav {

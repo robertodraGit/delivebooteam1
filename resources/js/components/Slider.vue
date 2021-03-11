@@ -44,7 +44,7 @@
             windowSize: 6,
             paginationFactor: 200,
             items: [
-                {name: 'offers', tag: 'storage/img/offers.png'},
+                // {name: 'offers', tag: 'storage/img/offers.png'},
                 {name: 'organic', tag: 'storage/img/organic.png'},
                 {name: 'kebab', tag: 'storage/img/kebab.png'},
                 {name: 'burgers', tag: 'storage/img/burgers-1.png'},

@@ -67,6 +67,7 @@
       width: 100%;
       display: flex;
       justify-content: space-around;
+      flex-wrap: wrap;
       .separate-survey-but{
         margin: 10px 0;
         flex-shrink: 0;

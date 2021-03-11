@@ -1,11 +1,11 @@
-.header-container-welcome, 
-.main-container-welcome, 
-.footer-container-welcome {
-  width: 900px;
-  margin: 0 auto;
-}
 .container-welcome{
-
+  
+  .header-container-welcome, 
+  .main-container-welcome, 
+  .footer-container-welcome {
+    // width: 900px;
+    margin: 0 auto;
+  }
   // MAIN
   main {
     //debug
@@ -69,3 +69,20 @@
   // }
 
 }
+
+// HEADER, MAIN, FOOTER CONTAINER
+@media screen and(max-width: 973px) { //da 0 a 973px
+  .header-container-welcome, 
+  .main-container-welcome, 
+  .footer-container-welcome {
+    width: 80%;
+  }
+} 
+@media screen and(min-width: 974px) { //da 974 in su
+  .header-container-welcome, 
+  .main-container-welcome, 
+  .footer-container-welcome {
+    
+    width: 900px;
+  }
+} 

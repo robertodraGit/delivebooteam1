@@ -15613,6 +15613,21 @@ a.text-dark:focus {
   justify-content: center;
   margin: 20px 0 40px;
   color: #666a73;
+  position: relative;
+}
+
+.card-carousel-wrapper .card-carousel--nav__left {
+  position: absolute;
+  top: 25%;
+  left: 0px;
+  z-index: 99;
+}
+
+.card-carousel-wrapper .card-carousel--nav__right {
+  position: absolute;
+  top: 25%;
+  right: 0px;
+  z-index: 99;
 }
 
 .card-carousel {
@@ -15705,6 +15720,16 @@ a.text-dark:focus {
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
+}
+
+@media screen and (max-width: 600px) {
+  .card-carousel-wrapper .card-carousel--nav__left {
+    left: 50px;
+  }
+
+  .card-carousel-wrapper .card-carousel--nav__right {
+    right: 50px;
+  }
 }
 
 #input-amount {
@@ -18601,9 +18626,17 @@ a.text-dark:focus {
   }
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (min-width: 401px) and (max-width: 600px) {
   .container-welcome .restaurant {
-    width: 100%;
+    width: 90%;
+    margin: 0 auto;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .container-welcome .restaurant {
+    width: 95%;
+    margin: 0 auto;
   }
 }
 
@@ -19235,6 +19268,21 @@ header .container img {
   justify-content: center;
   margin: 20px 0 40px;
   color: #666a73;
+  position: relative;
+}
+
+.card-carousel-wrapper .card-carousel--nav__left {
+  position: absolute;
+  top: 25%;
+  left: 0px;
+  z-index: 99;
+}
+
+.card-carousel-wrapper .card-carousel--nav__right {
+  position: absolute;
+  top: 25%;
+  right: 0px;
+  z-index: 99;
 }
 
 .card-carousel {
@@ -19327,6 +19375,16 @@ header .container img {
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
+}
+
+@media screen and (max-width: 600px) {
+  .card-carousel-wrapper .card-carousel--nav__left {
+    left: 50px;
+  }
+
+  .card-carousel-wrapper .card-carousel--nav__right {
+    right: 50px;
+  }
 }
 
 .order-container {

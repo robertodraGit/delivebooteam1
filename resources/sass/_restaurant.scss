@@ -86,11 +86,22 @@
     }
   }
 }
-@media screen and(max-width: 600px) { //da 0 a 600
+@media screen and(min-width: 401px) and (max-width: 600px) { //da 0 a 600
   .container-welcome {
 
     .restaurant {
-      width: 100%;
+      width: 90%;
+      margin: 0 auto;
+    }
+  }
+}
+
+@media screen and(max-width: 400px) { //da 0 a 400
+  .container-welcome {
+
+    .restaurant {
+      width: 95%;
+      margin: 0 auto;
     }
   }
 }

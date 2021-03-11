@@ -129,7 +129,7 @@ class DashboardController extends Controller
                             'beginAtZero' => true,
                             // 'max' => 100,
                             // 'min' => 20,
-                            // 'stepSize' => 10,
+                            'stepSize' => 1,
                         ],
                         'stacked' => true,
                         'gridLines' => [
@@ -181,7 +181,15 @@ class DashboardController extends Controller
             }
         }
 
-        return view('dashboard', compact('mail_cut', 'smallFeedbacks', 'chartjsDashboard','chartjsFeedbacks', 'orders_3'));
+        return view('dashboard', compact('mail_cut', 'chartjsDashboard','chartjsFeedbacks', 'orders_3'));
+    }
+
+    public function feedbackPage() {
+
+        $feedbacks = Auth::user() ->  feedback;
+        $feedbacksOrder = $feedbacks -> sortByDesc('created_at');
+
+        return view('dashboard.feedbacks', compact('feedbacksOrder'));
     }
 
     public function stats() {

@@ -44,6 +44,38 @@
         text-align: center;
     }
 
+    .plate_orderer {
+      margin: 0 auto 5px auto;
+      padding: 8px;
+      display: flex;
+      border-radius: 5px;
+      background-color: #ffffff;
+      box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.3);
+      width: 85%;
+
+      i {
+        padding: 8px;
+        &:hover {
+          cursor: pointer;
+        }
+      }
+
+      i.my-active {
+        color: red;
+      }
+      i.my-inactive {
+        display: none;
+      }
+
+      .alph_order,
+      .typ_order{
+        width: 50%;
+        justify-content: center;
+        display: flex;
+        align-items: center;
+      }
+    }
+
     .button-dashboard {
         text-align: center;
         width: 100%;
@@ -80,6 +112,18 @@
         margin: auto;
     }
 
+    @media all and (min-width: 576px) and (max-width: 767px) {
+        width: 95%;
+        margin: auto;
+    }
+
+    @media all and (max-width: 575px) {
+        width: 98%;
+        margin: auto;
+    }
+
+
+
 
     .card-plate {
         display: flex;
@@ -92,8 +136,13 @@
         box-shadow: $shadow_button;
 
         @media all and (min-width: 768px) and (max-width: 991px) {
-            height: 250px;
+            height: 220px;
         }
+
+        @media all and (min-width: 576px) and (max-width: 767px) {
+            height: 180px;
+        }
+
 
 
         .column-img {
@@ -104,6 +153,15 @@
             background-size: cover;
             background-repeat: no-repeat;
             background-position: center;
+
+            @media all and (min-width: 768px) and (max-width: 991px) {
+                width: 200px;
+            }
+
+            @media all and (min-width: 576px) and (max-width: 767px) {
+                width: 150px;
+            }
+
 
             h5 {
                 text-align: center
@@ -120,8 +178,13 @@
                 font-weight: bold;
 
                 @media all and (min-width: 768px) and (max-width: 991px) {
-                    font-size: 16px;
+                    font-size: 14px;
                 }
+
+                @media all and (min-width: 576px) and (max-width: 767px) {
+                    font-size: 12px;
+                }
+
 
             }
 
@@ -137,9 +200,12 @@
                     margin: 0;
 
                     @media all and (min-width: 768px) and (max-width: 991px) {
-                        font-size: 16px;
+                        font-size: 14px;
                     }
 
+                    @media all and (min-width: 576px) and (max-width: 767px) {
+                        font-size: 12px;
+                    }
                 }
 
                 input {
@@ -155,39 +221,71 @@
             align-items: center;
             width: 220px;
 
-            #edit-button {
+            .edit-button {
                 width: 130px;
                 height: 45px;
-                background-color: $primary;
+                background-color: $color_deliveroo;
                 color: $variable2;
                 border: none;
                 border-radius: 12px;
                 margin-bottom: 55px;
                 box-shadow: $shadow_button;
                 transition: 0.2s ease-in-out;
+
+                @media all and (min-width: 768px) and (max-width: 991px) {
+                    margin-bottom: 40px;
+                }
+
+
+                @media all and (min-width: 576px) and (max-width: 767px) {
+                    width: 120px;
+                    height: 35px;
+                    margin-bottom: 30px;
+                }
+
+                @media all and (max-width: 575px) {
+                    width: 120px;
+                    height: 35px;
+                    margin-bottom: 20px;
+                }
+
+
             }
 
-            #edit-button:hover {
+            .edit-button:hover {
+               background-color: $primary;
                color: $color_text_3;
                transform: scale(1.02);
            }
 
-
-            #delete-button {
+            .delete-button {
                 text-decoration: none;
                 color: $variable2;
                 width: 130px;
                 height: 45px;
                 text-align: center;
-                line-height: 45px;
                 border: none;
-                background-color: red;
+                background-color: $color_deliveroo;
                 border-radius: 12px;
                 box-shadow: $shadow_button;
                 transition: 0.2s ease-in-out;
+
+                @media all and (min-width: 576px) and (max-width: 767px) {
+                    width: 120px;
+                    height: 35px;
+                }
+
+                @media all and (max-width: 575px) {
+                    width: 120px;
+                    height: 35px;
+                }
+
+
             }
 
-            #delete-button:hover {
+            .delete-button:hover {
+              
+                background-color: red;
                 color: $color_text_3;
                 transform: scale(1.02);
             }

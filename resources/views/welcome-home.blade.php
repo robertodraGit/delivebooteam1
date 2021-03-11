@@ -5,7 +5,9 @@
     {{-- MAIN --}}
     <main>
 
-        <div class="container">
+        <div class="main-container-welcome">
+
+          @include('components.search-bar')
 
             <slider></slider>
 

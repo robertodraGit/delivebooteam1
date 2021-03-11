@@ -93,6 +93,7 @@
 
     .bm-burger-button {
       cursor: pointer;
+      width: 150px;
     }
     
     .cross-style {

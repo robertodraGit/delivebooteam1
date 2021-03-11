@@ -15576,7 +15576,7 @@ a.text-dark:focus {
 }
 
 .container-welcome main .main-container-welcome {
-  width: 90%;
+  max-width: 1150px;
   margin: 0 auto;
 }
 
@@ -18527,63 +18527,84 @@ a.text-dark:focus {
   transform: rotate(325deg);
 }
 
-.restaurant_container {
+.all-restaurants {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.all-restaurants .restaurant {
+  width: calc(100% / 3);
+}
+
+.all-restaurants .restaurant .restaurant_container {
   min-height: 13px;
-  width: 280px;
+  width: 100%;
   font-size: 16px;
   padding: 10px;
 }
 
-.restaurant_container a {
+.all-restaurants .restaurant .restaurant_container a {
   text-decoration: none;
   color: black;
+  width: 100%;
 }
 
-.restaurant_container * {
+.all-restaurants .restaurant .restaurant_container * {
   margin: 0;
   padding: 0;
 }
 
-.restaurant_container .img {
-  width: 260px;
-  height: 150px;
+.all-restaurants .restaurant .restaurant_container .img {
+  height: 180px;
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
   border-radius: 5px;
 }
 
-.restaurant_container .description {
-  width: 260px;
+.all-restaurants .restaurant .restaurant_container .description {
   height: 130px;
   padding: 5px;
 }
 
-.restaurant_container .description .title {
+.all-restaurants .restaurant .restaurant_container .description .title {
   font-size: 0.9em;
   font-weight: bold;
 }
 
-.restaurant_container .description .rate {
+.all-restaurants .restaurant .restaurant_container .description .rate {
   font-size: 0.9em;
   font-style: italic;
   color: #00CCBC;
 }
 
-.restaurant_container .description .rate .rate_number {
+.all-restaurants .restaurant .restaurant_container .description .rate .rate_number {
   color: #8285A5;
   padding: 3px;
 }
 
-.restaurant_container .description .typology {
+.all-restaurants .restaurant .restaurant_container .description .typology {
   font-size: 0.9em;
   color: #8285A5;
 }
 
-.restaurant_container .description .delivery_cost {
+.all-restaurants .restaurant .restaurant_container .description .delivery_cost {
   font-size: 0.8em;
   font-weight: bold;
   color: #8285A5;
+}
+
+@media screen and (min-width: 601px) and (max-width: 820px) {
+  .container-welcome .restaurant {
+    width: 50%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .container-welcome .restaurant {
+    width: 100%;
+  }
 }
 
 .container-restaurant #search-bar,
@@ -19177,7 +19198,7 @@ header .container img {
 }
 
 .container-welcome main .main-container-welcome {
-  width: 90%;
+  max-width: 1150px;
   margin: 0 auto;
 }
 

@@ -108,6 +108,5 @@ class HomeController extends Controller
         }
       } catch (\Exception $e) {}
     }
-
     //End Restaurant Edit
 }

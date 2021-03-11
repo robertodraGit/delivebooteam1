@@ -15552,6 +15552,24 @@ a.text-dark:focus {
   }
 }
 
+.container-welcome #header-search {
+  display: flex;
+}
+
+.container-welcome #header-no-search {
+  display: none;
+}
+
+.container-welcome .header-responsive-home {
+  display: none;
+  width: 80%;
+  margin: 8px auto 0 auto;
+}
+
+.container-welcome .header-responsive-home #search-bar {
+  min-width: 0;
+}
+
 .container-welcome main {
   padding: 20px 0;
   min-height: 500px;
@@ -15576,21 +15594,17 @@ a.text-dark:focus {
 }
 
 @media screen and (max-width: 980px) {
-  .container-welcome .main-container-welcome #header-search {
+  .container-welcome #header-search {
     display: none;
   }
 
-  .container-welcome .main-container-welcome #header-no-search {
+  .container-welcome #header-no-search {
     display: flex;
   }
-}
 
-.container-welcome #header-no-search {
-  display: none;
-}
-
-.container-welcome #header-search {
-  display: flex;
+  .header-responsive-home {
+    display: block !important;
+  }
 }
 
 .card-carousel-wrapper {
@@ -15604,7 +15618,7 @@ a.text-dark:focus {
 .card-carousel {
   display: flex;
   justify-content: center;
-  width: 100%;
+  width: calc( 100% - 60px);
 }
 
 .card-carousel--overflow-container {
@@ -15613,7 +15627,6 @@ a.text-dark:focus {
 
 .card-carousel--nav__left,
 .card-carousel--nav__right {
-  display: inline-block;
   width: 30px;
   height: 30px;
   padding: 10px;
@@ -16522,6 +16535,16 @@ a.text-dark:focus {
   height: calc(100% - 150px);
   padding: 8px;
   overflow: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.plate_container .plate_detail .show:after {
+  content: "";
+  display: block;
+  height: 8px;
+  width: 100%;
+  flex-shrink: 0;
 }
 
 .plate_container .plate_detail .show .plate_img {
@@ -16532,12 +16555,15 @@ a.text-dark:focus {
   border-radius: 50%;
 }
 
+.plate_container .plate_detail .show .plate_detail_info {
+  flex-grow: 1;
+}
+
 .plate_container .plate_detail .show .quantity_pannel {
   width: 200px;
   height: 30px;
-  margin: 10px auto;
+  margin: 10px auto 0 auto;
   display: flex;
-  border: 1px solid black;
 }
 
 .plate_container .plate_detail .show .quantity_pannel .remove_plate {
@@ -16555,6 +16581,8 @@ a.text-dark:focus {
 .plate_container .plate_detail .show .quantity_pannel .quantity {
   width: 120px;
   height: 100%;
+  font-weight: bold;
+  font-size: 1.2em;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -16570,6 +16598,11 @@ a.text-dark:focus {
 
 .plate_container .plate_detail .show .quantity_pannel .add_plate:hover {
   cursor: pointer;
+}
+
+.plate_container .plate_detail .show .quantity_pannel .change_quantity {
+  color: #00CCBC;
+  font-size: 21px;
 }
 
 .plate_container .plate_detail .total {
@@ -16618,8 +16651,8 @@ a.text-dark:focus {
   }
 
   #rest_show_main .plate_detail .plate_img {
-    width: 125px;
-    height: 125px;
+    width: 150px;
+    height: 150px;
   }
 }
 
@@ -17449,41 +17482,68 @@ a.text-dark:focus {
   border: 1px solid #017E8A !important;
 }
 
+.header-dashboard-responsive {
+  display: none;
+  justify-content: space-between;
+  align-items: center;
+  width: 80%;
+  height: 80px;
+  margin: 0 auto;
+}
+
+.header-dashboard-responsive svg:hover {
+  cursor: pointer;
+}
+
+.header-dashboard-responsive .logo img {
+  width: 150px;
+  height: auto;
+}
+
 .container-dashboard {
   display: flex;
   justify-content: space-between;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
 }
 
 .left-side-dash {
   display: flex;
   flex-direction: column;
-  width: 20%;
-  height: auto;
-  overflow: auto;
+  width: 300px;
+  flex-shrink: 0;
+  min-height: 100vh;
   background-color: #00CCBC;
-  padding-left: 2rem;
-  padding-top: 3rem;
-  padding-right: 2rem;
-  display: block;
+  padding: 8px 20px;
+  position: relative;
 }
 
-@media all and (min-width: 868px) and (max-width: 1199px) {
-  .left-side-dash {
-    width: 30%;
-  }
+.left-side-dash .close-dash-menu {
+  display: none;
+  color: white;
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  top: 8px;
+  right: 8px;
 }
 
-@media all and (min-width: 576px) and (max-width: 867px) {
+.left-side-dash .close-dash-menu i {
+  font-size: 30px;
+}
+
+.left-side-dash .close-dash-menu:hover {
+  cursor: pointer;
+}
+
+@media all and (max-width: 867px) {
   .left-side-dash {
     display: none;
+    width: 100%;
+    min-height: 100vh;
   }
-}
 
-@media all and (max-width: 575px) {
-  .left-side-dash {
-    display: none;
+  .left-side-dash .close-dash-menu {
+    display: block;
   }
 }
 
@@ -17492,6 +17552,7 @@ a.text-dark:focus {
   justify-content: center;
   width: 125px;
   height: 125px;
+  flex-shrink: 0;
   margin: 20px auto;
   border-radius: 50%;
   border: 2px solid #ffffff;
@@ -17515,8 +17576,8 @@ a.text-dark:focus {
 
 @media all and (min-width: 576px) and (max-width: 867px) {
   .left-side-dash .img-user {
-    width: 50px;
-    height: 50px;
+    width: 120px;
+    height: 120px;
   }
 }
 
@@ -17560,13 +17621,12 @@ a.text-dark:focus {
 
 .left-side-dash .buttons-left-dash {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   flex-direction: column;
-  padding-top: 3rem;
+  padding-top: 20px;
 }
 
 .left-side-dash .buttons-left-dash h4 {
-  margin-top: 2.5rem;
   text-transform: uppercase;
   font-weight: bold;
   color: #ffffff;
@@ -17634,41 +17694,37 @@ a.text-dark:focus {
   text-transform: uppercase;
   border-radius: 8px;
   box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.3);
-  margin: 100px 0 50px 0;
+  margin: 25px 0;
 }
 
 .right-side-dash {
   display: flex;
   flex-direction: column;
-  width: 80%;
+  width: calc(100% - 300px);
   height: auto;
   overflow: auto;
   background-color: white;
   padding: 0 2rem;
 }
 
-@media all and (min-width: 868px) and (max-width: 1199px) {
-  .right-side-dash {
-    width: 70%;
-  }
-}
-
-@media all and (min-width: 576px) and (max-width: 867px) {
+@media all and (max-width: 867px) {
   .right-side-dash {
     width: 100%;
   }
-}
 
-@media all and (max-width: 575px) {
-  .right-side-dash {
-    width: 100%;
+  .right-side-dash .header-dashboard-responsive {
+    display: flex;
+  }
+
+  .right-side-dash #header-no-search {
+    display: none;
   }
 }
 
 .right-side-dash .header-right-dash {
   display: flex;
   justify-content: space-between;
-  padding-top: 3rem;
+  padding-top: 15px;
 }
 
 @media all and (min-width: 868px) and (max-width: 1199px) {
@@ -17759,7 +17815,7 @@ a.text-dark:focus {
   height: 500px;
   border-radius: 5px;
   box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.3);
-  margin: 50px 0px;
+  margin: 15px 0px;
   padding: 15px;
 }
 
@@ -18104,6 +18160,14 @@ a.text-dark:focus {
 .footer-dash button:hover {
   color: #3a4750;
   box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.3);
+}
+
+.myactive {
+  display: flex;
+}
+
+.disabled {
+  display: none;
 }
 
 .header-plate-ind {
@@ -19128,6 +19192,24 @@ header .container img {
   }
 }
 
+.container-welcome #header-search {
+  display: flex;
+}
+
+.container-welcome #header-no-search {
+  display: none;
+}
+
+.container-welcome .header-responsive-home {
+  display: none;
+  width: 80%;
+  margin: 8px auto 0 auto;
+}
+
+.container-welcome .header-responsive-home #search-bar {
+  min-width: 0;
+}
+
 .container-welcome main {
   padding: 20px 0;
   min-height: 500px;
@@ -19152,21 +19234,17 @@ header .container img {
 }
 
 @media screen and (max-width: 980px) {
-  .container-welcome .main-container-welcome #header-search {
+  .container-welcome #header-search {
     display: none;
   }
 
-  .container-welcome .main-container-welcome #header-no-search {
+  .container-welcome #header-no-search {
     display: flex;
   }
-}
 
-.container-welcome #header-no-search {
-  display: none;
-}
-
-.container-welcome #header-search {
-  display: flex;
+  .header-responsive-home {
+    display: block !important;
+  }
 }
 
 .card-carousel-wrapper {
@@ -19180,7 +19258,7 @@ header .container img {
 .card-carousel {
   display: flex;
   justify-content: center;
-  width: 100%;
+  width: calc( 100% - 60px);
 }
 
 .card-carousel--overflow-container {
@@ -19189,7 +19267,6 @@ header .container img {
 
 .card-carousel--nav__left,
 .card-carousel--nav__right {
-  display: inline-block;
   width: 30px;
   height: 30px;
   padding: 10px;

@@ -415,7 +415,16 @@ function  init() {
 
   });
 
+  //DASH ham
+  $(".header-dashboard-responsive svg").click(function() {
+     $(".container-dashboard .left-side-dash").addClass("myactive");
+     $(".container-dashboard .right-side-dash").addClass("disabled");
+  });
 
+  $(".left-side-dash .close-dash-menu").click(function() {
+     $(".container-dashboard .left-side-dash").removeClass("myactive");
+     $(".container-dashboard .right-side-dash").removeClass("disabled");
+  });
 }
 
 document.addEventListener("DOMContentLoaded", init);

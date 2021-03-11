@@ -94,6 +94,7 @@
           <section class="dashboard-content">
             @yield('dashboard-home')
             @yield('create-plate')
+            @yield('feedbacks')
           </section>
         </div>
 

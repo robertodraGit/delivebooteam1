@@ -20357,6 +20357,86 @@ header .container img {
   }
 }
 
+.card-2 {
+  height: auto;
+  border-radius: 5px;
+  box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.3);
+  margin: 50px 0px;
+  padding: 15px;
+}
+
+@media all and (min-width: 1200px) and (max-width: 1600px) {
+  .card-2 {
+    height: auto;
+  }
+}
+
+@media all and (min-width: 868px) and (max-width: 1199px) {
+  .card-2 {
+    height: auto;
+    flex-basis: 100%;
+    margin: 50px 0px 0px 0px;
+  }
+}
+
+.card-2 > h3 {
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #00CCBC;
+}
+
+@media all and (min-width: 1200px) and (max-width: 1600px) {
+  .card-2 > h3 {
+    font-size: 24px;
+  }
+}
+
+@media all and (min-width: 868px) and (max-width: 1199px) {
+  .card-2 > h3 {
+    font-size: 20px;
+  }
+}
+
+@media all and (min-width: 576px) and (max-width: 867px) {
+  .card-2 > h3 {
+    font-size: 18px;
+  }
+}
+
+@media all and (max-width: 575px) {
+  .card-2 > h3 {
+    font-size: 16px;
+  }
+}
+
+.card-2 .mini-card {
+  width: 90%;
+  margin: 10px auto;
+  padding: 20px;
+  height: auto;
+  background-color: #00CCBC;
+  color: #ffffff;
+  border-radius: 5px;
+  box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.3);
+  position: relative;
+}
+
+.card-2 .mini-card h1 {
+  position: absolute;
+  top: 10%;
+  right: 5%;
+}
+
+.card-2 .mini-card hr {
+  margin: 0 0 5px 0;
+  border-color: #ffffff;
+}
+
+.card-2 .mini-card p {
+  margin: 0;
+}
+
 * {
   margin: 0;
   padding: 0;

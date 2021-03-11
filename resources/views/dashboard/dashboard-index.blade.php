@@ -44,6 +44,12 @@
                 <div>
                     {!! $chartjsDashboard->render() !!}
                 </div>
+                <form action="{{ route('feedbacks') }}">
+                <button class="btn btn-success" type="submit">
+                    Visualizza i feedbacks
+                    <span class="plate-color"></span><span class="plate-color"></span><span class="plate-color"></span><span class="plate-color"></span>
+                </button>
+            </form>
             </div>
         </div>
         {{-- CARD FEEDBACK --}}

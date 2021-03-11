@@ -37,22 +37,31 @@
 
     .main-container-welcome{
       
-      #search-bar{
-        visibility: visible;
+      #header-search{
+        display: none;
+      }
+
+      #header-no-search {
+        display: flex;
       }
     }
   }
 
-  @media screen and (min-width: 981px) {
+  #header-no-search {
+    display: none;
+  }
 
-    .main-container-welcome{
+  #header-search {
+    display: flex;
+  }
+
+  // @media screen and (min-width: 981px) {
+
+  //   .main-container-welcome{
     
-      #search-bar {
       
-        visibility: hidden;
-      }
-    }
+  //   }
 
-  }
+  // }
 
 }

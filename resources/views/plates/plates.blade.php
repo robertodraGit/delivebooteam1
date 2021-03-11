@@ -11,7 +11,7 @@
     <h3>Lista di tutti i tuoi piatti</h3>
     <div class="button-dashboard">
         <form class="" action="{{ route('dashboard') }}">
-            <button type="button">Torna alla dashboard</button>
+            <button type="submit">Torna alla dashboard</button>
         </form>
     </div>
 
@@ -38,13 +38,14 @@
                     @php
                     $url_img = "/storage/plates/" . $plate -> img;
                     @endphp
-                    @if ($plate -> img !== null)
+                    @if ($plate -> img)
                         <div class="column-img" style="background-image: url({{ $url_img }})">
                         </div>
+                    @else
+                        <div class="column-img" style="background-image: url({{ asset('/storage/placeholder.svg') }})">
+                            <h5>Nessuna immagine disponibile</h5>
+                        </div>
                     @endif
-                    <div class="column-img" style="background-image: url({{ asset('/storage/placeholder.svg') }})">
-                        <h5>Nessuna immagine disponibile</h5>
-                    </div>
 
                     <div class="list-column">
                         <p>Nome piatto: <span class="plate_name">{{$plate -> plate_name}}</span></p>

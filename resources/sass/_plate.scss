@@ -126,13 +126,13 @@ $colore_secondario: #00C2B3;
   .plate_detail {
     position: fixed;
     z-index: 1000;
-    width: 600px;
+    width: 450px;
     height: 80vh;
     max-height: 450px;
     top: 5%;
     left: 50%;
     transform: translate(-50%, 0);
-    border: 1px solid black;
+    border: 1px solid rgb(194, 194, 194);
     border-radius: 5px;
     background-color: white;
 
@@ -160,10 +160,11 @@ $colore_secondario: #00C2B3;
       height: calc(100% - 150px);
       padding: 8px;
       overflow: auto;
+
       .plate_img {
         margin: auto;
-        width: 250px;
-        height: 250px;
+        width: 200px;
+        height: 200px;
         margin: 10px auto;
         border-radius: 50%;
       }
@@ -213,12 +214,12 @@ $colore_secondario: #00C2B3;
         }
       }
       .button-light {
-        width: 150px;
+        width: 110px;
         border: 1px solid lightgrey;
         color: $colore_secondario;
       }
       .button-strong {
-        width: 300px;
+        width: 220px;
         background-color: $colore_secondario;
         color: white;
       }
@@ -237,6 +238,11 @@ $colore_secondario: #00C2B3;
       height: 100vh;
       border: 0;
       max-height: 100vh;
+      
+      .plate_img {
+        width: 125px;
+        height: 125px;
+      }
     }
   }
 

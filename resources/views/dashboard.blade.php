@@ -48,7 +48,11 @@
                     </button>
                 </form>
                 <form class="" action="{{ route('stats') }}">
-                    <button>
+                    <button 
+                        @if (empty($orders_3))
+                            disabled
+                        @endif
+                    >
                         Statistiche ordini
                         <span class="order-color"></span><span class="order-color"></span><span class="order-color"></span><span class="order-color"></span>
                     </button>
@@ -90,24 +94,27 @@
                 <div class="card">
                     <h3>Gli ultimi ordini</h3>
                     {{-- LISTA ORDINI NELLA CARD --}}
-                    @foreach ($orders_3 as $item_3)
-
-                    <div class="mini-card">
-                        <h5>{{$item_3 -> first_name}} {{$item_3 -> last_name}}</h5>
-                        <hr>
-                        <div class="price-right">
-                            @if ($item_3 -> payment_state)
-                                <p>Ordine pagato</p>
-                            @else
-                                <p>Ordine da pagare</p>
-                            @endif 
-                            <span>{{$item_3 -> total_price / 100}} €</span>
-                        </div>
-                        <p>Cellulare: {{$item_3 -> phone}}</p>
-                    </div>
-                        
-                    @endforeach
-
+                    @if (!empty($orders_3))
+                        @foreach ($orders_3 as $item_3)
+                            <div class="mini-card">
+                                <h5>{{$item_3 -> first_name}} {{$item_3 -> last_name}}</h5>
+                                <hr>
+                                <div class="price-right">
+                                    @if ($item_3 -> payment_state)
+                                        <p>Ordine pagato</p>
+                                    @else
+                                        <p>Ordine da pagare</p>
+                                    @endif 
+                                    <span>{{$item_3 -> total_price / 100}} €</span>
+                                </div>
+                                <p>Cellulare: {{$item_3 -> phone}}</p>
+                            </div>      
+                        @endforeach
+                    @else
+                        <div class="mini-card">
+                            <h3>Non hai ancora ordini!</h3>
+                        </div> 
+                    @endif
                 </div>
                 {{-- CARD STATISTICS --}}
                 <div class="card">
@@ -121,77 +128,42 @@
                 {{-- CARD FEEDBACK --}}
                 <div id="resp-card" class="card">
                     <h3>I tuoi feedback</h3>
-                    <div class="percentual-feed">
-                        <h1>90%</h1>
-                        <h4>positivi</h4>
+                    <div class="graph-chart-js">
+                        <div>
+                            {!! $chartjsFeedbacks->render() !!}
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <div class="last-order">
-                <h2>
-                    I tuoi ultimi ordini
-                </h2>
+            <div class="container-card">
+                <div class="card-feed">
+                    @if (!empty($smallFeedbacks))
+                        @foreach ($smallFeedbacks as $fb)
+                            <div class="mini-card-feed">
+                                <div class="feedbacks-cards">
+                                    <div>
+                                        <h4>{{ $fb -> name }}</h4>
+                                        <br>
+                                        <p>{{ $fb -> email }}</p>
+                                        <br>
+                                        <label>Comment:
+                                            <h2>{{ $fb -> comment }}</h2>
+                                        </label>
 
-                {{-- CARD ORDINI --}}
-                @foreach ($reordered as $item_reor)
-                
-                    <div class="card-order">
-                        <div class='card-relative'>
-
-                            <div class="order-info">
-                                <h3>
-                                    {{$item_reor -> first_name}} {{$item_reor -> last_name}}
-                                </h3>
-                                <hr>
-                                @if ($item_reor -> payment_state)
-                                    <p>Ordine pagato</p>
-                                @else
-                                    <p>Ordine da pagare</p>
-                                @endif 
-                                    <p>Cellulare: {{$item_reor -> phone}}</p>
-                            </div>
-
-                            <div class="right-card-order">
-                                <div>
-                                    {{$item_reor -> total_price / 100}} €
+                                    </div>
+                                    <div>
+                                        <h2>Rate: {{ $fb -> rate }}</h2>
+                                    </div>
                                 </div>
-                                <div>
-                                    <form action="{{ route('restaurant-comanda', $item_reor -> id) }}">
-                                        <button class="btn btn-success" type="submit">
-                                            Apri comanda
-                                            <span class="plate-color"></span><span class="plate-color"></span><span class="plate-color"></span><span class="plate-color"></span>
-                                        </button>
-                                    </form>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-
-                @endforeach
+                            </div>        
+                        @endforeach                        
+                    @else
+                        <h2>Nessun feedback al momento!</h2>
+                    @endif
+                </div>
             </div>
-            {{-- fine card ORDINI --}}
 
-            {{-- <div class="footer-dash">
-                <div>
-                    <form class="" action="{{ route('orders-index') }}">
-                        <button>
-                            Visualizza tutti gli ordini
-                        </button>
-                    </form>
-
-                </div> --}}
-
-
-            <div>
-                <ul>
-                    @foreach ($feedbacks as $fb)
-                        <li>{{ $fb -> email }}</li> <br>
-                        <li>{{ $fb -> rate }}</li>
-                    @endforeach
-                </ul>
-            </div>
         </div>
 
     </div>

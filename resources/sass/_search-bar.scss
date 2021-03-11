@@ -4,7 +4,10 @@
 // @include debug-border;
 
 #search-bar {
-  display: flex;
+  // debug
+  display: none;
+  // fine debug
+  // display: flex;
   justify-content: center;
   align-items: center;
   font-size: 15px;

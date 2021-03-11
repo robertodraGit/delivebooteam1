@@ -16,7 +16,7 @@ function  init() {
          this.messageVisible = true,
          setTimeout(function(scope){
            scope.messageVisible = false;
-         }, 555000, this);
+         }, 5000, this);
        })},
       data: {
           restaurants: [],

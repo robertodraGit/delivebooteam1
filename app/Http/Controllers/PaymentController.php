@@ -200,7 +200,7 @@ class PaymentController extends Controller
           $order -> update();
 
           // invio mail al pagamento
-          return redirect() -> route('index') -> with("success_message", "transazione eseguita con successo. Ti abbiamo inviato un' email di conferma");
+          return redirect() -> route('index') -> with("success_message", "Transazione eseguita con successo. Ti abbiamo inviato un' email di conferma");
       } else {
           $errorString = "";
 
@@ -213,7 +213,7 @@ class PaymentController extends Controller
           return redirect() -> route('index') -> withErrors('An error occured with the message: ' . $result -> message);
       }
     } else {
-      return redirect() -> route('fail') -> with("error_message", "ci dispiace molto, la transazione non è andata a buon fine, riprova e sarai più fortunato ;D");
+      return redirect() -> route('fail') -> with("error_message", "Ci dispiace molto, la transazione non è andata a buon fine, riprova e sarai più fortunato ;D");
     }
 
   }

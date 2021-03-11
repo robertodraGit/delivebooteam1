@@ -17452,6 +17452,10 @@ a.text-dark:focus {
   margin: 0 auto;
 }
 
+.header-dashboard-responsive svg:hover {
+  cursor: pointer;
+}
+
 .header-dashboard-responsive .logo img {
   width: 150px;
   height: auto;
@@ -17471,17 +17475,36 @@ a.text-dark:focus {
   min-height: 100vh;
   background-color: #00CCBC;
   padding: 8px 20px;
+  position: relative;
 }
 
-@media all and (min-width: 576px) and (max-width: 867px) {
+.left-side-dash .close-dash-menu {
+  display: none;
+  color: white;
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  top: 8px;
+  right: 8px;
+}
+
+.left-side-dash .close-dash-menu i {
+  font-size: 30px;
+}
+
+.left-side-dash .close-dash-menu:hover {
+  cursor: pointer;
+}
+
+@media all and (max-width: 867px) {
   .left-side-dash {
     display: none;
+    width: 100%;
+    min-height: 100vh;
   }
-}
 
-@media all and (max-width: 575px) {
-  .left-side-dash {
-    display: none;
+  .left-side-dash .close-dash-menu {
+    display: block;
   }
 }
 
@@ -17490,6 +17513,7 @@ a.text-dark:focus {
   justify-content: center;
   width: 125px;
   height: 125px;
+  flex-shrink: 0;
   margin: 20px auto;
   border-radius: 50%;
   border: 2px solid #ffffff;
@@ -17513,8 +17537,8 @@ a.text-dark:focus {
 
 @media all and (min-width: 576px) and (max-width: 867px) {
   .left-side-dash .img-user {
-    width: 50px;
-    height: 50px;
+    width: 120px;
+    height: 120px;
   }
 }
 
@@ -18097,6 +18121,14 @@ a.text-dark:focus {
 .footer-dash button:hover {
   color: #3a4750;
   box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.3);
+}
+
+.myactive {
+  display: flex;
+}
+
+.disabled {
+  display: none;
 }
 
 .header-plate-ind {

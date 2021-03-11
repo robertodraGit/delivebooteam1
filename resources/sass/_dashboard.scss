@@ -6,6 +6,13 @@
   height: 80px;
   margin: 0 auto;
 
+  svg {
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
   .logo {
 
     img {
@@ -30,16 +37,33 @@
     min-height: 100vh;
     background-color: $color_deliveroo;
     padding: 8px 20px;
-    @media all and (min-width: 868px) and (max-width: 1199px) {
+    position: relative;
 
+    .close-dash-menu {
+      display: none;
+      color: white;
+      width: 40px;
+      height: 40px;
+      position: absolute;
+      top: 8px;
+      right: 8px;
+
+      i {
+        font-size: 30px;
+      }
+      &:hover {
+        cursor: pointer;
+      }
     }
 
-    @media all and (min-width: 576px) and (max-width: 867px) {
+    @media all and (max-width: 867px) {
         display: none;
-    }
+        width: 100%;
+        min-height: 100vh;
 
-    @media all and (max-width: 575px) {
-        display: none;
+        .close-dash-menu {
+          display: block;
+        }
     }
 
     .img-user {
@@ -47,6 +71,7 @@
         justify-content: center;
         width: 125px;
         height: 125px;
+        flex-shrink: 0;
         margin: 20px auto;
         border-radius: 50%;
         border: 2px solid $variable2;
@@ -65,8 +90,8 @@
         }
 
         @media all and (min-width: 576px) and (max-width: 867px) {
-            width: 50px;
-            height: 50px;
+            width: 120px;
+            height: 120px;
         }
 
 
@@ -201,7 +226,6 @@
     overflow: auto;
     background-color: white;
     padding: 0 2rem;
-
 
     @media all and (max-width: 867px) {
         width: 100%;
@@ -625,3 +649,9 @@
 }
 
 // MI DISSOCIO DAL QUANTITATIVO ENORME DI RIGHE IN QUESTO FILE
+.myactive {
+  display: flex;
+}
+.disabled {
+  display: none;
+}

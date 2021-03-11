@@ -11,6 +11,11 @@
     <div class="container-dashboard">
 
         <div class="left-side-dash">
+
+            <div class="close-dash-menu">
+                <i class="far fa-window-close"></i>
+            </div>
+
             @if (Auth::user() -> photo)
                 <div class="img-user" style="background-image: url({{ asset('/storage/restaurant_icon/' . Auth::user() -> photo) }})">
                 </div>
@@ -92,6 +97,5 @@
         </div>
 
     </div>
-
   </body>
 </html>

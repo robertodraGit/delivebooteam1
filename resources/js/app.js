@@ -1,6 +1,6 @@
 const { default: axios } = require('axios');
 
-// require('./bootstrap');
+require('./bootstrap');
 window.Vue = require('vue');
 const files = require.context('./', true, /\.vue$/i)
 files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
@@ -200,7 +200,7 @@ function  init() {
               if (response.data.error) {
                 this.research_error = 1;
               } else if (
-                response.data.typology_resoult.length === 0 
+                response.data.typology_resoult.length === 0
               ) {
                 this.no_result = 1;
               } else {
@@ -339,6 +339,83 @@ function  init() {
 
       },
   });
+
+  $(".alph_order .fas.fa-caret-up").click(function() {
+    // console.log("ordina alfabeticamente Z-A");
+    $(".alph_order .fas.fa-caret-up").addClass("my-active");
+    $(".alph_order .fas.fa-caret-up").toggleClass("my-inactive");
+
+    $(".alph_order .fa-caret-down").addClass("my-active");
+    $(".alph_order .fa-caret-down").toggleClass("my-inactive");
+
+    $(".typ_order .fas.fa-caret-up").removeClass("my-active");
+    $(".typ_order .fas.fa-caret-down").removeClass("my-active");
+
+    $('.card-plate').sort(function (b, a) {
+      let contentA = $(a).find(".plate_name").text();
+      let contentB = $(b).find(".plate_name").text();
+      return (contentA < contentB) ? -1 : (contentA > contentB) ? 1 : 0;
+   }).appendTo(".dashboard_plate");
+
+  });
+
+  $(".alph_order .fas.fa-caret-down").click(function() {
+    // console.log("ordina alfabeticamente A-Z");
+    $(".alph_order .fas.fa-caret-up").addClass("my-active");
+    $(".alph_order .fas.fa-caret-up").toggleClass("my-inactive");
+
+    $(".alph_order .fa-caret-down").addClass("my-active");
+    $(".alph_order .fa-caret-down").toggleClass("my-inactive");
+
+    $(".typ_order .fas.fa-caret-up").removeClass("my-active");
+    $(".typ_order .fas.fa-caret-down").removeClass("my-active");
+
+    $('.card-plate').sort(function (a, b) {
+      let contentA = $(a).find(".plate_name").text();
+      let contentB = $(b).find(".plate_name").text();
+      return (contentA < contentB) ? -1 : (contentA > contentB) ? 1 : 0;
+   }).appendTo(".dashboard_plate");
+  });
+
+  $(".typ_order .fas.fa-caret-up").click(function() {
+    // console.log("ordina categorie Z-A");
+    $(".typ_order .fas.fa-caret-up").addClass("my-active");
+    $(".typ_order .fas.fa-caret-up").toggleClass("my-inactive");
+
+    $(".typ_order .fa-caret-down").addClass("my-active");
+    $(".typ_order .fa-caret-down").toggleClass("my-inactive");
+
+    $(".alph_order .fas.fa-caret-up").removeClass("my-active");
+    $(".alph_order .fas.fa-caret-down").removeClass("my-active");
+
+    $('.card-plate').sort(function (b, a) {
+      let contentA = $(a).find(".category_name").text();
+      let contentB = $(b).find(".category_name").text();
+      return (contentA < contentB) ? -1 : (contentA > contentB) ? 1 : 0;
+   }).appendTo(".dashboard_plate");
+
+  });
+
+  $(".typ_order .fas.fa-caret-down").click(function() {
+    // console.log("ordina categorie A-Z");
+    $(".typ_order .fas.fa-caret-up").addClass("my-active");
+    $(".typ_order .fas.fa-caret-up").toggleClass("my-inactive");
+
+    $(".typ_order .fa-caret-down").addClass("my-active");
+    $(".typ_order .fa-caret-down").toggleClass("my-inactive");
+
+    $(".alph_order .fas.fa-caret-up").removeClass("my-active");
+    $(".alph_order .fas.fa-caret-down").removeClass("my-active");
+
+    $('.card-plate').sort(function (a, b) {
+      let contentA = $(a).find(".category_name").text();
+      let contentB = $(b).find(".category_name").text();
+      return (contentA < contentB) ? -1 : (contentA > contentB) ? 1 : 0;
+   }).appendTo(".dashboard_plate");
+
+  });
+
+
 }
 
 document.addEventListener("DOMContentLoaded", init);

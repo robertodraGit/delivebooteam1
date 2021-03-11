@@ -50,7 +50,6 @@
 
             <div class="textbox">
                 <label for="description">Descrizione:</label>
-                {{-- <input name='description' type="text" minlength="2" maxlength="255"> --}}
                 <textarea name='description' rows="3" cols="80" minlength="2" maxlength="255"></textarea>
             </div>
 

@@ -128,16 +128,16 @@
                 {{-- CARD FEEDBACK --}}
                 <div id="resp-card" class="card">
                     <h3>I tuoi feedback</h3>
+                    <form class="" action="{{ route('feedbacks') }}">
+                        <button>
+                            Visualizza tutti i feedbacks
+                            <span class="order-color"></span><span class="order-color"></span><span class="order-color"></span><span class="order-color"></span>
+                        </button>
+                    </form>
                     <div class="graph-chart-js">
                         <div>
                             {!! $chartjsFeedbacks->render() !!}
                         </div>
-                        <form class="" action="{{ route('feedbacks') }}">
-                            <button>
-                                Visualizza tutti i feedbacks
-                                <span class="order-color"></span><span class="order-color"></span><span class="order-color"></span><span class="order-color"></span>
-                            </button>
-                        </form>
                     </div>
                 </div>
             </div>

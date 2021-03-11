@@ -7,7 +7,7 @@
 
         <div class="main-container-welcome">
 
-          @include('components.search-bar')
+          {{-- @include('components.search-bar') --}}
 
             <slider></slider>
 

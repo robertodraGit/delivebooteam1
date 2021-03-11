@@ -1,5 +1,5 @@
 <footer id="footer">
-    <div class="footer-container-welcome">
+    <div class="container">
         <nav>
             <ul>
                 <li>Scopri deliveroo</li>

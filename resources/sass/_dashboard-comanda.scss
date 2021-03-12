@@ -1,0 +1,37 @@
+.section-comanda {
+  background-color: $dashboard-secondary;
+  min-height: 100vh;
+  padding: 50px 10px;
+
+  .comanda-plates {
+    li {
+      margin: 15px 0;
+      .comanda-plate {
+        background-color: #fff;
+        padding: 20px 15px;
+        border-radius: 5px;
+        box-shadow: rgba(0, 0, 0, 0.08) 0px 3px 8px;
+      }
+    }
+  }
+}
+
+
+.comanda-plate:hover {
+    animation:  shake 0.7s;
+}
+
+@keyframes shake {
+  10%, 90% {
+    transform: rotate(2deg);
+  }
+  20%, 80% {
+    transform: rotate(-2deg);
+  }
+  30%, 50%, 70% {
+    transform: rotate(2deg);
+  }
+  40%, 60% {
+    transform: rotate(-2deg);
+  }
+}

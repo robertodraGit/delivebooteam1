@@ -51,7 +51,7 @@
                       <span>{{ $order -> created_at }}</span>
                     </p>
                     <form class="apri-comanda" action="{{ route('restaurant-comanda', $order -> id) }}">
-                      <button type="button">Apri comanda</button>
+                      <button type="submit">Apri comanda</button>
                     </form>
                   </div>
                 @endforeach

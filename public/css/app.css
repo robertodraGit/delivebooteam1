@@ -17468,6 +17468,30 @@ a.text-dark:focus {
   border: 1px solid #017E8A !important;
 }
 
+.button-dashboard {
+  text-align: center;
+  width: 100%;
+  margin: 20px auto 30px auto;
+}
+
+.button-dashboard button {
+  color: #ffffff;
+  background-color: #00CCBC;
+  width: 200px;
+  height: 50px;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.3);
+  transition: 0.2s ease-in-out;
+}
+
+.button-dashboard button:hover {
+  color: #2E3333;
+  transform: scale(1.02);
+}
+
 .header-dashboard-responsive {
   display: none;
   justify-content: space-between;
@@ -18631,6 +18655,64 @@ a.text-dark:focus {
 
   .section-order .order-card .block-order span {
     display: block;
+  }
+}
+
+.section-comanda {
+  background-color: #E0F3F9;
+  min-height: 100vh;
+  padding: 50px 10px;
+}
+
+.section-comanda .comanda-plates li {
+  margin: 15px 0;
+}
+
+.section-comanda .comanda-plates li .comanda-plate {
+  background-color: #fff;
+  padding: 20px 15px;
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.08) 0px 3px 8px;
+}
+
+.comanda-plate:hover {
+  -webkit-animation: shake 0.7s;
+          animation: shake 0.7s;
+}
+
+@-webkit-keyframes shake {
+  10%, 90% {
+    transform: rotate(2deg);
+  }
+
+  20%, 80% {
+    transform: rotate(-2deg);
+  }
+
+  30%, 50%, 70% {
+    transform: rotate(2deg);
+  }
+
+  40%, 60% {
+    transform: rotate(-2deg);
+  }
+}
+
+@keyframes shake {
+  10%, 90% {
+    transform: rotate(2deg);
+  }
+
+  20%, 80% {
+    transform: rotate(-2deg);
+  }
+
+  30%, 50%, 70% {
+    transform: rotate(2deg);
+  }
+
+  40%, 60% {
+    transform: rotate(-2deg);
   }
 }
 
@@ -20487,24 +20569,6 @@ header .container img {
 .new-feed .feed-bubble:hover {
   -webkit-animation: shake 0.7s;
           animation: shake 0.7s;
-}
-
-@-webkit-keyframes shake {
-  10%, 90% {
-    transform: rotate(2deg);
-  }
-
-  20%, 80% {
-    transform: rotate(-2deg);
-  }
-
-  30%, 50%, 70% {
-    transform: rotate(2deg);
-  }
-
-  40%, 60% {
-    transform: rotate(-2deg);
-  }
 }
 
 @keyframes shake {

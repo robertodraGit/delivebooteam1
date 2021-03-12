@@ -104,6 +104,7 @@
             @yield('dashboard-comanda')
             @yield('restaurant-edit')
             @yield('edit-plate')
+            @yield('stats')
           </section>
         </div>
 

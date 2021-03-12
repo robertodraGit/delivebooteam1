@@ -48,7 +48,7 @@
 
                 <label for="first_name"><h4>Nome</h4> </label>
                 <br>
-                <input type="text" name="first_name" value="">
+                <input type="text" name="first_name" value="" required minlength="2" placeholder="nome" maxlength="20">
 
               </div>
 
@@ -56,7 +56,7 @@
 
                 <label for="last_name"><h4>Cognome</h4> </label>
                 <br>
-                <input type="text" name="last_name" value="">
+                <input type="text" name="last_name" value=""  required minlength="2" maxlength="20" placeholder="cognome">
 
               </div>
 
@@ -64,7 +64,7 @@
 
                 <label for="email"><h4>Email</h4> </label>
                 <br>
-                <input type="text" name="email" value="">
+                <input type="email" name="email" value="" required minlength="5"  size="" placeholder="sophie@example.com" maxlength="30">
 
               </div>
 
@@ -72,7 +72,7 @@
 
                 <label for="phone"><h4>Recapito telefonico</h4> </label>
                 <br>
-                <input type="text" name="phone" value="">
+                <input type="" name="phone" value="" required placeholder="ex. 3389098234" minlength="6" maxlength="30">
 
               </div>
 
@@ -80,7 +80,7 @@
 
                 <label for="comment"><h4>Commenti</h4> </label>
                 <br>
-                <input type="text" name="comment" value="">
+                <input type="text" name="comment" value="" minlength="2" maxlength="50" placeholder="commento">
 
               </div>
 
@@ -88,7 +88,7 @@
 
                 <label for="address"><h4>Indirizzo</h4> </label>
                 <br>
-                <input type="text" name="address" value="">
+                <input type="text" name="address" value="" required minlength="2" placeholder="indirizzo" maxlength="30">
 
               </div>
               <div class="but-cont-max">

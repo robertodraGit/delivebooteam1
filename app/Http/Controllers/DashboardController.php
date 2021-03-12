@@ -58,12 +58,29 @@ class DashboardController extends Controller
         }
 
         $current = Carbon::now();
-        $monthsAgo = $current -> subMonths(3);
         $counterPerMonth = array (0,0,0);
 
         foreach ($userOrders as $order_x) {
-            if($current -> diffInDays($order_x -> updated_at) < 90) {
+            if($current -> diffInDays($order_x -> updated_at) < 30) {
                 $counterPerMonth[0] += 1;
+            } else if ($current -> diffInDays($order_x -> updated_at) < 60) {
+                $counterPerMonth[1] += 1;
+            } else if ($current -> diffInDays($order_x -> updated_at) < 90) {
+                $counterPerMonth[2] += 1;
+            }
+        }
+
+        $total_1month = [];
+        foreach ($userOrders as $order_last) {
+            if ($current -> diffInDays($order_last -> created_at) < 30) {
+                $total_1month[] = $order_last;
+            }
+        }
+
+        $total_24h = [];
+        foreach ($userOrders as $order_24) {
+            if ($current -> diffInHours($order_24 -> created_at) < 24) {
+                $total_24h[] = $order_24;
             }
         }
 
@@ -113,9 +130,6 @@ class DashboardController extends Controller
                     [
                         'ticks' => [
                             'beginAtZero' => true,
-                            // 'max' => 100,
-                            // 'min' => 0,
-                            // 'stepSize' => 10,
                         ],
                         'stacked' => true,
                         'gridLines' => [
@@ -127,8 +141,6 @@ class DashboardController extends Controller
                     [
                         'ticks' => [
                             'beginAtZero' => true,
-                            // 'max' => 100,
-                            // 'min' => 20,
                             'stepSize' => 1,
                         ],
                         'stacked' => true,
@@ -172,7 +184,7 @@ class DashboardController extends Controller
             ],
         ]);
 
-        return view('dashboard.dashboard-index', compact('mail_cut', 'chartjsDashboard','chartjsFeedbacks', 'orders_3'));
+        return view('dashboard.dashboard-index', compact('mail_cut', 'chartjsDashboard','chartjsFeedbacks', 'orders_3', 'total_1month', 'total_24h'));
     }
 
     public function feedbackPage() {
@@ -190,6 +202,9 @@ class DashboardController extends Controller
     public function stats() {
 
         $user = Auth::user();
+        $email_user = Auth::user() -> email;
+        $word = '@';
+        $mail_cut = substr($email_user, 0, strpos($email_user, $word));
         $plates = [];
 
         foreach ($user -> plates as $plate) {
@@ -222,8 +237,6 @@ class DashboardController extends Controller
                 $counterFeedbacks[4] += 1;
             }
         }
-
-        // dd($counterFeedbacks, $plateOrdersId);
 
         $chartjs1 = app()->chartjs
         ->name('platesOrdered')
@@ -371,11 +384,67 @@ class DashboardController extends Controller
             ],
         ]);
 
-        return view('dashboard.stats', compact('chartjs1', 'chartjs2'));
-    }
+        $chartjs3 = app()->chartjs
+        ->name('last12Months')
+        ->type('horizontalBar')
+        ->size(['width' => 500, 'height' => 200])
+        ->labels($plates)
+        ->datasets([
+            [
+                "label" => "Ordinazioni al mese",
+                'backgroundColor' => [
+                    "rgba(231, 13, 75, 0.41)",
+                    "rgba(0, 224, 206, 0.41)",
+                    "rgba(255, 252, 49, 0.41)",
+                    "rgba(112, 215, 208, 0.41)",
+                    "rgba(224, 221, 0, 0.41)",
+                    "rgba(120, 215, 247, 0.41)",
+                    "rgba(221, 28, 26, 0.41)",
+                    "rgba(6, 174, 213, 0.41)",
+                    "rgba(6, 186, 99, 0.41)",
+                    "rgba(139, 148, 163, 0.41)",
+                    "rgba(203, 255, 77, 0.41)",
+                    "rgba(84, 84, 84, 0.41)",
+                ],
+                'hoverBackgroundColor' => 'rgba(0, 204, 188, 0.51)',
+                'data' => $plateOrdersId,
+            ],
+        ])
+        ->optionsRaw([
+            'responsive' => true,
+            'legend' => [
+                'display' => true,
+                'labels' => [
+                    'fontColor' => '#000'
+                ]
+            ],
+            'scales' => [
+                'xAxes' => [
+                    [
+                        'ticks' => [
+                            'beginAtZero' => true,
+                        ],
+                        'stacked' => true,
+                        'gridLines' => [
+                            'display' => true,
+                        ],
+                    ]
+                ],
+                'yAxes' => [
+                    [
+                        'ticks' => [
+                            'beginAtZero' => true,
+                            'stepSize' => 1,
+                        ],
+                        'stacked' => true,
+                        'gridLines' => [
+                            'display' => true,
+                        ],
+                    ]
+                ]
+            ]
+        ]);
 
-    // public function dashProvvisoria(){
-    //   $user = Auth::user();
-    //   return view('dashboard.dashboard-index', compact('user'));
-    // }
+        return view('dashboard.stats', compact('chartjs1', 'chartjs2', 'chartjs3', 'mail_cut'));
+    }
 }

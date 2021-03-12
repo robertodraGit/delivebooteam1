@@ -391,9 +391,19 @@
                 color: $variable2;
                 border-radius: $border-card;
                 box-shadow: $shadow_button;
+                position: relative;
 
-                @media all and (min-width: 1200px) and (max-width: 1600px) {
-
+                .fake-link {
+                    color: white;
+                    text-decoration: none;
+                    span {
+                        position:absolute;
+                        width:100%;
+                        height:100%;
+                        top:0;
+                        left: 0;
+                        z-index: 1;
+                    }
                 }
 
                 hr {
@@ -675,6 +685,38 @@
 }
 
 // MI DISSOCIO DAL QUANTITATIVO ENORME DI RIGHE IN QUESTO FILE
+.cash-cards {
+    padding: 10px 0;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    .sub-cash {
+        padding: 10px 15px;
+        border-radius: 8px;
+        width: 45%;
+        margin: 20px 20px;
+        min-width: 450px;
+        background-color: white;
+        box-shadow: $shadow_button;
+        text-align: center;
+        h4 {
+            color: $color_deliveroo;
+        }
+        h2 {
+            font-weight: bold;
+        }
+    }
+}
+@media all and (max-width: 575px) {
+    .cash-cards {
+        .sub-cash {
+            width: 90%;
+            margin: 20px auto;
+            min-width: 280px;
+        }
+    }
+}
+
 .myactive {
   display: flex;
 }

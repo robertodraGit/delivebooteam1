@@ -16398,7 +16398,7 @@ a.text-dark:focus {
   width: 280px;
   height: 130px;
   padding: 10px;
-  font-size: 16px;
+  font-size: 20px;
   position: relative;
   border: 1px solid rgba(0, 0, 0, 0.08);
 }
@@ -17571,6 +17571,16 @@ a.text-dark:focus {
   position: relative;
 }
 
+.left-side-dash .gotodash {
+  font-size: 30px;
+  color: white;
+  background-color: inherit;
+}
+
+.left-side-dash .button-dash {
+  font-size: 1.2rem;
+}
+
 .left-side-dash .close-dash-menu {
   display: none;
   color: white;
@@ -17758,7 +17768,7 @@ a.text-dark:focus {
   width: calc(100% - 300px);
   height: auto;
   overflow: auto;
-  background-color: white;
+  background-color: #E0F3F9;
 }
 
 @media all and (max-width: 867px) {
@@ -18817,7 +18827,7 @@ ul {
 .all-restaurants .restaurant .restaurant_container {
   min-height: 13px;
   width: 100%;
-  font-size: 16px;
+  font-size: 20px;
   padding: 10px;
 }
 
@@ -19081,7 +19091,7 @@ header .cart_header .box .header_price {
   padding: 20px 25px;
   padding-bottom: 15px;
   min-height: 200px;
-  font-size: 15px;
+  font-size: 18px;
   display: flex;
 }
 
@@ -19448,108 +19458,6 @@ header .container img {
 
 .plates_container {
   padding: 20px;
-}
-
-@-webkit-keyframes fade-in {
-  0% {
-    opacity: 0;
-  }
-
-  75% {
-    opacity: 0.7;
-  }
-
-  100% {
-    opacity: 1;
-  }
-}
-
-@keyframes fade-in {
-  0% {
-    opacity: 0;
-  }
-
-  75% {
-    opacity: 0.7;
-  }
-
-  100% {
-    opacity: 1;
-  }
-}
-
-@-webkit-keyframes slide-up {
-  0% {
-    transform: translateY(200px);
-  }
-
-  75% {
-    opacity: 0.7;
-  }
-
-  100% {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-
-@keyframes slide-up {
-  0% {
-    transform: translateY(200px);
-  }
-
-  75% {
-    opacity: 0.7;
-  }
-
-  100% {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-
-@-webkit-keyframes slide-left {
-  0% {
-    transform: translateX(400px);
-    opacity: 0;
-  }
-
-  40% {
-    transform: translateX(0) scale(1);
-    opacity: 1;
-  }
-
-  70% {
-    transform: translateX(0) scale(1.1);
-    opacity: 1;
-  }
-
-  100% {
-    transform: translateX(0) scale(1);
-    opacity: 1;
-  }
-}
-
-@keyframes slide-left {
-  0% {
-    transform: translateX(400px);
-    opacity: 0;
-  }
-
-  40% {
-    transform: translateX(0) scale(1);
-    opacity: 1;
-  }
-
-  70% {
-    transform: translateX(0) scale(1.1);
-    opacity: 1;
-  }
-
-  100% {
-    transform: translateX(0) scale(1);
-    opacity: 1;
-  }
 }
 
 .container-welcome #header-search {

@@ -65,6 +65,16 @@
     padding: 8px 20px;
     position: relative;
 
+    .gotodash {
+      font-size: 30px;
+      color: white;
+      background-color: inherit;
+    }
+
+    .button-dash {
+      font-size: 1.2rem;
+    }
+
     .close-dash-menu {
       display: none;
       color: white;
@@ -251,7 +261,7 @@
     width: calc(100% - 300px);
     height: auto;
     overflow: auto;
-    background-color: white;
+    background-color: $dashboard-secondary;
 
     @media all and (max-width: 867px) {
         width: 100%;

@@ -187,9 +187,13 @@ class DashboardController extends Controller
     public function feedbackPage() {
 
         $feedbacks = Auth::user() ->  feedback;
+        $email_user = Auth::user() -> email;
+        $word = '@';
+        $mail_cut = substr($email_user, 0, strpos($email_user, $word));
+
         $feedbacksOrder = $feedbacks -> sortByDesc('created_at');
 
-        return view('dashboard.feedbacks', compact('feedbacksOrder'));
+        return view('dashboard.feedbacks', compact('feedbacksOrder', 'mail_cut'));
     }
 
     public function stats() {

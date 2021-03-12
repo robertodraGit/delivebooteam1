@@ -45,7 +45,6 @@
             windowSize: 6,
             paginationFactor: 200,
             items: [
-                {link: '', name: 'Offers', tag: 'storage/img/offers.png'},
                 {link: 'italiano', name: 'Italiano', tag: 'storage/img/organic.png'},
                 {link: 'kebab', name: 'Kebab', tag: 'storage/img/kebab.png'},
                 {link: 'burger', name: 'Burgers', tag: 'storage/img/burgers-1.png'},

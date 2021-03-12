@@ -1,3 +1,25 @@
+.button-dashboard {
+      text-align: center;
+      width: 100%;
+      margin: 20px auto 30px auto;
+      button {
+          color: $variable2;
+          background-color: $color_deliveroo;
+          width: 200px;
+          height: 50px;
+          font-size: 16px;
+          font-weight: bold;
+          border: none;
+          border-radius: 15px;
+          box-shadow: $shadow_button;
+          transition: 0.2s ease-in-out;
+      }
+      button:hover {
+          color: $color_text_3;
+          transform: scale(1.02);
+      }
+}
+
 .header-dashboard-responsive {
   display: none;
   justify-content: space-between;
@@ -27,6 +49,10 @@
     display: flex;
     justify-content: space-between;
     width: 100%;
+}
+
+.dashboard-index {
+  padding: 0 30px;
 }
 
 .left-side-dash {
@@ -225,7 +251,6 @@
     height: auto;
     overflow: auto;
     background-color: white;
-    padding: 0 2rem;
 
     @media all and (max-width: 867px) {
         width: 100%;

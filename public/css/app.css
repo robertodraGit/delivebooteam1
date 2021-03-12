@@ -1,4 +1,6 @@
-@import url(https://fonts.googleapis.com/css?family=Nunito);@import url(https://fonts.googleapis.com/css2?family=Redressed&display=swap);/*!
+@import url(https://fonts.googleapis.com/css?family=Nunito);@import url(https://fonts.googleapis.com/css2?family=Redressed&display=swap);@import url(https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100;
+
+200;300;400;500;600;700;800;900&family=Shippori+Mincho+B1&display=swap);/*!
  * Font Awesome Free 5.15.2 by @fontawesome - https://fontawesome.com
  * License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
  */
@@ -4607,6 +4609,20 @@ readers do not read off random characters that represent icons */
   font-family: 'Font Awesome 5 Free';
   font-weight: 900; }
 @charset "UTF-8";
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.alertpay {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 60px;
+  padding: 10px;
+  z-index: 999;
+}
 
 /*!
  * Bootstrap v4.6.0 (https://getbootstrap.com/)
@@ -16392,9 +16408,11 @@ a.text-dark:focus {
   font-size: 0.8em;
   max-height: 50%;
   margin: 8px 0;
+  white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
   position: relative;
+  padding-right: 8px;
 }
 
 .plate_container .plate_text .ingredienti {
@@ -17646,6 +17664,7 @@ a.text-dark:focus {
 }
 
 .left-side-dash .buttons-left-dash h4 {
+  text-align: center;
   text-transform: uppercase;
   font-weight: bold;
   color: #ffffff;
@@ -20508,6 +20527,11 @@ header .container img {
   }
 }
 
+.container-login .card {
+  background-color: inherit;
+  border: 0;
+}
+
 .container-login .card button {
   width: 100%;
   margin-bottom: 20px;
@@ -20702,22 +20726,13 @@ header .container img {
   }
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-.alertpay {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  height: 60px;
-  padding: 10px;
-  z-index: 999;
-}
-
 .scroll-hide {
   overflow: hidden !important;
+}
+
+body {
+  font-family: "Roboto Slab", serif;
+  font-family: "Shippori Mincho B1", serif;
+  font-size: 18px;
 }
 

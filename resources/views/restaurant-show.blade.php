@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="{{asset('/css/app.css')}}">
     <script src="{{asset('/js/app.js')}}" ></script>
 
@@ -101,7 +102,7 @@
             @if ($restaurant -> description)
               <p class="rest_desc">{{$restaurant -> description}}</p>
             @else
-              <p class="rest_desc">Nessuna discrizione</p>    
+              <p class="rest_desc">Nessuna discrizione</p>
             @endif
             <p class="rest_phone">Contattaci allo: {{$restaurant -> phone}}</p>
           </div>

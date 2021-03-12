@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container-register">
-    
+
             <div class="card">
 
                 @if ($errors->any())
@@ -31,10 +31,10 @@
 
                             <div class="form-group row">
                                 <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
-    
+
                                 <div class="col-md-6">
                                     <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
-    
+
                                     @error('name')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -42,13 +42,13 @@
                                     @enderror
                                 </div>
                             </div>
-    
+
                             <div class="form-group row">
                                 <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
-    
+
                                 <div class="col-md-6">
                                     <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
-    
+
                                     @error('email')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -56,13 +56,13 @@
                                     @enderror
                                 </div>
                             </div>
-    
+
                             <div class="form-group row">
                                 <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
-    
+
                                 <div class="col-md-6">
                                     <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
-    
+
                                     @error('password')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -70,10 +70,10 @@
                                     @enderror
                                 </div>
                             </div>
-    
+
                             <div class="form-group row">
                                 <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
-    
+
                                 <div class="col-md-6">
                                     <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
                                 </div>
@@ -82,27 +82,46 @@
                         </div>
 
                         <div class="card-body-bottom">
-                          <label for="address">Address</label>
-                          <input type="text" name="address" value="{{ old('address') }}" maxlength="255" required>
-                          {{-- <input type="text" name="address" value="{{ old('address') }}"> --}}
 
-                          <label for="piva">PIVA</label>
-                          <input type="text" name="piva" value="{{ old('piva') }}" minlength="11" maxlength="11" required>
-                          {{-- <input type="text" name="piva" value="{{ old('piva') }}"> --}}
+                          <div class="form-group row">
+                              <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Address') }}</label>
 
-                          <label for="phone">Phone</label>
-                          <input type="text" name="phone" value="{{ old('phone') }}" minlength="6" maxlength="30" required>
-                          {{-- <input type="text" name="phone" value="{{ old('phone') }}"> --}}
+                              <div class="col-md-6">
+                                <input  class="form-control" type="text" name="address" value="{{ old('address') }}" maxlength="255" required>
+                              </div>
+                          </div>
 
-                          <label for="delivery_cost_euro">Delivery cost (prima della virgola)</label>
-                          <input type="number" name="delivery_cost_euro" value="{{ old('delivery_cost_euro') }}" min="0" max="9999" required>
-                          {{-- <input type="number" name="delivery_cost_euro" value="{{ old('delivery_cost_euro') }}"> --}}
+                          <div class="form-group row">
+                              <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('PIVA') }}</label>
 
-                          <label for="delivery_cost_cent">Delivery_cost (centesimi)</label>
-                          <input type="number" name="delivery_cost_cent" value="{{ old('delivery_cost_cent') }}" min="0" max="99" required>
-                          {{-- <input type="number" name="delivery_cost_cent" value="{{ old('delivery_cost_cent') }}"> --}}
+                              <div class="col-md-6">
+                                <input class="form-control" type="text" name="piva" value="{{ old('piva') }}" minlength="11" maxlength="11" required>
+                              </div>
+                          </div>
 
+                          <div class="form-group row">
+                              <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Phone') }}</label>
 
+                              <div class="col-md-6">
+                                <input class="form-control" type="text" name="phone" value="{{ old('phone') }}" minlength="6" maxlength="30" required>
+                              </div>
+                          </div>
+
+                          <div class="form-group row">
+                              <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Delivery cost (prima della virgola)') }}</label>
+
+                              <div class="col-md-6">
+                                <input class="form-control" type="number" name="delivery_cost_euro" value="{{ old('delivery_cost_euro') }}" min="0" max="9999" required>
+                              </div>
+                          </div>
+
+                          <div class="form-group row">
+                              <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Delivery_cost (centesimi)') }}</label>
+
+                              <div class="col-md-6">
+                                <input class="form-control" type="number" name="delivery_cost_cent" value="{{ old('delivery_cost_cent') }}" min="0" max="99" required>
+                              </div>
+                          </div>
                         </div>
 
                         <div class="form-group row mb-0">

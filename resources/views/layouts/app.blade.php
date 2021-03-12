@@ -22,7 +22,7 @@
 <body>
     <div id="app" class="container-auth">
         @include('components.header')
-        <main class="py-4">
+        <main>
             @yield('content')
         </main>
     </div>

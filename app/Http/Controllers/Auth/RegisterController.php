@@ -25,7 +25,9 @@ class RegisterController extends Controller
 
     protected function validator(array $data)
     {
-        // dd($data);
+        if ($data['delivery_cost_cent'] = '00') {
+          $data['delivery_cost_cent'] = 0;
+        }
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
@@ -46,7 +48,7 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        $deliveryCost = $data['delivery_cost_euro'] . $data['delivery_cost_cent'];
+        $deliveryCost = ($data['delivery_cost_euro'] * 100) + $data['delivery_cost_cent'];
         // dd($data);
         $user = User::create([
             'name' => $data['name'],

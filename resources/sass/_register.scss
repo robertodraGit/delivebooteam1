@@ -6,8 +6,11 @@
     background-size: cover;
     background-position: center bottom;
     background-repeat: no-repeat;
+    font-size: 15px;
 
     .card {
+        background: none;
+        border: 0;
         margin-bottom: 20px;
         // border: 1px solid black;
 
@@ -17,10 +20,10 @@
 
         .title {
           h1 {
-            font-size: 1.2em;
+            font-size: 3.1em;
           }
           p {
-            font-size: 1em;
+            font-size: 1.8em;
           }
         }
     }

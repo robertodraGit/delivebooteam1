@@ -5,6 +5,7 @@
     flex-wrap: wrap;
     margin: auto;
     padding: 30px 30px;
+    min-height: 100vh;
     background-color: $dashboard-secondary;
 
     input[type=text],

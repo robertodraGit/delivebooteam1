@@ -15556,6 +15556,11 @@ a.text-dark:focus {
   display: flex;
 }
 
+.container-welcome #header-search .container {
+  width: 1200px;
+  padding: 0 50px;
+}
+
 .container-welcome #header-no-search {
   display: none;
 }
@@ -18808,6 +18813,7 @@ ul {
   flex-wrap: wrap;
   margin: auto;
   padding: 30px 30px;
+  min-height: 100vh;
   background-color: #E0F3F9;
 }
 
@@ -19464,6 +19470,11 @@ header .container img {
 
 .container-welcome #header-search {
   display: flex;
+}
+
+.container-welcome #header-search .container {
+  width: 1200px;
+  padding: 0 50px;
 }
 
 .container-welcome #header-no-search {
@@ -20463,9 +20474,12 @@ header .container img {
   background-size: cover;
   background-position: center bottom;
   background-repeat: no-repeat;
+  font-size: 15px;
 }
 
 .container-register .card {
+  background: none;
+  border: 0;
   margin-bottom: 20px;
 }
 
@@ -20474,11 +20488,11 @@ header .container img {
 }
 
 .container-register .card .title h1 {
-  font-size: 1.2em;
+  font-size: 3.1em;
 }
 
 .container-register .card .title p {
-  font-size: 1em;
+  font-size: 1.8em;
 }
 
 @media screen and (max-width: 800px) {

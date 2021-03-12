@@ -18658,62 +18658,60 @@ a.text-dark:focus {
   }
 }
 
+ul {
+  text-decoration: none;
+  list-style: none;
+}
+
 .section-comanda {
   background-color: #E0F3F9;
   min-height: 100vh;
-  padding: 50px 10px;
+  padding: 50px 30px;
 }
 
-.section-comanda .comanda-plates li {
-  margin: 15px 0;
+.section-comanda h1 {
+  text-align: center;
+}
+
+.section-comanda .comanda-plates {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
 }
 
 .section-comanda .comanda-plates li .comanda-plate {
+  margin: 15px 8px;
+  width: 300px;
   background-color: #fff;
   padding: 20px 15px;
   border-radius: 5px;
   box-shadow: rgba(0, 0, 0, 0.08) 0px 3px 8px;
+  transition: 0.2s ease-in-out;
+}
+
+.section-comanda .comanda-plates li .comanda-plate .plate-img-comanda {
+  width: 250px;
+  height: 250px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 8px;
+  margin: 0 auto;
+}
+
+.section-comanda .comanda-plates li .comanda-plate .plate-title {
+  text-align: center;
+  font-weight: bold;
+}
+
+.section-comanda .comanda-plates li .comanda-plate .ingredients {
+  width: 250px;
+  margin: 0 auto;
+  padding-top: 10px;
 }
 
 .comanda-plate:hover {
-  -webkit-animation: shake 0.7s;
-          animation: shake 0.7s;
-}
-
-@-webkit-keyframes shake {
-  10%, 90% {
-    transform: rotate(2deg);
-  }
-
-  20%, 80% {
-    transform: rotate(-2deg);
-  }
-
-  30%, 50%, 70% {
-    transform: rotate(2deg);
-  }
-
-  40%, 60% {
-    transform: rotate(-2deg);
-  }
-}
-
-@keyframes shake {
-  10%, 90% {
-    transform: rotate(2deg);
-  }
-
-  20%, 80% {
-    transform: rotate(-2deg);
-  }
-
-  30%, 50%, 70% {
-    transform: rotate(2deg);
-  }
-
-  40%, 60% {
-    transform: rotate(-2deg);
-  }
+  transform: scale(1.01);
 }
 
 .all-restaurants {
@@ -20569,6 +20567,24 @@ header .container img {
 .new-feed .feed-bubble:hover {
   -webkit-animation: shake 0.7s;
           animation: shake 0.7s;
+}
+
+@-webkit-keyframes shake {
+  10%, 90% {
+    transform: rotate(2deg);
+  }
+
+  20%, 80% {
+    transform: rotate(-2deg);
+  }
+
+  30%, 50%, 70% {
+    transform: rotate(2deg);
+  }
+
+  40%, 60% {
+    transform: rotate(-2deg);
+  }
 }
 
 @keyframes shake {

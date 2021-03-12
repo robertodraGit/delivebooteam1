@@ -10,11 +10,48 @@
     </div>
 
     <ul class="comanda-plates">
-      @foreach ($order -> plates as $plate)
+
+      @php
+        $plates_ids = [];
+        foreach ($order -> plates as $plates_collect) {
+          $plates_ids[] = $plates_collect['id'];
+        }
+
+        $plates_ids = array_count_values($plates_ids);
+
+        $new_comanda = [];
+
+        foreach ($plates_ids as $key => $id) {
+
+          $new_comanda[$key] = $order -> plates -> firstWhere('id', $key);
+
+          $new_comanda[$key]['quantity'] = $id;
+        }
+      @endphp
+
+      @foreach ($new_comanda as $plate)
+
         <li>
           <div class="comanda-plate">
-            <p class="plate-title">{{$plate -> plate_name}}</p>
-            <p>{{$plate -> ingredients}}</p>
+
+            <h4 class="plate-title">
+              {{$plate -> plate_name}} <i class="fas fa-cart-plus"></i> {{$plate -> quantity}}
+            </h4>
+
+            @php
+              $url_img = "/storage/plates/" . $plate -> img;
+            @endphp
+
+            <div class="plate-img-comanda"
+              @if ($plate -> img)
+                  style="background-image: url({{ $url_img }})"
+              @else
+                  style="background-image: url({{ asset('/storage/placeholder.svg') }})"
+              @endif
+            > 
+            </div>
+
+            <p class="ingredients">Ingredienti: {{$plate -> ingredients}}</p>
           </div>
         </li>
       @endforeach

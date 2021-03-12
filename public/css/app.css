@@ -19398,14 +19398,14 @@ header .container img {
   padding: 10px;
   font-size: 16px;
   position: relative;
-  border: 1px solid rgba(0, 0, 0, 0.08);
+  border: 1px solid #daede8;
   padding: 2%;
   text-align: center;
 }
 
 .order-container #order-survey .order-survey-box-left .separate-survey:hover {
   cursor: pointer;
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  box-shadow: rgba(0, 0, 0, 0.08) 0px 3px 8px;
 }
 
 .order-container #order-survey .but-cont-max {
@@ -19443,7 +19443,7 @@ header .container img {
 }
 
 .order-container #order-survey .order-survey-box-right .box-wrapper .basket-hover:hover {
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  box-shadow: rgba(0, 0, 0, 0.08) 0px 3px 8px;
 }
 
 .order-container #order-survey .order-survey-box-right .box-wrapper .basket_header {
@@ -19490,14 +19490,14 @@ header .container img {
 .order-container #submit-order-checkout {
   width: 200px;
   background-color: #00CCBC;
-  padding: 0 10%;
+  padding: 10px 25px;
   color: white;
 }
 
 .order-container #back-order-checkout {
   width: 200px;
   background-color: #FB5058;
-  padding: 0 10%;
+  padding: 10px 25px;
   color: white;
 }
 

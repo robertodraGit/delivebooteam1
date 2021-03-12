@@ -50,7 +50,7 @@
         padding: 10px;
         font-size: 16px;
         position: relative;
-        border: 1px solid rgba(0, 0, 0, 0.08);
+        border: 1px solid #daede8;
         padding: 2%;
         text-align: center;
         // border: 1px solid $color_deliveroo_2;
@@ -60,7 +60,7 @@
       }
       .separate-survey:hover{
         cursor: pointer;
-        box-shadow: rgb(0 0 0 / 24%) 0px 3px 8px;
+        box-shadow: rgba(0, 0, 0, 0.08) 0px 3px 8px;
       }
     }
     .but-cont-max{
@@ -95,7 +95,7 @@
         height: 100%;
         width: 100%;
         .basket-hover:hover{
-          box-shadow: rgb(0 0 0 / 24%) 0px 3px 8px;
+          box-shadow: rgba(0, 0, 0, 0.08) 0px 3px 8px;
         }
         .basket_header{
           background-color: #daede8;
@@ -139,13 +139,13 @@
   #submit-order-checkout{
     width: 200px;
     background-color: $color_deliveroo;
-    padding: 0 10%;
+    padding: 10px 25px;
     color: white;
   }
   #back-order-checkout{
     width: 200px;
     background-color: $discount-price;
-    padding: 0 10%;
+    padding: 10px 25px;
     color: white;
   }
   .fas{margin: 20px 0;}

@@ -213,13 +213,13 @@ class DashboardController extends Controller
 
         $userOrdersId = [];
         foreach ($user -> plates as $plate) {
-
-        $orders = [];
-        foreach ($plate -> orders as $order) {
-            $orders[] = $order;
-            $userOrdersId[] = $order -> id;
-        }
+            $orders = [];
+            foreach ($plate -> orders as $order) {
+                $orders[] = $order;
+                $userOrdersId[] = $order -> id;
+            }
         $plateOrdersId[] = count($orders);
+        $ordersIds[] = $orders;
         }
 
         $counterFeedbacks = array (0,0,0,0,0);
@@ -235,6 +235,58 @@ class DashboardController extends Controller
                 $counterFeedbacks[3] += 1;
             } else {
                 $counterFeedbacks[4] += 1;
+            }
+        }
+
+        $userOrdersId = array_unique($userOrdersId);
+        $userOrders = Order::findOrFail($userOrdersId);
+
+        $reordered = [];
+        foreach ($userOrders as $order_item) {
+            $reordered[] = $order_item;
+        }
+
+        $monthsDatas = array (0,0,0,0,0,0,0,0,0,0,0,0);
+        $incassi = array (0,0,0,0,0,0,0,0,0,0,0,0);
+
+
+        foreach ($reordered as $orderToCount) {
+            if($orderToCount -> updated_at -> format('M') == 'Jan') {
+                $monthsDatas[0] = $monthsDatas[0] + 1;
+                $incassi[0] = $incassi[0] + ($orderToCount -> total_price / 100);
+            } else if ($orderToCount -> updated_at -> format('M') == 'Feb') {
+                $monthsDatas[1] = $monthsDatas[1] + 1;
+                $incassi[1] = $incassi[1] + ($orderToCount -> total_price / 100);
+            } else if ($orderToCount -> updated_at -> format('M') == 'Mar') {
+                $monthsDatas[2] = $monthsDatas[2] + 1;
+                $incassi[2] = $incassi[2] + ($orderToCount -> total_price / 100);
+            } else if ($orderToCount -> updated_at -> format('M') == 'Apr') {
+                $monthsDatas[3] = $monthsDatas[3] + 1;
+                $incassi[3] = $incassi[3] + ($orderToCount -> total_price / 100);
+            } else if ($orderToCount -> updated_at -> format('M') == 'May') {
+                $monthsDatas[4] = $monthsDatas[4] + 1;
+                $incassi[4] = $incassi[4] + ($orderToCount -> total_price / 100);
+            } else if ($orderToCount -> updated_at -> format('M') == 'Jun') {
+                $monthsDatas[5] = $monthsDatas[5] + 1;
+                $incassi[5] = $incassi[5] + ($orderToCount -> total_price / 100);
+            } else if ($orderToCount -> updated_at -> format('M') == 'Jul') {
+                $monthsDatas[6] = $monthsDatas[6] + 1;
+                $incassi[6] = $incassi[6] + ($orderToCount -> total_price / 100);
+            } else if ($orderToCount -> updated_at -> format('M') == 'Aug') {
+                $monthsDatas[7] = $monthsDatas[7] + 1;
+                $incassi[7] = $incassi[7] + ($orderToCount -> total_price / 100);
+            } else if ($orderToCount -> updated_at -> format('M') == 'Sep') {
+                $monthsDatas[8] = $monthsDatas[8] + 1;
+                $incassi[8] = $incassi[8] + ($orderToCount -> total_price / 100);
+            } else if ($orderToCount -> updated_at -> format('M') == 'Oct') {
+                $monthsDatas[9] = $monthsDatas[9] + 1;
+                $incassi[9] = $incassi[9] + ($orderToCount -> total_price / 100);
+            } else if ($orderToCount -> updated_at -> format('M') == 'Nov') {
+                $monthsDatas[10] = $monthsDatas[10] + 1;
+                $incassi[10] = $incassi[10] + ($orderToCount -> total_price / 100);
+            } else {
+                $monthsDatas[11] = $monthsDatas[11] + 1;
+                $incassi[11] = $incassi[11] + ($orderToCount -> total_price / 100);
             }
         }
 
@@ -386,28 +438,17 @@ class DashboardController extends Controller
 
         $chartjs3 = app()->chartjs
         ->name('last12Months')
-        ->type('horizontalBar')
+        ->type('line')
         ->size(['width' => 500, 'height' => 200])
-        ->labels($plates)
+        ->labels(['Gennaio', 'Febbraio', 'Marzo', 'Aprile', 'Maggio', 'Giugno', 'Luglio', 'Agosto', 'Settembre', 'Ottobre', 'Novembre', 'Dicembre'])
         ->datasets([
             [
-                "label" => "Ordinazioni al mese",
+                "label" => "Incassi per mese",
                 'backgroundColor' => [
-                    "rgba(231, 13, 75, 0.41)",
-                    "rgba(0, 224, 206, 0.41)",
-                    "rgba(255, 252, 49, 0.41)",
-                    "rgba(112, 215, 208, 0.41)",
-                    "rgba(224, 221, 0, 0.41)",
-                    "rgba(120, 215, 247, 0.41)",
-                    "rgba(221, 28, 26, 0.41)",
-                    "rgba(6, 174, 213, 0.41)",
-                    "rgba(6, 186, 99, 0.41)",
-                    "rgba(139, 148, 163, 0.41)",
-                    "rgba(203, 255, 77, 0.41)",
-                    "rgba(84, 84, 84, 0.41)",
+                    "rgba(233, 79, 55 ,0.55)"
                 ],
                 'hoverBackgroundColor' => 'rgba(0, 204, 188, 0.51)',
-                'data' => $plateOrdersId,
+                'data' => $incassi,
             ],
         ])
         ->optionsRaw([
@@ -434,7 +475,7 @@ class DashboardController extends Controller
                     [
                         'ticks' => [
                             'beginAtZero' => true,
-                            'stepSize' => 1,
+                            'stepSize' => 100,
                         ],
                         'stacked' => true,
                         'gridLines' => [

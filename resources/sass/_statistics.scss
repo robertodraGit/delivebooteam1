@@ -4,6 +4,15 @@
     flex-direction: column;
     align-items: center;
 
+    h1 {
+        padding-top: 20px;
+        color: $color_deliveroo;
+    }
+
+    h3 {
+        color: $variable1;
+    }
+
     .graph {
         width: 60%;
         padding: 3rem 0;

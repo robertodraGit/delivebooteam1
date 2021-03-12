@@ -18528,6 +18528,30 @@ a.text-dark:focus {
   background-color: #E0F3F9;
 }
 
+.section-order .button-dashboard {
+  text-align: center;
+  width: 100%;
+  margin: 20px auto 30px auto;
+}
+
+.section-order .button-dashboard button {
+  color: #ffffff;
+  background-color: #00CCBC;
+  width: 200px;
+  height: 50px;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.3);
+  transition: 0.2s ease-in-out;
+}
+
+.section-order .button-dashboard button:hover {
+  color: #2E3333;
+  transform: scale(1.02);
+}
+
 .section-order .order-card {
   display: flex;
   flex-wrap: wrap;

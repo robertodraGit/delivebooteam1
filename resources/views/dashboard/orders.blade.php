@@ -3,8 +3,14 @@
 @section('dashboard-orders')
   <section class="section-order">
       <h3>RIEPILOGO DEI TUOI ORDINI RICEVUTI
-          <span> {{ $user -> email }}</span>
+          <span> {{ $mail_cut }}</span>
       </h3>
+
+      <div class="button-dashboard">
+        <form class="" action="{{ route('dashboard') }}">
+            <button type="submit">Torna alla dashboard</button>
+        </form>
+      </div>
 
       <section class="order-card">
         @if (count($userOrders) > 0)

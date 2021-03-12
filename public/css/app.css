@@ -18522,6 +18522,94 @@ a.text-dark:focus {
   transform: rotate(325deg);
 }
 
+.section-order {
+  min-height: 100vh;
+  padding: 50px 10px;
+  background-color: #E0F3F9;
+}
+
+.section-order .order-card {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.section-order h3 {
+  text-align: center;
+  font-weight: bold;
+  color: #450063;
+  font-size: 22px;
+  margin-bottom: 40px;
+}
+
+.section-order h3 span {
+  font-size: 32px;
+  color: #00CCBC;
+}
+
+.section-order .block-order {
+  width: 400px;
+  flex-shrink: 0;
+  height: auto;
+  background-color: #ffffff;
+  border-radius: 5px;
+  padding: 25px;
+  margin: 3px;
+  margin-bottom: 30px;
+  box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.3);
+}
+
+.section-order .block-order .apri-comanda {
+  margin-top: 15px;
+  text-align: center;
+}
+
+.section-order .block-order h3 {
+  text-align: center;
+  color: #00CCBC;
+  font-weight: bold;
+  margin: 0;
+}
+
+.section-order .block-order h3 span {
+  font-size: 22px;
+  color: #2E3333;
+  font-weight: bold;
+}
+
+.section-order .block-order p {
+  font-size: 18px;
+  color: #00CCBC;
+  font-weight: bold;
+  margin: 0;
+}
+
+.section-order .block-order p span {
+  color: #2E3333;
+  font-weight: bold;
+}
+
+.section-order .block-order button {
+  width: 135px;
+  height: 45px;
+  background-color: #00CCBC;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.3);
+}
+
+@media all and (max-width: 450px) {
+  .section-order .order-card .block-order {
+    width: 95%;
+    min-width: 0;
+  }
+
+  .section-order .order-card .block-order span {
+    display: block;
+  }
+}
+
 .all-restaurants {
   display: flex;
   flex-wrap: wrap;
@@ -20353,7 +20441,7 @@ header .container img {
 .new-feed .feed-bubble p {
   margin: 8px 0;
   font-family: "Redressed", cursive;
-  font-size: 2rem;
+  font-size: 1.4rem;
   font-weight: 0;
   line-height: 1em;
   flex-grow: 1;

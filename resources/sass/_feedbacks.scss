@@ -1,5 +1,5 @@
 .new-feed {
-    
+
     background-color: $dashboard-secondary;
     min-height: 100vh;
     padding: 30px 30px;
@@ -15,7 +15,7 @@
         flex-shrink: 0;
         display: flex;
         flex-direction: column;
-        
+
         // looks
         background-color: #fff;
         padding: 20px 15px;
@@ -29,7 +29,7 @@
         p {
             margin: 8px 0;
             font-family: 'Redressed', cursive;
-            font-size: 2rem;
+            font-size: 1.4rem;
             font-weight: 0;
             line-height: 1em;
             flex-grow: 1;
@@ -69,5 +69,5 @@
         40%, 60% {
           transform: rotate(-2deg);
         }
-      }  
+      }
 }

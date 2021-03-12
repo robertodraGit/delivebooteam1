@@ -99,6 +99,7 @@
             @yield('feedbacks')
             @yield('plates')
             @yield('plates-edit')
+            @yield('dashboard-orders')
           </section>
         </div>
 

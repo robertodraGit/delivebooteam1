@@ -41,7 +41,12 @@ class OrderController extends Controller
     $userOrdersId = array_unique($userOrdersId);
     $userOrders = Order::findOrFail($userOrdersId);
 
-    return view('dashboard.orders', compact('user', 'userOrders'));
+    $email_user = $user -> email;
+    $word = '@';
+    $mail_cut = substr($email_user, 0, strpos($email_user, $word));
+
+
+    return view('dashboard.orders', compact('user', 'userOrders', 'mail_cut'));
   }
 
   public function restaurantComanda($id){

@@ -91,17 +91,20 @@
                 <input type="text" name="address" value="">
 
               </div>
-              <div class="separate-survey">
+              <div class="but-cont-max">
 
-                <a href="{{ route('restaurant-show', $data_array['plateselect'] -> user_id)}}">
-                  <input type="button" id="back-order-checkout" value="INDIETRO">
-                </a>
-                
-              </div>
-              <div class="separate-survey">
+                <div class="separate-survey-but">
 
-                <input type="submit" id="submit-order-checkout" value="SALVA">
+                  <a href="{{ route('restaurant-show', $data_array['plateselect'] -> user_id)}}">
+                    <input type="button" id="back-order-checkout" value="INDIETRO">
+                  </a>
 
+                </div>
+                <div class="separate-survey-but">
+
+                  <input type="submit" id="submit-order-checkout" value="SALVA">
+
+                </div>
               </div>
 
 
@@ -118,19 +121,21 @@
         <div class="order-survey-box-right">
 
           <div class="box-wrapper">
-            <div class="basket_header">
-              <span>Carrello</span>
-            </div>
+            <div class="basket-hover">
 
-            <div class="basket-summary">
+              <div class="basket_header">
+                <span>Carrello</span>
+              </div>
+
+              <div class="basket-summary">
 
 
-              @foreach ($data_array['plates'] as $item)
-                @if (count($data_array['plates']) <= 1)
-                  <ul>
-                    <li>Piatto: {{$item -> plate_name}}</li>
-                    <li>Prezzo: {{$item -> price}} €</li>
-                  </ul>
+                @foreach ($data_array['plates'] as $item)
+                  @if (count($data_array['plates']) <= 1)
+                    <ul>
+                      <li>Piatto: {{$item -> plate_name}}</li>
+                      <li>Prezzo: {{$item -> price}} €</li>
+                    </ul>
                   @elseif ($loop -> last)
                     <ul>
 
@@ -144,14 +149,15 @@
                       <li>Prezzo: {{$item -> price}} €</li>
                       <i class="fas fa-plus"></i>
                     </ul>
-                @endif
+                  @endif
 
-              @endforeach
-              <i class="fas fa-plus"></i>
-              <h4>costo consegna: {{$data_array['delivery']}} €</h4>
-              <i class="fas fa-equals"></i>
-              <h4>Totale da pagare: {{$data_array['topay'] + $data_array['delivery']}} €</h4>
+                @endforeach
+                <i class="fas fa-plus"></i>
+                <h4>costo consegna: {{$data_array['delivery']}} €</h4>
+                <i class="fas fa-equals"></i>
+                <h4>Totale da pagare: {{$data_array['topay'] + $data_array['delivery']}} €</h4>
 
+              </div>
             </div>
 
           </div>

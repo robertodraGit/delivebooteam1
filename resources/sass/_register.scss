@@ -14,13 +14,24 @@
         button {
             width: 100px;
         }
+
+        .title {
+          h1 {
+            font-size: 1.2em;
+          }
+          p {
+            font-size: 1em;
+          }
+        }
     }
+
+
 }
 
 // media md, s
 @media screen and (max-width: 800px) {
     .container-register {
-        
+
         .card {
             margin: 5% 10%;
             // border: 1px solid black;
@@ -36,9 +47,8 @@
         .card {
             margin-top: 5%;
             margin-left: 10%;
-           
+
             // border: 1px solid black;
         }
     }
 }
-

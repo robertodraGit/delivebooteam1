@@ -34,7 +34,12 @@ class HomeController extends Controller
     //Restaurant Edit
     public function restaurantEdit(){
       $user = Auth::user();
-      return view('restaurant-edit.form-view', compact('user'));
+
+      $email_user = $user -> email;
+      $word = '@';
+      $mail_cut = substr($email_user, 0, strpos($email_user, $word));
+
+      return view('restaurant-edit.form-view', compact('user', 'mail_cut'));
     }
 
     public function uploadInfo(Request $request){

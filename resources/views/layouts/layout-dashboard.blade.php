@@ -101,6 +101,7 @@
             @yield('plates-edit')
             @yield('dashboard-orders')
             @yield('dashboard-comanda')
+            @yield('restaurant-edit')
           </section>
         </div>
 

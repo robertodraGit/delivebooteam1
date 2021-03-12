@@ -1,18 +1,3 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-.alertpay{
-  position: fixed;
-  top: 0;
-  width: 100%;
-  height: 60px;
-  padding: 10px;
-  z-index: 999;
-}
-
 // Fonts
 @import url('https://fonts.googleapis.com/css?family=Nunito');
 
@@ -54,7 +39,7 @@
 
 @import 'welcome';
 @import 'carousel';
-@import 'order';
+@import 'orderclient';
 @import 'pay';
 
 
@@ -70,6 +55,20 @@
 //feedbacks
 @import 'feedbacks';
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.alertpay{
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 60px;
+  padding: 10px;
+  z-index: 999;
+}
 
 .scroll-hide {
   overflow: hidden !important;

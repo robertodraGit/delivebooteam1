@@ -172,16 +172,7 @@ class DashboardController extends Controller
             ],
         ]);
 
-        $smallFeedbacks = [];
-        $feedMax = 0;
-        if (count($feedbacks) > 0) {
-            while ($feedMax <= 12) {
-                $smallFeedbacks[] = $feedbacks[$feedMax];
-                $feedMax++;
-            }
-        }
-
-        return view('dashboard.dashboard-index', compact('mail_cut', 'smallFeedbacks', 'chartjsDashboard','chartjsFeedbacks', 'orders_3'));
+        return view('dashboard.dashboard-index', compact('mail_cut', 'chartjsDashboard','chartjsFeedbacks', 'orders_3'));
     }
 
     public function feedbackPage() {

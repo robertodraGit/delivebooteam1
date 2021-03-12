@@ -4,6 +4,8 @@
     <meta charset="utf-8">
     <title></title>
     <link rel="stylesheet" href="{{ asset('css/app.css')}}">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Redressed&display=swap" rel="stylesheet">
     <script src="{{ asset('js/app.js')}}"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
   </head>
@@ -94,6 +96,11 @@
           <section class="dashboard-content">
             @yield('dashboard-home')
             @yield('create-plate')
+            @yield('feedbacks')
+            @yield('plates')
+            @yield('plates-edit')
+            @yield('dashboard-orders')
+            @yield('dashboard-comanda')
           </section>
         </div>
 

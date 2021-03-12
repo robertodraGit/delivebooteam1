@@ -1,0 +1,73 @@
+.new-feed {
+
+    background-color: $dashboard-secondary;
+    min-height: 100vh;
+    padding: 30px 30px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+
+        .feed-bubble {
+        // layout
+        position: relative;
+        width: 280px;
+        margin: 25px 8px;
+        flex-shrink: 0;
+        display: flex;
+        flex-direction: column;
+
+        // looks
+        background-color: #fff;
+        padding: 20px 15px;
+        border-radius: 1rem;
+        box-shadow: rgba(0, 0, 0, 0.08) 0px 3px 8px;
+
+        & * {
+            margin-bottom: 0px;
+        }
+
+        p {
+            margin: 8px 0;
+            font-family: 'Redressed', cursive;
+            font-size: 1.4rem;
+            font-weight: 0;
+            line-height: 1em;
+            flex-grow: 1;
+        }
+    }
+
+    .feed-bubble::before {
+        // layout
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 0;
+        bottom: 100%;
+        left: 1.5em; // offset should move with padding of parent
+        border: .75rem solid transparent;
+        border-top: none;
+
+        // looks
+        border-bottom-color: #fff;
+        filter: drop-shadow(0 -0.0625rem 0.0625rem rgba(0, 0, 0, .1));
+    }
+
+    .feed-bubble:hover {
+        animation:  shake 0.7s;
+    }
+
+    @keyframes shake {
+        10%, 90% {
+          transform: rotate(2deg);
+        }
+        20%, 80% {
+          transform: rotate(-2deg);
+        }
+        30%, 50%, 70% {
+          transform: rotate(2deg);
+        }
+        40%, 60% {
+          transform: rotate(-2deg);
+        }
+      }
+}

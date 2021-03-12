@@ -15,11 +15,10 @@
 
             {{-- lista ristoranti --}}
           <section v-if="displayRestaurants">
-              <h1>Restaurants</h1>
 
-              <div class="restaurants">
+              <div class="all-restaurants">
 
-                <div  v-for="restaurant in restaurants" :key="restaurant.id">
+                <div class="restaurant" v-for="restaurant in restaurants" :key="restaurant.id">
                     {{-- <p>@{{restaurant}}</p> --}}
                     <restaurant
                       :restaurant_data="restaurant"
@@ -27,6 +26,7 @@
                 </div>
 
               </div>
+                  
           </section>
 
           <section v-if="displayPlates">

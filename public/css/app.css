@@ -20810,8 +20810,8 @@ header .container img {
   overflow: hidden !important;
 }
 
-body {
-  font-family: "Roboto Slab", serif;
+html {
+  font-family: "Roboto Slab", sans-serif;
   font-family: "Shippori Mincho B1", serif;
   font-size: 18px;
 }

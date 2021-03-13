@@ -108,8 +108,8 @@ class PaymentController extends Controller
 
       'first_name' =>  'required|string|min:2|max:50',
       'last_name' =>  'required|string|min:2|max:50',
-      'email' => 'required|string|min:3|max:50',
-      'phone' => 'required|string|min:3|max:30',
+      'email' => 'required|email|min:5|max:50',
+      'phone' => 'required|string|min:6|max:30',
       'comment' => 'nullable|string|min:0|max:255',
       'address' => 'required|string|min:5|max:255',
       'total_price' =>  'required|integer|min:0|max:999999',

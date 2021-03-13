@@ -64,7 +64,7 @@
 
                 <label for="email"><h4>Email</h4> </label>
                 <br>
-                <input type="email" name="email" value="" required minlength="5"  size="" placeholder="sophie@example.com" maxlength="30">
+                <input type="email" name="email" value="" required minlength="5"  size="" placeholder="sophie@example.com" maxlength="50">
 
               </div>
 

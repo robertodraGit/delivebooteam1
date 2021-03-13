@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
+use App\Typology;
 
 class HomeController extends Controller
 {
@@ -39,10 +40,14 @@ class HomeController extends Controller
       $word = '@';
       $mail_cut = substr($email_user, 0, strpos($email_user, $word));
 
-      return view('restaurant-edit.form-view', compact('user', 'mail_cut'));
+      $alltypes = Typology::all();
+
+      return view('restaurant-edit.form-view', compact('user', 'mail_cut', 'alltypes'));
     }
 
     public function uploadInfo(Request $request){
+
+      // dd($request -> all());
 
       if ($request['delivery_cost_cent'] == '00') {
         $request['delivery_cost_cent'] = 0;
@@ -54,6 +59,7 @@ class HomeController extends Controller
         'phone' => ['required', 'string', 'min:6', 'max:30'],
         'delivery_cost_euro' => ['required', 'integer', 'min:0', 'max:9999'],
         'delivery_cost_cent' => ['required', 'integer', 'min:0', 'max:99'],
+        'types' => ['required', 'max:5'],
       ]);
 
       // $plate_price = ($data['price_euro'] * 100) + $data['price_cents'];

@@ -17876,7 +17876,6 @@ a.text-dark:focus {
 
 .right-side-dash .container-card .card {
   flex-basis: calc((100% / 3) - 40px);
-  height: 500px;
   border-radius: 5px;
   box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.3);
   margin: 15px 0px;
@@ -18932,6 +18931,13 @@ ul {
   background-color: white;
   padding: 15px;
   background-color: #E0F3F9;
+}
+
+.sides-flex-edit-restaurant .left-side-edit-restaurant .typology-checkbox input,
+.sides-flex-edit-restaurant .right-side-edit-restaurant .typology-checkbox input {
+  margin: 0;
+  padding: 5px 0;
+  height: auto;
 }
 
 .sides-flex-edit-restaurant .left-side-edit-restaurant {

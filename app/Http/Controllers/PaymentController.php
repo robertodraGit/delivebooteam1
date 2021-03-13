@@ -120,12 +120,7 @@ class PaymentController extends Controller
     ], compact('newOrder', 'restoraunt', 'token'));
   }
 
-  // CHECKOUT PAGAMENTO
   public function checkout(Request $request, $id) {
-    // dd($request);
-    // session() -> keep(['correctOrder']);
-    // $correctOrder = session() -> get('correctOrder');
-    // $request->session()->reflash();
 
     $gateway = new \Braintree\Gateway([
         'environment' => config('services.braintree.environment'),
@@ -134,7 +129,7 @@ class PaymentController extends Controller
         'privateKey' => config('services.braintree.privateKey')
     ]);
 
-    // dd($payState, $request);
+    // dd($request -> all(), $id);
 
     // dati pagante
     $payingEmail = $_POST["email"];

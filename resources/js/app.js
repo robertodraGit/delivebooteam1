@@ -277,27 +277,6 @@ function  init() {
           this.cart_new = [];
         },
 
-        get_cart: function() {
-
-          axios.post('http://localhost:8000/keep-cart', {
-                    cart: this.cart
-                  })
-                .then(cart => {
-
-                  if (cart.status === 200) {
-
-                    for(let i=0; i<cart.data.length; i++) {
-                      this.order.push(cart.data[i]);
-                    }
-                  window.location='http://localhost:8000/create/order';
-                  }
-
-                })
-                .catch(error => {
-                  console.log(error);
-                });
-        },
-
         plate_final_price: function(price, discount) {
           if (discount > 0) {
             let sconto_euro = (discount * price / 100) / 100;

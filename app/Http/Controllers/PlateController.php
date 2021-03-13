@@ -105,7 +105,9 @@ class PlateController extends Controller
 
     $plate -> save();
 
-    return redirect() -> route('plates-index');
+    // return redirect() -> route('plates-index');
+
+    return view('prova', compact('data'));
   }
 
   public function platesEdit($id) {

@@ -161,6 +161,7 @@ header {
       width: 100%;
       padding: 8px 25px;
       border-radius: 5px;
+      margin-bottom: 8px;
       border: 0;
       color: white;
       font-size: 1.1em;
@@ -169,7 +170,7 @@ header {
         cursor: pointer;
       }
     }
-    .cassa.disabled {
+    .cassa.disabled-custom {
       background-color: $disabled-button;
       &:hover {
         cursor: default;

@@ -34,12 +34,6 @@
 
             @endforeach
 
-
-            {{-- @foreach ($data_array['plates'] as $key => $item)
-              {{$item}} <br>
-            @endforeach --}}
-
-
             <h1>Compila il form per ricevere l'ordine:</h1>
 
             <div class="form-order-bg">

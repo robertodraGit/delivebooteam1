@@ -144,13 +144,21 @@
         </section>
 
         <section class="rest_show_right">
-          <button v-if="cart.length === 0" class="cassa disabled">
+          <button v-if="cart.length === 0" class="cassa disabled-custom">
             Vai alla cassa
           </button>
           <div class="cart-fixed" v-if='cart.length > 0'>
-            <button class="cassa" @click='get_cart()'>
-              Vai alla cassa
-            </button>
+            <form action="{{ route('get-cart') }}" method="POST" enctype="multipart/form-data">
+              @csrf
+              @method('POST')
+
+              <input type="hidden" name='cart' :value='JSON.stringify(cart)' >
+
+              <button type="submit" class="cassa">
+                Vai alla cassa
+              </button>
+            </form>
+
 
             <div v-for='item in cart_new' class="item-cart-row">
               <div class="item-cart-row-left">

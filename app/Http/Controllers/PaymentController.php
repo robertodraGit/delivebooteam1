@@ -19,7 +19,7 @@ class PaymentController extends Controller
 {
   public function getCart(Request $request) {
 
-    $data = $request -> json() -> all();
+    $data = $request -> all();
 
     $plates_selected = [];
     $to_pay = 0;
@@ -27,10 +27,12 @@ class PaymentController extends Controller
 
     $data_array = [];
 
-    foreach ($data as $value) {
-      foreach ($value as $item) {
+    $cart = json_decode($data['cart'], true);
 
-        $plate_select = Plate::findOrFail($item['plate_id']);
+    // dd($cart, $data);
+
+    foreach ($cart as $value) {
+        $plate_select = Plate::findOrFail($value['plate_id']);
         $delivery_cost = ($plate_select -> user -> delivery_cost) / 100;
 
         $discounted = $plate_select -> price * (100 - $plate_select -> discount);
@@ -41,7 +43,6 @@ class PaymentController extends Controller
         $to_pay += $discounted;
 
         $plates_selected[] = $plate_select;
-      }
     }
 
     $data_array['plates'] = $plates_selected;
@@ -49,22 +50,8 @@ class PaymentController extends Controller
     $data_array['delivery'] = $delivery_cost;
     $data_array['plateselect'] = $plate_select;
 
-    session() -> flash('data', $data_array);
-
-    return redirect() -> route('order-create');
-  }
-
-  public function create(Request $request) {
-
-    session() -> keep(['data']);
-
-    $data_array = session() -> get('data');
-
-    $request->session()->reflash();
-
     return view('orders.order-checkout', compact('data_array'));
   }
-
 
   public function storeOrder(Request $request) {
 
@@ -87,9 +74,7 @@ class PaymentController extends Controller
     foreach ($plates_id_final as $plate_id) {
 
       $plate_model_select = Plate::findOrFail($plate_id);
-      // ristorante a cui ordinano i piatti
       $restoraunt_id = $plate_model_select['user_id'];
-      // dd($restoraunt, $plate_model_select);
       $delivery_cost = ($plate_model_select -> user -> delivery_cost);
 
       $discounted = $plate_model_select -> price * (100 - $plate_model_select -> discount);
@@ -129,9 +114,6 @@ class PaymentController extends Controller
     ]);
 
     $token = $gateway->ClientToken()->generate();
-
-    session() -> flash('correctOrder', $newOrder);
-
 
     return view('orders.order-show', [
       'token' => $token,

@@ -19228,6 +19228,7 @@ header .cart_header .box .header_price {
   width: 100%;
   padding: 8px 25px;
   border-radius: 5px;
+  margin-bottom: 8px;
   border: 0;
   color: white;
   font-size: 1.1em;
@@ -19238,11 +19239,11 @@ header .cart_header .box .header_price {
   cursor: pointer;
 }
 
-#rest_show_main .rest_show_right .cassa.disabled {
+#rest_show_main .rest_show_right .cassa.disabled-custom {
   background-color: #E2E5E5;
 }
 
-#rest_show_main .rest_show_right .cassa.disabled:hover {
+#rest_show_main .rest_show_right .cassa.disabled-custom:hover {
   cursor: default;
 }
 

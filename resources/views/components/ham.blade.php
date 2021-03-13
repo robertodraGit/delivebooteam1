@@ -6,7 +6,14 @@
 
 </div>
 
+<transition
+    name="custom-classes-transition"
+    enter-active-class="animated fadeInLeft"
+    leave-active-class="animated fadeOutLeft"
+>
+
 <div v-if='showHam == true' id="open-hamburger-menu">
+
 
     <i @click='closeHam()' class="closebtn-ham far fa-window-close"></i>
 
@@ -48,6 +55,4 @@
 
 </div>
 
-
-
-
+</transition>

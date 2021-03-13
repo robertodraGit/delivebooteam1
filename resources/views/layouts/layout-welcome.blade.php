@@ -11,6 +11,7 @@
 
     {{-- js --}}
     <script src="{{asset('/js/app.js')}}"></script>
+    <link href="https://cdn.jsdelivr.net/npm/animate.css@3.5.1" rel="stylesheet" type="text/css">
 </head>
 <body>
 

@@ -2,8 +2,6 @@
 
 @section('content')
 
-  {{-- bug: se ricarico la pagina crea un ordine uguale al precedente con id +1 --}}
-
   <div class="order-pay-container">
 
     <div class="cont-marg-left">

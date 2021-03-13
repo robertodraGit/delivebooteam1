@@ -44,13 +44,12 @@ function  init() {
           displayRestaurants: 1,
           displayPlates: 0,
 
+          //ham flag
+          showHam: false,
       },
       computed: {
 
         cart_new: function() {
-
-          //Controllo cart e conta gli elementi uguali.
-          //Ne lascia solo uno ma con le proprietà cambiate (quantity, plate_price).
 
           let newCart = [];
           this.cart.forEach((plate, i) => {
@@ -111,6 +110,16 @@ function  init() {
         },
       },
       methods: {
+
+        openHam: function() {
+          this.showHam = true;
+          $("body").addClass("scroll-hide");
+        },
+
+        closeHam: function() {
+          this.showHam = false;
+          $("body").removeClass("scroll-hide");
+        },
 
         getRestaurantsInit: function(){
           axios.get('/getrestaurantsinit', {

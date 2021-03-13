@@ -98,7 +98,7 @@
         </div>
 
         <div class="right-side-dash">
-          @include('components.header-no-search')
+          @include('components.header-logo')
           @include('components.header-dashboard-responsive')
           <section class="dashboard-content">
             @yield('dashboard-home')

@@ -423,16 +423,13 @@ class DashboardController extends Controller
             'scale' => [
                 'ticks' => [
                     'beginAtZero' => true,
-                    'stepSize' => 15,
+                    'stepSize' => 1,
                     // 'min' => 0,
                 ],
             ],
             'responsive' => true,
             'legend' => [
                 'display' => true,
-                'labels' => [
-                    'fontColor' => '#000'
-                ]
             ],
         ]);
 

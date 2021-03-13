@@ -69,11 +69,7 @@
                       </button>
                   </form>
                   <form class="" action="{{ route('stats') }}">
-                      <button class="button-dash"
-                          @if (empty($orders_3))
-                              disabled
-                          @endif
-                      >
+                      <button class="button-dash">
                           Statistiche ordini
                           <span class="order-color"></span><span class="order-color"></span><span class="order-color"></span><span class="order-color"></span>
                       </button>

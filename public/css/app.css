@@ -18971,6 +18971,12 @@ ul {
   border-radius: 0 40px 40px 0;
 }
 
+.sides-flex-edit-restaurant .right-side-edit-restaurant .overflow-types {
+  height: 300px;
+  overflow: auto;
+  margin: 10px auto;
+}
+
 @media screen and (max-width: 700px) {
   .sides-flex-edit-restaurant {
     flex-direction: column;

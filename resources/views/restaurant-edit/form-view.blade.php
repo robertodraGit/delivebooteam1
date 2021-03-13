@@ -83,11 +83,17 @@
                 <input type="number" name="delivery_cost_cent" value="{{$delivery_cents}}" min="0" max="99" required>
               </div>
 
-              <div class="">
+              <div class="overflow-types">
                 <label for="types[]">Le tipologie del tuo ristorante</label>
                   @foreach ($alltypes as $type)
                       <div class="typology-checkbox">
-                        <input name='types[]' type="checkbox" value='{{ $type -> id }}'>
+                        <input name='types[]' type="checkbox" value='{{ $type -> id }}'
+                        @foreach ($user -> typologies as $type_user)
+                            @if ($type -> id == $type_user -> id)
+                                checked
+                            @endif
+                        @endforeach
+                        >
                         <span>{{ $type -> typology }}</span>
                       </div>
                   @endforeach

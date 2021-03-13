@@ -47,10 +47,10 @@ class HomeController extends Controller
 
     public function uploadInfo(Request $request){
 
-      // dd($request -> all());
-
       if ($request['delivery_cost_cent'] == '00') {
-        $request['delivery_cost_cent'] = 0;
+        $request['delivery_cost_cent'] = '0';
+      } else if (substr($request['delivery_cost_cent'], 0, 1) == '0' && $request['delivery_cost_cent'] != '0') {
+        $request['delivery_cost_cent'] = substr($request['delivery_cost_cent'], 1);
       }
 
       $request -> validate([
@@ -70,10 +70,14 @@ class HomeController extends Controller
       }
 
       $user = Auth::user();
-      $user -> description = $request->description;
-      $user -> phone = $request->phone;
+      $user -> description = $request -> description;
+      $user -> phone = $request -> phone;
       $user -> delivery_cost = $deliveryCost;
       $user -> save();
+
+      $types = Typology::findOrFail($request['types']);
+
+      $user -> typologies() -> sync($types);
 
       return redirect() -> route('restaurant-edit');
     }

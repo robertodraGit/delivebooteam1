@@ -61,6 +61,12 @@
     .right-side-edit-restaurant{
         max-width: 400px;
         border-radius: 0 40px 40px 0;
+
+        .overflow-types {
+          height: 300px;
+          overflow: auto;
+          margin: 10px auto;
+        }
     }
 }
 

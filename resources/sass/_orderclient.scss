@@ -53,10 +53,6 @@
         border: 1px solid #daede8;
         padding: 2%;
         text-align: center;
-        // border: 1px solid $color_deliveroo_2;
-        // margin: 1em 0;
-        // margin: 0 auto;
-        // width: calc(100% / 2);
       }
       .separate-survey:hover{
         cursor: pointer;
@@ -264,6 +260,9 @@
         }
         .separate-survey{
           width: 90%;
+          input {
+            width: 100%;
+          }
         }
       }
       .order-survey-box-right{

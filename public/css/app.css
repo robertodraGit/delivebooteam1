@@ -19955,6 +19955,10 @@ header .container img {
     width: 90%;
   }
 
+  .order-container #order-survey .order-survey-box-left .separate-survey input {
+    width: 100%;
+  }
+
   .order-container #order-survey .order-survey-box-right {
     margin-left: 0;
   }
@@ -20580,17 +20584,16 @@ header .container img {
 }
 
 .container-auth .card button {
-  height: 40px;
   border: 1px solid white;
-  border-radius: 5px;
+  border-radius: 8px;
   color: white;
-  padding: 0 5px;
-  background-color: #00ccbc;
+  padding: 8px 8px;
+  background-color: #00CCBC;
   cursor: pointer;
 }
 
 .container-auth .card button:hover {
-  background-color: #00c2b3;
+  background-color: #017E8A;
 }
 
 .container-register {

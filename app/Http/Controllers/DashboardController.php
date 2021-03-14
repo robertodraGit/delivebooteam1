@@ -177,10 +177,6 @@ class DashboardController extends Controller
             ],
         ])
         ->optionsRaw([
-            'animation' => [
-                'rotate' => '-0.5 * Math.PI',
-                'animateRotate' => true,
-            ],
             'responsive' => true,
             'legend' => [
                 'display' => true,

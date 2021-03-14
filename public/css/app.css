@@ -1,4 +1,6 @@
-@import url(https://fonts.googleapis.com/css?family=Nunito);@import url(https://fonts.googleapis.com/css2?family=Redressed&display=swap);/*!
+@import url(https://fonts.googleapis.com/css?family=Nunito);@import url(https://fonts.googleapis.com/css2?family=Redressed&display=swap);@import url(https://fonts.googleapis.com/css2?family=Asap:ital,wght@0,500;
+
+1,500&display=swap);/*!
  * Font Awesome Free 5.15.2 by @fontawesome - https://fontawesome.com
  * License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
  */
@@ -4607,14 +4609,6 @@ readers do not read off random characters that represent icons */
   font-family: 'Font Awesome 5 Free';
   font-weight: 900; }
 @charset "UTF-8";
-
-/*!
- * Bootstrap v4.6.0 (https://getbootstrap.com/)
- * Copyright 2011-2021 The Bootstrap Authors
- * Copyright 2011-2021 Twitter, Inc.
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
- */
-
 :root {
   --blue: #3490dc;
   --indigo: #6574cd;
@@ -20724,6 +20718,7 @@ header .container img {
 }
 
 * {
+  font-family: "Asap", sans-serif;
   margin: 0;
   padding: 0;
   box-sizing: border-box;

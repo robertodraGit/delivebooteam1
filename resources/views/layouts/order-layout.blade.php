@@ -11,6 +11,7 @@
     <title>Deliveboo</title>
   </head>
   <body>
+    @include('components.torna-su')
 
     @include('components.header-logo')
 

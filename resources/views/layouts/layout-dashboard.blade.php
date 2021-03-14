@@ -11,6 +11,7 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
   </head>
   <body>
+    @include('components.torna-su')
     <div class="container-dashboard">
 
         <div class="left-side-dash">

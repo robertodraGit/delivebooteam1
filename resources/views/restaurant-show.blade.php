@@ -37,6 +37,7 @@
 
   </head>
   <body>
+    @include('components.torna-su')
     <div id="app" class="rest-show-container">
 
       <header>

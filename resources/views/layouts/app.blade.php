@@ -20,6 +20,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
+    @include('components.torna-su')
     <div id="app" class="container-auth">
         @include('components.header')
         <main>

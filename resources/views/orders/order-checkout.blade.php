@@ -82,7 +82,7 @@
 
                 <label for="address"><h4>Indirizzo</h4> </label>
                 <br>
-                <input type="text" name="address" value="" required minlength="2" placeholder="indirizzo" maxlength="30">
+                <input type="text" name="address" value="" required minlength="6" placeholder="indirizzo" maxlength="30">
 
               </div>
               <div class="but-cont-max">

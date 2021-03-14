@@ -23,7 +23,7 @@ $colore_secondario: #00C2B3;
   border: 1px solid rgba(0, 0, 0, 0.08);
   &:hover {
     cursor: pointer;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    box-shadow: rgba(0, 194, 179, 0.65) 0px 3px 8px;
   }
   .plate_text {
     // @include debug-border;
@@ -120,6 +120,7 @@ $colore_secondario: #00C2B3;
     height: 100vh;
     top: 0;
     left: 0;
+    background-color: rgba(0,0,0, 0.15);
     backdrop-filter: blur(1px);
   }
 

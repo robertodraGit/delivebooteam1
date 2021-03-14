@@ -46,7 +46,7 @@ cut del testo da vue (ok ma non va da responsive) -->
           <section class="show">
 
             <div v-if="immagine != null" class="plate_img" :style="{'background-image':'url(' + url_img +')'}"></div>
-            <div class="plate_img" style="background-image: url(/storage/placeholder.svg)"></div>
+            <div v-else class="plate_img" style="background-image: url(/storage/placeholder.svg)"></div>
 
             <div class="plate_detail_info">
               <p class="descrizione">{{descrizione}}</p>

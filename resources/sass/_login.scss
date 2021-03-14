@@ -1,63 +1,25 @@
-.container-login {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  width: 80%;
-  min-height: calc(100vh - 80px);
-  margin: auto;
-
-  .login-text {
-    width: 50%;
-    min-width: 430px;
-    padding: 40px 0;
-
-    .register-button {
-      margin-top: 10px;
-      button {
-        color: white;
-        border-color: white;
-        background-color: $color_deliveroo;
-      }
-    }
-  }
-
-  .image {
-    width: 50%;
-    padding: 30px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    .image-slot {
-      width: 100%;
-      min-width: 350px;
-
-      img {
-        max-width: 100%;
-        height: auto;
-      }
-    }
+.register-button {
+    margin-top: 10px;
+  button {
+    color: white;
+    border-color: white;
+    background-color: $color_deliveroo;
   }
 }
 
-@media all and (max-width: 600px) {
+.img-login {
+  display: flex;
+  justify-content: space-between;
+  img {
+    width: 350px;
+  }
+}
 
-  .container-login {
-
-    .login-text {
-      width: 100%;
-      min-width: 0;
+@media all and (max-width: 768px) {
+  .img-login {
+    justify-content: center;
+    img {
+      width: 90%;
     }
   }
-
-  .container-login {
-    .image {
-      width: 100%;
-
-    .image-slot {
-      min-width: 300px;
-    }
-   }
-  }
-
 }

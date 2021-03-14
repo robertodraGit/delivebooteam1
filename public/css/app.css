@@ -20602,61 +20602,32 @@ header .container img {
   }
 }
 
-.container-login {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  width: 80%;
-  min-height: calc(100vh - 80px);
-  margin: auto;
-}
-
-.container-login .login-text {
-  width: 50%;
-  min-width: 430px;
-  padding: 40px 0;
-}
-
-.container-login .login-text .register-button {
+.register-button {
   margin-top: 10px;
 }
 
-.container-login .login-text .register-button button {
+.register-button button {
   color: white;
   border-color: white;
   background-color: #00CCBC;
 }
 
-.container-login .image {
-  width: 50%;
-  padding: 30px;
+.img-login {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: space-between;
 }
 
-.container-login .image .image-slot {
-  width: 100%;
-  min-width: 350px;
+.img-login img {
+  width: 350px;
 }
 
-.container-login .image .image-slot img {
-  max-width: 100%;
-  height: auto;
-}
-
-@media all and (max-width: 600px) {
-  .container-login .login-text {
-    width: 100%;
-    min-width: 0;
+@media all and (max-width: 768px) {
+  .img-login {
+    justify-content: center;
   }
 
-  .container-login .image {
-    width: 100%;
-  }
-
-  .container-login .image .image-slot {
-    min-width: 300px;
+  .img-login img {
+    width: 90%;
   }
 }
 

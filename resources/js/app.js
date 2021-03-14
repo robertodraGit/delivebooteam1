@@ -136,7 +136,7 @@ function  init() {
         },
 
         startResearch: function(queries){
-          console.log(queries);
+          // console.log(queries);
           this.oldSearchInput = queries;
           this.loading = 1;
           this.result_tendina = 1;
@@ -194,7 +194,7 @@ function  init() {
         },
 
         startResearchSlider: function(query){
-          console.log(query);
+          // console.log(query);
           this.oldSearchInput = query;
           this.no_result = 0;
           this.research_error = 0;

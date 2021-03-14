@@ -2,8 +2,8 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title></title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Deliveboo</title>
     <link rel="stylesheet" href="{{ asset('css/app.css')}}">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Redressed&display=swap" rel="stylesheet">

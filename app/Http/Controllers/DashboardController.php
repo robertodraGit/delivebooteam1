@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 use Carbon\Carbon;
 
@@ -49,10 +50,15 @@ class DashboardController extends Controller
         foreach ($userOrders as $order_item) {
             $reordered[] = $order_item;
         }
-
+            
         $orders_3 = [];
-        if (count($reordered) > 0) {
-            for ($j=0; $j < 3; $j++) {
+        if (count($reordered) == 1) {  
+            $orders_3[] = $reordered[0];
+        }   elseif (count($reordered) == 2) {
+                $orders_3[] = $reordered[0];
+                $orders_3[] = $reordered[1];
+        }   elseif (count($reordered) >= 3) {
+            for ($j=0; $j < 3; $j++) { 
                 $orders_3[] = $reordered[$j];
             }
         }
@@ -211,6 +217,7 @@ class DashboardController extends Controller
             $plates[] = $plate -> plate_name;
         }
 
+        $plateOrdersId = [];
         $userOrdersId = [];
         foreach ($user -> plates as $plate) {
             $orders = [];

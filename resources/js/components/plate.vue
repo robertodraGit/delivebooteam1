@@ -33,7 +33,13 @@ cut del testo da vue (ok ma non va da responsive) -->
     </div>
 
       <!-- Dettagli al click -->
+      
       <div v-show="display_details" class="layover">
+        <transition
+            name="custom-classes-transition"
+            enter-active-class="animated fadeInLeft"
+            leave-active-class="animated fadeOutLeft"
+        >
         <div class="plate_detail">
 
           <section class="header">
@@ -81,6 +87,7 @@ cut del testo da vue (ok ma non va da responsive) -->
 
           </section>
         </div>
+        </transition>
       </div>
   </div>
 </template>

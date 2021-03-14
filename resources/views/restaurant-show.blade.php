@@ -103,7 +103,7 @@
             @if ($restaurant -> description)
               <p class="rest_desc">{{$restaurant -> description}}</p>
             @else
-              <p class="rest_desc">Nessuna discrizione</p>
+              <p class="rest_desc">Nessuna descrizione</p>
             @endif
             <p class="rest_phone">Contattaci allo: {{$restaurant -> phone}}</p>
           </div>
@@ -119,10 +119,14 @@
             @endif
           </div>
           <div class="delivery-box">
-            <i class="fas fa-bicycle"></i>
-            <div class="">
-              <p class="rest_address">Indirizzo: {{$restaurant -> address}}</p>
-              <p class="rest_delivery_cost">Prezzo di consegna: {{($restaurant -> delivery_cost / 100)}}€</p>
+            <div class="icons-restaurant">
+              <i class="fas fa-map-marker-alt"></i>
+              <br>
+              <i class="fas fa-bicycle"></i>
+            </div>
+            <div>
+              <p class="rest_address"> {{$restaurant -> address}}</p>
+              <p class="rest_delivery_cost"> Consegna: {{($restaurant -> delivery_cost / 100)}}€</p>
             </div>
           </div>
         </section>

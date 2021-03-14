@@ -17880,6 +17880,8 @@ a.text-dark:focus {
   box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.3);
   margin: 15px 0px;
   padding: 15px;
+  display: flex;
+  justify-content: space-between;
 }
 
 .right-side-dash .container-card .card form {
@@ -17977,7 +17979,7 @@ a.text-dark:focus {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100%;
+  height: auto;
 }
 
 .right-side-dash .container-card .card .percentual-feed {

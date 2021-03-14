@@ -46,18 +46,15 @@
         <div class="card resp-card">
             <h3>Le tue statistiche</h3>
             <div class="graph-chart-js">
-                <div>
-                    {!! $chartjsDashboard->render() !!}
-                </div>
+                {!! $chartjsDashboard->render() !!}
             </div>
+            <span></span>
         </div>
         {{-- CARD FEEDBACK --}}
         <div class="card resp-card">
             <h3>I tuoi feedback</h3>
             <div class="graph-chart-js">
-                <div>
-                    {!! $chartjsFeedbacks->render() !!}
-                </div>
+                {!! $chartjsFeedbacks->render() !!}
             </div>
             <form action="{{ route('feedbacks') }}">
                 <button class="btn btn-outline-info btn-sm" type="submit">

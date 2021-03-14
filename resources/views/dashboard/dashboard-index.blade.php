@@ -43,7 +43,7 @@
             @endif
         </div>
         {{-- CARD STATISTICS --}}
-        <div class="card">
+        <div class="card resp-card">
             <h3>Le tue statistiche</h3>
             <div class="graph-chart-js">
                 <div>
@@ -52,7 +52,7 @@
             </div>
         </div>
         {{-- CARD FEEDBACK --}}
-        <div id="resp-card" class="card">
+        <div class="card resp-card">
             <h3>I tuoi feedback</h3>
             <div class="graph-chart-js">
                 <div>
@@ -60,7 +60,7 @@
                 </div>
             </div>
             <form action="{{ route('feedbacks') }}">
-                <button class="btn btn-success" type="submit">
+                <button class="btn btn-outline-info btn-sm" type="submit">
                     Visualizza i feedbacks
                     <span class="plate-color"></span><span class="plate-color"></span><span class="plate-color"></span><span class="plate-color"></span>
                 </button>

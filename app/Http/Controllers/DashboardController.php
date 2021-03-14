@@ -109,7 +109,7 @@ class DashboardController extends Controller
         $chartjsDashboard = app()->chartjs
         ->name('lastMonths')
         ->type('bar')
-        ->size(['width' => 300, 'height' => 295])
+        ->size(['width' => 300, 'height' => 300])
         ->labels($months_label)
         ->datasets([
             [
@@ -151,7 +151,7 @@ class DashboardController extends Controller
                         ],
                         'stacked' => true,
                         'gridLines' => [
-                            'display' => true,
+                            'display' => false,
                         ],
                     ]
                 ]
@@ -300,7 +300,7 @@ class DashboardController extends Controller
         $chartjs1 = app()->chartjs
         ->name('platesOrdered')
         ->type('bar')
-        ->size(['width' => 500, 'height' => 200])
+        ->size(['width' => 500, 'height' => 300])
         ->labels($plates)
         ->datasets([
             [
@@ -410,7 +410,7 @@ class DashboardController extends Controller
         $chartjs2 = app()->chartjs
         ->name('feedbacks')
         ->type('radar')
-        ->size(['width' => 500, 'height' => 200])
+        ->size(['width' => 500, 'height' => 300])
         ->labels(['1 Stella', '2 Stelle', '3 Stelle', '4 Stelle', '5 Stelle'])
         ->datasets([
             [
@@ -443,7 +443,7 @@ class DashboardController extends Controller
         $chartjs3 = app()->chartjs
         ->name('last12Months')
         ->type('line')
-        ->size(['width' => 500, 'height' => 200])
+        ->size(['width' => 600, 'height' => 600])
         ->labels(['Gennaio', 'Febbraio', 'Marzo', 'Aprile', 'Maggio', 'Giugno', 'Luglio', 'Agosto', 'Settembre', 'Ottobre', 'Novembre', 'Dicembre'])
         ->datasets([
             [

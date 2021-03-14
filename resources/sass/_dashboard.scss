@@ -72,7 +72,7 @@
     }
 
     .button-dash {
-      font-size: 1.2rem;
+      font-size: 1rem;
     }
 
     .close-dash-menu {
@@ -355,6 +355,11 @@
             margin: 15px 0px;
             padding: 15px;
 
+            form {
+                padding: 10px 0;
+                text-align: center;
+            }
+
             @media all and (min-width: 1200px) and (max-width: 1600px) {
                 flex-basis: calc((100% / 3) - 20px);
                 height: auto;
@@ -505,7 +510,7 @@
             }
         }
 
-        #resp-card {
+        .resp-card {
             @media all and (max-width: 575px) {
                 height: 200px;
             }

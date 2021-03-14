@@ -43,27 +43,27 @@
                 <div>
 
                   <form action="{{ route('dashboard') }}">
-                    <button class="gotodash" type="submit">
+                    <button class="button-dash" type="submit">
                       Dashboard
                     </button>
                   </form>
 
                   <form action="{{ route('restaurant-edit') }}">
-                      <button class="btn btn-success button-dash" type="submit">
+                      <button class="button-dash" type="submit">
                           Modifica il tuo profilo
                           <span class="plate-color"></span><span class="plate-color"></span><span class="plate-color"></span><span class="plate-color"></span>
                       </button>
                   </form>
 
                   <form action="{{ route('plates-index') }}">
-                      <button class="btn btn-success button-dash" type="submit">
+                      <button class="button-dash" type="submit">
                           Visualizza i tuoi piatti
                           <span class="plate-color"></span><span class="plate-color"></span><span class="plate-color"></span><span class="plate-color"></span>
                       </button>
                   </form>
 
                   <form class="" action="{{ route('restaurant-order') }}">
-                      <button button-dash>
+                      <button class="button-dash">
                           Visualizza i tuoi ordini
                           <span class="order-color"></span><span class="order-color"></span><span class="order-color"></span><span class="order-color"></span>
                       </button>

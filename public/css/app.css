@@ -17578,7 +17578,7 @@ a.text-dark:focus {
 }
 
 .left-side-dash .button-dash {
-  font-size: 1.2rem;
+  font-size: 1rem;
 }
 
 .left-side-dash .close-dash-menu {
@@ -17882,6 +17882,11 @@ a.text-dark:focus {
   padding: 15px;
 }
 
+.right-side-dash .container-card .card form {
+  padding: 10px 0;
+  text-align: center;
+}
+
 @media all and (min-width: 1200px) and (max-width: 1600px) {
   .right-side-dash .container-card .card {
     flex-basis: calc((100% / 3) - 20px);
@@ -18060,7 +18065,7 @@ a.text-dark:focus {
 }
 
 @media all and (max-width: 575px) {
-  .right-side-dash .container-card #resp-card {
+  .right-side-dash .container-card .resp-card {
     height: 200px;
   }
 }
@@ -20643,7 +20648,8 @@ header .container img {
 }
 
 .statistics-box {
-  width: 100%;
+  width: 90%;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
   align-items: center;

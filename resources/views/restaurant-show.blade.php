@@ -103,7 +103,7 @@
             @if ($restaurant -> description)
               <p class="rest_desc">{{$restaurant -> description}}</p>
             @else
-              <p class="rest_desc">Nessuna discrizione</p>
+              <p class="rest_desc">Nessuna descrizione</p>
             @endif
             <p class="rest_phone">Contattaci allo: {{$restaurant -> phone}}</p>
           </div>

@@ -233,11 +233,14 @@ $colore_secondario: #00C2B3;
         }
       }
       .button-light {
+        text-align: center;
         width: 110px;
         border: 1px solid lightgrey;
         color: $colore_secondario;
+        margin-right: 6px;
       }
       .button-strong {
+        text-align: center;
         width: 220px;
         background-color: $colore_secondario;
         color: white;

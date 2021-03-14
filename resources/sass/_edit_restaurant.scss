@@ -22,6 +22,7 @@
 
     .left-side-edit-restaurant,
     .right-side-edit-restaurant {
+        overflow-wrap: break-word;
         background-color: white;
         padding: 15px;
         background-color: $dashboard-secondary;
@@ -59,7 +60,7 @@
     }
     // SIDE RIGHT
     .right-side-edit-restaurant{
-        max-width: 400px;
+        max-width: 100%;
         border-radius: 0 40px 40px 0;
 
         .overflow-types {

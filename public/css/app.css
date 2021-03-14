@@ -16654,12 +16654,15 @@ a.text-dark:focus {
 }
 
 .plate_container .plate_detail .total .button-light {
+  text-align: center;
   width: 110px;
   border: 1px solid lightgrey;
   color: #00C2B3;
+  margin-right: 6px;
 }
 
 .plate_container .plate_detail .total .button-strong {
+  text-align: center;
   width: 220px;
   background-color: #00C2B3;
   color: white;
@@ -17240,13 +17243,6 @@ a.text-dark:focus {
 
 .img-box a {
   margin-top: 15px;
-}
-
-@media all and (max-width: 440px) {
-  .img-box a {
-    width: 150px;
-    height: 35px;
-  }
 }
 
 .img-position {
@@ -18935,6 +18931,7 @@ ul {
 
 .sides-flex-edit-restaurant .left-side-edit-restaurant,
 .sides-flex-edit-restaurant .right-side-edit-restaurant {
+  overflow-wrap: break-word;
   background-color: white;
   padding: 15px;
   background-color: #E0F3F9;
@@ -18974,7 +18971,7 @@ ul {
 }
 
 .sides-flex-edit-restaurant .right-side-edit-restaurant {
-  max-width: 400px;
+  max-width: 100%;
   border-radius: 0 40px 40px 0;
 }
 
@@ -20626,13 +20623,13 @@ header .container img {
 
 @media screen and (max-width: 800px) {
   .container-register .card {
-    margin: 5% 10%;
+    margin: 20px 20px;
   }
 }
 
 @media screen and (min-width: 801px) {
   .container-register .card {
-    margin-top: 5%;
+    margin-top: 30px;
     margin-left: 10%;
   }
 }

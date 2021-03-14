@@ -119,10 +119,9 @@
             @endif
           </div>
           <div class="delivery-box">
-            <i class="fas fa-bicycle"></i>
             <div class="">
-              <p class="rest_address">Indirizzo: {{$restaurant -> address}}</p>
-              <p class="rest_delivery_cost">Prezzo di consegna: {{($restaurant -> delivery_cost / 100)}}€</p>
+              <p class="rest_address"><i class="fas fa-map-marker-alt"></i> {{$restaurant -> address}}</p>
+              <p class="rest_delivery_cost"><i class="fas fa-bicycle"></i> Consegna: {{($restaurant -> delivery_cost / 100)}}€</p>
             </div>
           </div>
         </section>

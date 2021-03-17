@@ -1,8 +1,8 @@
-Simulazione di un sito di food-commerce stile Deliveroo. <br/>
+## Simulazione di un sito di food-commerce stile Deliveroo. <br/>
 Lato cliente possibilità di esplorare il sito alla ricerca del proprio ristorante e piatti preferiti. Possibilità di ordinare simulando il pagamento con carta di credito. <br/>
 Lato ristoratore possibilità di registrare la propria attività, gestire i propri piatti e controllare le proprie statistiche riguardo gli incassi, gli ordini e i feedback ricevuti.
 
-Intallazione: <br/>
+## Intallazione: <br/>
 ```
 $ git clone https://github.com/gioele-farina/delivebooteam1.git
 $ composer install
@@ -15,15 +15,15 @@ $ php artisan serve
 $ npm run watch
 ```
 -----------
-# Homepage
+<h1 align="center">Homepage</h1>
 
 <p align="center"><img src="https://raw.githubusercontent.com/gioele-farina/delivebooteam1/master/screenshots/homepage.png" width="650"></p>
 
-# Restaurant View
+<h1 align="center">Restaurant View</h1>
 
 <p align="center"><img src="https://raw.githubusercontent.com/gioele-farina/delivebooteam1/master/screenshots/view-restaurant.png" width="650"></p>
 
-# Dashboard
+<h1 align="center">Dashboard</h1>
 
 <p align="center"><img src="https://raw.githubusercontent.com/gioele-farina/delivebooteam1/master/screenshots/dashboard.png" width="650"></p>
 

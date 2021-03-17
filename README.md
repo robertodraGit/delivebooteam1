@@ -1,5 +1,5 @@
 Simulazione di un sito di food-commerce stile Deliveroo.
-Lato cliende possibilità di esplorare il sito alla ricerca del proprio ristorante e piatti preferiti. Possibilità di ordinare simulando il pagamento con carta di credito.
+Lato cliente possibilità di esplorare il sito alla ricerca del proprio ristorante e piatti preferiti. Possibilità di ordinare simulando il pagamento con carta di credito.
 Lato ristoratore possibilità di registrare la propria attività, gestire i propri piatti e controllare le proprie statistiche riguardo gli incassi, gli ordini e i feedback ricevuti.
 
 Intallazione:
@@ -10,8 +10,7 @@ php artisan storage:link
 npm install
 npm install --save @fortawesome/fontawesome-free 
 
-richiede account braintree e mailtrap.
-Da configurare nel file .env
+richiede account braintree e mailtrap, da configurare nel file .env.
 
 Download del codice da scompattare all'interno del progetto.
 Primo avvio:

@@ -1,21 +1,21 @@
-Simulazione di un sito di food-commerce stile Deliveroo.
-Lato cliente possibilità di esplorare il sito alla ricerca del proprio ristorante e piatti preferiti. Possibilità di ordinare simulando il pagamento con carta di credito.
+Simulazione di un sito di food-commerce stile Deliveroo. <br/>
+Lato cliente possibilità di esplorare il sito alla ricerca del proprio ristorante e piatti preferiti. Possibilità di ordinare simulando il pagamento con carta di credito. <br/>
 Lato ristoratore possibilità di registrare la propria attività, gestire i propri piatti e controllare le proprie statistiche riguardo gli incassi, gli ordini e i feedback ricevuti.
 
 Intallazione:
-composer create-project --prefer-dist laravel/laravel:^7.0 nomeCartella
-composer require laravel/ui:^2.4
-php artisan ui vue --auth
-php artisan storage:link
-npm install
-npm install --save @fortawesome/fontawesome-free 
-
-richiede account braintree e mailtrap, da configurare nel file .env.
-
-Download del codice da scompattare all'interno del progetto.
-Primo avvio:
-php artisan migrate:refresh --seed
-npm run watch
+composer create-project --prefer-dist laravel/laravel:^7.0 nomeCartella <br/>
+composer require laravel/ui:^2.4 <br/>
+php artisan ui vue --auth <br/>
+php artisan storage:link <br/>
+npm install <br/>
+npm install --save @fortawesome/fontawesome-free <br/>
+<br/>
+richiede account braintree e mailtrap, da configurare nel file .env. <br/>
+<br/>
+Download del codice da scompattare all'interno del progetto.<br/>
+Primo avvio:<br/>
+php artisan migrate:refresh --seed<br/>
+npm run watch<br/>
 
 -----------
 

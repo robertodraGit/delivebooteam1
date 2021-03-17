@@ -1,3 +1,20 @@
+Simulazione di un sito di food-commerce stile Deliveroo. <br/>
+Lato cliente possibilità di esplorare il sito alla ricerca del proprio ristorante e piatti preferiti. Possibilità di ordinare simulando il pagamento con carta di credito. <br/>
+Lato ristoratore possibilità di registrare la propria attività, gestire i propri piatti e controllare le proprie statistiche riguardo gli incassi, gli ordini e i feedback ricevuti.
+
+Intallazione:
+git clone * link progetto https * <br/>
+composer install <br/>
+npm install <br/>
+modificare file .env con dati database phpMyAdmin <br/>
+php artisan migrate:refresh --seed <br/>
+php artisan storage:link <br/>
+<br/>
+php artisan serve <br/>
+npm run watch<br/>
+
+-----------
+
 <p align="center"><img src="https://res.cloudinary.com/dtfbvvkyp/image/upload/v1566331377/laravel-logolockup-cmyk-red.svg" width="400"></p>
 
 <p align="center">

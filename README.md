@@ -4,19 +4,28 @@ Lato ristoratore possibilità di registrare la propria attività, gestire i prop
 
 Intallazione: <br/>
 ```
-$ git clone * link progetto https * <br/>
-$ composer install <br/>
-$ npm install <br/>
-$ modificare file .env con dati database phpMyAdmin <br/>
-$ php artisan migrate:refresh --seed <br/>
-$ php artisan storage:link <br/>
-<br/>
-$ php artisan serve <br/>
-$ npm run watch<br/>
+$ git clone https://github.com/gioele-farina/delivebooteam1.git
+$ composer install
+$ npm install
+$ modificare file .env con dati database phpMyAdmin 
+$ php artisan migrate:refresh --seed
+$ php artisan storage:link
+
+$ php artisan serve 
+$ npm run watch
 ```
 -----------
+# Homepage
 
-<p align="center"><img src="https://res.cloudinary.com/dtfbvvkyp/image/upload/v1566331377/laravel-logolockup-cmyk-red.svg" width="400"></p>
+<p align="center"><img src="https://raw.githubusercontent.com/gioele-farina/delivebooteam1/master/screenshots/homepage.png" width="650"></p>
+
+# Restaurant View
+
+<p align="center"><img src="https://raw.githubusercontent.com/gioele-farina/delivebooteam1/master/screenshots/view-restaurant.png" width="650"></p>
+
+# Dashboard
+
+<p align="center"><img src="https://raw.githubusercontent.com/gioele-farina/delivebooteam1/master/screenshots/dashboard.png" width="650"></p>
 
 <p align="center">
 <a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>

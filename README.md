@@ -4,15 +4,16 @@ Lato ristoratore possibilità di registrare la propria attività, gestire i prop
 
 ## Intallazione: <br/>
 ```
-$ git clone https://github.com/gioele-farina/delivebooteam1.git
-$ composer install
-$ npm install
-$ modificare file .env con dati database phpMyAdmin 
-$ php artisan migrate:refresh --seed
-$ php artisan storage:link
+git clone https://github.com/gioele-farina/delivebooteam1.git
+composer install
+npm install
+modificare file .env con dati database phpMyAdmin 
+php artisan migrate:refresh --seed
+php artisan storage:link
 
-$ php artisan serve 
-$ npm run watch
+php artisan serve 
+npm run watch
+
 ```
 -----------
 <h1 align="center">Homepage</h1>

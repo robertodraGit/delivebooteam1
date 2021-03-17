@@ -16654,6 +16654,7 @@ a.text-dark:focus {
 }
 
 .plate_container .plate_detail .total .button-light {
+<<<<<<< Updated upstream
   text-align: center;
   width: 110px;
   border: 1px solid lightgrey;
@@ -16663,6 +16664,14 @@ a.text-dark:focus {
 
 .plate_container .plate_detail .total .button-strong {
   text-align: center;
+=======
+  width: 110px;
+  border: 1px solid lightgrey;
+  color: #00C2B3;
+}
+
+.plate_container .plate_detail .total .button-strong {
+>>>>>>> Stashed changes
   width: 220px;
   background-color: #00C2B3;
   color: white;
@@ -17245,6 +17254,16 @@ a.text-dark:focus {
   margin-top: 15px;
 }
 
+<<<<<<< Updated upstream
+=======
+@media all and (max-width: 440px) {
+  .img-box a {
+    width: 150px;
+    height: 35px;
+  }
+}
+
+>>>>>>> Stashed changes
 .img-position {
   display: flex;
   flex-direction: column;
@@ -17574,7 +17593,11 @@ a.text-dark:focus {
 }
 
 .left-side-dash .button-dash {
+<<<<<<< Updated upstream
   font-size: 1rem;
+=======
+  font-size: 1.2rem;
+>>>>>>> Stashed changes
 }
 
 .left-side-dash .close-dash-menu {
@@ -17876,6 +17899,7 @@ a.text-dark:focus {
   box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.3);
   margin: 15px 0px;
   padding: 15px;
+<<<<<<< Updated upstream
   display: flex;
   justify-content: space-between;
 }
@@ -17883,6 +17907,8 @@ a.text-dark:focus {
 .right-side-dash .container-card .card form {
   padding: 10px 0;
   text-align: center;
+=======
+>>>>>>> Stashed changes
 }
 
 @media all and (min-width: 1200px) and (max-width: 1600px) {
@@ -17975,7 +18001,11 @@ a.text-dark:focus {
   display: flex;
   align-items: center;
   justify-content: center;
+<<<<<<< Updated upstream
   height: auto;
+=======
+  height: 100%;
+>>>>>>> Stashed changes
 }
 
 .right-side-dash .container-card .card .percentual-feed {
@@ -18063,7 +18093,11 @@ a.text-dark:focus {
 }
 
 @media all and (max-width: 575px) {
+<<<<<<< Updated upstream
   .right-side-dash .container-card .resp-card {
+=======
+  .right-side-dash .container-card #resp-card {
+>>>>>>> Stashed changes
     height: 200px;
   }
 }
@@ -18931,7 +18965,10 @@ ul {
 
 .sides-flex-edit-restaurant .left-side-edit-restaurant,
 .sides-flex-edit-restaurant .right-side-edit-restaurant {
+<<<<<<< Updated upstream
   overflow-wrap: break-word;
+=======
+>>>>>>> Stashed changes
   background-color: white;
   padding: 15px;
   background-color: #E0F3F9;
@@ -18971,7 +19008,11 @@ ul {
 }
 
 .sides-flex-edit-restaurant .right-side-edit-restaurant {
+<<<<<<< Updated upstream
   max-width: 100%;
+=======
+  max-width: 400px;
+>>>>>>> Stashed changes
   border-radius: 0 40px 40px 0;
 }
 
@@ -19955,10 +19996,13 @@ header .container img {
     width: 90%;
   }
 
+<<<<<<< Updated upstream
   .order-container #order-survey .order-survey-box-left .separate-survey input {
     width: 100%;
   }
 
+=======
+>>>>>>> Stashed changes
   .order-container #order-survey .order-survey-box-right {
     margin-left: 0;
   }
@@ -20514,6 +20558,7 @@ header .container img {
   }
 }
 
+<<<<<<< Updated upstream
 .torna-su {
   position: fixed;
   z-index: 2000;
@@ -20542,6 +20587,8 @@ header .container img {
   cursor: pointer;
 }
 
+=======
+>>>>>>> Stashed changes
 .container-auth #search-bar,
 .container-auth .cart {
   display: none;
@@ -20584,16 +20631,29 @@ header .container img {
 }
 
 .container-auth .card button {
+<<<<<<< Updated upstream
   border: 1px solid white;
   border-radius: 8px;
   color: white;
   padding: 8px 8px;
   background-color: #00CCBC;
+=======
+  height: 40px;
+  border: 1px solid white;
+  border-radius: 5px;
+  color: white;
+  padding: 0 5px;
+  background-color: #00ccbc;
+>>>>>>> Stashed changes
   cursor: pointer;
 }
 
 .container-auth .card button:hover {
+<<<<<<< Updated upstream
   background-color: #017E8A;
+=======
+  background-color: #00c2b3;
+>>>>>>> Stashed changes
 }
 
 .container-register {
@@ -20626,27 +20686,59 @@ header .container img {
 
 @media screen and (max-width: 800px) {
   .container-register .card {
+<<<<<<< Updated upstream
     margin: 20px 20px;
+=======
+    margin: 5% 10%;
+>>>>>>> Stashed changes
   }
 }
 
 @media screen and (min-width: 801px) {
   .container-register .card {
+<<<<<<< Updated upstream
     margin-top: 30px;
+=======
+    margin-top: 5%;
+>>>>>>> Stashed changes
     margin-left: 10%;
   }
 }
 
+<<<<<<< Updated upstream
 .register-button {
   margin-top: 10px;
 }
 
 .register-button button {
+=======
+.container-login {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 80%;
+  min-height: calc(100vh - 80px);
+  margin: auto;
+}
+
+.container-login .login-text {
+  width: 50%;
+  min-width: 430px;
+  padding: 40px 0;
+}
+
+.container-login .login-text .register-button {
+  margin-top: 10px;
+}
+
+.container-login .login-text .register-button button {
+>>>>>>> Stashed changes
   color: white;
   border-color: white;
   background-color: #00CCBC;
 }
 
+<<<<<<< Updated upstream
 .img-login {
   display: flex;
   justify-content: space-between;
@@ -20663,6 +20755,38 @@ header .container img {
 
   .img-login img {
     width: 90%;
+=======
+.container-login .image {
+  width: 50%;
+  padding: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container-login .image .image-slot {
+  width: 100%;
+  min-width: 350px;
+}
+
+.container-login .image .image-slot img {
+  max-width: 100%;
+  height: auto;
+}
+
+@media all and (max-width: 600px) {
+  .container-login .login-text {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .container-login .image {
+    width: 100%;
+  }
+
+  .container-login .image .image-slot {
+    min-width: 300px;
+>>>>>>> Stashed changes
   }
 }
 
@@ -20678,8 +20802,12 @@ header .container img {
 }
 
 .statistics-box {
+<<<<<<< Updated upstream
   width: 90%;
   margin: 0 auto;
+=======
+  width: 100%;
+>>>>>>> Stashed changes
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -20730,7 +20858,10 @@ header .container img {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
+<<<<<<< Updated upstream
   align-items: flex-start;
+=======
+>>>>>>> Stashed changes
 }
 
 .new-feed .feed-bubble {
@@ -20825,7 +20956,10 @@ header .container img {
 }
 
 * {
+<<<<<<< Updated upstream
   font-family: "Asap", sans-serif;
+=======
+>>>>>>> Stashed changes
   margin: 0;
   padding: 0;
   box-sizing: border-box;

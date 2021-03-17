@@ -3,15 +3,15 @@ Lato cliente possibilità di esplorare il sito alla ricerca del proprio ristoran
 Lato ristoratore possibilità di registrare la propria attività, gestire i propri piatti e controllare le proprie statistiche riguardo gli incassi, gli ordini e i feedback ricevuti.
 
 Intallazione:
-git clone * link progetto https * <br/>
-composer install <br/>
-npm install <br/>
-modificare file .env con dati database phpMyAdmin <br/>
-php artisan migrate:refresh --seed <br/>
-php artisan storage:link <br/>
+$ git clone * link progetto https * <br/>
+$ composer install <br/>
+$ npm install <br/>
+$ modificare file .env con dati database phpMyAdmin <br/>
+$ php artisan migrate:refresh --seed <br/>
+$ php artisan storage:link <br/>
 <br/>
-php artisan serve <br/>
-npm run watch<br/>
+$ php artisan serve <br/>
+$ npm run watch<br/>
 
 -----------
 
